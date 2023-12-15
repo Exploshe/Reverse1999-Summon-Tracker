@@ -1,0 +1,148 @@
+body {
+    background-color: rgb(62, 52, 125);
+    font-family: Arial, sans-serif;
+}
+p {
+    color: white;
+    font-size: 22px;
+}
+
+.banner {
+    border-radius: 10px;
+    background-color: rgb(89, 79, 157);
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    width: 400px;
+    margin-right: 16px;
+}
+
+.banner-stats {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(53, 44, 112);
+    border-radius:10px;
+    padding: 16px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.inner-section {
+    display: flex;
+    color: white;
+    font-size: 16px;
+    flex: 1;
+    justify-items: center;
+    flex-direction: column;
+    line-height: 24px;
+}
+
+.lifetime-pulls {
+    display: flex;
+    text-align: right;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.orange-pity, .yellow-pity {
+    display: flex;
+    text-align: right;
+    color: orange;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 16px;
+}
+
+.yellow-pity {
+    color: yellow;
+}
+
+.summon-tracker {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 30px;
+}
+
+a {
+    align-self: center;
+}
+
+.Auto-Import {
+    background-color: rgb(62, 52, 125);
+    border-style: solid;
+    border-color: gray;
+    color: white;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.Auto-Import:hover {
+    border-color: blue;
+}
+
+.Title {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    padding-right: 14px;
+}
+
+.guaranteed {
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    position: relative;
+    opacity: 0;
+    border-radius: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.guaranteed .tooltip {
+    position: absolute;
+    background-color: orange;
+    bottom: -60px;
+    right: 0px;
+    font-size: 14px;
+    padding: 8px;
+    width: 250px;
+    border-radius: 12px;
+    border: 2px solid rgb(53, 44, 112);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.guaranteed:hover .tooltip {
+    opacity: 1;
+}
+
+.guaranteed-at-seventy, .clear-drop-count {
+    color: rgb(113, 128, 150);
+    line-height: 24px;
+}
+
+.clear-drop-container {
+    display: flex;
+}
+
+.clear-drop {
+    width: 22px;
+}
