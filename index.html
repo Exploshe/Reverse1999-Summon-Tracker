@@ -5,7 +5,7 @@
         <title>
             Summon Tracker
         </title>
-        <link rel="stylesheet" href="summon_tracker.css">
+        <link rel="stylesheet" href="styles/summon_tracker.css">
     </head>
     <body>
         <div class="summon-tracker">
@@ -57,17 +57,17 @@
                             Lifetime Pulls
                             <div class="clear-drop-container">
                                 <img class="clear-drop" src="Clear_Drop.webp">
-                                <div class="clear-drop-count">180</div>
+                                <div class="clear-drop-count">0</div>
                             </div>
                         </div>
-                        <div class="lifetime-pulls">1</div>
+                        <div class="lifetime-pulls">0</div>
                     </div>
                     <div class="banner-stats">
                         <div class="inner-section">
                             6&#9733; Pity
                             <div class="guaranteed-at-seventy">Guaranteed at 70</div>
                         </div>
-                        <div class="orange-pity">1</div>
+                        <div class="orange-pity">0</div>
                     </div>
                     <div class="banner-stats">
                         <div class="inner-section">
@@ -79,22 +79,6 @@
             </div>
         </div>
 
-        <script>
-            function numberWithCommas(x) {
-                return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
-            
-            if (limitedLifetimePulls = localStorage.getItem("limitedLifetimePulls")) {
-                document.querySelector(".js-limited-lifetime-pulls").innerHTML = limitedLifetimePulls;
-                document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(limitedLifetimePulls * 180);
-            };
-            if (limitedBanner6StarPity = localStorage.getItem("limitedBanner6StarPity")) {
-                document.querySelector(".js-limited-6star-pity").innerHTML = limitedBanner6StarPity;
-            };
-            if (limitedBanner5StarPity = localStorage.getItem("limitedBanner5StarPity")) {
-                document.querySelector(".js-limited-5star-pity").innerHTML = limitedBanner5StarPity;
-            };
-            
-        </script>
+        <script src="scripts/summon_tracker.js"></script>
     </body>
 </html>
