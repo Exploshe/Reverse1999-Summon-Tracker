@@ -1,11 +1,16 @@
-import { characterIds } from "/data/character_ids.js";
+import { characterIds } from "../data/character_ids.js";
 
 
 function parseSummonHistory(res) {
     const summons = res.data.pageData;
-    let limitedLifetimePulls = 0;
-    let limitedBanner6StarPity = 0
-    let limitedBanner5StarPity = 0
+    let standardBannerLifetimePulls = 0;
+    let standardBanner6StarPity = 0;
+    let standardBanner5StarPity = 0;
+    let standardBannerHistory = [];
+    let limitedBannerLifetimePulls = 0;
+    let limitedBanner6StarPity = 0;
+    let limitedBanner5StarPity = 0;
+    let limitedBannerHistory = [];
     for (let i = summons.length - 1; i >= 0; i--) {
         const summon = summons[i];
         for (let j = 0; j < summon.gainIds.length; j++) {
@@ -13,23 +18,46 @@ function parseSummonHistory(res) {
             // Beginner banner
             if (summon.poolType === 1) {}
             // Standard banner
-            else if (summon.poolType === 2) {}
+            else if (summon.poolType === 2) {
+                standardBannerLifetimePulls++;
+                standardBanner6StarPity++;
+                standardBanner5StarPity++;
+                const obj = {"id": id, "time": summon.createTime};
+                if (characterIds[`${id}`].rarity === 6) {
+                    obj.pity = standardBanner6StarPity;
+                    standardBanner6StarPity = 0;
+                } else if (characterIds[`${id}`].rarity === 5) {
+                    obj.pity = standardBanner5StarPity;
+                    standardBanner5StarPity = 0;
+                }
+                standardBannerHistory.push(obj);
+            }
             // Limited banner
             else if (summon.poolType === 3) {
-                limitedLifetimePulls++;
+                limitedBannerLifetimePulls++;
                 limitedBanner6StarPity++;
                 limitedBanner5StarPity++;
+                const obj = {"id": id, "time": summon.createTime};
                 if (characterIds[`${id}`].rarity === 6) {
+                    obj.pity = limitedBanner6StarPity;
                     limitedBanner6StarPity = 0;
                 } else if (characterIds[`${id}`].rarity === 5) {
-                    limitedBanner5StarPity = 0
+                    obj.pity = limitedBanner5StarPity;
+                    limitedBanner5StarPity = 0;
                 }
+                limitedBannerHistory.push(obj);
             }
-        };
-    };
-    localStorage.setItem("limitedLifetimePulls", limitedLifetimePulls);
+        }
+    }
+    localStorage.setItem("standardBannerLifetimePulls", standardBannerLifetimePulls);
+    localStorage.setItem("standardBanner6StarPity", standardBanner6StarPity);
+    localStorage.setItem("standardBanner5StarPity", standardBanner5StarPity);
+    localStorage.setItem("standardBannerHistory", JSON.stringify(standardBannerHistory.reverse()));
+    localStorage.setItem("limitedBannerLifetimePulls", limitedBannerLifetimePulls);
     localStorage.setItem("limitedBanner6StarPity", limitedBanner6StarPity);
     localStorage.setItem("limitedBanner5StarPity", limitedBanner5StarPity);
+    localStorage.setItem("limitedBannerHistory", JSON.stringify(limitedBannerHistory.reverse()));
+    console.log("Success");
 }
 
 
@@ -61,16 +89,10 @@ function importSummon() {
     document.querySelector(".link").value = "";
 
     makeRequest(url);
-    // For testing
-    // localStorage.setItem("limitedLifetimePulls", 123);
-    // localStorage.setItem("limitedBanner6StarPity", 123);
-    // localStorage.setItem("limitedBanner5StarPity", 123);
 }
 
 
-document.querySelector(".js-import-button").addEventListener("click", () => {
-    importSummon()
-});
+document.querySelector(".js-import-button").addEventListener("click", () => importSummon());
 document.querySelector(".js-import-input").addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         importSummon();

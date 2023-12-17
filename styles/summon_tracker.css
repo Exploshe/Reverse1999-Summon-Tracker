@@ -146,3 +146,32 @@ a {
 .clear-drop {
     width: 22px;
 }
+
+.js-limited-banner-history, .js-standard-banner-history {
+    color:white;
+    font-size: 14px;
+}
+
+th {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    text-align: left;
+    padding-bottom: 4px;
+}
+
+td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.limited-banner-history-time, .standard-banner-history {
+    font-size: 12px;
+}
+
+.limited-banner-history-name-6star, .standard-banner-history-name-6star {
+    color: orange;
+}
+
+.limited-banner-history-name-5star, .standard-banner-history-name-5star {
+    color: yellow;
+}
