@@ -1,6 +1,19 @@
 import { characterIds } from "../data/character_ids.js";
 
 
+function updateLocalStorage(standardBannerLifetimePulls, standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
+                            limitedBannerLifetimePulls, limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory) {
+    // TODO: dont overwrite old pulls when they start getting deleted after 90 days (Jan 24, 2024)
+    localStorage.setItem("standardBannerLifetimePulls", standardBannerLifetimePulls);
+    localStorage.setItem("standardBanner6StarPity", standardBanner6StarPity);
+    localStorage.setItem("standardBanner5StarPity", standardBanner5StarPity);
+    localStorage.setItem("standardBannerHistory", JSON.stringify(standardBannerHistory.reverse()));
+    localStorage.setItem("limitedBannerLifetimePulls", limitedBannerLifetimePulls);
+    localStorage.setItem("limitedBanner6StarPity", limitedBanner6StarPity);
+    localStorage.setItem("limitedBanner5StarPity", limitedBanner5StarPity);
+    localStorage.setItem("limitedBannerHistory", JSON.stringify(limitedBannerHistory.reverse()));
+}
+
 function parseSummonHistory(res) {
     const summons = res.data.pageData;
     let standardBannerLifetimePulls = 0;
@@ -49,15 +62,9 @@ function parseSummonHistory(res) {
             }
         }
     }
-    localStorage.setItem("standardBannerLifetimePulls", standardBannerLifetimePulls);
-    localStorage.setItem("standardBanner6StarPity", standardBanner6StarPity);
-    localStorage.setItem("standardBanner5StarPity", standardBanner5StarPity);
-    localStorage.setItem("standardBannerHistory", JSON.stringify(standardBannerHistory.reverse()));
-    localStorage.setItem("limitedBannerLifetimePulls", limitedBannerLifetimePulls);
-    localStorage.setItem("limitedBanner6StarPity", limitedBanner6StarPity);
-    localStorage.setItem("limitedBanner5StarPity", limitedBanner5StarPity);
-    localStorage.setItem("limitedBannerHistory", JSON.stringify(limitedBannerHistory.reverse()));
-    console.log("Success");
+    updateLocalStorage(standardBannerLifetimePulls, standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
+                        limitedBannerLifetimePulls, limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory);
+    document.querySelector(".js-import-result").innerHTML = "Success";
 }
 
 
@@ -66,18 +73,19 @@ async function makeRequest(url) {
         const xhttp = new XMLHttpRequest();
         xhttp.open("GET", url);
         xhttp.send();
-        xhttp.onreadystatechange = function () {
+        xhttp.onreadystatechange = () => {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
                 const res = JSON.parse(xhttp.responseText);
                 if (res.code === 200) {
                     parseSummonHistory(res);
                 } else { 
-                    console.log("Expired or invalid link");
+                    document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
                 }
             }
             
         }
     } catch (error) {
+        document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
         console.error('Error making the request:', error.message);
     }
 }

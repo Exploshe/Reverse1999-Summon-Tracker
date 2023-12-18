@@ -1,4 +1,31 @@
 body {
     background-color: rgb(62, 52, 125);
     color: white;
+    font-family: Arial, sans-serif;
+    font-size: 22;
 }
+
+.js-import-button {
+    cursor: pointer;
+}
+
+.import-directions-pc {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.steps {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4px;
+    align-items: center;
+}
+
+.step-number {
+    border-style: solid;
+    border-radius: 50px;
+    padding: 4px 8px;
+    margin-right: 10px;
+}
+

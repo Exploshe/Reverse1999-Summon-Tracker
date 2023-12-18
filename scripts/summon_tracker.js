@@ -35,6 +35,12 @@ if (localStorage.getItem("limitedBanner5StarPity")) {
 
 
 function renderStandardBannerHistory() {
+    document.querySelector(".js-standard-banner-history").innerHTML = `
+    <tr>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Pity</th>
+    </tr>`;
     if (localStorage.getItem("standardBannerHistory")) {
         const standardBannerHistory = JSON.parse(localStorage.getItem("standardBannerHistory"));
         for (let i = 0; i < standardBannerHistory.length; i++) {
@@ -49,17 +55,19 @@ function renderStandardBannerHistory() {
             }
             row.insertCell(1).appendChild(document.createTextNode(summon.time));
             row.cells[1].setAttribute("class", "standard-banner-history-time");
-            if (summon.pity) {
-                row.insertCell(2).appendChild(document.createTextNode(summon.pity));
-            } else {
-                row.insertCell(2).appendChild(document.createTextNode(""));
-            }
+            summon.pity ? row.insertCell(2).appendChild(document.createTextNode(summon.pity)) : row.insertCell(2).appendChild(document.createTextNode(""));
         }
     }
 }
 
 
 function renderLimitedBannerHistory() {
+    document.querySelector(".js-limited-banner-history").innerHTML = `
+    <tr>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Pity</th>
+    </tr>`;
     if (localStorage.getItem("limitedBannerHistory")) {
         const limitedBannerHistory = JSON.parse(localStorage.getItem("limitedBannerHistory"));
         for (let i = 0; i < limitedBannerHistory.length; i++) {
@@ -74,14 +82,31 @@ function renderLimitedBannerHistory() {
             }
             row.insertCell(1).appendChild(document.createTextNode(summon.time));
             row.cells[1].setAttribute("class", "limited-banner-history-time");
-            if (summon.pity) {
-                row.insertCell(2).appendChild(document.createTextNode(summon.pity));
-            } else {
-                row.insertCell(2).appendChild(document.createTextNode(""));
-            }
+            summon.pity ? row.insertCell(2).appendChild(document.createTextNode(summon.pity)) : row.insertCell(2).appendChild(document.createTextNode(""));
         }
     }
 }
 
-renderStandardBannerHistory();
-renderLimitedBannerHistory();
+let showLimitedBannerHistory = true;
+document.querySelector(".js-limited-banner-show-history").addEventListener("click", () => {
+    if (showLimitedBannerHistory) {
+        renderLimitedBannerHistory();
+        document.querySelector(".js-limited-banner-show-history").innerHTML = "hide";
+    } else {
+        document.querySelector(".js-limited-banner-history").innerHTML = "";
+        document.querySelector(".js-limited-banner-show-history").innerHTML = "show";
+    }
+    showLimitedBannerHistory = !showLimitedBannerHistory;
+});
+
+let showStandardBannerHistory = true;
+document.querySelector(".js-standard-banner-show-history").addEventListener("click", () => {
+    if (showStandardBannerHistory) {
+        renderStandardBannerHistory();
+        document.querySelector(".js-standard-banner-show-history").innerHTML = "hide";
+    } else {
+        document.querySelector(".js-standard-banner-history").innerHTML = "";
+        document.querySelector(".js-standard-banner-show-history").innerHTML = "show";
+    }
+    showStandardBannerHistory = !showStandardBannerHistory;
+});

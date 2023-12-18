@@ -175,3 +175,13 @@ td {
 .limited-banner-history-name-5star, .standard-banner-history-name-5star {
     color: yellow;
 }
+
+.js-limited-banner-show-history, .js-standard-banner-show-history {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.js-limited-banner-show-history:hover, .js-standard-banner-show-history {
+    cursor: pointer;
+}

@@ -6,16 +6,30 @@
         <link rel="stylesheet" href="styles/auto_import.css">
     </head>
     <body>
-        <div>
-            <div>step 1: download fiddler classic https://www.telerik.com/download/fiddler</div>
-            <div>step 2: Open Fiddler Classic, go to “Tools” -> “Options” -> “HTTPS” and select “Decrypt HPPS Traffic” and accept certificate</div>
-            <div>step 3: open the summon history in game</div>
-            <div>step 4: go back to fiddler and ctrl f query/summon, right click -> copy -> just url and paste here :)</div>
+        <div class="import-directions-pc">
+            <div style="margin-bottom: 5px;">This method is for pc, if you're on iOS you can follow the directions here https://reverse1999.mobilemeta.gg/summon its long af and im too lazy to copy it all here hehe</div>
+            <div class="steps">
+                <div class="step-number">1</div>
+                <div>Download fiddler classic https://www.telerik.com/download/fiddler</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">2</div>
+                <div>Open Fiddler Classic, go to “Tools” -> “Options” -> “HTTPS” and select “Decrypt HPPS Traffic” and accept certificate.</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">3</div>
+                <div>Open the summon history in game (it has to be the first time opening the history since opening the game, otherwise restart your game)</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">4</div>
+                <div>Go back to fiddler and ctrl f query/summon, right click -> copy -> just url and paste here :) (the link only lasts about 5 minutes)</div>
+            </div>
         </div>
         hi :)
         <input class="link js-import-input" placeholder="Paste the link here">
         <button class="js-import-button">Import</button>
         <a style="color: white;" href="index.html">back to summon tracker</a>
+        <p class="js-import-result"></p>
         
         <script type="module" src="./scripts/auto_import.js"></script>
     </body>
