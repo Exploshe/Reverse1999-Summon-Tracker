@@ -10,34 +10,30 @@ if (localStorage.getItem("standardBannerLifetimePulls")) {
     const standardBannerLifetimePulls = localStorage.getItem("standardBannerLifetimePulls");
     document.querySelector(".js-standard-lifetime-pulls").innerHTML = standardBannerLifetimePulls;
     document.querySelector(".js-standard-clear-drop-count").innerHTML = numberWithCommas(standardBannerLifetimePulls * 180);
+
+    document.querySelector(".js-standard-6star-pity").innerHTML = localStorage.getItem("standardBanner6StarPity");
+
+    document.querySelector(".js-standard-5star-pity").innerHTML = localStorage.getItem("standardBanner5StarPity");
 };
-if (localStorage.getItem("standardBanner6StarPity")) {
-    const standardBanner6StarPity = localStorage.getItem("standardBanner6StarPity");
-    document.querySelector(".js-standard-6star-pity").innerHTML = standardBanner6StarPity;
-};
-if (localStorage.getItem("standardBanner5StarPity")) {
-    const standardBanner5StarPity = localStorage.getItem("standardBanner5StarPity");
-    document.querySelector(".js-standard-5star-pity").innerHTML = standardBanner5StarPity;
-};
+
 // Load limited banner stats
 if (localStorage.getItem("limitedBannerLifetimePulls")) {
     const limitedBannerLifetimePulls = localStorage.getItem("limitedBannerLifetimePulls");
     document.querySelector(".js-limited-lifetime-pulls").innerHTML = limitedBannerLifetimePulls;
     document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(limitedBannerLifetimePulls * 180);
-};
-if (localStorage.getItem("limitedBanner6StarPity")) {
-    const limitedBanner6StarPity = localStorage.getItem("limitedBanner6StarPity");
-    document.querySelector(".js-limited-6star-pity").innerHTML = limitedBanner6StarPity;
-};
-if (localStorage.getItem("limitedBanner5StarPity")) {
-    const limitedBanner5StarPity = localStorage.getItem("limitedBanner5StarPity");
-    document.querySelector(".js-limited-5star-pity").innerHTML = limitedBanner5StarPity;
-};
+
+    document.querySelector(".js-limited-6star-pity").innerHTML = localStorage.getItem("limitedBanner6StarPity");
+
+    document.querySelector(".js-limited-5star-pity").innerHTML = localStorage.getItem("limitedBanner5StarPity");
+};    
 
 
-function makeTable(bannerType) {
+function makeTableAndPopulateExtraStats(bannerType) {
+    // TODO: Add these to local storage
     if (localStorage.getItem(`${bannerType}BannerHistory`)) {
         const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
+        let sixStars = [];
+        let fiveStars = [];
         for (let i = 0; i < bannerHistory.length; i++) {
             const summon = bannerHistory[i];
             let row = document.querySelector(`.js-${bannerType}-banner-history`).insertRow(-1);
@@ -49,12 +45,34 @@ function makeTable(bannerType) {
             if (characterIds[summon.id].rarity <= 4) {
                 row.style.display = "none";
             }
+
+            if (characterIds[summon.id].rarity === 6) {
+                sixStars.push(summon.pity);
+            } else if (characterIds[summon.id].rarity === 5) {
+                fiveStars.push(summon.pity);
+            }
         }
+
+        let bannerExtraStatsTable;
+        if (bannerType === "limited") {
+            bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[0];
+        } else if (bannerType === "standard") {
+            bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[1];
+        }
+        const sixStarRow = bannerExtraStatsTable.rows[1];
+        sixStarRow.cells[1].innerHTML = sixStars.length;
+        sixStarRow.cells[2].innerHTML = `${Math.round(((sixStars.length * 100 / bannerHistory.length) + Number.EPSILON) * 100) / 100}%`;
+        sixStarRow.cells[3].innerHTML = sixStars.length ? Math.round(((sixStars.reduce((partialSum, a) => partialSum + a, 0) / sixStars.length) + Number.EPSILON) * 100) / 100 : 0;
+
+        const fiveStarRow = bannerExtraStatsTable.rows[3];
+        fiveStarRow.cells[1].innerHTML = fiveStars.length;
+        fiveStarRow.cells[2].innerHTML = `${Math.round(((fiveStars.length * 100 / bannerHistory.length) + Number.EPSILON) * 100) / 100}%`;
+        fiveStarRow.cells[3].innerHTML = fiveStars.length ? Math.round(((fiveStars.reduce((partialSum, a) => partialSum + a, 0) / fiveStars.length) + Number.EPSILON) * 100) / 100 : 0;
     }
 }
-// Make table for each banner on startup
-makeTable("standard");
-makeTable("limited");
+makeTableAndPopulateExtraStats("standard");
+makeTableAndPopulateExtraStats("limited");
+
 
 let limitedShow6Stars = {"value":true};
 let limitedShow5Stars = {"value":true};
@@ -115,7 +133,7 @@ limitedShow5StarsButton.addEventListener("click", () => {
     updateBoolAndCSS(limitedShow5Stars, limitedShow5StarsButton, "limited", 5);
     updateVisibilityOfRarity(5, limitedShow5Stars, limitedHistoryTable);
 });
-const limitedShow432StarsButton = document.querySelector(".js-limited-show-432stars-button-false")
+const limitedShow432StarsButton = document.querySelector(".js-limited-show-432stars-button-false");
 document.querySelector(".js-limited-show-432stars-button-false").addEventListener("click", () => {
     updateBoolAndCSS(limitedShow4AndLowerStars, limitedShow432StarsButton, "limited", 432);
     updateVisibilityOfRarity(432, limitedShow4AndLowerStars, limitedHistoryTable);
@@ -130,7 +148,7 @@ standardShow5StarsButton.addEventListener("click", () => {
     updateBoolAndCSS(standardShow5Stars, standardShow5StarsButton, "standard", 5);
     updateVisibilityOfRarity(5, standardShow5Stars, standardHistoryTable);
 });
-const standardShow432StarsButton = document.querySelector(".js-standard-show-432stars-button-false")
+const standardShow432StarsButton = document.querySelector(".js-standard-show-432stars-button-false");
 document.querySelector(".js-standard-show-432stars-button-false").addEventListener("click", () => {
     updateBoolAndCSS(standardShow4AndLowerStars, standardShow432StarsButton, "standard", 432);
     updateVisibilityOfRarity(432, standardShow4AndLowerStars, standardHistoryTable);

@@ -5,6 +5,8 @@ body {
 p {
     color: white;
     font-size: 22px;
+    margin-top: 0px;
+    margin-bottom: 18px;
 }
 
 .banner {
@@ -15,8 +17,10 @@ p {
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 16px;
+    padding-top: 16px;
     width: 400px;
     margin-right: 16px;
+    margin-bottom: 16px;
     height: min-content;
 }
 
@@ -51,6 +55,8 @@ p {
 .grid {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1300px;
 }
 
 .orange-pity, .yellow-pity {
@@ -153,18 +159,20 @@ a {
     display: none;
     color:white;
     font-size: 14px;
+    border-spacing: 0px;
 }
 
-th {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+.history-header {
     text-align: left;
     padding-bottom: 4px;
 }
 
-td {
+td, th {
     padding-top: 4px;
     padding-bottom: 4px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
 }
 
 .limited-banner-history-time, .standard-banner-history {
@@ -224,4 +232,46 @@ td {
     border-width: 2px;
     margin-right: 4px;
     cursor: pointer;
+}
+
+.graph {
+    border-radius: 10px;
+    background-color: rgb(89, 79, 157);
+    display: none;
+    width: 400px;
+    margin-bottom: 100px;
+}
+
+.banner-extra-stats-table {
+    border-spacing: 0px;
+}
+
+.banner-extra-stats-table tr th{
+    color: rgb(203, 213, 224);
+    text-align: right;
+    font-weight: normal;
+    font-size: 14px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px
+}
+
+.banner-extra-stats-table tr .banner-extra-stats-title {
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.banner-extra-stats-6star-row {
+    color: orange;
+    text-align: right;
+}
+
+.banner-extra-stats-5star-row {
+    color: yellow;
+    text-align: right;
+}
+
+.banner-extra-stats-5star-row td {
+    border-bottom-style: none;
 }
