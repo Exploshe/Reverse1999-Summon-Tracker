@@ -17,6 +17,7 @@ p {
     padding-bottom: 16px;
     width: 400px;
     margin-right: 16px;
+    height: min-content;
 }
 
 .banner-stats {
@@ -108,12 +109,13 @@ a {
     display: flex;
     align-items: center;
     position: relative;
-    opacity: 0;
     border-radius: 10px;
     padding-left: 6px;
     padding-right: 6px;
     padding-top: 1px;
     padding-bottom: 1px;
+    /* Not showing this for now because i haven't implemented knowing whether your next 6* is guaranteed yet */
+    display: none;
 }
 
 .guaranteed .tooltip {
@@ -148,6 +150,7 @@ a {
 }
 
 .js-limited-banner-history, .js-standard-banner-history {
+    display: none;
     color:white;
     font-size: 14px;
 }
@@ -180,8 +183,45 @@ td {
     color: white;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.js-limited-banner-show-history:hover, .js-standard-banner-show-history {
+.limited-filter-buttons, .standard-filter-buttons {
+    margin-top: 12px;
+    margin-bottom: 2px;
+    display: none;
+}
+
+.js-limited-show-6stars-button-true, .js-standard-show-6stars-button-true { 
+    background-color: orange;
+}
+.js-limited-show-5stars-button-true, .js-standard-show-5stars-button-true {
+    background-color: yellow;
+}
+.js-limited-show-432stars-button-true, .js-standard-show-432stars-button-true {
+    background-color: green;
+}
+
+.js-limited-show-6stars-button-true, .js-limited-show-5stars-button-true, .js-limited-show-432stars-button-true,
+.js-standard-show-6stars-button-true, .js-standard-show-5stars-button-true, .js-standard-show-432stars-button-true {
+    border-style: none;
+    color: black;
+    font-size: 16px;
+    border-radius: 50px;
+    padding: 4px 16px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.js-limited-show-6stars-button-false, .js-limited-show-5stars-button-false, .js-limited-show-432stars-button-false, 
+.js-standard-show-6stars-button-false, .js-standard-show-5stars-button-false, .js-standard-show-432stars-button-false {
+    background-color: rgb(89, 79, 157);
+    border-style: solid;
+    color: white;
+    font-size: 16px;
+    border-radius: 50px;
+    padding: 2px 14px;
+    border-width: 2px;
+    margin-right: 4px;
     cursor: pointer;
 }

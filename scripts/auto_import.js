@@ -82,7 +82,6 @@ async function makeRequest(url) {
                     document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
                 }
             }
-            
         }
     } catch (error) {
         document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
