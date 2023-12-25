@@ -192,6 +192,10 @@ function calculate5050WinRateAndIsGuaranteed(bannerType) {
 		if (characterIds[summon.id].rarity === 6) {
 			let won5050 = false;
 			if (bannerType === "limited") {
+				if (summon.banner && !banners[summon.banner]) {
+					console.log(`Missing banner info send this to me on discord @exploshe ->${summon.banner}<- ty :)`);
+					document.querySelector(".hi").innerHTML = `uh oh im missing this banner info can you send this to me on discord @exploshe ->${summon.banner}<- ty :)`;
+				}
 				const rateUpChar = banners[summon.banner];
 				if (summon.id === rateUpChar) {
 					if (!isGuaranteed) {
@@ -219,3 +223,8 @@ function calculate5050WinRateAndIsGuaranteed(bannerType) {
 }
 calculate5050WinRateAndIsGuaranteed("limited");
 calculate5050WinRateAndIsGuaranteed("standard");
+
+
+if (!JSON.parse(localStorage.getItem("limitedBannerHistory"))[0].banner) {
+	document.querySelector(".hi").innerHTML = "exploshe here just to let u know that ive added some things to this site and you'll have to reimport your summons to see things like 5050 win rate and whether or not your next 6* is guaranteed sorry about that ty for using my site merry christmas and happy new year :)";
+}
