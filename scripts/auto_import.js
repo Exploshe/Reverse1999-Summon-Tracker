@@ -35,7 +35,7 @@ function parseSummonHistory(res) {
                 standardBannerLifetimePulls++;
                 standardBanner6StarPity++;
                 standardBanner5StarPity++;
-                const obj = {"id": id, "time": summon.createTime};
+                const obj = {"id": id, "time": summon.createTime, "banner": summon.poolName};
                 if (characterIds[`${id}`].rarity === 6) {
                     obj.pity = standardBanner6StarPity;
                     standardBanner6StarPity = 0;
@@ -50,7 +50,7 @@ function parseSummonHistory(res) {
                 limitedBannerLifetimePulls++;
                 limitedBanner6StarPity++;
                 limitedBanner5StarPity++;
-                const obj = {"id": id, "time": summon.createTime};
+                const obj = {"id": id, "time": summon.createTime, "banner": summon.poolName};
                 if (characterIds[`${id}`].rarity === 6) {
                     obj.pity = limitedBanner6StarPity;
                     limitedBanner6StarPity = 0;

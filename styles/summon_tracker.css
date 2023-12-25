@@ -120,7 +120,6 @@ a {
     padding-right: 6px;
     padding-top: 1px;
     padding-bottom: 1px;
-    /* Not showing this for now because i haven't implemented knowing whether your next 6* is guaranteed yet */
     display: none;
 }
 
