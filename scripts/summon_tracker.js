@@ -162,34 +162,60 @@ document.querySelector(".js-standard-show-432stars-button-false").addEventListen
 });
 
 
-let isGuaranteed = false;
-let total5050s = 0;
-let won5050s = 0;
-const limitedBannerHistory = JSON.parse(localStorage.getItem("limitedBannerHistory"));
-for (let i = limitedBannerHistory.length - 1; i >= 0; i--) {
-	const summon = limitedBannerHistory[i];
-	if (characterIds[summon.id].rarity === 6) {
-		const rateUpChar = banners[summon.banner];
-		if (summon.id === rateUpChar) {
-			if (isGuaranteed) {
-				console.log("guaranteed");
-			} else {
-				console.log("congrats u won the 5050");
-				total5050s++;
-				won5050s++;
+function addToListOf6Stars(bannerType, name, pity, won5050) {
+	const colors = {
+		1: "rgb(0, 255, 0)",
+		2: "rgb(85, 255, 0)",
+		3: "rgb(170, 255, 0)",
+		4: "yellow",
+		5: "rgb(255, 210, 0)",
+		6: "orange",
+		7: "rgb(255, 82, 0)",
+	};
+	const colorsKey = Math.floor((pity + 9) / 10).toString();
+	document.querySelector(`.${bannerType}-6star-list`).innerHTML += `
+	<span class="six-star-list-elements ${won5050 ? "won-5050" : ""}">
+		${name} 
+		<span style="color: ${pity < 70 ? colors[colorsKey] : "red"}">
+			${pity}
+		</span>
+	</span>`
+}
+
+function calculate5050WinRateAndIsGuaranteed(bannerType) {
+	let isGuaranteed = false;
+	let total5050s = 0;
+	let won5050s = 0;
+	const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
+	for (let i = bannerHistory.length - 1; i >= 0; i--) {
+		const summon = bannerHistory[i];
+		if (characterIds[summon.id].rarity === 6) {
+			let won5050 = false;
+			if (bannerType === "limited") {
+				const rateUpChar = banners[summon.banner];
+				if (summon.id === rateUpChar) {
+					if (!isGuaranteed) {
+						won5050 = true;
+						total5050s++;
+						won5050s++;
+					}
+					isGuaranteed = false;
+				} else {
+					total5050s++;
+					isGuaranteed = true;
+				}
 			}
-			isGuaranteed = false;
-		} else {
-			console.log("im sorry u lost the 5050")
-			total5050s++;
-			isGuaranteed = true;
+			addToListOf6Stars(bannerType, characterIds[summon.id].name, summon.pity, won5050)
 		}
-		//document.querySelector(".limited-6star-list").innerHTML += `${characterIds[summon.id].name} ${summon.pity}`
+	}
+	if(isGuaranteed) {
+		document.querySelector(".guaranteed").style.display = "block";
+	}
+	if (bannerType === "limited") {
+		const limited5050sRow = document.querySelector(".limited-banner-5050s-info");
+		limited5050sRow.cells[1].innerHTML = won5050s;
+		limited5050sRow.cells[2].innerHTML = total5050s > 0 ? `${roundTo2Places(won5050s * 100 / total5050s)}%` : "0%";
 	}
 }
-if(isGuaranteed) {
-    document.querySelector(".guaranteed").style.display = "block";
-}
-const limited5050sRow = document.querySelector(".limited-banner-5050s-info");
-limited5050sRow.cells[1].innerHTML = won5050s;
-limited5050sRow.cells[2].innerHTML = total5050s > 0 ? `${roundTo2Places(won5050s * 100 / total5050s)}%` : "0%";
+calculate5050WinRateAndIsGuaranteed("limited");
+calculate5050WinRateAndIsGuaranteed("standard");

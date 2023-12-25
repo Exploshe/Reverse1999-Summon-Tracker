@@ -274,3 +274,23 @@ td, th {
 .banner-extra-stats-5star-row td {
     border-bottom-style: none;
 }
+
+.six-star-list {
+    margin-top: 6px;
+}
+
+.six-star-list-elements {
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px 8px;
+    border-radius: 50px;
+    margin-right: 4px;
+    line-height: 28px;
+    text-wrap: nowrap;
+    color: rgb(203, 213, 224);
+    border-color: rgb(160, 174, 192);
+}
+
+.won-5050 {
+    border-color: orange;
+}
