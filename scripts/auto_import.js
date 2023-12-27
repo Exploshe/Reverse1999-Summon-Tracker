@@ -103,7 +103,9 @@ function importSummon() {
 		document.querySelector(".link").value = "";
 
 		makeRequest(url);
-	} else {
+	} else if (url.startsWith('{"msg":"成功","code":200')) {
+        parseSummonHistory(JSON.parse(url));
+    } else {
 		document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
         document.querySelector(".js-import-result").classList.add("failure");
         document.querySelector(".js-import-result").classList.remove("success");
