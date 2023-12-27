@@ -65,6 +65,8 @@ function parseSummonHistory(res) {
     updateLocalStorage(standardBannerLifetimePulls, standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
                         limitedBannerLifetimePulls, limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory);
     document.querySelector(".js-import-result").innerHTML = "Success";
+    document.querySelector(".js-import-result").classList.add("success");
+    document.querySelector(".js-import-result").classList.remove("failure");
 }
 
 
@@ -80,22 +82,33 @@ async function makeRequest(url) {
                     parseSummonHistory(res);
                 } else { 
                     document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
+                    document.querySelector(".js-import-result").classList.add("failure");
+                    document.querySelector(".js-import-result").classList.remove("success");
                 }
             }
         }
     } catch (error) {
         document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
+        document.querySelector(".js-import-result").classList.add("failure");
+        document.querySelector(".js-import-result").classList.remove("success");
         console.error('Error making the request:', error.message);
     }
 }
 
 
 function importSummon() {
-    let url = document.querySelector(".link").value;
-    url = 'https://corsproxy.io/?' + encodeURIComponent(url);
-    document.querySelector(".link").value = "";
+	let url = document.querySelector(".link").value;
+	if (url.startsWith("https://game-re-en-service.sl916.com/query/summon?userId=")) {
+		url = 'https://corsproxy.io/?' + encodeURIComponent(url);
+		document.querySelector(".link").value = "";
 
-    makeRequest(url);
+		makeRequest(url);
+	} else {
+		document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
+        document.querySelector(".js-import-result").classList.add("failure");
+        document.querySelector(".js-import-result").classList.remove("success");
+	}
+    
 }
 
 
@@ -105,3 +118,20 @@ document.querySelector(".js-import-input").addEventListener("keydown", (event) =
         importSummon();
     }
 });
+
+
+function selectPC() {
+    document.querySelector(".pc-directions").style.display = "flex";
+    document.querySelector(".pc-button").classList.add("selected");
+    document.querySelector(".ios-directions").style.display = "none";
+    document.querySelector(".ios-button").classList.remove("selected");
+}
+function selectIOS() {
+    document.querySelector(".ios-directions").style.display = "flex";
+    document.querySelector(".ios-button").classList.add("selected");
+    document.querySelector(".pc-directions").style.display = "none";
+    document.querySelector(".pc-button").classList.remove("selected");
+}
+document.querySelector(".pc-button").addEventListener("click", () => selectPC());
+document.querySelector(".ios-button").addEventListener("click", () => selectIOS());
+selectPC();

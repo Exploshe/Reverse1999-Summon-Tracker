@@ -6,30 +6,97 @@
         <link rel="stylesheet" href="styles/auto_import.css">
     </head>
     <body>
-        <div class="import-directions-pc">
-            <div style="margin-bottom: 5px;">This method is for pc, if you're on iOS you can follow the directions here https://reverse1999.mobilemeta.gg/summon its long af and im too lazy to copy it all here hehe</div>
+        <h1>Import Summon History</h1>
+        <div class="platform-buttons">
+            <button class="pc-button">PC</button>
+            <button class="ios-button">iOS</button>
+        </div>
+        <div class="import-directions pc-directions">
+            <div style="font-weight: bold; font-size: 20px">Prerequisites</div>
             <div class="steps">
                 <div class="step-number">1</div>
-                <div>Download fiddler classic https://www.telerik.com/download/fiddler</div>
+                <div style="display: block">
+                    <div>Download fiddler classic <a style="color: white" href="https://www.telerik.com/download/fiddler">https://www.telerik.com/download/fiddler</a></div>
+                    <img style="height: 220px" src="/images/Download-Fiddler.png">
+                </div>
             </div>
             <div class="steps">
                 <div class="step-number">2</div>
-                <div>Open Fiddler Classic, go to “Tools” -> “Options” -> “HTTPS” and select “Decrypt HPPS Traffic” and accept certificate.</div>
+                <div style="display: block">
+                    <div>Open Fiddler Classic, go to “Tools” -> “Options” -> “HTTPS” and select “Decrypt HPPS Traffic” and accept certificate.</div>
+                    <img style="height: 280px" src="/images/Fiddler-Decrypt-HTTPS.png">
+                </div>
+                    
+            </div>
+            <div style="font-weight: bold; font-size: 20px">Getting the link</div>
+            <div class="steps">
+                <div class="step-number">1</div>
+                <div>Open Fiddler</div>
             </div>
             <div class="steps">
-                <div class="step-number">3</div>
+                <div class="step-number">2</div>
                 <div>Open the summon history in game (it has to be the first time opening the history since opening the game, otherwise restart your game)</div>
             </div>
             <div class="steps">
+                <div class="step-number">3</div>
+                <div style="display: block">
+                    <div>Go back to fiddler and find the URL with "/query/summon", right click -> Copy -> Just Url (the link only lasts about 5 minutes)</div>
+                    <img style="height: 300px" src="/images/Link-In-Fiddler.png">
+                </div>
+            </div>
+            <div class="steps">
                 <div class="step-number">4</div>
-                <div>Go back to fiddler and ctrl f query/summon, right click -> copy -> just url and paste here :) (the link only lasts about 5 minutes)</div>
+                <div style="display: block">
+                    <div>Paste the link to the textbox below</div>
+                </div>
             </div>
         </div>
-        hi :)
+        <div class="import-directions ios-directions">
+            <div style="font-weight: bold; font-size: 20px">Prerequisites</div>
+            <div class="steps">
+                <div class="step-number">1</div>
+                <div>Download Stream <a style="color: white" href="https://apps.apple.com/us/app/stream-network-debug-tool/id1312141691">https://apps.apple.com/us/app/stream-network-debug-tool/id1312141691</a></div>
+            </div>
+            <div class="steps">
+                <div class="step-number">2</div>
+                <div>Open the app, go to settings -> HTTPS Sniffing -> Install CA Certificate -> Allow </div>
+            </div>
+            <div class="steps">
+                <div class="step-number">3</div>
+                <div>Go to your phone's settings -> General -> VPN & Device management -> Stream Generated CA -> Install</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">4</div>
+                <div>Go back to Stream -> Choose I've trusted</div>
+            </div>
+            <div style="font-weight: bold; font-size: 20px">Getting the link</div>
+            <div class="steps">
+                <div class="step-number">1</div>
+                <div>Open Stream and tap Sniff Now</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">2</div>
+                <div>Open the summon history in game (it has to be the first time opening the history since opening the game, otherwise restart your game)</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">3</div>
+                <div>Go back to Stream and tap Stop Sniffing</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">4</div>
+                <div>Open Sniff History and find the request that starts with https://game-re-en-service.sl916.com/query/summon?</div>
+            </div>
+            <div class="steps">
+                <div class="step-number">5</div>
+                <div>Open the request -> Request -> copy the link under Request Line and paste it to the textbox below</div>
+            </div>
+            <div>Heres paimon.moe's guide if you're having trouble it should be very similar :) <a style="color: white" href="https://docs.google.com/document/d/1U8pf9lqKALtMSWI11t_6npYlVOCpIFZZRvhrC_9-2ek/edit#heading=h.qlzrekvf2c1d">https://docs.google.com/document/d/1U8pf9lqKALtMSWI11t_6npYlVOCpIFZZRvhrC_9-2ek/edit#heading=h.qlzrekvf2c1d</a></div>
+        </div>
+        <div class="js-import-result"></div>
         <input class="link js-import-input" placeholder="Paste the link here">
         <button class="js-import-button">Import</button>
-        <a style="color: white;" href="index.html">back to summon tracker</a>
-        <p class="js-import-result"></p>
+        <a style="color: white;" href="index.html">Back to summon tracker</a>
+        <div style="font-size: 14px">if you use android im sorry i tried but my small brain couldnt figure it out if you can get the link you can paste it here as usual and lmk your method so i can share it here :)</div>
         
         <script type="module" src="./scripts/auto_import.js"></script>
     </body>

@@ -3,16 +3,24 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     font-size: 22;
+    margin-left: 26px;
+    margin-top: 22px;
 }
 
-.js-import-button {
+h1 {
+    font-size: 48px;
+    margin-top: 0px;
+}
+
+button {
     cursor: pointer;
 }
 
-.import-directions-pc {
+.import-directions {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 0px;
+    gap: 6px;
 }
 
 .steps {
@@ -27,5 +35,94 @@ body {
     border-radius: 50px;
     padding: 4px 8px;
     margin-right: 10px;
+    align-self: flex-start;
 }
 
+.platform-buttons {
+    margin-bottom: 10px;
+}
+
+.platform-buttons button {
+    width: 100px;
+    padding: 4px;
+    font-size: 16px;
+    border-radius: 10px;
+    border-style: none;
+    margin-right: 8px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    color: white;
+}
+
+.platform-buttons button:hover {
+    border-color: rgb(78 124 255);
+}
+
+.platform-buttons .selected {
+    background-color: rgb(78 124 255);
+    border-color: rgb(78 124 255);
+    color: black;
+}
+
+img {
+    margin-top: 14px;
+}
+
+input {
+    width: 200px;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 32px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(53, 44, 112);
+    padding: 8px 10px;
+    background-color: rgb(53, 44, 112);
+    color: white;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgb(78 124 255);
+}
+
+.js-import-button {
+    font-size: 16px;
+    padding: 6px 16px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 2px;
+    color: rgb(0, 255, 0);
+    background-color: transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.js-import-button:hover {
+    border-color: rgb(0, 255, 0);
+}
+
+.js-import-result {
+    padding: 10px;
+    border-style: none;
+    border-radius: 10px;
+    width: 206px;
+    text-align: center;
+    display: none;
+    margin-top: 6px;
+}
+
+.success {
+    background-color: rgb(0, 255, 0);
+    color: black;
+    display: block;
+}
+
+.failure {
+    background-color: rgb(252, 129, 129);
+    display: block;
+}
