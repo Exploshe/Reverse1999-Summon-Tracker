@@ -19,7 +19,7 @@ function respondSuccessOrFailure(response) {
         document.querySelector(".js-import-result").innerHTML = "Success";
         document.querySelector(".js-import-result").classList.remove("failure");
     } else {
-        document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
+        document.querySelector(".js-import-result").innerHTML = "Invalid input";
         document.querySelector(".js-import-result").classList.remove("success");
     }
     document.querySelector(".js-import-result").classList.add(`${response}`);
@@ -102,17 +102,27 @@ async function makeRequest(url) {
 
 
 function importSummon() {
-	let url = document.querySelector(".link").value;
-	if (url.startsWith("https://game-re-en-service.sl916.com/query/summon?userId=")) {
-		url = 'https://corsproxy.io/?' + encodeURIComponent(url);
-		document.querySelector(".link").value = "";
+    try {
+        let url = document.querySelector(".link").value;
+        if (url.startsWith("https://game-re-en-service.sl916.com/query/summon?userId=")) {
+            url = 'https://corsproxy.io/?' + encodeURIComponent(url);
+            document.querySelector(".link").value = "";
 
-		makeRequest(url);
-	} else if (url.startsWith('{"msg":"成功","code":200')) {
-        parseSummonHistory(JSON.parse(url));
-    } else {
-		respondSuccessOrFailure("failure");
-	}
+            makeRequest(url);
+        } else if (url.startsWith('{')) {
+            const res = JSON.parse(url);
+            if (res.code === 200){
+                parseSummonHistory(res);
+            } else {
+                respondSuccessOrFailure("failure");
+            }
+        } else {
+            respondSuccessOrFailure("failure");
+        }
+    } catch (error) {
+        respondSuccessOrFailure("failure");
+        console.error("Error:", error.message);
+    }
 }
 
 

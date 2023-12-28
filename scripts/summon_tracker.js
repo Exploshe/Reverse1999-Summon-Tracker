@@ -247,10 +247,6 @@ calculate5050WinRateAndIsGuaranteed("limited", "all");
 calculate5050WinRateAndIsGuaranteed("standard", "all");
 
 
-if (!JSON.parse(localStorage.getItem("limitedBannerHistory"))[0].banner) {
-	document.querySelector(".hi").innerHTML = "exploshe here just to let u know that ive added some things to this site and you'll have to reimport your summons to see things like 5050 win rate and whether or not your next 6* is guaranteed sorry about that ty for using my site merry christmas and happy new year :)";
-}
-
 function createBannerButtons(bannerList) {
 	bannerList.forEach(banner => {
 		const button = document.createElement("div");

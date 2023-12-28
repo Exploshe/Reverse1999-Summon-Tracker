@@ -200,7 +200,7 @@ export const characterIds = {
         "rarity": 3
     },
     "3056": {
-        "name": "Changeling",
+        "name": "Jessica",
         "rarity": 6
     },
     "3057": {
@@ -286,7 +286,7 @@ export const characterNames = {
 	"Blonney": 3060,
 	"Bunny Bunny": 3014,
 	"Centurion": 3032,
-	"Changeling": 3056,
+	"Jessica": 3056,
 	"Charlie": 3017,
 	"Click": 3049,
 	"Cristallo": 3031,
