@@ -32,27 +32,35 @@ if (localStorage.getItem("limitedBannerLifetimePulls")) {
 };    
 
 
-function makeTableAndPopulateExtraStats(bannerType) {
-	// TODO: Add these to local storage
+function makeTableAndPopulateExtraStats(bannerType, banner) {
+	const table = document.querySelector(`.js-${bannerType}-banner-history`);
+	for (let i = table.rows.length - 1; i >= 1; i--) {
+		table.deleteRow(i);
+	}
 	if (localStorage.getItem(`${bannerType}BannerHistory`)) {
 		const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
 		let sixStars = [];
 		let fiveStars = [];
+		let totalPulls = 0
 		bannerHistory.forEach(summon => {
-			let row = document.querySelector(`.js-${bannerType}-banner-history`).insertRow(-1);
-			row.insertCell(0).appendChild(document.createTextNode(characterIds[summon.id].name));
-			row.cells[0].setAttribute("class", `${bannerType}-banner-history-name-${characterIds[summon.id].rarity}star`);
-			row.insertCell(1).appendChild(document.createTextNode(summon.time));
-			row.cells[1].setAttribute("class", `${bannerType}-banner-history-time`);
-			row.insertCell(2).appendChild(document.createTextNode(summon.pity ? summon.pity : ""));
-			if (characterIds[summon.id].rarity <= 4) {
-				row.style.display = "none";
-			}
+			if (banner === "all" || summon.banner === banner) {
+				totalPulls++;
 
-			if (characterIds[summon.id].rarity === 6) {
-				sixStars.push(summon.pity);
-			} else if (characterIds[summon.id].rarity === 5) {
-				fiveStars.push(summon.pity);
+				let row = table.insertRow(-1);
+				row.insertCell(0).appendChild(document.createTextNode(characterIds[summon.id].name));
+				row.cells[0].setAttribute("class", `${bannerType}-banner-history-name-${characterIds[summon.id].rarity}star`);
+				row.insertCell(1).appendChild(document.createTextNode(summon.time));
+				row.cells[1].setAttribute("class", `${bannerType}-banner-history-time`);
+				row.insertCell(2).appendChild(document.createTextNode(summon.pity ? summon.pity : ""));
+				if (characterIds[summon.id].rarity <= 4) {
+					row.style.display = "none";
+				}
+
+				if (characterIds[summon.id].rarity === 6) {
+					sixStars.push(summon.pity);
+				} else if (characterIds[summon.id].rarity === 5) {
+					fiveStars.push(summon.pity);
+				}
 			}
 		});
 
@@ -75,10 +83,13 @@ function makeTableAndPopulateExtraStats(bannerType) {
 		fiveStarRow.cells[1].innerHTML = fiveStars.length;
 		fiveStarRow.cells[2].innerHTML = `${roundTo2Places(fiveStars.length * 100 / bannerHistory.length)}%`;
 		fiveStarRow.cells[3].innerHTML = fiveStars.length ? roundTo2Places(fiveStars.reduce((partialSum, a) => partialSum + a, 0) / fiveStars.length) : 0;
+
+		document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
+		document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
 	}
 }
-makeTableAndPopulateExtraStats("standard");
-makeTableAndPopulateExtraStats("limited");
+makeTableAndPopulateExtraStats("standard", "all");
+makeTableAndPopulateExtraStats("limited", "all");
 
 
 let limitedShow6Stars = {"value":true};
@@ -182,13 +193,17 @@ function addToListOf6Stars(bannerType, name, pity, won5050) {
 	</span>`
 }
 
-function calculate5050WinRateAndIsGuaranteed(bannerType) {
+let bannerList = [];
+function calculate5050WinRateAndIsGuaranteed(bannerType, banner) {
+	document.querySelector(`.${bannerType}-6star-list`).innerHTML = "";
 	let isGuaranteed = false;
-	let total5050s = 0;
-	let won5050s = 0;
+	let total5050s = [];
 	const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
 	for (let i = bannerHistory.length - 1; i >= 0; i--) {
 		const summon = bannerHistory[i];
+		if (summon.banner && !bannerList.includes(summon.banner)) {
+			bannerList.push(summon.banner);
+		}
 		if (characterIds[summon.id].rarity === 6) {
 			let won5050 = false;
 			if (bannerType === "limited") {
@@ -196,35 +211,80 @@ function calculate5050WinRateAndIsGuaranteed(bannerType) {
 					console.log(`Missing banner info send this to me on discord @exploshe ->${summon.banner}<- ty :)`);
 					document.querySelector(".hi").innerHTML = `uh oh im missing this banner info can you send this to me on discord @exploshe ->${summon.banner}<- ty :)`;
 				}
-				const rateUpChar = banners[summon.banner];
-				if (summon.id === rateUpChar) {
+				const rateUpCharId = banners[summon.banner].rateUpCharId;
+				if (summon.id === rateUpCharId) {
 					if (!isGuaranteed) {
 						won5050 = true;
-						total5050s++;
-						won5050s++;
+						total5050s.push({"banner": summon.banner, "is5050win": true});
 					}
 					isGuaranteed = false;
 				} else {
-					total5050s++;
+					total5050s.push({"banner": summon.banner, "is5050win": false});
 					isGuaranteed = true;
 				}
 			}
-			addToListOf6Stars(bannerType, characterIds[summon.id].name, summon.pity, won5050)
+			if (banner === "all" || summon.banner === banner) {
+				addToListOf6Stars(bannerType, characterIds[summon.id].name, summon.pity, won5050);
+			}
 		}
 	}
 	if(isGuaranteed) {
 		document.querySelector(".guaranteed").style.display = "block";
 	}
 	if (bannerType === "limited") {
+		let total = 0
+		let wins = 0
+		total5050s.forEach(fiftyfifty => {
+			if (banner === "all" || fiftyfifty.banner === banner) {
+				total++;
+				if (fiftyfifty.is5050win) {
+					wins++;
+				}
+			}
+		});
 		const limited5050sRow = document.querySelector(".limited-banner-5050s-info");
-		limited5050sRow.cells[1].innerHTML = won5050s;
-		limited5050sRow.cells[2].innerHTML = total5050s > 0 ? `${roundTo2Places(won5050s * 100 / total5050s)}%` : "0%";
+		limited5050sRow.cells[1].innerHTML = wins;
+		limited5050sRow.cells[2].innerHTML = total > 0 ? `${roundTo2Places(wins * 100 / total)}%` : "0%";
 	}
 }
-calculate5050WinRateAndIsGuaranteed("limited");
-calculate5050WinRateAndIsGuaranteed("standard");
+calculate5050WinRateAndIsGuaranteed("limited", "all");
+calculate5050WinRateAndIsGuaranteed("standard", "all");
 
 
 if (!JSON.parse(localStorage.getItem("limitedBannerHistory"))[0].banner) {
 	document.querySelector(".hi").innerHTML = "exploshe here just to let u know that ive added some things to this site and you'll have to reimport your summons to see things like 5050 win rate and whether or not your next 6* is guaranteed sorry about that ty for using my site merry christmas and happy new year :)";
 }
+
+function createBannerButtons(bannerList) {
+	bannerList.forEach(banner => {
+		const button = document.createElement("div");
+		button.role = "button";
+		button.classList.add("banner-button", banner);
+		const img = new Image();
+		img.src = banners[banner].img;
+		button.appendChild(img);
+		document.querySelector(".banner-selection").appendChild(button);
+		button.addEventListener("click", () => selectBanner(banner));
+	});
+}
+createBannerButtons(bannerList);
+
+function selectBanner(banner) {
+	document.querySelectorAll(".banner-selection div").forEach(bannerDiv => {
+		bannerDiv.classList.remove("selected");
+	});
+	makeTableAndPopulateExtraStats("limited", banner);
+	calculate5050WinRateAndIsGuaranteed("limited", banner);
+	updateVisibilityOfRarity(6, limitedShow6Stars, limitedHistoryTable);
+	updateVisibilityOfRarity(5, limitedShow5Stars, limitedHistoryTable);
+	updateVisibilityOfRarity(432, limitedShow4AndLowerStars, limitedHistoryTable);
+	if (banner === "all") {
+		document.querySelector(".all-button").classList.add("selected");
+	} else {
+		document.querySelector(`.${banner}`).classList.add("selected");
+	}
+}
+
+
+const allButton = document.querySelector(".all-button");
+allButton.addEventListener("click", () => selectBanner("all"));

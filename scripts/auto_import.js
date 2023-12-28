@@ -14,6 +14,17 @@ function updateLocalStorage(standardBannerLifetimePulls, standardBanner6StarPity
     localStorage.setItem("limitedBannerHistory", JSON.stringify(limitedBannerHistory.reverse()));
 }
 
+function respondSuccessOrFailure(response) {
+    if (response === "success") {
+        document.querySelector(".js-import-result").innerHTML = "Success";
+        document.querySelector(".js-import-result").classList.remove("failure");
+    } else {
+        document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
+        document.querySelector(".js-import-result").classList.remove("success");
+    }
+    document.querySelector(".js-import-result").classList.add(`${response}`);
+}
+
 function parseSummonHistory(res) {
     const summons = res.data.pageData;
     let standardBannerLifetimePulls = 0;
@@ -35,7 +46,7 @@ function parseSummonHistory(res) {
                 standardBannerLifetimePulls++;
                 standardBanner6StarPity++;
                 standardBanner5StarPity++;
-                const obj = {"id": id, "time": summon.createTime, "banner": summon.poolName};
+                const obj = {"id": id, "time": summon.createTime};
                 if (characterIds[`${id}`].rarity === 6) {
                     obj.pity = standardBanner6StarPity;
                     standardBanner6StarPity = 0;
@@ -64,9 +75,7 @@ function parseSummonHistory(res) {
     }
     updateLocalStorage(standardBannerLifetimePulls, standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
                         limitedBannerLifetimePulls, limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory);
-    document.querySelector(".js-import-result").innerHTML = "Success";
-    document.querySelector(".js-import-result").classList.add("success");
-    document.querySelector(".js-import-result").classList.remove("failure");
+    respondSuccessOrFailure("success");
 }
 
 
@@ -81,16 +90,12 @@ async function makeRequest(url) {
                 if (res.code === 200) {
                     parseSummonHistory(res);
                 } else { 
-                    document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
-                    document.querySelector(".js-import-result").classList.add("failure");
-                    document.querySelector(".js-import-result").classList.remove("success");
+                    respondSuccessOrFailure("failure");
                 }
             }
         }
     } catch (error) {
-        document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
-        document.querySelector(".js-import-result").classList.add("failure");
-        document.querySelector(".js-import-result").classList.remove("success");
+        respondSuccessOrFailure("failure");
         console.error('Error making the request:', error.message);
     }
 }
@@ -106,11 +111,8 @@ function importSummon() {
 	} else if (url.startsWith('{"msg":"成功","code":200')) {
         parseSummonHistory(JSON.parse(url));
     } else {
-		document.querySelector(".js-import-result").innerHTML = "Expired or invalid link";
-        document.querySelector(".js-import-result").classList.add("failure");
-        document.querySelector(".js-import-result").classList.remove("success");
+		respondSuccessOrFailure("failure");
 	}
-    
 }
 
 

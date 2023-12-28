@@ -56,7 +56,7 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 1300px;
+    max-width: 1500px;
 }
 
 .orange-pity, .yellow-pity {
@@ -293,4 +293,44 @@ td, th {
 
 .won-5050 {
     border-color: orange;
+}
+
+.banner-selection {
+    height: min-content;
+    background-color: rgb(89, 79, 157);
+    max-width: 432px;
+    border-radius: 10px;
+    display: flex;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+.banner-selection div {
+    margin: 4px;
+    background-color: rgb(53, 44, 112);
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 3px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+    color: white;
+    text-wrap: nowrap;
+    cursor: pointer;
+    border-style: solid;
+    border-color: rgb(53, 44, 112);
+    border-width: 1px;
+    align-self: center;
+}
+
+.banner-selection .all-button {
+    padding: 16px 38px;
+    font-size: 20px;
+}
+
+.banner-selection .selected {
+    border-color: white;
+}
+
+.banner-selection img {
+    width: 90px;
 }
