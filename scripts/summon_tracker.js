@@ -207,10 +207,6 @@ function calculate5050WinRateAndIsGuaranteed(bannerType, banner) {
 		if (characterIds[summon.id].rarity === 6) {
 			let won5050 = false;
 			if (bannerType === "limited") {
-				if (summon.banner && !banners[summon.banner]) {
-					console.log(`Missing banner info send this to me on discord @exploshe ->${summon.banner}<- ty :)`);
-					document.querySelector(".hi").innerHTML = `uh oh im missing this banner info can you send this to me on discord @exploshe ->${summon.banner}<- ty :)`;
-				}
 				const rateUpCharId = banners[summon.banner].rateUpCharId;
 				if (summon.id === rateUpCharId) {
 					if (!isGuaranteed) {
