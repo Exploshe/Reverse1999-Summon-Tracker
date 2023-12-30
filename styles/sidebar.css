@@ -1,4 +1,10 @@
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .sidebar {
+    font-family: Arial, sans-serif;
     background-color: rgb(53, 44, 112);
     position: fixed;
     left: 0px;

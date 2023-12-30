@@ -4,8 +4,16 @@
     <head>
         <title>Auto Import</title>
         <link rel="stylesheet" href="styles/auto_import.css">
+        <link rel="stylesheet" href="styles/sidebar.css">
     </head>
     <body>
+        <div class="sidebar">
+            <div class="flex-column">
+                <a href="characters.html">Characters</a>
+                <a style="background-color: rgb(69, 69, 255); color: white;" href="index.html">Summon Tracker</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </div>
         <h1>Import Summon History</h1>
         <div class="platform-buttons">
             <button class="pc-button">PC</button>
@@ -100,7 +108,6 @@
         <div class="js-import-result"></div>
         <input class="link js-import-input" placeholder="Paste the link here">
         <button class="js-import-button">Import</button>
-        <a style="color: white;" href="index.html">Back to summon tracker</a>
         <div style="font-size: 14px">if you use android im sorry i tried but my small brain couldnt figure it out if you can get the link you can paste it here as usual and lmk your method so i can share it here :)</div>
         
         <script type="module" src="./scripts/auto_import.js"></script>
