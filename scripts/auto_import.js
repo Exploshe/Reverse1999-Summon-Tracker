@@ -1,17 +1,19 @@
 import { characterIds } from "../data/character_ids.js";
 
 
-function updateLocalStorage(standardBannerLifetimePulls, standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
-                            limitedBannerLifetimePulls, limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory) {
+function updateLocalStorage(standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
+                            limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory,
+                            beginnerBannerHistory) {
     // TODO: dont overwrite old pulls when they start getting deleted after 90 days (Jan 24, 2024)
-    localStorage.setItem("standardBannerLifetimePulls", standardBannerLifetimePulls);
+    localStorage.setItem("standardBannerLifetimePulls", standardBannerHistory.length);
     localStorage.setItem("standardBanner6StarPity", standardBanner6StarPity);
     localStorage.setItem("standardBanner5StarPity", standardBanner5StarPity);
     localStorage.setItem("standardBannerHistory", JSON.stringify(standardBannerHistory.reverse()));
-    localStorage.setItem("limitedBannerLifetimePulls", limitedBannerLifetimePulls);
+    localStorage.setItem("limitedBannerLifetimePulls", limitedBannerHistory.length);
     localStorage.setItem("limitedBanner6StarPity", limitedBanner6StarPity);
     localStorage.setItem("limitedBanner5StarPity", limitedBanner5StarPity);
     localStorage.setItem("limitedBannerHistory", JSON.stringify(limitedBannerHistory.reverse()));
+    localStorage.setItem("beginnerBannerHistory", JSON.stringify(beginnerBannerHistory.reverse()));
 }
 
 function respondSuccessOrFailure(response) {
@@ -27,11 +29,12 @@ function respondSuccessOrFailure(response) {
 
 function parseSummonHistory(res) {
     const summons = res.data.pageData;
-    let standardBannerLifetimePulls = 0;
+    let beginnerBanner6StarPity = 0;
+    let beginnerBanner5StarPity = 0;
+    let beginnerBannerHistory = [];
     let standardBanner6StarPity = 0;
     let standardBanner5StarPity = 0;
     let standardBannerHistory = [];
-    let limitedBannerLifetimePulls = 0;
     let limitedBanner6StarPity = 0;
     let limitedBanner5StarPity = 0;
     let limitedBannerHistory = [];
@@ -40,10 +43,21 @@ function parseSummonHistory(res) {
         for (let j = 0; j < summon.gainIds.length; j++) {
             const id = summon.gainIds[j];
             // Beginner banner
-            if (summon.poolType === 1) {}
+            if (summon.poolType === 1) {
+                beginnerBanner6StarPity++;
+                beginnerBanner5StarPity++;
+                const obj = {"id": id, "time": summon.createTime};
+                if (characterIds[`${id}`].rarity === 6) {
+                    obj.pity = beginnerBanner6StarPity;
+                    beginnerBanner6StarPity = 0;
+                } else if (characterIds[`${id}`].rarity === 5) {
+                    obj.pity = beginnerBanner5StarPity;
+                    beginnerBanner5StarPity = 0;
+                }
+                beginnerBannerHistory.push(obj);
+            }
             // Standard banner
             else if (summon.poolType === 2) {
-                standardBannerLifetimePulls++;
                 standardBanner6StarPity++;
                 standardBanner5StarPity++;
                 const obj = {"id": id, "time": summon.createTime};
@@ -58,7 +72,6 @@ function parseSummonHistory(res) {
             }
             // Limited banner
             else if (summon.poolType === 3) {
-                limitedBannerLifetimePulls++;
                 limitedBanner6StarPity++;
                 limitedBanner5StarPity++;
                 const obj = {"id": id, "time": summon.createTime, "banner": summon.poolName};
@@ -73,8 +86,9 @@ function parseSummonHistory(res) {
             }
         }
     }
-    updateLocalStorage(standardBannerLifetimePulls, standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
-                        limitedBannerLifetimePulls, limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory);
+    updateLocalStorage(standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
+                        limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory,
+                        beginnerBannerHistory);
     respondSuccessOrFailure("success");
 }
 

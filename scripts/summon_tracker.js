@@ -39,18 +39,20 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 	}
 	if (localStorage.getItem(`${bannerType}BannerHistory`)) {
 		const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
+		// These are for the banner's extra stats section
 		let sixStars = [];
 		let fiveStars = [];
 		let totalPulls = 0
+		// Populate banner history table and make 4-*s invisible by default
 		bannerHistory.forEach(summon => {
 			if (banner === "all" || summon.banner === banner) {
 				totalPulls++;
 
 				let row = table.insertRow(-1);
 				row.insertCell(0).appendChild(document.createTextNode(characterIds[summon.id].name));
-				row.cells[0].setAttribute("class", `${bannerType}-banner-history-name-${characterIds[summon.id].rarity}star`);
+				row.cells[0].setAttribute("class", `banner-history-name-${characterIds[summon.id].rarity}star`);
 				row.insertCell(1).appendChild(document.createTextNode(summon.time));
-				row.cells[1].setAttribute("class", `${bannerType}-banner-history-time`);
+				row.cells[1].setAttribute("class", `banner-history-time`);
 				row.insertCell(2).appendChild(document.createTextNode(summon.pity ? summon.pity : ""));
 				if (characterIds[summon.id].rarity <= 4) {
 					row.style.display = "none";
@@ -64,40 +66,36 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 			}
 		});
 
-		let bannerExtraStatsTable;
-		let FIVESTARROW = 3;
-		if (bannerType === "limited") {
-			bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[0];
-		} else if (bannerType === "standard") {
-			bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[1];
-			FIVESTARROW = 2;
+		// Populate banner's extra stats section
+		if (bannerType !== "beginner") {
+			let bannerExtraStatsTable;
+			let FIVESTARROW = 3;
+			if (bannerType === "limited") {
+				bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[0];
+			} else if (bannerType === "standard") {
+				bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[1];
+				FIVESTARROW = 2;
+			}
+			const sixStarRow = bannerExtraStatsTable.rows[1];
+			sixStarRow.cells[1].innerHTML = sixStars.length;
+			
+			sixStarRow.cells[2].innerHTML = `${roundTo2Places(sixStars.length * 100 / bannerHistory.length)}%`;
+			
+			sixStarRow.cells[3].innerHTML = sixStars.length ? roundTo2Places(sixStars.reduce((partialSum, a) => partialSum + a, 0) / sixStars.length) : 0;
+
+			const fiveStarRow = bannerExtraStatsTable.rows[FIVESTARROW];
+			fiveStarRow.cells[1].innerHTML = fiveStars.length;
+			fiveStarRow.cells[2].innerHTML = `${roundTo2Places(fiveStars.length * 100 / bannerHistory.length)}%`;
+			fiveStarRow.cells[3].innerHTML = fiveStars.length ? roundTo2Places(fiveStars.reduce((partialSum, a) => partialSum + a, 0) / fiveStars.length) : 0;
+
+			document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
+			document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
 		}
-		const sixStarRow = bannerExtraStatsTable.rows[1];
-		sixStarRow.cells[1].innerHTML = sixStars.length;
-		
-		sixStarRow.cells[2].innerHTML = `${roundTo2Places(sixStars.length * 100 / bannerHistory.length)}%`;
-		
-		sixStarRow.cells[3].innerHTML = sixStars.length ? roundTo2Places(sixStars.reduce((partialSum, a) => partialSum + a, 0) / sixStars.length) : 0;
-
-		const fiveStarRow = bannerExtraStatsTable.rows[FIVESTARROW];
-		fiveStarRow.cells[1].innerHTML = fiveStars.length;
-		fiveStarRow.cells[2].innerHTML = `${roundTo2Places(fiveStars.length * 100 / bannerHistory.length)}%`;
-		fiveStarRow.cells[3].innerHTML = fiveStars.length ? roundTo2Places(fiveStars.reduce((partialSum, a) => partialSum + a, 0) / fiveStars.length) : 0;
-
-		document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
-		document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
 	}
 }
 makeTableAndPopulateExtraStats("standard", "all");
 makeTableAndPopulateExtraStats("limited", "all");
-
-
-let limitedShow6Stars = {"value":true};
-let limitedShow5Stars = {"value":true};
-let limitedShow4AndLowerStars = {"value":false};
-let standardShow6Stars = {"value": true};
-let standardShow5Stars = {"value": true};
-let standardShow4AndLowerStars = {"value": false};
+makeTableAndPopulateExtraStats("beginner", "all");
 
 
 // Show/hide banner history
@@ -122,6 +120,13 @@ const standardHistoryTable = document.querySelector(".js-standard-banner-history
 document.querySelector(".js-standard-banner-show-history").addEventListener("click", () => updateVisibilityOfBannerHistory("standard", showStandardBannerHistory, standardHistoryTable));
 
 
+// For filtering by rarity, they are objs so they can be passed by reference
+let limitedShow6Stars = {"value":true};
+let limitedShow5Stars = {"value":true};
+let limitedShow4AndLowerStars = {"value":false};
+let standardShow6Stars = {"value": true};
+let standardShow5Stars = {"value": true};
+let standardShow4AndLowerStars = {"value": false};
 // Filter by rarity
 function updateVisibilityOfRarity(rarity, makeVisible, table) {
 	for (let i = 1, row; row = table.rows[i]; i++) {
@@ -173,6 +178,7 @@ document.querySelector(".js-standard-show-432stars-button-false").addEventListen
 });
 
 
+// List of 6*s at the bottom of the limited banner extra stats
 function addToListOf6Stars(bannerType, name, pity, won5050) {
 	const colors = {
 		1: "rgb(0, 255, 0)",
@@ -201,7 +207,7 @@ function calculate5050WinRateAndIsGuaranteed(bannerType, banner) {
 	const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
 	for (let i = bannerHistory.length - 1; i >= 0; i--) {
 		const summon = bannerHistory[i];
-		if (summon.banner && !bannerList.includes(summon.banner)) {
+		if (bannerType === "limited" && summon.banner && !bannerList.includes(summon.banner)) {
 			bannerList.push(summon.banner);
 		}
 		if (characterIds[summon.id].rarity === 6) {

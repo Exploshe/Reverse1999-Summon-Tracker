@@ -56,7 +56,7 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 1500px;
+    max-width: 896px;
 }
 
 .orange-pity, .yellow-pity {
@@ -174,15 +174,15 @@ td, th {
     border-bottom-color: gray;
 }
 
-.limited-banner-history-time, .standard-banner-history {
+.banner-history-time {
     font-size: 12px;
 }
 
-.limited-banner-history-name-6star, .standard-banner-history-name-6star {
+.banner-history-name-6star {
     color: orange;
 }
 
-.limited-banner-history-name-5star, .standard-banner-history-name-5star {
+.banner-history-name-5star{
     color: yellow;
 }
 
@@ -303,6 +303,7 @@ td, th {
     display: flex;
     padding: 8px;
     flex-wrap: wrap;
+    margin-bottom: 16px;
 }
 
 .banner-selection div {
@@ -333,4 +334,25 @@ td, th {
 
 .banner-selection img {
     width: 90px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.js-beginner-banner-history {
+    color: white;
+    font-size: 14px;
+    border-spacing: 0px;
+}
+
+.beginner-title {
+    align-self: center; 
+    margin-bottom: 4px;
 }
