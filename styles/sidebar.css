@@ -1,0 +1,30 @@
+.sidebar {
+    background-color: rgb(53, 44, 112);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 190px;
+}
+
+.sidebar .flex-column {
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.flex-column a {
+    padding: 12px 16px;
+    transition: 150ms;
+    align-self: stretch;
+    text-decoration: none;
+    color: rgb(160 174 192);
+    border-style: none;
+    border-radius: 12px;
+    line-height: 33px;
+}
+
+.flex-column a:hover {
+    color: white;
+    transition-duration: 150ms;
+}

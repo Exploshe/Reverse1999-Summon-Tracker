@@ -1,7 +1,10 @@
 body {
     background-color: rgb(62, 52, 125);
     font-family: Arial, sans-serif;
+    padding-left: 190px;
+    margin: 0px;
 }
+
 p {
     color: white;
     font-size: 22px;
@@ -73,8 +76,8 @@ p {
 }
 
 .summon-tracker {
-    padding-left: 10px;
-    padding-top: 10px;
+    padding-left: 32px;
+    padding-top: 32px;
 }
 
 .header {
