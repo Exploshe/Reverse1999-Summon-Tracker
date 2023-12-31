@@ -9,7 +9,7 @@ export const banners = {
     "仙子振翅入夜": {"rateUpCharId": 3053, "img": "images/The_Fairies_Shining_at_Night_Banner.webp"},
     "自由摇摆": {"rateUpCharId": 3025, "img": "images/Swinging_Freely_Banner.webp"},
     "精灵仍在等待": {"rateUpCharId": 3056, "img": "images/The_Changeling_Awaits_Banner.webp"},
-    "午夜放映会": {"rateUpCharId": 3039, "img": ""},
+    "午夜放映会": {"rateUpCharId": 3039, "img": "images/Midnight_Movie_Party_Banner.webp"},
     "涌流无止之物": {"rateUpCharId": 3051, "img": "The_Ever-Flowing_Banner.webp"},
     "回到融雪处": {"rateUpCharId": 3072, "img": ""},
     "众光之光": {"rateUpCharId": 3032, "img": ""},

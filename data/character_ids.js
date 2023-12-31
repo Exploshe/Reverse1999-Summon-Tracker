@@ -270,6 +270,18 @@ export const characterIds = {
     "3079": {
         "name": "Six",
         "rarity": 6
+    },
+    "90001": {
+        "name": "The Golden Thread I",
+        "rarity": 6
+    },
+    "90002": {
+        "name": "The Golden Thread II",
+        "rarity": 6
+    },
+    "90003": {
+        "name": "The Golden Thread III",
+        "rarity": 6
     }
 }
 

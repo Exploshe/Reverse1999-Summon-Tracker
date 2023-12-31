@@ -67,7 +67,7 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 		});
 
 		// Populate banner's extra stats section
-		if (bannerType !== "beginner") {
+		if (bannerType === "limited" || bannerType === "standard") {
 			let bannerExtraStatsTable;
 			let FIVESTARROW = 3;
 			if (bannerType === "limited") {
@@ -96,6 +96,7 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 makeTableAndPopulateExtraStats("standard", "all");
 makeTableAndPopulateExtraStats("limited", "all");
 makeTableAndPopulateExtraStats("beginner", "all");
+makeTableAndPopulateExtraStats("event", "all");
 
 
 // Show/hide banner history

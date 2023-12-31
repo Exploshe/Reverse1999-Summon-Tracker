@@ -157,7 +157,7 @@ a {
     width: 22px;
 }
 
-.js-limited-banner-history, .js-standard-banner-history {
+.banner-history{
     display: none;
     color:white;
     font-size: 14px;
@@ -349,10 +349,8 @@ td, th {
     flex-direction: column;
 }
 
-.js-beginner-banner-history {
-    color: white;
-    font-size: 14px;
-    border-spacing: 0px;
+.flex-column .banner-history {
+    display: table;
 }
 
 .beginner-title {

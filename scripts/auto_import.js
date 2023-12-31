@@ -3,7 +3,7 @@ import { characterIds } from "../data/character_ids.js";
 
 function updateLocalStorage(standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
                             limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory,
-                            beginnerBannerHistory) {
+                            beginnerBannerHistory, eventBannerHistory) {
     // TODO: dont overwrite old pulls when they start getting deleted after 90 days (Jan 24, 2024)
     localStorage.setItem("standardBannerLifetimePulls", standardBannerHistory.length);
     localStorage.setItem("standardBanner6StarPity", standardBanner6StarPity);
@@ -14,6 +14,7 @@ function updateLocalStorage(standardBanner6StarPity, standardBanner5StarPity, st
     localStorage.setItem("limitedBanner5StarPity", limitedBanner5StarPity);
     localStorage.setItem("limitedBannerHistory", JSON.stringify(limitedBannerHistory.reverse()));
     localStorage.setItem("beginnerBannerHistory", JSON.stringify(beginnerBannerHistory.reverse()));
+    localStorage.setItem("eventBannerHistory", JSON.stringify(eventBannerHistory.reverse()));
 }
 
 function respondSuccessOrFailure(response) {
@@ -38,15 +39,19 @@ function parseSummonHistory(res) {
     let limitedBanner6StarPity = 0;
     let limitedBanner5StarPity = 0;
     let limitedBannerHistory = [];
+    let eventBanner6StarPity = 0;
+    let eventBanner5StarPity = 0;
+    let eventBannerHistory = [];
     for (let i = summons.length - 1; i >= 0; i--) {
         const summon = summons[i];
         for (let j = 0; j < summon.gainIds.length; j++) {
             const id = summon.gainIds[j];
+            const poolType = summon.poolType;
+            const obj = {"id": id, "time": summon.createTime};
             // Beginner banner
-            if (summon.poolType === 1) {
+            if (poolType === 1) {
                 beginnerBanner6StarPity++;
                 beginnerBanner5StarPity++;
-                const obj = {"id": id, "time": summon.createTime};
                 if (characterIds[`${id}`].rarity === 6) {
                     obj.pity = beginnerBanner6StarPity;
                     beginnerBanner6StarPity = 0;
@@ -57,10 +62,9 @@ function parseSummonHistory(res) {
                 beginnerBannerHistory.push(obj);
             }
             // Standard banner
-            else if (summon.poolType === 2) {
+            else if (poolType === 2) {
                 standardBanner6StarPity++;
                 standardBanner5StarPity++;
-                const obj = {"id": id, "time": summon.createTime};
                 if (characterIds[`${id}`].rarity === 6) {
                     obj.pity = standardBanner6StarPity;
                     standardBanner6StarPity = 0;
@@ -71,10 +75,10 @@ function parseSummonHistory(res) {
                 standardBannerHistory.push(obj);
             }
             // Limited banner
-            else if (summon.poolType === 3) {
+            else if (poolType === 3) {
                 limitedBanner6StarPity++;
                 limitedBanner5StarPity++;
-                const obj = {"id": id, "time": summon.createTime, "banner": summon.poolName};
+                obj.banner = summon.poolName;
                 if (characterIds[`${id}`].rarity === 6) {
                     obj.pity = limitedBanner6StarPity;
                     limitedBanner6StarPity = 0;
@@ -84,11 +88,24 @@ function parseSummonHistory(res) {
                 }
                 limitedBannerHistory.push(obj);
             }
+            // Golden Thread event
+            else if (poolType === 5) {
+                eventBanner6StarPity++;
+                eventBanner5StarPity++;
+                if (characterIds[`${id}`].rarity === 6) {
+                    obj.pity = eventBanner6StarPity;
+                    eventBanner6StarPity = 0;
+                } else if (characterIds[`${id}`].rarity === 5) {
+                    obj.pity = eventBanner5StarPity;
+                    eventBanner5StarPity = 0;
+                }
+                eventBannerHistory.push(obj);
+            }
         }
     }
     updateLocalStorage(standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
                         limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory,
-                        beginnerBannerHistory);
+                        beginnerBannerHistory, eventBannerHistory);
     respondSuccessOrFailure("success");
 }
 
