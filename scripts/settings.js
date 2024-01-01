@@ -27,7 +27,7 @@ document.querySelector(".js-changelog-modal").addEventListener("click", (e) => {
     e.stopImmediatePropagation();
 });
 
-fetch("../changelog.txt")
+fetch("changelog.txt")
     .then(function (res) {
         return res.text();
     })
