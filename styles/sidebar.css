@@ -19,7 +19,7 @@
     padding-right: 16px;
 }
 
-.flex-column a {
+.sidebar-link {
     padding: 12px 16px;
     transition: 150ms;
     align-self: stretch;
@@ -30,7 +30,7 @@
     line-height: 33px;
 }
 
-.flex-column a:hover {
+.sidebar-link:hover {
     color: white;
     transition-duration: 150ms;
 }

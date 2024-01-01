@@ -1,0 +1,109 @@
+body {
+    background-color: rgb(62, 52, 125);
+    font-family: Arial, sans-serif;
+    padding-left: 190px;
+    margin: 0px;
+}
+
+.main {
+    padding: 32px;
+}
+
+.main div {
+    background-color: rgb(89, 79, 157);
+    max-width: 1000px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+}
+
+button {
+    background-color: rgb(89, 79, 157);
+    color: white;
+    padding: 8px 16px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 12px;
+    border-color: gray;
+    font-size: 16px;
+}
+
+button:hover {
+    border-color: rgb(78, 124, 255);
+}
+
+.overlay {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgb(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.visible {
+    display: flex;
+}
+
+.modal {
+    background-color: rgb(89, 79, 157);
+    color: white;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.modal div {
+    background-color: rgb(62, 52, 125);
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.export-section {
+    margin-bottom: 16px;
+}
+
+.modal div button {
+    background-color: rgb(62, 52, 125);
+    margin-left: 8px;
+}
+
+.js-changelog-modal {
+    height: 50%;
+    overflow-y: scroll;
+}
+
+.js-changelog-modal::-webkit-scrollbar {
+    display: none;
+}
+
+.credits-table {
+    border-spacing: 0px;
+}
+
+.credits-table-row td {
+    padding-left: 0px;
+    padding-right: 16px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+}
+
+.credits-table-link {
+    color: rgb(96, 138, 255);
+    text-decoration: none;
+}
+
+.credits-table-link:hover {
+    text-decoration: underline;
+}
+
+.credits-title {
+    font-weight: 600; 
+    margin: 0px; 
+    line-height: 1.5;
+}

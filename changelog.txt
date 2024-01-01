@@ -1,0 +1,38 @@
+2023/12/31
+- Fleshed out Settings page
+
+2023/12/30
+- Updated banner images
+- Created Invitation From The Water
+- Created sidebar
+- Created Settings and Characters pages
+- Fixed directions for iOS
+
+2023-12-29
+- Created beginner banner
+- Changed Changeling to Jessica
+
+2023-12-27
+- Added filter by banner
+- Added JSON as input
+
+2023-12-26
+- Updated auto import page
+
+2023-12-25
+- Added list of 6*s under banner stats
+
+2023-12-24
+- Added 50/50 win rate and guarantee
+
+2023-12-22
+- Added filter by rarity
+
+2023-12-17
+- Added show/hide banner history
+
+2023-12-16
+- Created banner history
+
+2023-12-14
+- Website created

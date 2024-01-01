@@ -3,15 +3,63 @@
 <html>
     <head>
         <title>Settings</title>
+        <link rel="stylesheet" href="styles/settings.css">
         <link rel="stylesheet" href="styles/sidebar.css">
     </head>
     <body>
         <div class="sidebar">
             <div class="flex-column">
-                <a href="characters.html">Characters</a>
-                <a href="index.html">Summon Tracker</a>
-                <a style="background-color: rgb(69, 69, 255); color: white;" href="settings.html">Settings</a>
+                <a class="sidebar-link" href="characters.html">Characters</a>
+                <a class="sidebar-link" href="index.html">Summon Tracker</a>
+                <a class="sidebar-link" style="background-color: rgb(69, 69, 255); color: white;" href="settings.html">Settings</a>
             </div>
         </div>
+        <div class="flex-column main">
+            <div>
+                <button class="changelog-button">Changelog</button>
+            </div>
+            <div>
+                <button class="export-import-button">Export and Import Data</button>
+                (coming soon)
+            </div>
+            <div>
+                <p class="credits-title">Credits</p>
+                <table class="credits-table">
+                    <tr class="credits-table-row">
+                        <td>Character IDs and banner names</td>
+                        <td><a class="credits-table-link" href="https://res1999.huijiwiki.com/wiki/%E9%A6%96%E9%A1%B5">灰机wiki</a></td>
+                    </tr>
+                    <tr class="credits-table-row">
+                        <td>Banner images</td>
+                        <td><a class="credits-table-link" href="https://reverse1999.fandom.com/wiki/Reverse:_1999_Wiki">Reverse: 1999 Wiki</a></td>
+                    </tr>
+                    <tr>
+                        <td>UI Design</td>
+                        <td><a class="credits-table-link" href="https://paimon.moe/">Paimon.moe</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div>If you find any bugs or have any feedback in general, please message me on discord @exploshe or on reddit @u/Exploshe thank you :)</div>
+        </div>
+        <div class="overlay js-export-import-overlay">
+            <div class="modal js-export-import-modal">
+                <div class="export-section">
+                    Export Data
+                    <button>Download Data</button>
+                </div>
+                <div>
+                    Import Data
+                    <button>Select JSON File</button>
+                </div>
+            </div>
+        </div>
+        <div class="overlay js-changelog-overlay">
+            <div class="modal js-changelog-modal">
+                Changelog
+                <pre class="js-changelog-txt"></pre>
+            </div>
+        </div>
+
+        <script type="module" src="scripts/settings.js"></script>
     </body>
 </html>
