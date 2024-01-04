@@ -1,112 +1,27 @@
 import { characterIds } from "../data/character_ids.js";
+import { banners } from "../data/banners.js";
 
 
-function updateLocalStorage(standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
-                            limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory,
-                            beginnerBannerHistory, eventBannerHistory) {
-    // TODO: dont overwrite old pulls when they start getting deleted after 90 days (Jan 24, 2024)
-    localStorage.setItem("standardBannerLifetimePulls", standardBannerHistory.length);
-    localStorage.setItem("standardBanner6StarPity", standardBanner6StarPity);
-    localStorage.setItem("standardBanner5StarPity", standardBanner5StarPity);
-    localStorage.setItem("standardBannerHistory", JSON.stringify(standardBannerHistory.reverse()));
-    localStorage.setItem("limitedBannerLifetimePulls", limitedBannerHistory.length);
-    localStorage.setItem("limitedBanner6StarPity", limitedBanner6StarPity);
-    localStorage.setItem("limitedBanner5StarPity", limitedBanner5StarPity);
-    localStorage.setItem("limitedBannerHistory", JSON.stringify(limitedBannerHistory.reverse()));
-    localStorage.setItem("beginnerBannerHistory", JSON.stringify(beginnerBannerHistory.reverse()));
-    localStorage.setItem("eventBannerHistory", JSON.stringify(eventBannerHistory.reverse()));
-}
-
-function respondSuccessOrFailure(response) {
-    if (response === "success") {
-        document.querySelector(".js-import-result").innerHTML = "Success";
-        document.querySelector(".js-import-result").classList.remove("failure");
-    } else {
-        document.querySelector(".js-import-result").innerHTML = "Invalid input";
-        document.querySelector(".js-import-result").classList.remove("success");
-    }
-    document.querySelector(".js-import-result").classList.add(`${response}`);
-}
-
-function parseSummonHistory(res) {
-    const summons = res.data.pageData;
-    let beginnerBanner6StarPity = 0;
-    let beginnerBanner5StarPity = 0;
-    let beginnerBannerHistory = [];
-    let standardBanner6StarPity = 0;
-    let standardBanner5StarPity = 0;
-    let standardBannerHistory = [];
-    let limitedBanner6StarPity = 0;
-    let limitedBanner5StarPity = 0;
-    let limitedBannerHistory = [];
-    let eventBanner6StarPity = 0;
-    let eventBanner5StarPity = 0;
-    let eventBannerHistory = [];
-    for (let i = summons.length - 1; i >= 0; i--) {
-        const summon = summons[i];
-        for (let j = 0; j < summon.gainIds.length; j++) {
-            const id = summon.gainIds[j];
-            const poolType = summon.poolType;
-            const obj = {"id": id, "time": summon.createTime};
-            // Beginner banner
-            if (poolType === 1) {
-                beginnerBanner6StarPity++;
-                beginnerBanner5StarPity++;
-                if (characterIds[`${id}`].rarity === 6) {
-                    obj.pity = beginnerBanner6StarPity;
-                    beginnerBanner6StarPity = 0;
-                } else if (characterIds[`${id}`].rarity === 5) {
-                    obj.pity = beginnerBanner5StarPity;
-                    beginnerBanner5StarPity = 0;
-                }
-                beginnerBannerHistory.push(obj);
-            }
-            // Standard banner
-            else if (poolType === 2) {
-                standardBanner6StarPity++;
-                standardBanner5StarPity++;
-                if (characterIds[`${id}`].rarity === 6) {
-                    obj.pity = standardBanner6StarPity;
-                    standardBanner6StarPity = 0;
-                } else if (characterIds[`${id}`].rarity === 5) {
-                    obj.pity = standardBanner5StarPity;
-                    standardBanner5StarPity = 0;
-                }
-                standardBannerHistory.push(obj);
-            }
-            // Limited banner
-            else if (poolType === 3) {
-                limitedBanner6StarPity++;
-                limitedBanner5StarPity++;
-                obj.banner = summon.poolName;
-                if (characterIds[`${id}`].rarity === 6) {
-                    obj.pity = limitedBanner6StarPity;
-                    limitedBanner6StarPity = 0;
-                } else if (characterIds[`${id}`].rarity === 5) {
-                    obj.pity = limitedBanner5StarPity;
-                    limitedBanner5StarPity = 0;
-                }
-                limitedBannerHistory.push(obj);
-            }
-            // Golden Thread event
-            else if (poolType === 5) {
-                eventBanner6StarPity++;
-                eventBanner5StarPity++;
-                if (characterIds[`${id}`].rarity === 6) {
-                    obj.pity = eventBanner6StarPity;
-                    eventBanner6StarPity = 0;
-                } else if (characterIds[`${id}`].rarity === 5) {
-                    obj.pity = eventBanner5StarPity;
-                    eventBanner5StarPity = 0;
-                }
-                eventBannerHistory.push(obj);
-            }
+function importSummon() {
+    try {
+        let res;
+        const input = document.querySelector(".link").value;
+        if (input.startsWith("https://game-re-en-service.sl916.com/query/summon?userId=")) {
+            const url = 'https://corsproxy.io/?' + encodeURIComponent(input);
+            res = makeRequest(url);
+        } else if (input.startsWith('{')) {
+            res = JSON.parse(input);
         }
+
+        if (res?.code === 200){
+            parseSummonHistory(res);
+        } else {
+            respondSuccessOrFailure("failure");
+        }
+    } catch (error) {
+        respondSuccessOrFailure("failure");
+        console.error("Error:", error.message);
     }
-    updateLocalStorage(standardBanner6StarPity, standardBanner5StarPity, standardBannerHistory,
-                        limitedBanner6StarPity, limitedBanner5StarPity, limitedBannerHistory,
-                        beginnerBannerHistory, eventBannerHistory);
-    respondSuccessOrFailure("success");
 }
 
 
@@ -117,12 +32,7 @@ async function makeRequest(url) {
         xhttp.send();
         xhttp.onreadystatechange = () => {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
-                const res = JSON.parse(xhttp.responseText);
-                if (res.code === 200) {
-                    parseSummonHistory(res);
-                } else { 
-                    respondSuccessOrFailure("failure");
-                }
+                return JSON.parse(xhttp.responseText);
             }
         }
     } catch (error) {
@@ -132,28 +42,86 @@ async function makeRequest(url) {
 }
 
 
-function importSummon() {
-    try {
-        let url = document.querySelector(".link").value;
-        if (url.startsWith("https://game-re-en-service.sl916.com/query/summon?userId=")) {
-            url = 'https://corsproxy.io/?' + encodeURIComponent(url);
-            document.querySelector(".link").value = "";
+function parseSummonHistory(res) {
+	const summons = res.data.pageData;
+	const summonData = {
+		1: { // Beginner banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		2: { // Standard banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		3: { // Limited banner
+			isGuaranteed: false,
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		5: { // Golden thread banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		}
+	};
+	
+	for (let i = summons.length - 1; i >= 0; i--) {
+		const summon = summons[i];
+		const { gainIds, poolType, createTime, poolName } = summon;
+		gainIds.forEach(id => {
+			const character = characterIds[id];
+			const rarity = character.rarity;
 
-            makeRequest(url);
-        } else if (url.startsWith('{')) {
-            const res = JSON.parse(url);
-            if (res.code === 200){
-                parseSummonHistory(res);
-            } else {
-                respondSuccessOrFailure("failure");
-            }
-        } else {
-            respondSuccessOrFailure("failure");
-        }
-    } catch (error) {
-        respondSuccessOrFailure("failure");
-        console.error("Error:", error.message);
-    }
+			const obj = {
+				id, 
+				name: character.name, 
+				time: createTime, 
+				banner: poolName
+			};
+			
+			summonData[poolType].pity6++;
+			summonData[poolType].pity5++;
+
+			if (rarity === 6 || rarity === 5) {
+				obj.pity = summonData[poolType][`pity${rarity}`];
+				summonData[poolType][`pity${rarity}`] = 0;
+			}
+
+			// 5050s, 0 = lost, 1 = won, 2 = guaranteed
+			if (poolType === 3) {
+				const { rateUp6StarId, rateUp5StarIds } = banners[poolName];
+
+				switch (rarity) {
+					case 6:
+						obj.rate = id === rateUp6StarId && !summonData[3].isGuaranteed ? 1 : summonData[3].isGuaranteed * 2;
+						summonData[3].isGuaranteed = id !== rateUp6StarId;
+						break;
+					case 5:
+						obj.rate = rateUp5StarIds.includes(id) ? 1 : 0;
+				}
+			}
+			
+			summonData[poolType].history.push(obj);
+		});
+	}
+	
+	localStorage.setItem("summonData", JSON.stringify(summonData));
+	respondSuccessOrFailure("success");
+}
+
+
+function respondSuccessOrFailure(response) {
+	if (response === "success") {
+		document.querySelector(".js-import-result").innerHTML = "Success";
+		document.querySelector(".js-import-result").classList.remove("failure");
+	} else {
+		document.querySelector(".js-import-result").innerHTML = "Invalid input";
+		document.querySelector(".js-import-result").classList.remove("success");
+	}
+	document.querySelector(".js-import-result").classList.add(`${response}`);
 }
 
 

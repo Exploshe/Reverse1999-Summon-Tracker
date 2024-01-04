@@ -9,27 +9,38 @@ function roundTo2Places(n) {
 	return Math.round((n + Number.EPSILON) * 100) / 100;
 }
 
-// Load standard banner stats
-if (localStorage.getItem("standardBannerLifetimePulls")) {
-	const standardBannerLifetimePulls = localStorage.getItem("standardBannerLifetimePulls");
-	document.querySelector(".js-standard-lifetime-pulls").innerHTML = standardBannerLifetimePulls;
-	document.querySelector(".js-standard-clear-drop-count").innerHTML = numberWithCommas(standardBannerLifetimePulls * 180);
+if (localStorage.getItem("standardBannerHistory") && !localStorage.getItem("summonData")) {
+	const span = document.createElement("span");
+	span.innerHTML = "please reimport ur summons sorry hehe"
+	span.style.color = "white";
+	document.querySelector("body").appendChild(span);
+}
 
-	document.querySelector(".js-standard-6star-pity").innerHTML = localStorage.getItem("standardBanner6StarPity");
+// Load standard banner and limited banner stats
+const summonData = JSON.parse(localStorage.getItem("summonData"));
+const bannerTypeMap = {
+	beginner: 1,
+	standard: 2,
+	limited: 3,
+	event: 5,
+	1: "beginner",
+	2: "standard",
+	3: "limited",
+	5: "event"
+}
+if (summonData) {
+	for (let i = 2; i <= 3; i++) {
+		const totalPulls = summonData[i].history.length;
+		document.querySelector(`.js-${bannerTypeMap[i]}-lifetime-pulls`).innerHTML = totalPulls;
+		document.querySelector(`.js-${bannerTypeMap[i]}-clear-drop-count`).innerHTML = numberWithCommas(totalPulls * 180);
 
-	document.querySelector(".js-standard-5star-pity").innerHTML = localStorage.getItem("standardBanner5StarPity");
+		document.querySelector(`.js-${bannerTypeMap[i]}-6star-pity`).innerHTML = summonData[i].pity6;
+		document.querySelector(`.js-${bannerTypeMap[i]}-5star-pity`).innerHTML = summonData[i].pity5;
+	}
 };
-
-// Load limited banner stats
-if (localStorage.getItem("limitedBannerLifetimePulls")) {
-	const limitedBannerLifetimePulls = localStorage.getItem("limitedBannerLifetimePulls");
-	document.querySelector(".js-limited-lifetime-pulls").innerHTML = limitedBannerLifetimePulls;
-	document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(limitedBannerLifetimePulls * 180);
-
-	document.querySelector(".js-limited-6star-pity").innerHTML = localStorage.getItem("limitedBanner6StarPity");
-
-	document.querySelector(".js-limited-5star-pity").innerHTML = localStorage.getItem("limitedBanner5StarPity");
-};    
+if(summonData[3]?.isGuaranteed) {
+	document.querySelector(".guaranteed").style.display = "block";
+}
 
 
 function makeTableAndPopulateExtraStats(bannerType, banner) {
@@ -38,13 +49,14 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 		table.deleteRow(i);
 	}
 	if (localStorage.getItem(`${bannerType}BannerHistory`)) {
-		const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
+		const bannerHistory = summonData[bannerTypeMap[bannerType]].history;
 		// These are for the banner's extra stats section
 		let sixStars = [];
 		let fiveStars = [];
-		let totalPulls = 0
+		let totalPulls = 0;
 		// Populate banner history table and make 4-*s invisible by default
-		bannerHistory.forEach(summon => {
+		for (let i = bannerHistory.length - 1; i >= 0; i--) {
+			const summon = bannerHistory[i];
 			if (banner === "all" || summon.banner === banner) {
 				totalPulls++;
 
@@ -64,7 +76,7 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 					fiveStars.push(summon.pity);
 				}
 			}
-		});
+		};
 
 		// Populate banner's extra stats section
 		if (bannerType === "limited" || bannerType === "standard") {
@@ -192,7 +204,7 @@ function addToListOf6Stars(bannerType, name, pity, won5050) {
 	};
 	const colorsKey = Math.floor((pity + 9) / 10).toString();
 	document.querySelector(`.${bannerType}-6star-list`).innerHTML += `
-	<span class="six-star-list-elements ${won5050 ? "won-5050" : ""}">
+	<span class="six-star-list-elements ${won5050 === 1 ? "won-5050" : ""}">
 		${name} 
 		<span style="color: ${pity < 70 ? colors[colorsKey] : "red"}">
 			${pity}
@@ -203,36 +215,28 @@ function addToListOf6Stars(bannerType, name, pity, won5050) {
 let bannerList = [];
 function calculate5050WinRateAndIsGuaranteed(bannerType, banner) {
 	document.querySelector(`.${bannerType}-6star-list`).innerHTML = "";
-	let isGuaranteed = false;
 	let total5050s = [];
-	const bannerHistory = JSON.parse(localStorage.getItem(`${bannerType}BannerHistory`));
-	for (let i = bannerHistory.length - 1; i >= 0; i--) {
+	let fiveStar5050s = [];
+	const bannerHistory = summonData[bannerTypeMap[bannerType]].history;
+	for (let i = 0; i < bannerHistory.length; i++) {
 		const summon = bannerHistory[i];
+		const rarity = characterIds[summon.id].rarity
 		if (bannerType === "limited" && summon.banner && !bannerList.includes(summon.banner)) {
 			bannerList.push(summon.banner);
 		}
-		if (characterIds[summon.id].rarity === 6) {
-			let won5050 = false;
-			if (bannerType === "limited") {
-				const rateUpCharId = banners[summon.banner].rateUpCharId;
-				if (summon.id === rateUpCharId) {
-					if (!isGuaranteed) {
-						won5050 = true;
-						total5050s.push({"banner": summon.banner, "is5050win": true});
-					}
-					isGuaranteed = false;
-				} else {
-					total5050s.push({"banner": summon.banner, "is5050win": false});
-					isGuaranteed = true;
-				}
+		if (summon.rate < 2) {
+			// 0 = lost 5050, 1 = won 5050
+			if (rarity === 6) {
+				total5050s.push({"banner": summon.banner, "is5050win": summon.rate});
+			} else if (rarity === 5) {
+				fiveStar5050s.push({"banner": summon.banner, "is5050win": summon.rate});
 			}
-			if (banner === "all" || summon.banner === banner) {
-				addToListOf6Stars(bannerType, characterIds[summon.id].name, summon.pity, won5050);
-			}
+			
 		}
-	}
-	if(isGuaranteed) {
-		document.querySelector(".guaranteed").style.display = "block";
+
+		if (rarity === 6 && (banner === "all" || summon.banner === banner)) {
+			addToListOf6Stars(bannerType, characterIds[summon.id].name, summon.pity, summon.rate);
+		}
 	}
 	if (bannerType === "limited") {
 		let total = 0
@@ -245,9 +249,23 @@ function calculate5050WinRateAndIsGuaranteed(bannerType, banner) {
 				}
 			}
 		});
-		const limited5050sRow = document.querySelector(".limited-banner-5050s-info");
+		const limited5050sRow = document.querySelector(".js-limited-banner-6star-5050s-info");
 		limited5050sRow.cells[1].innerHTML = wins;
 		limited5050sRow.cells[2].innerHTML = total > 0 ? `${roundTo2Places(wins * 100 / total)}%` : "0%";
+
+		let total5 = 0
+		let wins5 = 0
+		fiveStar5050s.forEach(fiftyfifty => {
+			if (banner === "all" || fiftyfifty.banner === banner) {
+				total5++;
+				if (fiftyfifty.is5050win) {
+					wins5++;
+				}
+			}
+		});
+		const fiveStar5050sRow = document.querySelector(".js-limited-banner-5star-5050s-info");
+		fiveStar5050sRow.cells[1].innerHTML = wins5;
+		fiveStar5050sRow.cells[2].innerHTML = total5 > 0 ? `${roundTo2Places(wins5 * 100 / total5)}%` : "0%";
 	}
 }
 calculate5050WinRateAndIsGuaranteed("limited", "all");
