@@ -20,7 +20,6 @@
             </div>
             <div>
                 <button class="export-import-button">Export and Import Data</button>
-                (coming soon)
             </div>
             <div>
                 <p class="credits-title">Credits</p>
@@ -43,14 +42,16 @@
         </div>
         <div class="overlay js-export-import-overlay">
             <div class="modal js-export-import-modal">
-                <div class="export-section">
+                <div class="modal-inner export-section">
                     Export Data
-                    <button>Download Data</button>
+                    <button class="download-button">Download Data</button>
                 </div>
-                <div>
+                <div class="modal-inner">
                     Import Data
-                    <button>Select JSON File</button>
+                    <button for="input-file" class="input-json-button">Select JSON File</button>
+                    <div class="import-result"></div>
                 </div>
+                <input type="file" accept="JSON" class="input-file" id="input-file">
             </div>
         </div>
         <div class="overlay js-changelog-overlay">
