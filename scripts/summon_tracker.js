@@ -8,6 +8,9 @@ function numberWithCommas(x) {
 function roundTo2Places(n) {
 	return Math.round((n + Number.EPSILON) * 100) / 100;
 }
+function avg(nums) {
+	return nums.reduce((partialSum, a) => partialSum + a, 0) / nums.length;
+}
 
 if (localStorage.getItem("standardBannerHistory") && !localStorage.getItem("summonData")) {
 	const span = document.createElement("span");
@@ -38,7 +41,7 @@ if (summonData) {
 		document.querySelector(`.js-${bannerTypeMap[i]}-5star-pity`).innerHTML = summonData[i].pity5;
 	}
 };
-if(summonData[3]?.isGuaranteed) {
+if(summonData[3].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
 }
 
@@ -48,12 +51,14 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 	for (let i = table.rows.length - 1; i >= 1; i--) {
 		table.deleteRow(i);
 	}
+
 	if (localStorage.getItem(`${bannerType}BannerHistory`)) {
 		const bannerHistory = summonData[bannerTypeMap[bannerType]].history;
 		// These are for the banner's extra stats section
 		let sixStars = [];
 		let fiveStars = [];
 		let totalPulls = 0;
+
 		// Populate banner history table and make 4-*s invisible by default
 		for (let i = bannerHistory.length - 1; i >= 0; i--) {
 			const summon = bannerHistory[i];
@@ -61,7 +66,7 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 				totalPulls++;
 
 				let row = table.insertRow(-1);
-				row.insertCell(0).appendChild(document.createTextNode(characterIds[summon.id].name));
+				row.insertCell(0).appendChild(document.createTextNode(summon.name));
 				row.cells[0].setAttribute("class", `banner-history-name-${characterIds[summon.id].rarity}star`);
 				row.insertCell(1).appendChild(document.createTextNode(summon.time));
 				row.cells[1].setAttribute("class", `banner-history-time`);
@@ -80,30 +85,21 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 
 		// Populate banner's extra stats section
 		if (bannerType === "limited" || bannerType === "standard") {
-			let bannerExtraStatsTable;
-			let FIVESTARROW = 3;
-			if (bannerType === "limited") {
-				bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[0];
-			} else if (bannerType === "standard") {
-				bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[1];
-				FIVESTARROW = 2;
-			}
-			const sixStarRow = bannerExtraStatsTable.rows[1];
-			sixStarRow.cells[1].innerHTML = sixStars.length;
-			
-			sixStarRow.cells[2].innerHTML = `${roundTo2Places(sixStars.length * 100 / bannerHistory.length)}%`;
-			
-			sixStarRow.cells[3].innerHTML = sixStars.length ? roundTo2Places(sixStars.reduce((partialSum, a) => partialSum + a, 0) / sixStars.length) : 0;
+			const bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[+(bannerType === "standard")];
 
-			const fiveStarRow = bannerExtraStatsTable.rows[FIVESTARROW];
-			fiveStarRow.cells[1].innerHTML = fiveStars.length;
-			fiveStarRow.cells[2].innerHTML = `${roundTo2Places(fiveStars.length * 100 / bannerHistory.length)}%`;
-			fiveStarRow.cells[3].innerHTML = fiveStars.length ? roundTo2Places(fiveStars.reduce((partialSum, a) => partialSum + a, 0) / fiveStars.length) : 0;
+			populateStatsRow(bannerExtraStatsTable.rows[1], sixStars, bannerHistory.length);
+			populateStatsRow(bannerExtraStatsTable.rows[+(bannerType === "limited") + 2], fiveStars, bannerHistory.length);
 
+			// Update total pulls when filtering by banner
 			document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
 			document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
 		}
 	}
+}
+function populateStatsRow(row, stars, totalPulls) {
+	row.cells[1].innerHTML = stars.length;
+	row.cells[2].innerHTML = `${roundTo2Places(stars.length * 100 / totalPulls)}%`;
+	row.cells[3].innerHTML = stars.length ? roundTo2Places(avg(stars)) : 0;
 }
 makeTableAndPopulateExtraStats("standard", "all");
 makeTableAndPopulateExtraStats("limited", "all");
@@ -133,62 +129,53 @@ const standardHistoryTable = document.querySelector(".js-standard-banner-history
 document.querySelector(".js-standard-banner-show-history").addEventListener("click", () => updateVisibilityOfBannerHistory("standard", showStandardBannerHistory, standardHistoryTable));
 
 
-// For filtering by rarity, they are objs so they can be passed by reference
-let limitedShow6Stars = {"value":true};
-let limitedShow5Stars = {"value":true};
-let limitedShow4AndLowerStars = {"value":false};
-let standardShow6Stars = {"value": true};
-let standardShow5Stars = {"value": true};
-let standardShow4AndLowerStars = {"value": false};
 // Filter by rarity
-function updateVisibilityOfRarity(rarity, makeVisible, table) {
-	for (let i = 1, row; row = table.rows[i]; i++) {
+const rarityFilter = {
+	limited: {
+		6: true,
+		5: true,
+		432: false
+	}, 
+	standard: {
+		6: true,
+		5: true,
+		432: false
+	}
+}
+
+for (const [bannerType, obj] of Object.entries(rarityFilter)) {
+	for (const [rarity, defaultVisibility] of Object.entries(obj)) {
+		addOnClickRarityFilter(bannerType, parseInt(rarity), defaultVisibility);
+	}
+}
+
+function addOnClickRarityFilter(bannerType, rarity, defaultVisibility) {
+	const button = document.querySelector(`.js-${bannerType}-show-${rarity}stars-button-${defaultVisibility}`);
+	button.addEventListener("click", () => {
+		updateBoolAndCSS(button, bannerType, rarity);
+		updateVisibilityOfRarity(bannerType, rarity);
+	});
+}
+
+function updateVisibilityOfRarity(bannerType, rarity) {
+	const table = document.querySelector(`.js-${bannerType}-banner-history`);
+	for (let i = 1; i < table.rows.length; i++) {
+		const row = table.rows[i]
 		const name = row.cells[0].innerHTML;
 		const id = characterNames[name];
 		if (characterIds[id].rarity === rarity || rarity === 432 && characterIds[id].rarity <= 4) {
-			if (makeVisible.value) {
-				row.style.display = "table-row";
-			} else {
-				row.style.display = "none";
-			}
+			row.style.display = rarityFilter[bannerType][rarity] ? "table-row" : "none";
 		}
 	}
 }
-function updateBoolAndCSS(showRarityBool, button, bannerType, rarity) {
-	showRarityBool.value = !showRarityBool.value;
-	button.classList.add(`js-${bannerType}-show-${rarity}stars-button-${showRarityBool.value}`);
-	button.classList.remove(`js-${bannerType}-show-${rarity}stars-button-${!showRarityBool.value}`);
+function updateBoolAndCSS(button, bannerType, rarity) {
+	// Has to be like this cause pass by reference
+	rarityFilter[bannerType][rarity] = !rarityFilter[bannerType][rarity];
+
+	const showRarityBool = rarityFilter[bannerType][rarity];
+	button.classList.add(`js-${bannerType}-show-${rarity}stars-button-${showRarityBool}`);
+	button.classList.remove(`js-${bannerType}-show-${rarity}stars-button-${!showRarityBool}`);
 }
-const limitedShow6StarsButton = document.querySelector(".js-limited-show-6stars-button-true");
-limitedShow6StarsButton.addEventListener("click", () => {
-    updateBoolAndCSS(limitedShow6Stars, limitedShow6StarsButton, "limited", 6);
-    updateVisibilityOfRarity(6, limitedShow6Stars, limitedHistoryTable);
-});
-const limitedShow5StarsButton = document.querySelector(".js-limited-show-5stars-button-true");
-limitedShow5StarsButton.addEventListener("click", () => {
-    updateBoolAndCSS(limitedShow5Stars, limitedShow5StarsButton, "limited", 5);
-    updateVisibilityOfRarity(5, limitedShow5Stars, limitedHistoryTable);
-});
-const limitedShow432StarsButton = document.querySelector(".js-limited-show-432stars-button-false");
-document.querySelector(".js-limited-show-432stars-button-false").addEventListener("click", () => {
-    updateBoolAndCSS(limitedShow4AndLowerStars, limitedShow432StarsButton, "limited", 432);
-    updateVisibilityOfRarity(432, limitedShow4AndLowerStars, limitedHistoryTable);
-});
-const standardShow6StarsButton = document.querySelector(".js-standard-show-6stars-button-true");
-standardShow6StarsButton.addEventListener("click", () => {
-    updateBoolAndCSS(standardShow6Stars, standardShow6StarsButton, "standard", 6);
-    updateVisibilityOfRarity(6, standardShow6Stars, standardHistoryTable);
-});
-const standardShow5StarsButton = document.querySelector(".js-standard-show-5stars-button-true");
-standardShow5StarsButton.addEventListener("click", () => {
-    updateBoolAndCSS(standardShow5Stars, standardShow5StarsButton, "standard", 5);
-    updateVisibilityOfRarity(5, standardShow5Stars, standardHistoryTable);
-});
-const standardShow432StarsButton = document.querySelector(".js-standard-show-432stars-button-false");
-document.querySelector(".js-standard-show-432stars-button-false").addEventListener("click", () => {
-	updateBoolAndCSS(standardShow4AndLowerStars, standardShow432StarsButton, "standard", 432);
-	updateVisibilityOfRarity(432, standardShow4AndLowerStars, standardHistoryTable);
-});
 
 
 // List of 6*s at the bottom of the limited banner extra stats
@@ -213,10 +200,12 @@ function addToListOf6Stars(bannerType, name, pity, won5050) {
 }
 
 let bannerList = [];
-function calculate5050WinRateAndIsGuaranteed(bannerType, banner) {
+function calculate5050WinRateAndCreate6StarsList(bannerType, banner) {
 	document.querySelector(`.${bannerType}-6star-list`).innerHTML = "";
-	let total5050s = [];
-	let fiveStar5050s = [];
+	const fifty50s = {
+		6: [],
+		5: []
+	}
 	const bannerHistory = summonData[bannerTypeMap[bannerType]].history;
 	for (let i = 0; i < bannerHistory.length; i++) {
 		const summon = bannerHistory[i];
@@ -224,59 +213,48 @@ function calculate5050WinRateAndIsGuaranteed(bannerType, banner) {
 		if (bannerType === "limited" && summon.banner && !bannerList.includes(summon.banner)) {
 			bannerList.push(summon.banner);
 		}
+
 		if (summon.rate < 2) {
 			// 0 = lost 5050, 1 = won 5050
-			if (rarity === 6) {
-				total5050s.push({"banner": summon.banner, "is5050win": summon.rate});
-			} else if (rarity === 5) {
-				fiveStar5050s.push({"banner": summon.banner, "is5050win": summon.rate});
-			}
-			
+			fifty50s[rarity]?.push({ "banner": summon.banner, "is5050win": summon.rate });
 		}
 
 		if (rarity === 6 && (banner === "all" || summon.banner === banner)) {
-			addToListOf6Stars(bannerType, characterIds[summon.id].name, summon.pity, summon.rate);
+			addToListOf6Stars(bannerType, summon.name, summon.pity, summon.rate);
 		}
 	}
-	if (bannerType === "limited") {
-		let total = 0
-		let wins = 0
-		total5050s.forEach(fiftyfifty => {
-			if (banner === "all" || fiftyfifty.banner === banner) {
-				total++;
-				if (fiftyfifty.is5050win) {
-					wins++;
-				}
-			}
-		});
-		const limited5050sRow = document.querySelector(".js-limited-banner-6star-5050s-info");
-		limited5050sRow.cells[1].innerHTML = wins;
-		limited5050sRow.cells[2].innerHTML = total > 0 ? `${roundTo2Places(wins * 100 / total)}%` : "0%";
 
-		let total5 = 0
-		let wins5 = 0
-		fiveStar5050s.forEach(fiftyfifty => {
-			if (banner === "all" || fiftyfifty.banner === banner) {
-				total5++;
-				if (fiftyfifty.is5050win) {
-					wins5++;
-				}
-			}
-		});
-		const fiveStar5050sRow = document.querySelector(".js-limited-banner-5star-5050s-info");
-		fiveStar5050sRow.cells[1].innerHTML = wins5;
-		fiveStar5050sRow.cells[2].innerHTML = total5 > 0 ? `${roundTo2Places(wins5 * 100 / total5)}%` : "0%";
+	if (bannerType === "limited") {
+		calc5050wr(fifty50s, banner);
 	}
 }
-calculate5050WinRateAndIsGuaranteed("limited", "all");
-calculate5050WinRateAndIsGuaranteed("standard", "all");
+
+function calc5050wr(fifty50s, banner) {
+	for (const [rarity, list] of Object.entries(fifty50s)) {
+		let total = 0;
+		let wins = 0;
+		list.forEach(fifty50 => {
+			if (banner === "all" || fifty50.banner === banner) {
+				total++;
+				wins += fifty50.is5050win;
+			}
+		})
+
+		const win5050Row = document.querySelector(`.js-limited-banner-${rarity}star-5050s-info`);
+		win5050Row.cells[1].innerHTML = wins;
+		win5050Row.cells[2].innerHTML = total > 0 ? `${roundTo2Places(wins * 100 / total)}%` : "0%";
+	}
+}
+
+calculate5050WinRateAndCreate6StarsList("limited", "all");
+calculate5050WinRateAndCreate6StarsList("standard", "all");
 
 
 function createBannerButtons(bannerList) {
 	bannerList.forEach(banner => {
 		const button = document.createElement("div");
 		button.role = "button";
-		button.classList.add("banner-button", banner);
+		button.classList.add("banner-button", `${banner}-button`);
 		const img = new Image();
 		img.src = banners[banner].img;
 		button.appendChild(img);
@@ -291,15 +269,11 @@ function selectBanner(banner) {
 		bannerDiv.classList.remove("selected");
 	});
 	makeTableAndPopulateExtraStats("limited", banner);
-	calculate5050WinRateAndIsGuaranteed("limited", banner);
-	updateVisibilityOfRarity(6, limitedShow6Stars, limitedHistoryTable);
-	updateVisibilityOfRarity(5, limitedShow5Stars, limitedHistoryTable);
-	updateVisibilityOfRarity(432, limitedShow4AndLowerStars, limitedHistoryTable);
-	if (banner === "all") {
-		document.querySelector(".all-button").classList.add("selected");
-	} else {
-		document.querySelector(`.${banner}`).classList.add("selected");
-	}
+	calculate5050WinRateAndCreate6StarsList("limited", banner);
+	updateVisibilityOfRarity("limited", 6);
+	updateVisibilityOfRarity("limited", 5);
+	updateVisibilityOfRarity("limited", 432);
+	document.querySelector(`.${banner}-button`).classList.add("selected");
 }
 
 

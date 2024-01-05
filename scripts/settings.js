@@ -1,25 +1,30 @@
+// Open and close export/import data
+const exportImportOverlay = document.querySelector(".js-export-import-overlay");
+
 document.querySelector(".export-import-button").addEventListener("click", () => {
-    document.querySelector(".js-export-import-overlay").classList.add("visible");
+    exportImportOverlay.classList.add("visible");
 });
 
-document.querySelector(".js-export-import-overlay").addEventListener("click", (event) => {
+exportImportOverlay.addEventListener("click", (event) => {
     if (event.target.classList[0] === "overlay") {
-        document.querySelector(".js-export-import-overlay").classList.remove("visible");
+        exportImportOverlay.classList.remove("visible");
     }
 });
 
+// Open and close changelog
+const changelogOverlay = document.querySelector(".js-changelog-overlay");
 
 document.querySelector(".changelog-button").addEventListener("click", () => {
-    document.querySelector(".js-changelog-overlay").classList.add("visible");
+    changelogOverlay.classList.add("visible");
 });
 
-document.querySelector(".js-changelog-overlay").addEventListener("click", (event) => {
+changelogOverlay.addEventListener("click", (event) => {
     if (event.target.classList[0] === "overlay") {
-        document.querySelector(".js-changelog-overlay").classList.remove("visible");
+        changelogOverlay.classList.remove("visible");
     }
 });
 
-
+// Populate changelog
 fetch("changelog.txt")
     .then(function (res) {
         return res.text();
@@ -28,6 +33,7 @@ fetch("changelog.txt")
         document.querySelector(".js-changelog-txt").innerHTML = data;
     });
 
+// Download data
 document.querySelector(".download-button").addEventListener("click", () => {
     downloadObjectAsJson(localStorage.getItem("summonData"), "reverse1999_summon_history");
 });
@@ -42,19 +48,17 @@ function downloadObjectAsJson(exportObj, exportName){
     downloadAnchorNode.remove();
 }
 
-
+// Import data
 const inputElement = document.querySelector(".input-file")
 
 document.querySelector(".input-json-button").addEventListener("click", () => {
     inputElement.click();
 });
 
-const responseElement = document.querySelector(".import-result");
-
 inputElement.addEventListener("change", () => {
     if (inputElement.files.length === 1) {
         const file = inputElement.files[0];
-        if (file.name.slice(-5) === ".json") {
+        if (file.name.endsWith(".json")) {
             importHistoryJSON(file);
         } else {
             respondSuccessOrFailure("failure", "Invalid file type");
@@ -64,22 +68,29 @@ inputElement.addEventListener("change", () => {
 
 function importHistoryJSON(file) {
     const reader = new FileReader();
+    const requiredKeys = ["1", "2", "3", "5"];
+
     reader.addEventListener("load", () => {
         const data = JSON.parse(reader.result);
-        if ("1" in data && "2" in data && "3" in data && "5" in data) {
+        if (requiredKeys.every(key => key in data)) {
             localStorage.setItem("summonData", JSON.stringify(data));
             respondSuccessOrFailure("success", "Success");
         } else {
-            respondSuccessOrFailure("failure", "Import failed");
+            respondSuccessOrFailure("failure", "Invalid JSON");
         }
     })
 
     reader.readAsText(file);
 }
 
+const responseElement = document.querySelector(".import-result");
 function respondSuccessOrFailure(response, message) {
     responseElement.innerHTML = message;
     responseElement.classList.add(response);
-    if (response === "success") { responseElement.classList.remove("failure") }
-    else { responseElement.classList.remove("success") }
+
+    if (response === "success") { 
+        responseElement.classList.remove("failure") 
+    } else { 
+        responseElement.classList.remove("success") 
+    }
 }
