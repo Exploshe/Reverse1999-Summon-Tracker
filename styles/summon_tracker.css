@@ -274,7 +274,7 @@ td, th {
     text-align: right;
 }
 
-.banner-extra-stats-5star-row td {
+.standard-banner-extra-stats-5star-row td {
     border-bottom-style: none;
 }
 
@@ -356,4 +356,14 @@ td, th {
 .beginner-title {
     align-self: center; 
     margin-bottom: 4px;
+}
+
+.border-bottom-style-solid {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: gray;
+}
+
+.border-bottom-style-none {
+    border-bottom-style: none;
 }
