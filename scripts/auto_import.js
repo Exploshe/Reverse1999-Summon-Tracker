@@ -1,6 +1,23 @@
 import { characterIds } from "../data/character_ids.js";
 import { banners } from "../data/banners.js";
 
+function binarySearch(arr, val) {
+	// array is sorted new to old
+	let left = 0;
+	let right = arr.length - 1;
+	while (left <= right) {
+		const middle = Math.floor((left + right) / 2);
+		const time = arr[middle].createTime;
+		if (time === val) {
+			return middle;
+		} else if (time < val) {
+			right = middle - 1;
+		} else {
+			left = middle + 1;
+		}
+	}
+	return arr.length;
+}
 
 function importSummon() {
     try {
@@ -24,7 +41,6 @@ function importSummon() {
     }
 }
 
-
 async function makeRequest(url) {
     try {
         const xhttp = new XMLHttpRequest();
@@ -41,10 +57,10 @@ async function makeRequest(url) {
     }
 }
 
-
 function parseSummonHistory(res) {
 	const summons = res.data.pageData;
-	const summonData = {
+	const temp = localStorage.getItem("summonData");
+	const summonData = temp ? JSON.parse(temp) : {
 		1: { // Beginner banner
 			pity6: 0,
 			pity5: 0,
@@ -67,8 +83,17 @@ function parseSummonHistory(res) {
 			history: [],
 		}
 	};
+
+	// get index of latest pull to only import new pulls
+	let max = "";
+	for (const [key, obj] of Object.entries(summonData)) {
+		const time = obj.history[obj.history.length - 1]?.time
+		max = time > max ? time : max;
+	}
+
+	const index = max ? binarySearch(summons, max) : summons.length;
 	
-	for (let i = summons.length - 1; i >= 0; i--) {
+	for (let i = index - 1; i >= 0; i--) {
 		const summon = summons[i];
 		const { gainIds, poolType, createTime, poolName } = summon;
 		gainIds.forEach(id => {
