@@ -7,27 +7,27 @@ export const banners = {
     "剑与盔的嘶鸣": {
         rateUp6StarId: 3007,
         rateUp5StarIds: [3043, 3020],
-        img: "images/Clang_of_Sword_and_Armor_Banner.webp"
+        img: "images/banners/Clang_of_Sword_and_Armor_Banner.webp"
     },
     "流行即世界": {
         rateUp6StarId: 3062,
         rateUp5StarIds: [3011, 3024],
-        img: "images/Pop_is_Everything_Banner.webp"
+        img: "images/banners/Pop_is_Everything_Banner.webp"
     },
     "星的栖居": {
         rateUp6StarId: 3048,
         rateUp5StarIds: [3010, 3024],
-        img: "images/Where_the_Star_Alighted_Banner.webp"
+        img: "images/banners/Where_the_Star_Alighted_Banner.webp"
     },
     "牧羊犬如是说": {
         rateUp6StarId: 3063,
         rateUp5StarIds: [3064, 3016],
-        img: "images/Thus_Spoke_the_Border_Collie_Banner.webp"
+        img: "images/banners/Thus_Spoke_the_Border_Collie_Banner.webp"
     },
     "深林的絮语": {
         rateUp6StarId: 3003,
         rateUp5StarIds: [3049, 3037],
-        img: "images/Whisper_of_the_Woods_Banner.webp"
+        img: "images/banners/Whisper_of_the_Woods_Banner.webp"
     },
     "弩箭破空而至": {
         rateUp6StarId: 3004,
@@ -37,27 +37,27 @@ export const banners = {
     "仙子振翅入夜": {
         rateUp6StarId: 3053,
         rateUp5StarIds: [3060, 3020],
-        img: "images/The_Fairies_Shining_at_Night_Banner.webp"
+        img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp"
     },
     "自由摇摆": {
         rateUp6StarId: 3025,
         rateUp5StarIds: [3022, 3038],
-        img: "images/Swinging_Freely_Banner.webp"
+        img: "images/banners/Swinging_Freely_Banner.webp"
     },
     "精灵仍在等待": {
         rateUp6StarId: 3056,
         rateUp5StarIds: [3061, 3037],
-        img: "images/The_Changeling_Awaits_Banner.webp"
+        img: "images/banners/The_Changeling_Awaits_Banner.webp"
     },
     "午夜放映会": {
         rateUp6StarId: 3039,
         rateUp5StarIds: [3016, 3011],
-        img: "images/Midnight_Movie_Party_Banner.webp"
+        img: "images/banners/Midnight_Movie_Party_Banner.webp"
     },
     "涌流无止之物": {
         rateUp6StarId: 3051,
         rateUp5StarIds: [3017, 3049],
-        img: "images/The_Ever-Flowing_Banner.webp"
+        img: "images/banners/The_Ever-Flowing_Banner.webp"
     },
     "回到融雪处": {
         rateUp6StarId: 3072,
@@ -97,7 +97,7 @@ export const banners = {
     "一克“好奇心”": {
         rateUp6StarId: 3009,
         rateUp5StarIds: [3010, 3017],
-        img: "images/One_Gram_of_Curiosity_Banner.webp"
+        img: "images/banners/One_Gram_of_Curiosity_Banner.webp"
     },
     "火花雀儿": {
         rateUp6StarId: 3073,
