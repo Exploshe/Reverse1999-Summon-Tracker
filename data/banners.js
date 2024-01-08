@@ -57,7 +57,7 @@ export const banners = {
     "涌流无止之物": {
         rateUp6StarId: 3051,
         rateUp5StarIds: [3017, 3049],
-        img: "The_Ever-Flowing_Banner.webp"
+        img: "images/The_Ever-Flowing_Banner.webp"
     },
     "回到融雪处": {
         rateUp6StarId: 3072,
