@@ -1,4 +1,5 @@
 2023/01/09
+- Fixed aliEn T image
 - Fleshed out characters page
 - Added character count data
 - Added afflatus images
