@@ -1,6 +1,134 @@
 body {
     background-color: rgb(62, 52, 125);
     font-family: Arial, sans-serif;
-    padding-left: 190px;
+    padding-left: 216px;
     margin: 0px;
+}
+
+h1 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    display: flex;
+    flex-direction: column;
+}
+
+.characters {
+    max-width: 1106px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+    row-gap: 16px;
+    column-gap: 16px;
+}
+
+.characters a {
+    position: relative;
+}
+
+.character-img {
+    width: 96px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.character-name {
+    background-color: rgb(89, 79, 157); 
+    color: white; 
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 4px 0px;
+    width: 96px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    font-size: 14px;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.character-afflatus {
+    left: 6px;
+    top: -4px;
+    width: 22px;
+}
+
+.character-portray {
+    right: 5px;
+    top: 5px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    border-radius: 10px;
+    padding: 0px 4px;
+    font-size: 14px;
+}
+
+.stars6 {
+    background-color: rgb(224,154,37);
+}
+
+.stars5 {
+    background-color: rgb(228,199,128);
+}
+
+.stars4 {
+    background-color: rgb(106,73,114);
+}
+
+.stars3 {
+    background-color: rgb(84,92,125);
+}
+
+.stars2 {
+    background-color: rgb(73,100,65);
+}
+
+.sort-filter-bar {
+    column-gap: 4px;
+}
+
+.sort-filter-bar div {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(222, 222, 222);
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.sort-filter-bar div:hover {
+    opacity: 1;
+}
+
+.sort-filter-bar div img {
+    max-height: 28px;
+    max-width: 28px;
+}
+
+.stars {
+    font-size: 38px;
+    line-height: 0px;
+}
+
+.sort-filter-bar .selected {
+    opacity: 1;
+    border-color: white;
 }

@@ -1,3 +1,13 @@
+2023/01/09
+- Fleshed out characters page
+- Added character count data
+- Added afflatus images
+- Reworded export/import backup
+
+2023/01/08
+- Updated character data
+- Added character images
+
 2023/01/07
 - Fixed The Ever-Flowing banner image
 
@@ -13,13 +23,13 @@
 
 2023/12/30
 - Updated banner images
-- Created Invitation From The Water
+- Created Invitation From The Water section
 - Created sidebar
 - Created Settings and Characters pages
 - Fixed directions for iOS
 
 2023-12-29
-- Created beginner banner
+- Created beginner banner section
 - Changed Changeling to Jessica
 
 2023-12-27
