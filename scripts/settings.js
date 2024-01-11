@@ -85,7 +85,7 @@ function importHistoryJSON(file) {
 
 const responseElement = document.querySelector(".import-result");
 function respondSuccessOrFailure(response, message) {
-    responseElement.innerHTML = message;
+    response === "failure" ? responseElement.innerHTML = `<img style="width: 56px; margin-top: 0px;" src="images/MatildaDizzy.webp"> ${message}` : responseElement.innerHTML = message;
     responseElement.classList.add(response);
 
     if (response === "success") { 

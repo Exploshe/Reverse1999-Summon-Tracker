@@ -70,7 +70,6 @@ button:hover {
 
 .modal div button{
     background-color: rgb(62, 52, 125);
-    margin-left: 8px;
 }
 
 .js-changelog-modal {
@@ -113,8 +112,13 @@ button:hover {
     display: none;
 }
 
+.download-button {
+    margin-left: 8px;
+}
+
 .input-json-button {
     height: 38px;
+    margin-left: 0px;
 }
 
 .import-result {
@@ -134,5 +138,7 @@ button:hover {
 
 .failure {
     background-color: rgb(252, 129, 129);
-    display: block;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
 }

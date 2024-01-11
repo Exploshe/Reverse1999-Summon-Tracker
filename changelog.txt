@@ -1,3 +1,7 @@
+2023/01/11
+- Added emote for import failure
+- Added warning message for import backup
+
 2023/01/10
 - Hide beginner and golden thread pulls if empty
 

@@ -108,13 +108,14 @@ input:focus {
 }
 
 .js-import-result {
-    padding: 10px;
+    padding: 16px;
     border-style: none;
     border-radius: 10px;
     width: 206px;
     text-align: center;
     display: none;
     margin-top: 6px;
+    font-weight: bold;
 }
 
 .success {
@@ -125,5 +126,7 @@ input:focus {
 
 .failure {
     background-color: rgb(252, 129, 129);
-    display: block;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
 }

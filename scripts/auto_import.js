@@ -143,7 +143,7 @@ function respondSuccessOrFailure(response) {
 		document.querySelector(".js-import-result").innerHTML = "Success";
 		document.querySelector(".js-import-result").classList.remove("failure");
 	} else {
-		document.querySelector(".js-import-result").innerHTML = "Invalid input";
+		document.querySelector(".js-import-result").innerHTML = '<img style="width: 56px; margin-top: 0px;" src="images/MatildaDizzy.webp"> Invalid input';
 		document.querySelector(".js-import-result").classList.remove("success");
 	}
 	document.querySelector(".js-import-result").classList.add(`${response}`);
