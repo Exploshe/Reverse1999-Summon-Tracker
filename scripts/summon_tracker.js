@@ -279,3 +279,11 @@ function selectBanner(banner) {
 
 const allButton = document.querySelector(".all-button");
 allButton.addEventListener("click", () => selectBanner("all"));
+
+
+if (summonData[1].history.length === 0) {
+	document.querySelector(".beginner-banner").style.display = "none";
+}
+if (summonData[5].history.length === 0) {
+	document.querySelector(".event-banner").style.display = "none";
+}
