@@ -12,6 +12,7 @@ function avg(nums) {
 	return nums.reduce((partialSum, a) => partialSum + a, 0) / nums.length;
 }
 
+// remove later
 if (localStorage.getItem("standardBannerHistory") && !localStorage.getItem("summonData")) {
 	const span = document.createElement("span");
 	span.innerHTML = "please reimport ur summons sorry hehe"
@@ -33,10 +34,6 @@ const bannerTypeMap = {
 }
 if (summonData) {
 	for (let i = 2; i <= 3; i++) {
-		const totalPulls = summonData[i].history.length;
-		document.querySelector(`.js-${bannerTypeMap[i]}-lifetime-pulls`).innerHTML = totalPulls;
-		document.querySelector(`.js-${bannerTypeMap[i]}-clear-drop-count`).innerHTML = numberWithCommas(totalPulls * 180);
-
 		document.querySelector(`.js-${bannerTypeMap[i]}-6star-pity`).innerHTML = summonData[i].pity6;
 		document.querySelector(`.js-${bannerTypeMap[i]}-5star-pity`).innerHTML = summonData[i].pity5;
 	}
@@ -45,6 +42,16 @@ if(summonData[3].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
 }
 
+// remove later
+for (const [bannerType, obj] of Object.entries(summonData)) {
+	for (let i = 0; i < obj.history.length; i++) {
+		const summon = obj.history[i];
+		if (summon.name === "3има") {
+			summon.name = "Зима";
+		}
+	}
+}
+localStorage.setItem("summonData", JSON.stringify(summonData));
 
 function makeTableAndPopulateExtraStats(bannerType, banner) {
 	const table = document.querySelector(`.js-${bannerType}-banner-history`);
@@ -91,8 +98,10 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 			populateStatsRow(bannerExtraStatsTable.rows[+(bannerType === "limited") + 2], fiveStars, bannerHistory.length);
 
 			// Update total pulls when filtering by banner
-			document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
-			document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
+			if (bannerType === "limited") {
+				document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
+				document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
+			}
 		}
 	}
 }

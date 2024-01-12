@@ -15,13 +15,16 @@ filterbuttons.forEach(button => {{
 function updateFilters() {
     const afflatusFilters = getSelectedFilters("afflatus");
     const rarityFilters = getSelectedFilters("rarity");
+    const damageTypeFilters = getSelectedFilters("damageType");
 
     const filteredCharacters = []
     characterList.forEach(characterElement => {
         // characterElement.children[3] -> <div class="class0 class1 _ID"></div>, .classList[2] -> _ID, .slice(1) -> ID
         const id = characterElement.children[3].classList[2].slice(1);
         const character = characterIds[id];
-        if ((!rarityFilters.length || rarityFilters.includes(character.rarity.toString())) && (!afflatusFilters.length || afflatusFilters.includes(character.afflatus))) {
+        if ((!rarityFilters.length || rarityFilters.includes(character.rarity.toString())) && 
+        (!afflatusFilters.length || afflatusFilters.includes(character.afflatus)) && 
+        (!damageTypeFilters.length || damageTypeFilters.includes(character.damageType))) {
             filteredCharacters.push(characterElement);
         }
     });
@@ -55,10 +58,6 @@ if (!localStorage.getItem("characters")) {
     for (const [bannerType, obj] of Object.entries(summonData)) {
         for (let i = 0; i < obj.history.length; i++) {
             const summon = obj.history[i];
-            if (summon.name === "3има") {
-                characters["Зима"].wish += 1
-                continue
-            }
             if (summon.name.startsWith("The Golden Thread")) {
                 continue
             }
@@ -73,6 +72,5 @@ for (const [name, obj] of Object.entries(characters)) {
     const portray = document.querySelector(`._${characterNames[name]}`);
     const count = obj.default + obj.wish + obj.manual;
     portray.innerHTML = count ? `P${count - 1}` : "";
+    portray.style.color = (count - 1) >= 5 ? "rgb(224,154,37)" : "white";
 }
-
-

@@ -1,3 +1,7 @@
+2023/01/12
+- Added filter by damage type
+- Fixed bug
+
 2023/01/11
 - Fixed link input
 IM SORRY I BROKE THIS LAST WEEK AND DIDNT KNOW :(
