@@ -25,16 +25,13 @@ function importSummon() {
         const input = document.querySelector(".link").value;
         if (input.startsWith("https://game-re-en-service.sl916.com/query/summon?userId=")) {
             const url = 'https://corsproxy.io/?' + encodeURIComponent(input);
-            res = makeRequest(url);
+            makeRequest(url);
         } else if (input.startsWith('{')) {
             res = JSON.parse(input);
-        }
-
-        if (res?.code === 200){
-            parseSummonHistory(res);
+			verifyJSON(res);
         } else {
-            respondSuccessOrFailure("failure");
-        }
+			respondSuccessOrFailure("failure");
+		}
     } catch (error) {
         respondSuccessOrFailure("failure");
         console.error("Error:", error.message);
@@ -48,13 +45,22 @@ async function makeRequest(url) {
         xhttp.send();
         xhttp.onreadystatechange = () => {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
-                return JSON.parse(xhttp.responseText);
+                const res = JSON.parse(xhttp.responseText);
+                verifyJSON(res);
             }
         }
     } catch (error) {
         respondSuccessOrFailure("failure");
         console.error('Error making the request:', error.message);
     }
+}
+
+function verifyJSON(json) {
+	if (json.code === 200) {
+		parseSummonHistory(json);
+	} else {
+		respondSuccessOrFailure("failure");
+	}
 }
 
 function parseSummonHistory(res) {

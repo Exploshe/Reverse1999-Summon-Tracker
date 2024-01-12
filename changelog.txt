@@ -1,4 +1,6 @@
 2023/01/11
+- Fixed link input
+IM SORRY I BROKE THIS LAST WEEK AND DIDNT KNOW :(
 - Added emote for import failure
 - Added warning message for import backup
 
