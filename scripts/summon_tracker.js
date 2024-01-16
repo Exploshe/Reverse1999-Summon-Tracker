@@ -37,12 +37,12 @@ if (summonData) {
 		const totalPulls = summonData[i].history.length;
 		document.querySelector(`.js-${bannerTypeMap[i]}-lifetime-pulls`).innerHTML = totalPulls;
 		document.querySelector(`.js-${bannerTypeMap[i]}-clear-drop-count`).innerHTML = numberWithCommas(totalPulls * 180);
-		
+
 		document.querySelector(`.js-${bannerTypeMap[i]}-6star-pity`).innerHTML = summonData[i].pity6;
 		document.querySelector(`.js-${bannerTypeMap[i]}-5star-pity`).innerHTML = summonData[i].pity5;
 	}
 };
-if(summonData[3].isGuaranteed) {
+if(summonData[bannerTypeMap.limited].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
 }
 
@@ -63,49 +63,47 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 		table.deleteRow(i);
 	}
 
-	if (localStorage.getItem(`${bannerType}BannerHistory`)) {
-		const bannerHistory = summonData[bannerTypeMap[bannerType]].history;
-		// These are for the banner's extra stats section
-		let sixStars = [];
-		let fiveStars = [];
-		let totalPulls = 0;
+	const bannerHistory = summonData[bannerTypeMap[bannerType]].history;
+	// These are for the banner's extra stats section
+	let sixStars = [];
+	let fiveStars = [];
+	let totalPulls = 0;
 
-		// Populate banner history table and make 4-*s invisible by default
-		for (let i = bannerHistory.length - 1; i >= 0; i--) {
-			const summon = bannerHistory[i];
-			if (banner === "all" || summon.banner === banner) {
-				totalPulls++;
+	// Populate banner history table and make 4-*s invisible by default
+	for (let i = bannerHistory.length - 1; i >= 0; i--) {
+		const summon = bannerHistory[i];
+		if (banner === "all" || summon.banner === banner) {
+			totalPulls++;
 
-				let row = table.insertRow(-1);
-				row.insertCell(0).appendChild(document.createTextNode(summon.name));
-				row.cells[0].setAttribute("class", `banner-history-name-${characterIds[summon.id].rarity}star`);
-				row.insertCell(1).appendChild(document.createTextNode(summon.time));
-				row.cells[1].setAttribute("class", `banner-history-time`);
-				row.insertCell(2).appendChild(document.createTextNode(summon.pity ? summon.pity : ""));
-				if (characterIds[summon.id].rarity <= 4) {
-					row.style.display = "none";
-				}
-
-				if (characterIds[summon.id].rarity === 6) {
-					sixStars.push(summon.pity);
-				} else if (characterIds[summon.id].rarity === 5) {
-					fiveStars.push(summon.pity);
-				}
+			let row = table.insertRow(-1);
+			row.insertCell(0).appendChild(document.createTextNode(summon.name));
+			row.cells[0].setAttribute("class", `banner-history-name-${characterIds[summon.id].rarity}star`);
+			row.insertCell(1).appendChild(document.createTextNode(summon.time));
+			row.cells[1].setAttribute("class", `banner-history-time`);
+			row.insertCell(2).appendChild(document.createTextNode(summon.pity ? summon.pity : ""));
+			if (characterIds[summon.id].rarity <= 4) {
+				row.style.display = "none";
 			}
-		};
 
-		// Populate banner's extra stats section
-		if (bannerType === "limited" || bannerType === "standard") {
-			const bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[+(bannerType === "standard")];
-
-			populateStatsRow(bannerExtraStatsTable.rows[1], sixStars, bannerHistory.length);
-			populateStatsRow(bannerExtraStatsTable.rows[+(bannerType === "limited") + 2], fiveStars, bannerHistory.length);
-
-			// Update total pulls when filtering by banner
-			if (bannerType === "limited") {
-				document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
-				document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
+			if (characterIds[summon.id].rarity === 6) {
+				sixStars.push(summon.pity);
+			} else if (characterIds[summon.id].rarity === 5) {
+				fiveStars.push(summon.pity);
 			}
+		}
+	};
+
+	// Populate banner's extra stats section
+	if (bannerType === "limited" || bannerType === "standard") {
+		const bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[+(bannerType === "standard")];
+
+		populateStatsRow(bannerExtraStatsTable.rows[1], sixStars, bannerHistory.length);
+		populateStatsRow(bannerExtraStatsTable.rows[+(bannerType === "limited") + 2], fiveStars, bannerHistory.length);
+
+		// Update total pulls when filtering by banner
+		if (bannerType === "limited") {
+			document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
+			document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
 		}
 	}
 }
@@ -293,10 +291,10 @@ function selectBanner(banner) {
 const allButton = document.querySelector(".all-button");
 allButton.addEventListener("click", () => selectBanner("all"));
 
-
-if (summonData[1].history.length === 0) {
+// Hide beginner and event banner if no pulls
+if (summonData[bannerTypeMap.beginner].history.length === 0) {
 	document.querySelector(".beginner-banner").style.display = "none";
 }
-if (summonData[5].history.length === 0) {
+if (summonData[bannerTypeMap.event].history.length === 0) {
 	document.querySelector(".event-banner").style.display = "none";
 }
