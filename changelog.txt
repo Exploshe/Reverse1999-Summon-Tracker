@@ -1,4 +1,5 @@
 2023/01/15
+- Bug fixes
 - Added Centurion banner
 
 2023/01/12

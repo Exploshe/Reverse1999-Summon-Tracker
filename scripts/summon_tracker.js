@@ -34,6 +34,10 @@ const bannerTypeMap = {
 }
 if (summonData) {
 	for (let i = 2; i <= 3; i++) {
+		const totalPulls = summonData[i].history.length;
+		document.querySelector(`.js-${bannerTypeMap[i]}-lifetime-pulls`).innerHTML = totalPulls;
+		document.querySelector(`.js-${bannerTypeMap[i]}-clear-drop-count`).innerHTML = numberWithCommas(totalPulls * 180);
+		
 		document.querySelector(`.js-${bannerTypeMap[i]}-6star-pity`).innerHTML = summonData[i].pity6;
 		document.querySelector(`.js-${bannerTypeMap[i]}-5star-pity`).innerHTML = summonData[i].pity5;
 	}
