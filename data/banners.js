@@ -66,8 +66,8 @@ export const banners = {
     },
     "众光之光": {
         rateUp6StarId: 3032,
-        rateUp5StarIds: [],
-        img: ""
+        rateUp5StarIds: [3010, 3022],
+        img: "images/banners/Focus_of_the_Lights_Banner.webp"
     },
     "晚星所纺织的": {
         rateUp6StarId: 3070,

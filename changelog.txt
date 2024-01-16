@@ -1,3 +1,6 @@
+2023/01/15
+- Added Centurion banner
+
 2023/01/12
 - Added filter by damage type
 - Fixed bug

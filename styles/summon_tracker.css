@@ -301,7 +301,7 @@ td, th {
 .banner-selection {
     height: min-content;
     background-color: rgb(89, 79, 157);
-    max-width: 432px;
+    max-width: 436px;
     border-radius: 10px;
     display: flex;
     padding: 8px;
