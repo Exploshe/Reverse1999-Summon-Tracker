@@ -52,6 +52,8 @@ for (const [bannerType, obj] of Object.entries(summonData)) {
 		const summon = obj.history[i];
 		if (summon.name === "3има") {
 			summon.name = "Зима";
+		} else if (summon.name === "Black Dwarf") {
+			summon.name = "Kaalaa Baunaa";
 		}
 	}
 }

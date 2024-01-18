@@ -71,8 +71,8 @@ export const banners = {
     },
     "晚星所纺织的": {
         rateUp6StarId: 3070,
-        rateUp5StarIds: [],
-        img: ""
+        rateUp5StarIds: [3071, 3043],
+        img: "images/banners/v1a3_galapona_1.png"
     },
     "金标破坏王": {
         rateUp6StarId: 3047,
