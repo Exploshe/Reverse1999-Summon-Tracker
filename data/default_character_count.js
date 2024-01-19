@@ -214,6 +214,12 @@ export const default_character_count = {
         wish: 0,
         manual: 0
     },
+    "Kanjira": {
+        default: 0,
+        wish: 0,
+        manual: 0
+    }, 
+    // 5*s end
     "Druvis III": {
         default: 0,
         wish: 0,
@@ -289,4 +295,9 @@ export const default_character_count = {
         wish: 0,
         manual: 0
     },
+    "Kaalaa Baunaa": {
+        default: 0,
+        wish: 0,
+        manual: 0
+    }
 }
