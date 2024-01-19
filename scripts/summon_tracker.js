@@ -204,8 +204,7 @@ function addToListOf6Stars(bannerType, name, pity, won5050) {
 	};
 	const colorsKey = Math.floor((pity + 9) / 10).toString();
 	document.querySelector(`.${bannerType}-6star-list`).innerHTML += `
-	<span class="six-star-list-elements ${won5050 === 1 ? "won-5050" : ""}">
-		${name} 
+	<span class="six-star-list-elements ${won5050 === 1 ? "won-5050" : ""}">${name} 
 		<span style="color: ${pity < 70 ? colors[colorsKey] : "red"}">
 			${pity}
 		</span>

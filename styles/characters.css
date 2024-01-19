@@ -50,7 +50,7 @@ a {
     width: 96px;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-wrap: nowrap;
+    white-space: nowrap;
     font-size: 14px;
 }
 

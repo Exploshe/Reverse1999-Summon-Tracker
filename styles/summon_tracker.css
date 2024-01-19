@@ -21,10 +21,8 @@ p {
     padding-right: 16px;
     padding-bottom: 16px;
     padding-top: 16px;
-    width: 400px;
-    margin-right: 16px;
-    margin-bottom: 16px;
     height: min-content;
+    flex-basis: 100%;
 }
 
 .banner-stats {
@@ -55,12 +53,24 @@ p {
     font-weight: bold;
 }
 
-.grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.banner-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     max-width: 896px;
+    gap: 16px;
+    height: min-content;
 }
+
+/* @media screen and (max-width: 800px) and (min-width: 400px) {
+    .banner-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding-left: 0px;
+        padding-top: 90px;
+    }
+} */
 
 .orange-pity, .yellow-pity {
     display: flex;
@@ -289,7 +299,7 @@ td, th {
     border-radius: 50px;
     margin-right: 4px;
     line-height: 28px;
-    text-wrap: nowrap;
+    white-space: nowrap;
     color: rgb(203, 213, 224);
     border-color: rgb(160, 174, 192);
 }
@@ -306,7 +316,6 @@ td, th {
     display: flex;
     padding: 8px;
     flex-wrap: wrap;
-    margin-bottom: 16px;
 }
 
 .banner-selection div {
@@ -347,6 +356,11 @@ td, th {
 .flex-column {
     display: flex;
     flex-direction: column;
+}
+
+.side-wrapper {
+    margin-left: 16px;
+    gap: 16px;
 }
 
 .flex-column .banner-history {
