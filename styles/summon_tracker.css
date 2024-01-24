@@ -380,3 +380,36 @@ td, th {
 .border-bottom-style-none {
     border-bottom-style: none;
 }
+
+.global-stats {
+    color: white;
+}
+
+.global-stats-header {
+    align-self: center;
+    padding-bottom: 16px;
+    font-size: 18px;
+}
+
+.global-stats-description {
+    color: rgb(113, 128, 150);
+    font-size: 14px;
+    line-height: 80%;
+}
+
+.top-bottom {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 80%;
+    align-self: center;
+}
+
+.percentage {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 80%;
+}
+
+.global-stats-banner-type-buttons {
+    align-self: center;
+}
