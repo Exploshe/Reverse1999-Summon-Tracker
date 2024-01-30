@@ -79,7 +79,35 @@ export const banners = {
         img: "images/banners/Focus_of_the_Lights_Banner.webp",
         start: "2024-01-16 05:00:00",
         end: "2024-01-30 04:59:59"
-    }, 
+    },
+    "金标破坏王": {
+        rateUp6StarId: 3047,
+        rateUp5StarIds: [3020, 3016],
+        img: "images/banners/Level_Seven_Biter_Banner.webp",
+        start: "2024-01-30 00:00:00",
+        end: "2024-02-13 04:59:59"
+    },
+    "弩箭破空而至": {
+        rateUp6StarId: 3004,  // Lilya
+        rateUp5StarIds: [],
+        img: "",
+        start: "",
+        end: ""
+    },
+    "望族与隐士": {
+        rateUp6StarId: 3009,  // Sotheby
+        rateUp5StarIds: [],
+        img: "",
+        start: "",
+        end: ""
+    },
+    "大讲演时代": {
+        rateUp6StarId: 3052,  // Ms. Newbabel
+        rateUp5StarIds: [],
+        img: "",
+        start: "",
+        end: ""
+    },
     // new arcanist banners
     "流行即世界": {
         rateUp6StarId: 3062,
@@ -118,48 +146,20 @@ export const banners = {
     },
     "回到融雪处": {
         rateUp6StarId: 3072,
-        rateUp5StarIds: [],
-        img: "",
-        start: "",
-        end: ""
-    },
-    "弩箭破空而至": {
-        rateUp6StarId: 3004,
-        rateUp5StarIds: [],
-        img: "",
-        start: "",
-        end: ""
-    },
-    "望族与隐士": {
-        rateUp6StarId: 3009,
-        rateUp5StarIds: [],
-        img: "",
-        start: "",
-        end: ""
-    },
-    "金标破坏王": {
-        rateUp6StarId: 3047,
-        rateUp5StarIds: [],
-        img: "",
-        start: "",
-        end: ""
-    },
-    "大讲演时代": {
-        rateUp6StarId: 3052,
-        rateUp5StarIds: [],
-        img: "",
-        start: "",
-        end: ""
+        rateUp5StarIds: [3024, 3038],
+        img: "images/banners/Another_Spring_Thaw_Banner.webp",
+        start: "2024-02-08 00:00:00",
+        end: "2024-02-29 04:59:59"
     },
     "现象未漫及处": {
-        rateUp6StarId: 3066,
+        rateUp6StarId: 3066,  // 37
         rateUp5StarIds: [],
         img: "",
         start: "",
         end: ""
     },
     "真理的壁影": {
-        rateUp6StarId: 3079,
+        rateUp6StarId: 3079,  // 6
         rateUp5StarIds: [],
         img: "",
         start: "",

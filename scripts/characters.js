@@ -54,7 +54,7 @@ const summonData = JSON.parse(localStorage.getItem("summonData"));
 // const characters = localStorage.getItem("characters") ? JSON.parse(localStorage.getItem("characters")) : default_character_count;
 const characters = default_character_count;
 
-if (!localStorage.getItem("characters")) {
+//if (!localStorage.getItem("characters")) {
     for (const [bannerType, obj] of Object.entries(summonData)) {
         for (let i = 0; i < obj.history.length; i++) {
             const summon = obj.history[i];
@@ -66,7 +66,7 @@ if (!localStorage.getItem("characters")) {
     }
 
     // localStorage.setItem("characters", JSON.stringify(characters));
-}
+//}
 
 for (const [name, obj] of Object.entries(characters)) {
     const portray = document.querySelector(`._${characterNames[name]}`);

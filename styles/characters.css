@@ -6,6 +6,7 @@ body {
 }
 
 h1 {
+    margin-top: 0px;
     font-size: 48px;
     color: white;
     margin-bottom: 4px;
@@ -26,8 +27,7 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 16px;
-    row-gap: 16px;
-    column-gap: 16px;
+    gap: 16px;
 }
 
 .characters a {
@@ -131,4 +131,27 @@ a {
 .sort-filter-bar .selected {
     opacity: 1;
     border-color: white;
+}
+
+.header-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 32px;
+    column-gap: 16px;
+}
+
+.edit-button {
+    padding: 8px;
+    background-color: rgb(53, 44, 112);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: gray;
+    color: white;
+}
+
+.edit-button:hover {
+    cursor: pointer;
+    border-color: rgb(78, 124, 255);
 }
