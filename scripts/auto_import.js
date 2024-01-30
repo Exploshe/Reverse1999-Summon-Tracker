@@ -23,6 +23,7 @@ function importSummon() {
     try {
         let res;
         const input = document.querySelector(".link").value;
+		// update to accept jp links
         if (input.startsWith("https://game-re-en-service.sl916.com/query/summon?userId=")) {
             const url = 'https://corsproxy.io/?' + encodeURIComponent(input);
             makeRequest(url);
@@ -98,7 +99,7 @@ function parseSummonHistory(res) {
 	}
 
 	const index = max ? binarySearch(summons, max) : summons.length;
-	
+	console.log("importing");
 	for (let i = index - 1; i >= 0; i--) {
 		const summon = summons[i];
 		const { gainIds, poolType, createTime, poolName } = summon;
@@ -135,9 +136,11 @@ function parseSummonHistory(res) {
 				}
 			}
 			
+			// REFACTOR THIS TO PUSH TO NEW_PULLS_ONLY ARRAY
 			summonData[poolType].history.push(obj);
 		});
 	}
+	// postDataToServer({uuid: 3, summonData: summonData});
 	
 	localStorage.setItem("summonData", JSON.stringify(summonData));
 	respondSuccessOrFailure("success");
@@ -179,3 +182,18 @@ function selectIOS() {
 document.querySelector(".pc-button").addEventListener("click", () => selectPC());
 document.querySelector(".ios-button").addEventListener("click", () => selectIOS());
 selectPC();
+
+function postDataToServer(obj) {
+	fetch("http://localhost:3000/post", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(obj)
+		})
+		.then(response => response.text())
+		.then(data => {
+			console.log(`response ${data}`)
+		});
+}

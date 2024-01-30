@@ -299,3 +299,51 @@ if (summonData[bannerTypeMap.beginner].history.length === 0) {
 if (summonData[bannerTypeMap.event].history.length === 0) {
 	document.querySelector(".event-banner").style.display = "none";
 }
+
+// populate global stats
+const globalStats = document.querySelector(".global-stats");
+fetch(`http://localhost:3000/global-stats?bannerType=${3}`)
+		.then(response => response.text())
+		.then(data => {
+			data = JSON.parse(data);
+
+			helper(data, "total_spins", "", 1);
+			helper(data, "6*_50/50_wr", ".six-star-5050wr", 2);
+			helper(data, "5*_50/50_wr", ".five-star-5050wr", 3);
+			helper(data, "6*_luck", ".six-star-luck", 4);
+			helper(data, "5*_luck", ".five-star-luck", 5);
+		});
+
+function helper(data, dataKey, className, elementIndex) {
+	const sortedData = data.map((x) => x[dataKey]).sort((a, b) => a - b);
+	const index = rightBinarySearch(sortedData, elementIndex > 1 ? document.querySelector(className).innerHTML.slice(0, -1) : summonData[3].history.length);
+	const percentile = roundTo2Places(100 * (index + 1) / data.length);
+	if (percentile < 50) {
+		globalStats.children[elementIndex].children[1].children[0].innerHTML = "BOTTOM";
+		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Unluckier than ${100 -percentile}% of other users`;
+		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${percentile}%`;	
+	} else {
+		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Luckier than ${percentile}% of other users`;
+		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${100 - percentile}%`;	
+	}
+			
+}
+
+function rightBinarySearch(arr, val) {
+	let left = 0;
+	let right = arr.length - 1;
+	while (left <= right) {
+		const middle = Math.floor((left + right) / 2);
+		if (arr[middle] === val) {
+			if (middle === arr.length - 1 || arr[middle + 1] > val) {
+				return middle
+			}
+			left = middle + 1;
+		} else if (arr[middle] < val) {
+			left = middle + 1;
+		} else {
+			right = middle - 1;
+		}
+	}
+	return left;
+}

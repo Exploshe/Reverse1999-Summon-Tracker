@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+        <title>Global Stats</title>
+        <link rel="stylesheet" href="styles/global_stats.css">
+        <link rel="stylesheet" href="styles/sidebar.css">
+    </header>
+    <body>
+        <div class="sidebar">
+            <div class="flex-column">
+                <a class="sidebar-link" href="characters.html">Characters</a>
+                <a class="sidebar-link" href="/">Summon Tracker</a>
+                <a class="sidebar-link" href="global_stats.html" style="background-color: rgb(69, 69, 255); color: white;">Global Stats</a>
+                <a class="sidebar-link" href="settings.html">Settings</a>
+            </div>
+        </div>
+
+        <main class="flex-column">
+            <div class="header-wrapper">
+                <h1>Global Stats</h1>
+            </div>
+            <div style="display: none">
+                <button>Character Event</button>
+                <button>Standard</button>
+                <button>Beginner</button>
+                <button>Limited time</button>
+            </div>
+            <div class="flex banners-wrapper">
+                <div class="晚星所纺织的 banner-button">
+                    <img src="images/banners/v1a3_galapona_1.png">
+                </div>
+                <div class="众光之光 banner-button">
+                    <img src="images/banners/Focus_of_the_Lights_Banner.webp">
+                </div>
+                <div class="午夜放映会 banner-button">
+                    <img src="images/banners/Midnight_Movie_Party_Banner.webp">
+                </div>
+                <div class="精灵仍在等待 banner-button">
+                    <img src="images/banners/The_Changeling_Awaits_Banner.webp">
+                </div>
+                <div class="涌流无止之物 banner-button">
+                    <img src="images/banners/The_Ever-Flowing_Banner.webp">
+                </div>
+                <div class="仙子振翅入夜 banner-button">
+                    <img src="images/banners/The_Fairies_Shining_at_Night_Banner.webp">
+                </div>
+                <div class="星的栖居 banner-button">
+                    <img src="images/banners/Where_the_Star_Alighted_Banner.webp">
+                </div>
+                <div class="牧羊犬如是说 banner-button">
+                    <img src="images/banners/Thus_Spoke_the_Border_Collie_Banner.webp">
+                </div>
+                <div class="自由摇摆 banner-button">
+                    <img src="images/banners/Swinging_Freely_Banner.webp">
+                </div>
+                <div class="流行即世界 banner-button">
+                    <img src="images/banners/Pop_is_Everything_Banner.webp">
+                </div>
+                <div class="深林的絮语 banner-button">
+                    <img src="images/banners/Whisper_of_the_Woods_Banner.webp">
+                </div>
+                <div class="一克“好奇心” banner-button">
+                    <img src="images/banners/One_Gram_of_Curiosity_Banner.webp">
+                </div>
+                <div class="剑与盔的嘶鸣 banner-button">
+                    <img src="images/banners/Clang_of_Sword_and_Armor_Banner.webp">
+                </div>
+            </div>
+            <div class="flex banner-stats-wrapper">
+                <div class="flex-column banner-stats">
+                    <div class="flex banner-stats-row">
+                        <span style="flex: 1">Total Users</span>
+                        <span id="total_users">0</span>
+                    </div>
+                    <div class="flex banner-stats-row">
+                        <span style="flex: 1">Total Spins</span>
+                        <span id="total_spins">0</span>
+                        <img class="clear-drop-img" src="images/Unilog.webp">
+                    </div>
+                    <div class="flex banner-stats-row">
+                        <span style="flex: 1">Clear Drops Spent</span>
+                        <span id="clear_drops_spent">0</span>
+                        <img class="clear-drop-img" src="images/Clear_Drop.webp">
+                    </div>
+                    <div class="flex banner-stats-row">
+                        <span style="flex: 1">6&#9733; Spins</span>
+                        <span id="6*_spins">0</span>
+                    </div>
+                    <div class="flex banner-stats-row">
+                        <span style="flex: 1">5&#9733; Spins</span>
+                        <span id="5*_spins">0</span>
+                    </div>
+                </div>
+                <div class="flex banner-stats align-items-center">
+                    <img class="rate-up-char-img">
+                    <div class="total-rate-ups-summoned" id="total_rate_up_spins">0</div>
+                    <div class="flex-column" style="row-gap: 4px;">
+                        <div><span id="char-name"></span> Summoned</div>
+                        <div><span id="6*_50/50_wr">0</span>% won 50/50</div>
+                    </div>
+                </div>
+            </div>
+            <div class="loading" style="color: white"></div>
+            <div class="spins-by-day-graph graph"></div>
+            <div class="sixstar-spins-by-pity-graph graph"></div>
+            <div class="fivestar-spins-by-pity-graph graph"></div>
+        </main>
+
+        <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+        <script type="module" src="scripts/global_stats.js"></script>
+    </body>
+</html>

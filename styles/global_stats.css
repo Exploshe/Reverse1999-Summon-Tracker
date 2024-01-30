@@ -1,0 +1,91 @@
+body {
+    background-color: rgb(62, 52, 125);
+    font-family: Arial, sans-serif;
+    padding-left: 216px;
+    margin: 0px;
+    padding-bottom: 16px;
+}
+
+h1 {
+    margin-top: 26px;
+    font-size: 48px;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.flex {
+    display: flex;
+}
+
+.banners-wrapper {
+    flex-wrap: wrap;
+    gap: 4px;
+    max-width: 1137px;
+    justify-content: center;
+}
+
+.banners-wrapper img {
+    width: 90px;
+}
+
+.banner-button {
+    cursor: pointer;
+}
+
+.selected {
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+}
+
+.banner-stats {
+    border-radius: 10px;
+    background-color: rgb(89, 79, 157);
+    padding: 16px;
+    min-width: 300px;
+    row-gap: 4px;
+    column-gap: 8px;
+    color: white;
+    height: min-content;
+}
+
+.banner-stats-row {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+main {
+    row-gap: 16px;
+}
+
+.graph {
+    max-width: 1140px;
+    max-height: 260px;
+}
+
+.main-svg {
+    border-radius: 10px;
+}
+
+.banner-stats-wrapper {
+    column-gap: 16px;
+}
+
+.rate-up-char-img {
+    height: 60px;
+}
+
+.total-rate-ups-summoned {
+    line-height: 80%;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.clear-drop-img {
+    height: 21px;
+}
+
+.align-items-center {
+    align-items: center;
+}
