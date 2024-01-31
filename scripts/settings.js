@@ -74,7 +74,12 @@ function importHistoryJSON(file) {
         const data = JSON.parse(reader.result);
         if (requiredKeys.every(key => key in data)) {
             localStorage.setItem("summonData", JSON.stringify(data));
-            // postDataToServer({uuid: 1, summonData: data});
+
+            if (!localStorage.getItem("uuid")) {
+                localStorage.setItem("uuid", crypto.randomUUID());
+            }
+            postDataToServer({uuid: localStorage.getItem("uuid"), summonData: data});
+            
             respondSuccessOrFailure("success", "Success");
         } else {
             respondSuccessOrFailure("failure", "Invalid JSON");
@@ -85,7 +90,7 @@ function importHistoryJSON(file) {
 }
 
 function postDataToServer(obj) {
-	fetch("http://localhost:3000/post", {
+	fetch("https://3.146.105.207/post", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",

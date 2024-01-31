@@ -31,7 +31,7 @@ function renderStats(bannerName) {
     // fetch stats for banner from server
     console.log(`fetching ${bannerName}`);
     document.querySelector(".loading").innerHTML = "Loading";
-    fetch(`http://localhost:3000/global-stats/banner?bannerName=${bannerName}`)
+    fetch(`https://3.146.105.207/global-stats/banner?bannerName=${bannerName}`)
 		.then(response => response.text())
 		.then(data => {
             data = JSON.parse(data);

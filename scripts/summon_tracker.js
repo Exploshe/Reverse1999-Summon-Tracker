@@ -302,19 +302,20 @@ if (summonData[bannerTypeMap.event].history.length === 0) {
 
 // populate global stats
 const globalStats = document.querySelector(".global-stats");
-fetch(`http://localhost:3000/global-stats?bannerType=${3}`)
+fetch(`https://3.146.105.207/global-stats?bannerType=${3}`)
 		.then(response => response.text())
 		.then(data => {
+			console.log(data);
 			data = JSON.parse(data);
 
-			helper(data, "total_spins", "", 1);
-			helper(data, "6*_50/50_wr", ".six-star-5050wr", 2);
-			helper(data, "5*_50/50_wr", ".five-star-5050wr", 3);
-			helper(data, "6*_luck", ".six-star-luck", 4);
-			helper(data, "5*_luck", ".five-star-luck", 5);
+			populateUserGlobalStats(data, "total_spins", "", 1);
+			populateUserGlobalStats(data, "6*_50/50_wr", ".six-star-5050wr", 2);
+			populateUserGlobalStats(data, "5*_50/50_wr", ".five-star-5050wr", 3);
+			populateUserGlobalStats(data, "6*_luck", ".six-star-luck", 4);
+			populateUserGlobalStats(data, "5*_luck", ".five-star-luck", 5);
 		});
 
-function helper(data, dataKey, className, elementIndex) {
+function populateUserGlobalStats(data, dataKey, className, elementIndex) {
 	const sortedData = data.map((x) => x[dataKey]).sort((a, b) => a - b);
 	const index = rightBinarySearch(sortedData, elementIndex > 1 ? document.querySelector(className).innerHTML.slice(0, -1) : summonData[3].history.length);
 	const percentile = roundTo2Places(100 * (index + 1) / data.length);

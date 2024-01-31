@@ -98,6 +98,7 @@ function parseSummonHistory(res) {
 		max = time > max ? time : max;
 	}
 
+	const newSummons = [];
 	const index = max ? binarySearch(summons, max) : summons.length;
 	console.log("importing");
 	for (let i = index - 1; i >= 0; i--) {
@@ -136,11 +137,15 @@ function parseSummonHistory(res) {
 				}
 			}
 			
-			// REFACTOR THIS TO PUSH TO NEW_PULLS_ONLY ARRAY
 			summonData[poolType].history.push(obj);
+			newSummons.push(obj);
 		});
 	}
-	// postDataToServer({uuid: 3, summonData: summonData});
+
+	if (!localStorage.getItem("uuid")) {
+		localStorage.setItem("uuid", crypto.randomUUID());
+	}
+	postDataToServer({uuid: localStorage.getItem("uuid"), summons: newSummons});
 	
 	localStorage.setItem("summonData", JSON.stringify(summonData));
 	respondSuccessOrFailure("success");
@@ -184,7 +189,7 @@ document.querySelector(".ios-button").addEventListener("click", () => selectIOS(
 selectPC();
 
 function postDataToServer(obj) {
-	fetch("http://localhost:3000/post", {
+	fetch("https://3.146.105.207/post", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
