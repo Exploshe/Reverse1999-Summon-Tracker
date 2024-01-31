@@ -84,7 +84,7 @@ export const banners = {
         rateUp6StarId: 3047,
         rateUp5StarIds: [3020, 3016],
         img: "images/banners/Level_Seven_Biter_Banner.webp",
-        start: "2024-01-30 00:00:00",
+        start: "2024-01-30 05:00:00",
         end: "2024-02-13 04:59:59"
     },
     "弩箭破空而至": {
@@ -148,7 +148,7 @@ export const banners = {
         rateUp6StarId: 3072,
         rateUp5StarIds: [3024, 3038],
         img: "images/banners/Another_Spring_Thaw_Banner.webp",
-        start: "2024-02-08 00:00:00",
+        start: "2024-02-08 05:00:00",
         end: "2024-02-29 04:59:59"
     },
     "现象未漫及处": {
