@@ -1,47 +1,51 @@
-2023/01/19
+2024/01/29
+- Added Shamane banner
+- Added Medicine Pocket banner
+
+2024/01/19
 - Improved UI
 
-2023/01/18
+2024/01/18
 - Added Kaalaa Baunaa banner
 - Changed Black Dwarf to Kaalaa Baunaa
 
-2023/01/15
+2024/01/15
 - Fixed beginner and Invitation from the Water
   pulls not showing
 - Bug fixes
 - Added Centurion banner
 
-2023/01/12
+2024/01/12
 - Added filter by damage type
 - Fixed bug
 
-2023/01/11
+2024/01/11
 - Fixed link input
 IM SORRY I BROKE THIS LAST WEEK AND DIDNT KNOW :(
 - Added emote for import failure
 - Added warning message for import backup
 
-2023/01/10
+2024/01/10
 - Hide beginner and golden thread pulls if empty
 
-2023/01/09
+2024/01/09
 - Fixed aliEn T image
 - Fleshed out characters page
 - Added character count data
 - Added afflatus images
 - Reworded export/import backup
 
-2023/01/08
+2024/01/08
 - Updated character data
 - Added character images
 
-2023/01/07
+2024/01/07
 - Fixed The Ever-Flowing banner image
 
-2023/01/03
+2024/01/03
 - Added export/import data
 
-2023/01/02
+2024/01/02
 - Changed summon history data structure
 - Added 50/50 win rate for 5*s
 
