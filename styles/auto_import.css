@@ -147,3 +147,11 @@ input:focus {
     margin-top: 8px;
     margin-bottom: 32px;
 }
+
+.server-down {
+    background-color: lightpink;
+    max-width: 675px;
+    color: black;
+    padding: 8px;
+    display: none;
+}

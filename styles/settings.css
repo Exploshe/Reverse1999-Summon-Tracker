@@ -153,3 +153,11 @@ button:hover {
     width: 20px;
     height: 20px;
 }
+
+.server-down {
+    background-color: lightpink;
+    max-width: 675px;
+    color: black;
+    padding: 8px;
+    display: none;
+}

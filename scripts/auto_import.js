@@ -205,3 +205,10 @@ function postDataToServer(obj) {
 			console.log(`response ${data}`)
 		});
 }
+
+// check if server is up
+fetch("https://3.146.105.207/post", { method: "POST" })
+	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
+	.catch((error) => {
+		document.querySelector(".server-down").style.display = "block";
+	});

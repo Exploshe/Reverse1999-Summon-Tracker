@@ -316,11 +316,10 @@ fetch(`https://3.146.105.207/global-stats?bannerType=${3}`)
 
 function populateUserGlobalStats(data, dataKey, className, elementIndex) {
 	const sortedData = data.map((x) => x[dataKey]).sort((a, b) => a - b);
-	let index = rightBinarySearch(sortedData, elementIndex > 1 ? document.querySelector(className).innerHTML.slice(0, -1) : summonData[3].history.length);
-	if (index >= data.length) {
-		index = data.length - 1;
-	}
-	const percentile = index <= 0 ? 0 : roundTo2Places(100 * (index + 1) / data.length);
+	const index = rightBinarySearch(sortedData, elementIndex > 1 ? document.querySelector(className).innerHTML.slice(0, -1) : summonData[3].history.length);
+	let percentile = index <= 0 ? 0 : roundTo2Places(100 * (index + 1) / data.length);
+	percentile = Math.min(percentile, 100);
+
 	if (percentile < 50) {
 		globalStats.children[elementIndex].children[1].children[0].innerHTML = "BOTTOM";
 		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Unluckier than ${100 - percentile}% of other users`;
