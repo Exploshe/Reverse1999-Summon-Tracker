@@ -75,10 +75,13 @@ function importHistoryJSON(file) {
         if (requiredKeys.every(key => key in data)) {
             localStorage.setItem("summonData", JSON.stringify(data));
 
-            if (!localStorage.getItem("uuid")) {
-                localStorage.setItem("uuid", crypto.randomUUID());
+            const checkbox = document.querySelector(".checkbox");
+            if (checkbox.checked) {
+                if (!localStorage.getItem("uuid")) {
+                    localStorage.setItem("uuid", crypto.randomUUID());
+                }
+                postDataToServer({uuid: localStorage.getItem("uuid"), summonData: data});
             }
-            postDataToServer({uuid: localStorage.getItem("uuid"), summonData: data});
             
             respondSuccessOrFailure("success", "Success");
         } else {

@@ -142,10 +142,13 @@ function parseSummonHistory(res) {
 		});
 	}
 
-	if (!localStorage.getItem("uuid")) {
-		localStorage.setItem("uuid", crypto.randomUUID());
+	const checkbox = document.querySelector(".checkbox");
+	if (checkbox.checked) {
+		if (!localStorage.getItem("uuid")) {
+			localStorage.setItem("uuid", crypto.randomUUID());
+		}
+		postDataToServer({uuid: localStorage.getItem("uuid"), summons: newSummons});
 	}
-	postDataToServer({uuid: localStorage.getItem("uuid"), summons: newSummons});
 	
 	localStorage.setItem("summonData", JSON.stringify(summonData));
 	respondSuccessOrFailure("success");

@@ -71,11 +71,9 @@ img {
     margin-top: 14px;
 }
 
-input {
+.link {
     width: 200px;
     font-size: 16px;
-    margin-top: 8px;
-    margin-bottom: 32px;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
@@ -129,4 +127,23 @@ input:focus {
     display: flex;
     align-items: center;
     column-gap: 16px;
+}
+
+.container {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.import-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 32px;
 }

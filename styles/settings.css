@@ -142,3 +142,14 @@ button:hover {
     align-items: center;
     column-gap: 16px;
 }
+
+.container {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
