@@ -305,7 +305,6 @@ const globalStats = document.querySelector(".global-stats");
 fetch(`https://3.146.105.207/global-stats?bannerType=${3}`)
 		.then(response => response.text())
 		.then(data => {
-			console.log(data);
 			data = JSON.parse(data);
 
 			populateUserGlobalStats(data, "total_spins", "", 1);
@@ -317,11 +316,14 @@ fetch(`https://3.146.105.207/global-stats?bannerType=${3}`)
 
 function populateUserGlobalStats(data, dataKey, className, elementIndex) {
 	const sortedData = data.map((x) => x[dataKey]).sort((a, b) => a - b);
-	const index = rightBinarySearch(sortedData, elementIndex > 1 ? document.querySelector(className).innerHTML.slice(0, -1) : summonData[3].history.length);
-	const percentile = roundTo2Places(100 * (index + 1) / data.length);
+	let index = rightBinarySearch(sortedData, elementIndex > 1 ? document.querySelector(className).innerHTML.slice(0, -1) : summonData[3].history.length);
+	if (index >= data.length) {
+		index = data.length - 1;
+	}
+	const percentile = index <= 0 ? 0 : roundTo2Places(100 * (index + 1) / data.length);
 	if (percentile < 50) {
 		globalStats.children[elementIndex].children[1].children[0].innerHTML = "BOTTOM";
-		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Unluckier than ${100 -percentile}% of other users`;
+		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Unluckier than ${100 - percentile}% of other users`;
 		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${percentile}%`;	
 	} else {
 		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Luckier than ${percentile}% of other users`;
