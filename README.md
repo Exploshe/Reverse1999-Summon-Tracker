@@ -1,9 +1,9 @@
-made this cause mobilemeta.gg's summon tracker is wrong and out of date, ty to them for the link getting method tho
+[Timekeeper.top](https://timekeeper.top/)
+=========================================
+Summon tracker for Reverse: 1999
 
-https://exploshe.github.io/Reverse1999-Summon-Tracker/
+Directions are in the auto import page
 
-still missing a lot of features but its usable
+Please share this if you find it useful :)
 
-copying paimon.moe's look for now cause i like it better than hsr's but i want to have a unique reverse1999 look but im not creative enough to cook up a whole new design on my own
-
-please share this if you find it useful :)
+I am not affiliated with Bluepoch or Reverse: 1999
