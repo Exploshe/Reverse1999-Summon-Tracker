@@ -325,8 +325,8 @@ function populateUserGlobalStats(data, dataKey, className, elementIndex) {
 		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Unluckier than ${roundTo2Places(100 - percentile)}% of other users`;
 		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${percentile}%`;	
 	} else {
-		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Luckier than ${roundTo2Places(percentile)}% of other users`;
-		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${100 - percentile}%`;	
+		globalStats.children[elementIndex].children[0].children[1].innerHTML = `Luckier than ${percentile}% of other users`;
+		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${roundTo2Places(100 - percentile)}%`;	
 	}
 			
 }
