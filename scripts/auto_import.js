@@ -143,7 +143,7 @@ function parseSummonHistory(res) {
 	}
 
 	const checkbox = document.querySelector(".checkbox");
-	if (checkbox.checked) {
+	if (checkbox.checked && newSummons) {
 		if (!localStorage.getItem("uuid")) {
 			localStorage.setItem("uuid", crypto.randomUUID());
 		}
@@ -192,7 +192,7 @@ document.querySelector(".ios-button").addEventListener("click", () => selectIOS(
 selectPC();
 
 function postDataToServer(obj) {
-	fetch("https://3.146.105.207/post", {
+	fetch("https://18.116.12.52/post", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
@@ -207,7 +207,7 @@ function postDataToServer(obj) {
 }
 
 // check if server is up
-fetch("https://3.146.105.207/post", { method: "POST" })
+fetch("https://18.116.12.52/post", { method: "POST" })
 	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
 	.catch((error) => {
 		document.querySelector(".server-down").style.display = "block";

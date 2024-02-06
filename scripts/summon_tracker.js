@@ -302,7 +302,7 @@ if (summonData[bannerTypeMap.event].history.length === 0) {
 
 // populate global stats
 const globalStats = document.querySelector(".global-stats");
-fetch(`https://3.146.105.207/global-stats?bannerType=${3}`)
+fetch(`https://18.116.12.52/global-stats?bannerType=${3}`)
 		.then(response => response.text())
 		.then(data => {
 			data = JSON.parse(data);
