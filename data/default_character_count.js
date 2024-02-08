@@ -299,5 +299,10 @@ export const default_character_count = {
         default: 0,
         wish: 0,
         manual: 0
+    },
+    "Shamane": {
+        default: 0,
+        wish: 0,
+        manual: 0
     }
 }
