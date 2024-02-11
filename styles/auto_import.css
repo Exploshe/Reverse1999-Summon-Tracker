@@ -155,3 +155,17 @@ input:focus {
     padding: 8px;
     display: none;
 }
+
+.exclamation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(219, 171, 76);
+    color: white;
+    font-weight: 600;
+    border-radius: 100px;
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+    font-size: 24px;
+}
