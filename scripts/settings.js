@@ -35,6 +35,7 @@ fetch("changelog.txt")
 
 // Download data
 document.querySelector(".download-button").addEventListener("click", () => {
+    // UPDATE THIS
     downloadObjectAsJson(localStorage.getItem("summonData"), "reverse1999_summon_history");
 });
 
@@ -77,6 +78,7 @@ function importHistoryJSON(file) {
 
             const checkbox = document.querySelector(".checkbox");
             if (checkbox.checked) {
+                // UPDATE THIS 
                 if (!localStorage.getItem("uuid")) {
                     localStorage.setItem("uuid", crypto.randomUUID());
                 }
@@ -126,3 +128,66 @@ fetch("https://18.116.12.52/post", { method: "POST" })
 		document.querySelector(".server-down").style.display = "block";
 	});
 
+// populate profiles
+const selectElement = document.querySelector(".dropdown-button");
+const accounts = JSON.parse(localStorage.getItem("accounts"));
+for (const [key, obj] of Object.entries(accounts)) {
+    const option = document.createElement("option");
+    option.text = obj.name;
+    option.value = key;
+    selectElement.add(option);
+}
+
+// create new profile
+const deleteProfile = document.querySelector(".delete-profile");
+const createProfile = document.querySelector(".create-profile");
+const createProfileOverlay = document.querySelector(".js-create-profile-overlay");
+
+createProfile.addEventListener("click", () => {
+    createProfileOverlay.classList.add("visible");
+});
+
+createProfileOverlay.addEventListener("click", (event) => {
+    if (event.target.classList[0] === "overlay") {
+        createProfileOverlay.classList.remove("visible");
+    }
+});
+
+const actualCreateProfile = document.querySelector(".actual-create-profile");
+actualCreateProfile.addEventListener("click", () => {
+    const option = document.createElement("option");
+    option.text = document.querySelector(".input-profile-name").value;
+    option.value = localStorage.getItem("nextIndex");
+    localStorage.setItem("nextIndex", parseInt(option.value) + 1);
+    selectElement.add(option);
+
+    deleteProfile.style.display = "inline-block";
+    createProfileOverlay.classList.remove("visible");
+
+    // TODO: add to localstorage
+});
+
+// delete profile
+document.querySelector(".delete-profile").addEventListener("click", () => {
+    const selected = document.querySelector(".dropdown-button").value;
+
+    for (let i = 0; i < selectElement.length; i++) {
+        if (selectElement.options[i].value === selected) {
+            selectElement.remove(i);
+        }
+    }
+
+    if (selectElement.length === 1) {
+        deleteProfile.style.display = "none";
+    }
+
+    // TODO: delete from localstorage
+})
+
+selectElement.addEventListener("change", () => {
+    localStorage.setItem("selectedIndex", selectElement.value);
+})
+
+if (selectElement.length === 1) {
+    deleteProfile.style.display = "none";
+}

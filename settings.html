@@ -16,13 +16,18 @@
             </div>
         </div>
         <div class="flex-column main">
-            <div>
+            <div class="main-section">
                 <button class="changelog-button">Changelog</button>
             </div>
-            <div>
+            <div class="main-section">
+                <button class="create-profile">Create new profile</button>
+                <select class="dropdown-button"></select>
+                <button class="delete-profile">Delete</button>
+            </div>
+            <div class="main-section">
                 <button class="export-import-button">Export and Import Backup</button>
             </div>
-            <div>
+            <div class="main-section">
                 <p class="credits-title">Credits</p>
                 <table class="credits-table">
                     <tr class="credits-table-row">
@@ -39,7 +44,7 @@
                     </tr>
                 </table>
             </div>
-            <div>If you find any bugs or have any feedback in general, please message me on discord @exploshe or on reddit @u/Exploshe thank you :)</div>
+            <div class="main-section">If you find any bugs or have any feedback in general, please message me on discord @exploshe or on reddit @u/Exploshe thank you :)</div>
         </div>
         <div class="overlay js-export-import-overlay">
             <div class="modal js-export-import-modal">
@@ -69,6 +74,13 @@
             <div class="modal js-changelog-modal">
                 Changelog
                 <pre class="js-changelog-txt"></pre>
+            </div>
+        </div>
+        <div class="overlay js-create-profile-overlay">
+            <div class="modal js-create-profile-modal flex-column" style="row-gap: 16px;">
+                New Profile
+                <input placeholder="Name" class="input-profile-name">
+                <button class="actual-create-profile">Create</button>
             </div>
         </div>
 

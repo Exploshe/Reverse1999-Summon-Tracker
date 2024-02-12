@@ -7,19 +7,19 @@ body {
 
 .main {
     padding: 32px;
+    row-gap: 16px;
 }
 
-.main div {
+.main-section {
     background-color: rgb(89, 79, 157);
     max-width: 1000px;
     padding: 16px;
-    margin-bottom: 16px;
     border-radius: 12px;
     color: white;
     font-size: 16px;
 }
 
-button {
+button, .dropdown-button {
     background-color: rgb(89, 79, 157);
     color: white;
     padding: 8px 16px;
@@ -30,7 +30,7 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+button:hover, .dropdown-button:hover {
     border-color: rgb(78, 124, 255);
     cursor: pointer;
 }
@@ -160,4 +160,24 @@ button:hover {
     color: black;
     padding: 8px;
     display: none;
+}
+
+.dropdown-button:focus-visible {
+    outline: none;
+}
+
+.input-profile-name {
+    font-size: 16px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(53, 44, 112);
+    padding: 8px 10px;
+    background-color: rgb(53, 44, 112);
+    color: white;
+}
+
+.input-profile-name:focus {
+    outline: none;
+    border-color: rgb(78 124 255);
 }

@@ -144,6 +144,7 @@ function parseSummonHistory(res) {
 
 	const checkbox = document.querySelector(".checkbox");
 	if (checkbox.checked && newSummons) {
+		// UPDATE THIS
 		if (!localStorage.getItem("uuid")) {
 			localStorage.setItem("uuid", crypto.randomUUID());
 		}

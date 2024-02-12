@@ -13,11 +13,19 @@ function avg(nums) {
 }
 
 // remove later
-if (localStorage.getItem("standardBannerHistory") && !localStorage.getItem("summonData")) {
-	const span = document.createElement("span");
-	span.innerHTML = "please reimport ur summons sorry hehe"
-	span.style.color = "white";
-	document.querySelector("body").appendChild(span);
+if (!localStorage.getItem("accounts")) {
+	const account = {
+		"1": {
+			name: "Default", 
+			uuid: localStorage.getItem("uuid"), 
+			summonData: JSON.parse(localStorage.getItem("summonData"))
+		}
+	};
+	localStorage.setItem("nextIndex", 2);
+	localStorage.setItem("selectedIndex", 1);
+	localStorage.setItem("accounts", JSON.stringify(account));
+	localStorage.removeItem("summonData");
+	localStorage.removeItem("uuid");
 }
 
 // Load standard banner and limited banner stats
