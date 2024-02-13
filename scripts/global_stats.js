@@ -36,19 +36,27 @@ function renderStats(bannerName) {
 		.then(data => {
             data = JSON.parse(data);
             
-            for (const [key, value] of Object.entries(data.bannerStatsResults[0]).slice(2)) {
-                document.getElementById(key).innerHTML = numberWithCommas(value);
+            if (data.bannerStatsResults[0]) {
+                for (const [key, value] of Object.entries(data.bannerStatsResults[0]).slice(2)) {
+                    document.getElementById(key).innerHTML = numberWithCommas(value);
+                }
+                document.getElementById("clear_drops_spent").innerHTML = numberWithCommas(data.bannerStatsResults[0].total_spins * 180);
             }
-            document.getElementById("clear_drops_spent").innerHTML = numberWithCommas(data.bannerStatsResults[0].total_spins * 180);
 
             const config = {
                 staticPlot: true,
                 responsive: true
             }
+
+            const startDateMinus1Day = new Date(banners[bannerName].start);
+            startDateMinus1Day.setDate(startDateMinus1Day.getDate() - 1);
             const layout = {
                 title: "Spins By Day",
                 xaxis: {
-                    tickformat: "%m/%d",
+                    tickmode: "linear",
+                    tick0: new Date(banners[bannerName].start).toISOString().slice(0,10),
+                    range: [startDateMinus1Day.toISOString(), banners[bannerName].end],
+                    type: "date",
                     gridcolor: "black"
                 }
             }
