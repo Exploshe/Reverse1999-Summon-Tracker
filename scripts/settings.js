@@ -122,16 +122,16 @@ function respondSuccessOrFailure(response, message) {
 }
 
 // check if server is up
-fetch("https://18.116.12.52/post", { method: "POST" })
-	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
-	.catch((error) => {
-		document.querySelector(".server-down").style.display = "block";
-	});
+// fetch("https://18.116.12.52/post", { method: "POST" })
+// 	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
+// 	.catch((error) => {
+// 		document.querySelector(".server-down").style.display = "block";
+// 	});
 
 // populate profiles
 const selectElement = document.querySelector(".dropdown-button");
-const accounts = JSON.parse(localStorage.getItem("accounts"));
-for (const [key, obj] of Object.entries(accounts)) {
+const profiles = JSON.parse(localStorage.getItem("profiles"));
+for (const [key, obj] of Object.entries(profiles)) {
     const option = document.createElement("option");
     option.text = obj.name;
     option.value = key;
@@ -154,6 +154,7 @@ createProfileOverlay.addEventListener("click", (event) => {
 });
 
 const actualCreateProfile = document.querySelector(".actual-create-profile");
+const summonData = JSON.parse(localStorage.getItem("summonData"));
 actualCreateProfile.addEventListener("click", () => {
     const option = document.createElement("option");
     option.text = document.querySelector(".input-profile-name").value;
@@ -164,24 +165,78 @@ actualCreateProfile.addEventListener("click", () => {
     deleteProfile.style.display = "inline-block";
     createProfileOverlay.classList.remove("visible");
 
-    // TODO: add to localstorage
+    // add new profile to local storage
+    profiles[option.value] = {
+        name: option.text,
+        uuid: crypto.randomUUID,
+        summonDataIndex: option.value
+    }
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+
+    summonData[option.value] = {
+        1: { // Beginner banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		2: { // Standard banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		3: { // Limited banner
+			isGuaranteed: false,
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		5: { // Golden thread banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		}
+    }
+    localStorage.setItem("summonData", JSON.stringify(summonData));
 });
 
 // delete profile
-document.querySelector(".delete-profile").addEventListener("click", () => {
-    const selected = document.querySelector(".dropdown-button").value;
+const deleteProfileOverlay = document.querySelector(".js-delete-profile-overlay");
+deleteProfile.addEventListener("click", () => {
+    document.querySelector(".js-selected-profile").innerHTML = profiles[selectElement.value].name;
+    deleteProfileOverlay.classList.add("visible");
+});
+
+deleteProfileOverlay.addEventListener("click", (event) => {
+    if (event.target.classList[0] === "overlay") {
+        deleteProfileOverlay.classList.remove("visible");
+    }
+});
+document.querySelector(".cancel").addEventListener("click", () => {
+    deleteProfileOverlay.classList.remove("visible");
+});
+
+document.querySelector(".actual-delete-profile").addEventListener("click", () => {
+    const selected = selectElement.value;
 
     for (let i = 0; i < selectElement.length; i++) {
         if (selectElement.options[i].value === selected) {
             selectElement.remove(i);
+            break;
         }
     }
+    
+    localStorage.setItem("selectedIndex", selectElement.value);
 
     if (selectElement.length === 1) {
         deleteProfile.style.display = "none";
     }
 
-    // TODO: delete from localstorage
+    delete profiles[selected];
+    delete summonData[selected];
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+    localStorage.setItem("summonData", JSON.stringify(summonData));
+
+    deleteProfileOverlay.classList.remove("visible");
 })
 
 selectElement.addEventListener("change", () => {
@@ -191,3 +246,33 @@ selectElement.addEventListener("change", () => {
 if (selectElement.length === 1) {
     deleteProfile.style.display = "none";
 }
+
+// rename profile
+const renameProfile = document.querySelector(".rename-button");
+const renameProfileOverlay = document.querySelector(".js-rename-profile-overlay");
+renameProfile.addEventListener("click", () => {
+    renameProfileOverlay.classList.add("visible");
+});
+
+renameProfileOverlay.addEventListener("click", (event) => {
+    if (event.target.classList[0] === "overlay") {
+        renameProfileOverlay.classList.remove("visible");
+    }
+});
+
+const actualRenameProfile = document.querySelector(".actual-rename-profile");
+actualRenameProfile.addEventListener("click", () => {
+    const selected = selectElement.value;
+    const newName = document.querySelector(".rename-profile").value
+    profiles[selectElement.value].name = newName;
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+
+    for (let i = 0; i < selectElement.length; i++) {
+        if (selectElement.options[i].value === selected) {
+            selectElement.options[i].text = newName;
+            break;
+        }
+    }
+
+    renameProfileOverlay.classList.remove("visible");
+});

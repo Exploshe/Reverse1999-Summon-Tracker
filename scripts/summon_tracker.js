@@ -13,18 +13,25 @@ function avg(nums) {
 }
 
 // remove later
-if (!localStorage.getItem("accounts")) {
-	const account = {
+if (!localStorage.getItem("profiles")) {
+	localStorage.setItem("nextIndex", 2);
+	localStorage.setItem("selectedIndex", "1");
+
+	const profile = {
 		"1": {
 			name: "Default", 
 			uuid: localStorage.getItem("uuid"), 
-			summonData: JSON.parse(localStorage.getItem("summonData"))
+			summonDataIndex: "1"
 		}
 	};
-	localStorage.setItem("nextIndex", 2);
-	localStorage.setItem("selectedIndex", 1);
-	localStorage.setItem("accounts", JSON.stringify(account));
-	localStorage.removeItem("summonData");
+	localStorage.setItem("profiles", JSON.stringify(profile));
+
+	const summonData = JSON.parse(localStorage.getItem("summonData"));
+	const newSummonData = {
+		"1": summonData
+	}
+	localStorage.setItem("summonData", JSON.stringify(newSummonData));
+
 	localStorage.removeItem("uuid");
 }
 

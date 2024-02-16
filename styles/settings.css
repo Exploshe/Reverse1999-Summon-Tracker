@@ -68,7 +68,7 @@ button:hover, .dropdown-button:hover {
     margin-bottom: 16px;
 }
 
-.modal div button{
+.download-button, .input-json-button {
     background-color: rgb(62, 52, 125);
 }
 
@@ -166,7 +166,7 @@ button:hover, .dropdown-button:hover {
     outline: none;
 }
 
-.input-profile-name {
+.input-profile-name, .rename-profile {
     font-size: 16px;
     border-radius: 10px;
     border-width: 2px;
@@ -177,7 +177,20 @@ button:hover, .dropdown-button:hover {
     color: white;
 }
 
-.input-profile-name:focus {
+.input-profile-name:focus, .rename-profile:focus {
     outline: none;
     border-color: rgb(78 124 255);
+}
+
+.delete-text, .actual-delete-profile {
+    color: rgb(255, 65, 65);
+}
+
+.cancel-delete-wrapper {
+    display: flex;
+    column-gap: 8px;
+}
+
+.cancel, .actual-delete-profile {
+    flex: 1;
 }

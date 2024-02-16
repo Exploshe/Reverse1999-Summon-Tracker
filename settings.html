@@ -22,6 +22,7 @@
             <div class="main-section">
                 <button class="create-profile">Create new profile</button>
                 <select class="dropdown-button"></select>
+                <button class="rename-button">Rename</button>
                 <button class="delete-profile">Delete</button>
             </div>
             <div class="main-section">
@@ -81,6 +82,23 @@
                 New Profile
                 <input placeholder="Name" class="input-profile-name">
                 <button class="actual-create-profile">Create</button>
+            </div>
+        </div>
+        <div class="overlay js-delete-profile-overlay">
+            <div class="modal js-delete-profile-modal flex-column" style="row-gap: 16px;">
+                Delete Profile
+                <span class="delete-text">This will delete <span class="js-selected-profile" style="font-weight: bold;"></span> and its summon history.<br>Are you sure you want to continue?</span>
+                <div class="cancel-delete-wrapper">
+                    <button class="cancel">Cancel</button>
+                    <button class="actual-delete-profile">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="overlay js-rename-profile-overlay">
+            <div class="modal js-rename-profile-modal flex-column" style="row-gap: 16px;">
+                Rename Profile
+                <input placeholder="Name" class="rename-profile">
+                <button class="actual-rename-profile">Rename</button>
             </div>
         </div>
 
