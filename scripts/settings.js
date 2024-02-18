@@ -35,12 +35,17 @@ fetch("changelog.txt")
 
 // Download data
 document.querySelector(".download-button").addEventListener("click", () => {
-    // UPDATE THIS
-    downloadObjectAsJson(localStorage.getItem("summonData"), "reverse1999_summon_history");
+    const myObj = {
+        nextIndex: localStorage.getItem("nextIndex"),
+        selectedIndex: localStorage.getItem("selectedIndex"),
+        profiles: JSON.parse(localStorage.getItem("profiles")),
+        summonData: JSON.parse(localStorage.getItem("summonData"))
+    }
+    downloadObjectAsJson(myObj, "timekeeper-top-backup");
 });
 
 function downloadObjectAsJson(exportObj, exportName){
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href",     dataStr);
     downloadAnchorNode.setAttribute("download", exportName + ".json");
@@ -69,20 +74,25 @@ inputElement.addEventListener("change", () => {
 
 function importHistoryJSON(file) {
     const reader = new FileReader();
-    const requiredKeys = ["1", "2", "3", "5"];
+    const requiredKeys = ["nextIndex", "selectedIndex", "profiles", "summonData"];
 
     reader.addEventListener("load", () => {
         const data = JSON.parse(reader.result);
         if (requiredKeys.every(key => key in data)) {
-            localStorage.setItem("summonData", JSON.stringify(data));
+            localStorage.setItem("nextIndex", data.nextIndex);
+            localStorage.setItem("selectedIndex", data.selectedIndex);
+            localStorage.setItem("profiles", JSON.stringify(data.profiles));
+            localStorage.setItem("summonData", JSON.stringify(data.summonData));
 
-            const checkbox = document.querySelector(".checkbox");
-            if (checkbox.checked) {
-                // UPDATE THIS 
-                if (!localStorage.getItem("uuid")) {
-                    localStorage.setItem("uuid", crypto.randomUUID());
+            selectElement.innerHTML = "";
+            populateSelectElement(data.profiles);
+            let i = 0
+            for (const [key, obj] of Object.entries(data.profiles)) {
+                if (key === data.selectedIndex) {
+                    selectElement.selectedIndex = i;
+                    break;
                 }
-                postDataToServer({uuid: localStorage.getItem("uuid"), summonData: data});
+                i++;
             }
             
             respondSuccessOrFailure("success", "Success");
@@ -92,21 +102,6 @@ function importHistoryJSON(file) {
     })
 
     reader.readAsText(file);
-}
-
-function postDataToServer(obj) {
-	fetch("https://18.116.12.52/post", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(obj)
-		})
-		.then(response => response.text())
-		.then(data => {
-			console.log(`response ${data}`)
-		});
 }
 
 const responseElement = document.querySelector(".import-result");
@@ -121,22 +116,25 @@ function respondSuccessOrFailure(response, message) {
     }
 }
 
-// check if server is up
-// fetch("https://18.116.12.52/post", { method: "POST" })
-// 	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
-// 	.catch((error) => {
-// 		document.querySelector(".server-down").style.display = "block";
-// 	});
-
 // populate profiles
 const selectElement = document.querySelector(".dropdown-button");
 const profiles = JSON.parse(localStorage.getItem("profiles"));
-for (const [key, obj] of Object.entries(profiles)) {
-    const option = document.createElement("option");
-    option.text = obj.name;
-    option.value = key;
-    selectElement.add(option);
+
+function populateSelectElement(profiles) {
+    let i = 0
+    for (const [key, obj] of Object.entries(profiles)) {
+        const option = document.createElement("option");
+        option.text = obj.name;
+        option.value = key;
+        selectElement.add(option);
+        if (key === localStorage.getItem("selectedIndex")) {
+            selectElement.selectedIndex = i;
+        }
+        i++;
+    }
 }
+populateSelectElement(profiles);
+
 
 // create new profile
 const deleteProfile = document.querySelector(".delete-profile");
@@ -168,8 +166,7 @@ actualCreateProfile.addEventListener("click", () => {
     // add new profile to local storage
     profiles[option.value] = {
         name: option.text,
-        uuid: crypto.randomUUID,
-        summonDataIndex: option.value
+        uuid: crypto.randomUUID()
     }
     localStorage.setItem("profiles", JSON.stringify(profiles));
 

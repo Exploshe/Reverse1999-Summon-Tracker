@@ -14,14 +14,13 @@ function avg(nums) {
 
 // remove later
 if (!localStorage.getItem("profiles")) {
-	localStorage.setItem("nextIndex", 2);
+	localStorage.setItem("nextIndex", "2");
 	localStorage.setItem("selectedIndex", "1");
 
 	const profile = {
 		"1": {
 			name: "Default", 
-			uuid: localStorage.getItem("uuid"), 
-			summonDataIndex: "1"
+			uuid: localStorage.getItem("uuid") ?? crypto.randomUUID()
 		}
 	};
 	localStorage.setItem("profiles", JSON.stringify(profile));
@@ -97,7 +96,7 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 			row.cells[0].setAttribute("class", `banner-history-name-${characterIds[summon.id].rarity}star`);
 			row.insertCell(1).appendChild(document.createTextNode(summon.time));
 			row.cells[1].setAttribute("class", `banner-history-time`);
-			row.insertCell(2).appendChild(document.createTextNode(summon.pity ? summon.pity : ""));
+			row.insertCell(2).appendChild(document.createTextNode(summon.pity ?? ""));
 			if (characterIds[summon.id].rarity <= 4) {
 				row.style.display = "none";
 			}

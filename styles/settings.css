@@ -143,25 +143,6 @@ button:hover, .dropdown-button:hover {
     column-gap: 16px;
 }
 
-.container {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-}
-
-.checkbox {
-    width: 20px;
-    height: 20px;
-}
-
-.server-down {
-    background-color: lightpink;
-    max-width: 675px;
-    color: black;
-    padding: 8px;
-    display: none;
-}
-
 .dropdown-button:focus-visible {
     outline: none;
 }
