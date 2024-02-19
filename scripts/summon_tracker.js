@@ -32,6 +32,8 @@ if (!localStorage.getItem("profiles")) {
 	localStorage.setItem("summonData", JSON.stringify(newSummonData));
 
 	localStorage.removeItem("uuid");
+
+	document.querySelector(".hehe").style.display = "block";
 }
 
 // Load standard banner and limited banner stats
