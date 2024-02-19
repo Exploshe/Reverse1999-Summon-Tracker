@@ -35,11 +35,17 @@ fetch("changelog.txt")
 
 // Download data
 document.querySelector(".download-button").addEventListener("click", () => {
-    downloadObjectAsJson(localStorage.getItem("summonData"), "reverse1999_summon_history");
+    const myObj = {
+        nextIndex: localStorage.getItem("nextIndex"),
+        selectedIndex: localStorage.getItem("selectedIndex"),
+        profiles: JSON.parse(localStorage.getItem("profiles")),
+        summonData: JSON.parse(localStorage.getItem("summonData"))
+    }
+    downloadObjectAsJson(myObj, "timekeeper-top-backup");
 });
 
 function downloadObjectAsJson(exportObj, exportName){
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportObj);
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
     const downloadAnchorNode = document.createElement('a');
     downloadAnchorNode.setAttribute("href",     dataStr);
     downloadAnchorNode.setAttribute("download", exportName + ".json");
@@ -68,19 +74,25 @@ inputElement.addEventListener("change", () => {
 
 function importHistoryJSON(file) {
     const reader = new FileReader();
-    const requiredKeys = ["1", "2", "3", "5"];
+    const requiredKeys = ["nextIndex", "selectedIndex", "profiles", "summonData"];
 
     reader.addEventListener("load", () => {
         const data = JSON.parse(reader.result);
         if (requiredKeys.every(key => key in data)) {
-            localStorage.setItem("summonData", JSON.stringify(data));
+            localStorage.setItem("nextIndex", data.nextIndex);
+            localStorage.setItem("selectedIndex", data.selectedIndex);
+            localStorage.setItem("profiles", JSON.stringify(data.profiles));
+            localStorage.setItem("summonData", JSON.stringify(data.summonData));
 
-            const checkbox = document.querySelector(".checkbox");
-            if (checkbox.checked) {
-                if (!localStorage.getItem("uuid")) {
-                    localStorage.setItem("uuid", crypto.randomUUID());
+            selectElement.innerHTML = "";
+            populateSelectElement(data.profiles);
+            let i = 0
+            for (const [key, obj] of Object.entries(data.profiles)) {
+                if (key === data.selectedIndex) {
+                    selectElement.selectedIndex = i;
+                    break;
                 }
-                postDataToServer({uuid: localStorage.getItem("uuid"), summonData: data});
+                i++;
             }
             
             respondSuccessOrFailure("success", "Success");
@@ -90,21 +102,6 @@ function importHistoryJSON(file) {
     })
 
     reader.readAsText(file);
-}
-
-function postDataToServer(obj) {
-	fetch("https://18.116.12.52/post", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(obj)
-		})
-		.then(response => response.text())
-		.then(data => {
-			console.log(`response ${data}`)
-		});
 }
 
 const responseElement = document.querySelector(".import-result");
@@ -119,10 +116,160 @@ function respondSuccessOrFailure(response, message) {
     }
 }
 
-// check if server is up
-fetch("https://18.116.12.52/post", { method: "POST" })
-	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
-	.catch((error) => {
-		document.querySelector(".server-down").style.display = "block";
-	});
+// populate profiles
+const selectElement = document.querySelector(".dropdown-button");
+const profiles = JSON.parse(localStorage.getItem("profiles"));
 
+function populateSelectElement(profiles) {
+    let i = 0
+    for (const [key, obj] of Object.entries(profiles)) {
+        const option = document.createElement("option");
+        option.text = obj.name;
+        option.value = key;
+        selectElement.add(option);
+        if (key === localStorage.getItem("selectedIndex")) {
+            selectElement.selectedIndex = i;
+        }
+        i++;
+    }
+}
+populateSelectElement(profiles);
+
+
+// create new profile
+const deleteProfile = document.querySelector(".delete-profile");
+const createProfile = document.querySelector(".create-profile");
+const createProfileOverlay = document.querySelector(".js-create-profile-overlay");
+
+createProfile.addEventListener("click", () => {
+    createProfileOverlay.classList.add("visible");
+});
+
+createProfileOverlay.addEventListener("click", (event) => {
+    if (event.target.classList[0] === "overlay") {
+        createProfileOverlay.classList.remove("visible");
+    }
+});
+
+const actualCreateProfile = document.querySelector(".actual-create-profile");
+const summonData = JSON.parse(localStorage.getItem("summonData"));
+actualCreateProfile.addEventListener("click", () => {
+    const option = document.createElement("option");
+    option.text = document.querySelector(".input-profile-name").value;
+    option.value = localStorage.getItem("nextIndex");
+    localStorage.setItem("nextIndex", parseInt(option.value) + 1);
+    selectElement.add(option);
+
+    deleteProfile.style.display = "inline-block";
+    createProfileOverlay.classList.remove("visible");
+
+    // add new profile to local storage
+    profiles[option.value] = {
+        name: option.text,
+        uuid: crypto.randomUUID()
+    }
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+
+    summonData[option.value] = {
+        1: { // Beginner banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		2: { // Standard banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		3: { // Limited banner
+			isGuaranteed: false,
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		5: { // Golden thread banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		}
+    }
+    localStorage.setItem("summonData", JSON.stringify(summonData));
+});
+
+// delete profile
+const deleteProfileOverlay = document.querySelector(".js-delete-profile-overlay");
+deleteProfile.addEventListener("click", () => {
+    document.querySelector(".js-selected-profile").innerHTML = profiles[selectElement.value].name;
+    deleteProfileOverlay.classList.add("visible");
+});
+
+deleteProfileOverlay.addEventListener("click", (event) => {
+    if (event.target.classList[0] === "overlay") {
+        deleteProfileOverlay.classList.remove("visible");
+    }
+});
+document.querySelector(".cancel").addEventListener("click", () => {
+    deleteProfileOverlay.classList.remove("visible");
+});
+
+document.querySelector(".actual-delete-profile").addEventListener("click", () => {
+    const selected = selectElement.value;
+
+    for (let i = 0; i < selectElement.length; i++) {
+        if (selectElement.options[i].value === selected) {
+            selectElement.remove(i);
+            break;
+        }
+    }
+    
+    localStorage.setItem("selectedIndex", selectElement.value);
+
+    if (selectElement.length === 1) {
+        deleteProfile.style.display = "none";
+    }
+
+    delete profiles[selected];
+    delete summonData[selected];
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+    localStorage.setItem("summonData", JSON.stringify(summonData));
+
+    deleteProfileOverlay.classList.remove("visible");
+})
+
+selectElement.addEventListener("change", () => {
+    localStorage.setItem("selectedIndex", selectElement.value);
+})
+
+if (selectElement.length === 1) {
+    deleteProfile.style.display = "none";
+}
+
+// rename profile
+const renameProfile = document.querySelector(".rename-button");
+const renameProfileOverlay = document.querySelector(".js-rename-profile-overlay");
+renameProfile.addEventListener("click", () => {
+    renameProfileOverlay.classList.add("visible");
+});
+
+renameProfileOverlay.addEventListener("click", (event) => {
+    if (event.target.classList[0] === "overlay") {
+        renameProfileOverlay.classList.remove("visible");
+    }
+});
+
+const actualRenameProfile = document.querySelector(".actual-rename-profile");
+actualRenameProfile.addEventListener("click", () => {
+    const selected = selectElement.value;
+    const newName = document.querySelector(".rename-profile").value
+    profiles[selectElement.value].name = newName;
+    localStorage.setItem("profiles", JSON.stringify(profiles));
+
+    for (let i = 0; i < selectElement.length; i++) {
+        if (selectElement.options[i].value === selected) {
+            selectElement.options[i].text = newName;
+            break;
+        }
+    }
+
+    renameProfileOverlay.classList.remove("visible");
+});

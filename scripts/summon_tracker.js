@@ -13,15 +13,30 @@ function avg(nums) {
 }
 
 // remove later
-if (localStorage.getItem("standardBannerHistory") && !localStorage.getItem("summonData")) {
-	const span = document.createElement("span");
-	span.innerHTML = "please reimport ur summons sorry hehe"
-	span.style.color = "white";
-	document.querySelector("body").appendChild(span);
+if (!localStorage.getItem("profiles")) {
+	localStorage.setItem("nextIndex", "2");
+	localStorage.setItem("selectedIndex", "1");
+
+	const profile = {
+		"1": {
+			name: "Default", 
+			uuid: localStorage.getItem("uuid") ?? crypto.randomUUID()
+		}
+	};
+	localStorage.setItem("profiles", JSON.stringify(profile));
+
+	const summonData = JSON.parse(localStorage.getItem("summonData"));
+	const newSummonData = {
+		"1": summonData
+	}
+	localStorage.setItem("summonData", JSON.stringify(newSummonData));
+
+	localStorage.removeItem("uuid");
 }
 
 // Load standard banner and limited banner stats
-const summonData = JSON.parse(localStorage.getItem("summonData"));
+const selectedProfile = localStorage.getItem("selectedIndex");
+const summonData = JSON.parse(localStorage.getItem("summonData"))[selectedProfile];
 const bannerTypeMap = {
 	beginner: 1,
 	standard: 2,
@@ -46,19 +61,6 @@ if(summonData[bannerTypeMap.limited].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
 }
 
-// remove later
-for (const [bannerType, obj] of Object.entries(summonData)) {
-	for (let i = 0; i < obj.history.length; i++) {
-		const summon = obj.history[i];
-		if (summon.name === "3има") {
-			summon.name = "Зима";
-		} else if (summon.name === "Black Dwarf") {
-			summon.name = "Kaalaa Baunaa";
-		}
-	}
-}
-localStorage.setItem("summonData", JSON.stringify(summonData));
-
 function makeTableAndPopulateExtraStats(bannerType, banner) {
 	const table = document.querySelector(`.js-${bannerType}-banner-history`);
 	for (let i = table.rows.length - 1; i >= 1; i--) {
@@ -82,7 +84,7 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 			row.cells[0].setAttribute("class", `banner-history-name-${characterIds[summon.id].rarity}star`);
 			row.insertCell(1).appendChild(document.createTextNode(summon.time));
 			row.cells[1].setAttribute("class", `banner-history-time`);
-			row.insertCell(2).appendChild(document.createTextNode(summon.pity ? summon.pity : ""));
+			row.insertCell(2).appendChild(document.createTextNode(summon.pity ?? ""));
 			if (characterIds[summon.id].rarity <= 4) {
 				row.style.display = "none";
 			}

@@ -7,19 +7,19 @@ body {
 
 .main {
     padding: 32px;
+    row-gap: 16px;
 }
 
-.main div {
+.main-section {
     background-color: rgb(89, 79, 157);
     max-width: 1000px;
     padding: 16px;
-    margin-bottom: 16px;
     border-radius: 12px;
     color: white;
     font-size: 16px;
 }
 
-button {
+button, .dropdown-button {
     background-color: rgb(89, 79, 157);
     color: white;
     padding: 8px 16px;
@@ -30,7 +30,7 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+button:hover, .dropdown-button:hover {
     border-color: rgb(78, 124, 255);
     cursor: pointer;
 }
@@ -68,7 +68,7 @@ button:hover {
     margin-bottom: 16px;
 }
 
-.modal div button{
+.download-button, .input-json-button {
     background-color: rgb(62, 52, 125);
 }
 
@@ -143,21 +143,35 @@ button:hover {
     column-gap: 16px;
 }
 
-.container {
+.dropdown-button:focus-visible {
+    outline: none;
+}
+
+.input-profile-name, .rename-profile {
+    font-size: 16px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(53, 44, 112);
+    padding: 8px 10px;
+    background-color: rgb(53, 44, 112);
+    color: white;
+}
+
+.input-profile-name:focus, .rename-profile:focus {
+    outline: none;
+    border-color: rgb(78 124 255);
+}
+
+.delete-text, .actual-delete-profile {
+    color: rgb(255, 65, 65);
+}
+
+.cancel-delete-wrapper {
     display: flex;
-    cursor: pointer;
-    align-items: center;
+    column-gap: 8px;
 }
 
-.checkbox {
-    width: 20px;
-    height: 20px;
-}
-
-.server-down {
-    background-color: lightpink;
-    max-width: 675px;
-    color: black;
-    padding: 8px;
-    display: none;
+.cancel, .actual-delete-profile {
+    flex: 1;
 }
