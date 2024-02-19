@@ -19,8 +19,13 @@ function binarySearch(arr, val) {
 	return arr.length;
 }
 
+const profiles = JSON.parse(localStorage.getItem("profiles"));
+const selectedIndex = JSON.parse(localStorage.getItem("selectedIndex"));
+document.querySelector(".js-selected-profile").innerHTML = profiles[selectedIndex].name;
+
 function importSummon() {
     try {
+		document.querySelector(".importing").style.display = "block";
         let res;
         const input = document.querySelector(".link").value;
 		// update to accept jp links
@@ -66,8 +71,9 @@ function verifyJSON(json) {
 
 function parseSummonHistory(res) {
 	const summons = res.data.pageData;
-	const temp = localStorage.getItem("summonData");
-	const summonData = temp ? JSON.parse(temp) : {
+	const selectedProfile = localStorage.getItem("selectedIndex");
+	const summonData = JSON.parse(localStorage.getItem("summonData"));
+	const selectedProfileSummonData = summonData[selectedProfile] && Object.keys(summonData[selectedProfile]).length > 0 ? summonData[selectedProfile] : {
 		1: { // Beginner banner
 			pity6: 0,
 			pity5: 0,
@@ -93,14 +99,13 @@ function parseSummonHistory(res) {
 
 	// get index of latest pull to only import new pulls
 	let max = "";
-	for (const [key, obj] of Object.entries(summonData)) {
+	for (const [key, obj] of Object.entries(selectedProfileSummonData)) {
 		const time = obj.history[obj.history.length - 1]?.time
 		max = time > max ? time : max;
 	}
 
 	const newSummons = [];
 	const index = max ? binarySearch(summons, max) : summons.length;
-	console.log("importing");
 	for (let i = index - 1; i >= 0; i--) {
 		const summon = summons[i];
 		const { gainIds, poolType, createTime, poolName } = summon;
@@ -115,12 +120,12 @@ function parseSummonHistory(res) {
 				banner: poolName
 			};
 			
-			summonData[poolType].pity6++;
-			summonData[poolType].pity5++;
+			selectedProfileSummonData[poolType].pity6++;
+			selectedProfileSummonData[poolType].pity5++;
 
 			if (rarity === 6 || rarity === 5) {
-				obj.pity = summonData[poolType][`pity${rarity}`];
-				summonData[poolType][`pity${rarity}`] = 0;
+				obj.pity = selectedProfileSummonData[poolType][`pity${rarity}`];
+				selectedProfileSummonData[poolType][`pity${rarity}`] = 0;
 			}
 
 			// 5050s, 0 = lost, 1 = won, 2 = guaranteed
@@ -129,34 +134,37 @@ function parseSummonHistory(res) {
 
 				switch (rarity) {
 					case 6:
-						obj.rate = id === rateUp6StarId && !summonData[3].isGuaranteed ? 1 : summonData[3].isGuaranteed * 2;
-						summonData[3].isGuaranteed = id !== rateUp6StarId;
+						obj.rate = id === rateUp6StarId && !selectedProfileSummonData[3].isGuaranteed ? 1 : selectedProfileSummonData[3].isGuaranteed * 2;
+						selectedProfileSummonData[3].isGuaranteed = id !== rateUp6StarId;
 						break;
 					case 5:
 						obj.rate = rateUp5StarIds.includes(id) ? 1 : 0;
 				}
 			}
 			
-			summonData[poolType].history.push(obj);
+			selectedProfileSummonData[poolType].history.push(obj);
 			newSummons.push(obj);
 		});
 	}
 
 	const checkbox = document.querySelector(".checkbox");
 	if (checkbox.checked && newSummons) {
-		// UPDATE THIS
-		if (!localStorage.getItem("uuid")) {
-			localStorage.setItem("uuid", crypto.randomUUID());
+		const profiles = JSON.parse(localStorage.getItem("profiles"));
+		if (!profiles[selectedProfile].uuid) {
+			profiles[selectedProfile].uuid = crypto.randomUUID();
+			localStorage.setItem("profiles", profiles);
 		}
-		postDataToServer({uuid: localStorage.getItem("uuid"), summons: newSummons});
+		postDataToServer({uuid: profiles[selectedProfile].uuid, summons: newSummons});
 	}
-	
+
+	summonData[selectedProfile] = selectedProfileSummonData;
 	localStorage.setItem("summonData", JSON.stringify(summonData));
 	respondSuccessOrFailure("success");
 }
 
 
 function respondSuccessOrFailure(response) {
+	document.querySelector(".importing").style.display = "none";
 	if (response === "success") {
 		document.querySelector(".js-import-result").innerHTML = "Success";
 		document.querySelector(".js-import-result").classList.remove("failure");

@@ -145,7 +145,7 @@ input:focus {
     flex-direction: row;
     align-items: center;
     margin-top: 8px;
-    margin-bottom: 32px;
+    margin-bottom: 8px;
 }
 
 .server-down {

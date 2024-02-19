@@ -35,7 +35,8 @@ if (!localStorage.getItem("profiles")) {
 }
 
 // Load standard banner and limited banner stats
-const summonData = JSON.parse(localStorage.getItem("summonData"));
+const selectedProfile = localStorage.getItem("selectedIndex");
+const summonData = JSON.parse(localStorage.getItem("summonData"))[selectedProfile];
 const bannerTypeMap = {
 	beginner: 1,
 	standard: 2,
@@ -59,19 +60,6 @@ if (summonData) {
 if(summonData[bannerTypeMap.limited].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
 }
-
-// remove later
-for (const [bannerType, obj] of Object.entries(summonData)) {
-	for (let i = 0; i < obj.history.length; i++) {
-		const summon = obj.history[i];
-		if (summon.name === "3има") {
-			summon.name = "Зима";
-		} else if (summon.name === "Black Dwarf") {
-			summon.name = "Kaalaa Baunaa";
-		}
-	}
-}
-localStorage.setItem("summonData", JSON.stringify(summonData));
 
 function makeTableAndPopulateExtraStats(bannerType, banner) {
 	const table = document.querySelector(`.js-${bannerType}-banner-history`);
