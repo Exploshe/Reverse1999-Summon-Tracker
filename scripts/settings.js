@@ -97,7 +97,28 @@ function importHistoryJSON(file) {
             
             respondSuccessOrFailure("success", "Success");
         } else {
-            respondSuccessOrFailure("failure", "Invalid JSON");
+            const requiredKeys = ["1", "2", "3", "5"];
+            if (requiredKeys.every(key => key in data)) {
+                const profile = {
+                    "1": {
+                        name: "Default", 
+                        uuid: localStorage.getItem("uuid") ?? crypto.randomUUID()
+                    }
+                };
+                const summonData = { "1": data }
+                localStorage.setItem("nextIndex", 2);
+                localStorage.setItem("selectedIndex", 1);
+                localStorage.setItem("profiles", JSON.stringify(profile));
+                localStorage.setItem("summonData", JSON.stringify(summonData));
+
+                selectElement.innerHTML = "";
+                populateSelectElement(data.profiles);
+                selectElement.selectedIndex = 0;
+
+                respondSuccessOrFailure("success", "Success");
+            } else {
+                respondSuccessOrFailure("failure", "Invalid JSON");
+            }
         }
     })
 
