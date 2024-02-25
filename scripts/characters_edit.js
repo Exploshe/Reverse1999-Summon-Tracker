@@ -14,10 +14,19 @@ searchBar.addEventListener("input", (e) => {
 for (let i = 0; i < cardsList.length; i++) {
     const card = cardsList[i];
     card.addEventListener("click", (e) => {
-        console.log(e.currentTarget.children[1].innerHTML);
+        const characterName = e.currentTarget.children[1].innerHTML;
+        const newChild = document.createElement("div");
+        newChild.classList.add("edited-char");
+        newChild.innerHTML = 
+        `
+        <img class="character-img" src="images/characters/icon/${characterName.replace(/ /g,"_")}_Icon.png">
+        <input class="num-input" type="number" min="1" value="1">
+        <button>Delete</button>
+        `;
+        document.querySelector(".edited-chars-list").appendChild(newChild);
     })
 }
 
-for (const [id, obj] of Object.entries(default_character_count))
-document.querySelector(".edited-characters").innerHTML
+for (const [id, obj] of Object.entries(default_character_count)) {};
+
     
