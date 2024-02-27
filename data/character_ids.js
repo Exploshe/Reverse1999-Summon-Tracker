@@ -413,7 +413,7 @@ export const characterIds = {
         tags: ["Control", "Shield", "Debuff"]
     },
     3066: {
-        name: "Thirty-seven",
+        name: "37",
         rarity: 6,
         afflatus: "star",
         damageType: "mental",
@@ -469,7 +469,7 @@ export const characterIds = {
         tags: ["Burn", "DPS", "Support"]
     },
     3079: {
-        name: "Six",
+        name: "6",
         rarity: 6,
         afflatus: "intelligence",
         damageType: "mental",
@@ -542,7 +542,7 @@ export const characterNames = {
 	"Satsuki": 3038,
 	"Schneider": 3029,
 	"Shamane": 3072,
-	"Six": 3079,
+	"6": 3079,
 	"Sonetto": 3023,
 	"Sotheby": 3009,
 	"Spathodea": 3073,
@@ -551,7 +551,7 @@ export const characterNames = {
 	"TTT": 3033,
 	"Tennant": 3043,
 	"The Fool": 3012,
-	"Thirty-seven": 3066,
+	"37": 3066,
 	"Tooth Fairy": 3053,
 	"Twins Sleep": 3040,
 	"Ulu": 3076,

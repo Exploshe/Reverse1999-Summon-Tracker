@@ -23,6 +23,14 @@ export const banners = {
         start: "2023-12-30 00:00:00",
         end: "2024-01-13 04:59:59"
     },
+    // abundance of the water
+    "湖的丰饶：直至再次启程": {
+        rateUp6StarId: null,
+        rateUp5StarIds: null,
+        img: null,
+        start: "2024-03-07 05:00:00",
+        end: "2024-04-18 04:59:59"
+    },
     // reruns
     "剑与盔的嘶鸣": {
         rateUp6StarId: 3007,
@@ -96,10 +104,10 @@ export const banners = {
     },
     "弩箭破空而至": {
         rateUp6StarId: 3004,  // Lilya
-        rateUp5StarIds: [],
+        rateUp5StarIds: [3022, 3010],
         img: "",
-        start: "",
-        end: ""
+        start: "2024-02-27 05:00:00",
+        end: "2024-03-12 04:59:59"
     },
     "望族与隐士": {
         rateUp6StarId: 3009,  // Sotheby
@@ -153,17 +161,17 @@ export const banners = {
     },
     "现象未漫及处": {
         rateUp6StarId: 3066,  // 37
-        rateUp5StarIds: [],
+        rateUp5StarIds: [3043, 3011],
         img: "",
-        start: "",
-        end: ""
+        start: "2024-02-29 05:00:00",
+        end: "2024-03-28 04:59:59"
     },
     "真理的壁影": {
         rateUp6StarId: 3079,  // 6
-        rateUp5StarIds: [],
+        rateUp5StarIds: [3049, 3016],
         img: "",
-        start: "",
-        end: ""
+        start: "2024-03-28 05:00:00",
+        end: "2024-04-18 04:59:59"
     },
     "火花雀儿": {
         rateUp6StarId: 3073,
