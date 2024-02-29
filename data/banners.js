@@ -105,7 +105,7 @@ export const banners = {
     "弩箭破空而至": {
         rateUp6StarId: 3004,  // Lilya
         rateUp5StarIds: [3022, 3010],
-        img: "",
+        img: "images/banners/The_Arrow_Breaks_Through_The_Air_Banner.webp",
         start: "2024-02-27 05:00:00",
         end: "2024-03-12 04:59:59"
     },
