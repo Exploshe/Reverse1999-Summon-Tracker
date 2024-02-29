@@ -162,7 +162,7 @@ export const banners = {
     "现象未漫及处": {
         rateUp6StarId: 3066,  // 37
         rateUp5StarIds: [3043, 3011],
-        img: "",
+        img: "images/banners/卡池_现象未漫及处.jpg",
         start: "2024-02-29 05:00:00",
         end: "2024-03-28 04:59:59"
     },
