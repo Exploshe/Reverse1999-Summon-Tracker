@@ -162,7 +162,7 @@ export const banners = {
     "现象未漫及处": {
         rateUp6StarId: 3066,  // 37
         rateUp5StarIds: [3043, 3011],
-        img: "images/banners/卡池_现象未漫及处.jpg",
+        img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
         start: "2024-02-29 05:00:00",
         end: "2024-03-28 04:59:59"
     },

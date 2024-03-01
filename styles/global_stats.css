@@ -26,10 +26,13 @@ h1 {
 
 .banners-wrapper img {
     width: 90px;
+    border-radius: 4px;
 }
 
 .banner-button {
     cursor: pointer;
+    align-items: center;
+    display: flex;
 }
 
 .selected {
