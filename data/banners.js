@@ -148,7 +148,7 @@ export const banners = {
     "晚星所纺织的": {
         rateUp6StarId: 3070,
         rateUp5StarIds: [3071, 3043],
-        img: "images/banners/v1a3_galapona_1.png",
+        img: "images/banners/That_Steady_Evening_Star_Banner.webp",
         start: "2024-01-18 05:00:00",
         end: "2024-02-08 04:59:59"
     },
