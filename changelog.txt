@@ -1,3 +1,6 @@
+2024/03/02
+- Added editing character count
+
 2024/02/29
 - Updated banner images
 - Added 37 banner

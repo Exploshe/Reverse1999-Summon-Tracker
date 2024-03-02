@@ -134,3 +134,19 @@ a {
     opacity: 1;
     border-color: white;
 }
+
+.edit {
+    background-color: rgb(62, 52, 125);
+    border-style: solid;
+    border-color: gray;
+    color: white;
+    border-radius: 8px;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.edit:hover {
+    border-color: rgb(78, 124, 255);
+}

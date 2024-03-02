@@ -14,6 +14,7 @@ searchBar.addEventListener("input", (e) => {
 });
 
 const selectedProfile = localStorage.getItem("selectedIndex");
+const arcanistsEdit = JSON.parse(localStorage.getItem("arcanistsEdit"));
 const selectedProfileArcanistsEdit = arcanistsEdit[selectedProfile];
 renderList();
 
@@ -38,7 +39,7 @@ function renderList() {
         const html = `
         <div class="edited-char">
             <img class="character-img" src="images/characters/icon/${character === "Matilda Bouanich" ? "Matilda" : character.replace(/ /g,"_")}_Icon.png">
-            <input class="${key} num-input" type="number" min="1" value="${value}">
+            <input class="${key} num-input rarity${characterIds[key].rarity}" type="number" min="1" value="${value}">
             <button class="${key} delete-button">Delete</button>
         </div>`;
         listHTML += html;

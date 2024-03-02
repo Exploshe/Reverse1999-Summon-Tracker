@@ -62,21 +62,6 @@ for (const [bannerType, obj] of Object.entries(summonData)) {
     }
 }
 
-// If first time visitng site since manually editing characters was implemented
-if (!JSON.parse(localStorage.getItem("arcanistsEdit"))) {
-    arcanistsEdit = {}
-    for (const [key, value] of Object.entries(JSON.parse(localStorage.getItem("profiles")))) {
-        arcanistsEdit[key] = {
-            3022: 1,
-            3028: 1,
-            3041: 1,
-            3023: 5
-        }
-    }
-    
-    localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
-}
-
 // Set portray amount
 const selectedProfileArcanistsEdit = JSON.parse(localStorage.getItem("arcanistsEdit"))[localStorage.getItem("selectedIndex")];
 for (const [name, id] of Object.entries(characterNames)) {

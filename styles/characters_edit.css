@@ -4,6 +4,7 @@ body {
     padding-left: 216px;
     margin: 0px;
     padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 main {
@@ -79,3 +80,58 @@ h1 {
     flex-direction: row;
     column-gap: 8px;
 }
+
+.num-input {
+    border-radius: 0.6rem;
+    border-style: solid;
+    border-color: white;
+    border-width: 2px;
+    max-width: 5rem;
+    background-color: rgb(53, 44, 112);
+    color: white;
+    font-size: 16px;
+    padding-left: 8px;
+}
+
+.num-input:focus {
+    outline: none;
+}
+
+.delete-button {
+    color: red;
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 0.6rem;
+    border-color: gray;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    border-color: rgb(78, 124, 255);
+}
+
+/* .rarity6 {
+    border-color: rgb(224,154,37);
+    color: rgb(224,154,37);
+}
+
+.rarity5 {
+    border-color: rgb(228,199,128);
+    color: rgb(228,199,128);
+}
+
+.rarity4 {
+    border-color: rgb(106,73,114);
+    color: rgb(106,73,114);
+}
+
+.rarity3 {
+    border-color: rgb(84,92,125);
+    color: rgb(84,92,125);
+}
+
+.rarity2 {
+    border-color: rgb(73,100,65);
+    color: rgb(73,100,65);
+} */

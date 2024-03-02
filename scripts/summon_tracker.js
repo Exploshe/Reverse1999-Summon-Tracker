@@ -32,6 +32,23 @@ if (!localStorage.getItem("profiles")) {
 	localStorage.setItem("summonData", JSON.stringify(newSummonData));
 
 	localStorage.removeItem("uuid");
+}
+
+if (!localStorage.getItem("arcanistsEdit")) {
+	// If first time visitng site since manually editing characters was implemented
+	if (!JSON.parse(localStorage.getItem("arcanistsEdit"))) {
+		const arcanistsEdit = {}
+		for (const [key, value] of Object.entries(JSON.parse(localStorage.getItem("profiles")))) {
+			arcanistsEdit[key] = {
+				3022: 1,
+				3028: 1,
+				3041: 1,
+				3023: 5
+			}
+		}
+		
+		localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
+	}
 
 	document.querySelector(".hehe").style.display = "block";
 }
