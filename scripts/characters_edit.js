@@ -1,9 +1,9 @@
-import { default_character_count } from "../data/default_character_count.js";
 import { characterIds } from "../data/character_ids.js";
 import { characterNames } from "../data/character_ids.js";
 
 const searchBar = document.querySelector(".search-bar");
-const cardsList = document.querySelector(".character-cards").children;
+const characterCardsElement = document.querySelector(".character-cards");
+const cardsList = characterCardsElement.children;
 
 searchBar.addEventListener("input", (e) => {
     const input = e.target.value.toLowerCase();
@@ -14,19 +14,8 @@ searchBar.addEventListener("input", (e) => {
 });
 
 const selectedProfile = localStorage.getItem("selectedIndex");
-let characterEdit = localStorage.getItem("characterEdit");
-let charactersEditObj;
-if (characterEdit) {
-    const boga = JSON.parse(characterEdit);
-    charactersEditObj = boga[selectedProfile];
-} else {
-    charactersEditObj = {};
-    characterEdit = {
-        [selectedProfile]: charactersEditObj
-    }
-    localStorage.setItem("characterEdit", JSON.stringify(characterEdit));
-}
-// const charactersEditObj =
+const selectedProfileArcanistsEdit = arcanistsEdit[selectedProfile];
+renderList();
 
 // add character to edit
 for (let i = 0; i < cardsList.length; i++) {
@@ -34,48 +23,48 @@ for (let i = 0; i < cardsList.length; i++) {
     card.addEventListener("click", (e) => {
         const characterName = e.currentTarget.children[1].innerHTML;
         const id = characterNames[characterName];
-        charactersEditObj[id] = 1;
-
+        selectedProfileArcanistsEdit[id] = 1;
+        updateLocalStorage();
         renderList();
+
+        // characterCardsElement.removeChild(cardsList[n]);
     })
 }
 
 function renderList() {
     let listHTML = "";
-    for (const [key, value] of Object.entries(charactersEditObj)) {
-    // for (let i = 0; i < charactersEditObj.length; i++) {
-        // const character = charactersEditObj[i];
+    for (const [key, value] of Object.entries(selectedProfileArcanistsEdit)) {
         const character = characterIds[key].name;
-        console.log(character);
-
         const html = `
         <div class="edited-char">
-            <img class="character-img" src="images/characters/icon/${character.replace(/ /g,"_")}_Icon.png">
-            <input class="num-input" type="number" min="1" value="1">
+            <img class="character-img" src="images/characters/icon/${character === "Matilda Bouanich" ? "Matilda" : character.replace(/ /g,"_")}_Icon.png">
+            <input class="${key} num-input" type="number" min="1" value="${value}">
             <button class="${key} delete-button">Delete</button>
         </div>`;
         listHTML += html;
     }
     document.querySelector(".edited-chars-list").innerHTML = listHTML;
 
-    const deleteButtons = document.querySelectorAll(".delete-button");
-    deleteButtons.forEach(button => {
+    document.querySelectorAll(".delete-button").forEach(button => {
         button.addEventListener("click", () => {
-            deleteCharacter(button.classList[0]);
+            delete selectedProfileArcanistsEdit[button.classList[0]];
+            updateLocalStorage();
+            renderList();
         })
     })
 
-    const numInputs = document.querySelectorAll(".num-input");
-    numInputs.forEach((input, index) => {
+    document.querySelectorAll(".num-input").forEach(input => {
         input.addEventListener("change", () => {
-            console.log(input.value, index);
+            const id = input.classList[0];
+            selectedProfileArcanistsEdit[id] = parseInt(input.value);
+            updateLocalStorage();
         })
     })
 }
 
-function deleteCharacter(id) {
-    delete charactersEditObj[id];
-    renderList();
+function updateLocalStorage() {
+    arcanistsEdit[selectedProfile] = selectedProfileArcanistsEdit;
+    localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
 }
 
     
