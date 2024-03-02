@@ -1,6 +1,5 @@
 import { characterIds } from "../data/character_ids.js";
 import { characterNames } from "../data/character_ids.js";
-import { default_character_count } from "../data/default_character_count.js";
 
 const filterbuttons = document.querySelectorAll(".sort-filter-bar div");
 const characterList = document.querySelectorAll(".characters a");
@@ -49,29 +48,43 @@ function displayFilteredCharacters(filteredCharacters) {
 }
 
 
-// Count characters and set portray amount
+// Count characters
 const selectedProfile = localStorage.getItem("selectedIndex");
 const summonData = JSON.parse(localStorage.getItem("summonData"))[selectedProfile];
-// const characters = localStorage.getItem("characters") ? JSON.parse(localStorage.getItem("characters")) : default_character_count;
-const characters = default_character_count;
+const arcanistsCounter = {};
+for (const [bannerType, obj] of Object.entries(summonData)) {
+    for (let i = 0; i < obj.history.length; i++) {
+        const summon = obj.history[i];
+        if (summon.name.startsWith("The Golden Thread")) {
+            continue
+        }
+        arcanistsCounter[summon.name] ? arcanistsCounter[summon.name] += 1 : arcanistsCounter[summon.name] = 1
+    }
+}
 
-// if (!localStorage.getItem("characters")) {
-    for (const [bannerType, obj] of Object.entries(summonData)) {
-        for (let i = 0; i < obj.history.length; i++) {
-            const summon = obj.history[i];
-            if (summon.name.startsWith("The Golden Thread")) {
-                continue
-            }
-            characters[summon.name].wish += 1
+// If first time visitng site since manually editing characters was implemented
+if (!JSON.parse(localStorage.getItem("arcanistsEdit"))) {
+    arcanistsEdit = {}
+    for (const [key, value] of Object.entries(JSON.parse(localStorage.getItem("profiles")))) {
+        arcanistsEdit[key] = {
+            3022: 1,
+            3028: 1,
+            3041: 1,
+            3023: 5
         }
     }
+    
+    localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
+}
 
-    // localStorage.setItem("characters", JSON.stringify(characters));
-// }
-
-for (const [name, obj] of Object.entries(characters)) {
-    const portray = document.querySelector(`._${characterNames[name]}`);
-    const count = obj.default + obj.wish + obj.manual;
-    portray.innerHTML = count ? `P${count - 1}` : "";
-    portray.style.color = (count - 1) >= 5 ? "rgb(224,154,37)" : "white";
+// Set portray amount
+const selectedProfileArcanistsEdit = JSON.parse(localStorage.getItem("arcanistsEdit"))[localStorage.getItem("selectedIndex")];
+for (const [name, id] of Object.entries(characterNames)) {
+    const portrayElement = document.querySelector(`._${id}`);
+    if (!portrayElement) {
+        continue;
+    }
+    const count = (arcanistsCounter[name] ?? 0) + (selectedProfileArcanistsEdit[id] ?? 0);
+    portrayElement.innerHTML = count ? `P${count - 1}` : "";
+    portrayElement.style.color = (count - 1) >= 5 ? "rgb(224,154,37)" : "white";
 }
