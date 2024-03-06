@@ -24,6 +24,7 @@ const selectedIndex = JSON.parse(localStorage.getItem("selectedIndex"));
 document.querySelector(".js-selected-profile").innerHTML = profiles[selectedIndex].name;
 
 function importSummon() {
+	return;
     try {
 		document.querySelector(".importing").style.display = "block";
         let res;
