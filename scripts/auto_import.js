@@ -24,7 +24,6 @@ const selectedIndex = JSON.parse(localStorage.getItem("selectedIndex"));
 document.querySelector(".js-selected-profile").innerHTML = profiles[selectedIndex].name;
 
 function importSummon() {
-	return;
     try {
 		document.querySelector(".importing").style.display = "block";
         let res;
@@ -90,11 +89,6 @@ function parseSummonHistory(res) {
 			pity6: 0,
 			pity5: 0,
 			history: [],
-		},
-		5: { // Golden thread banner
-			pity6: 0,
-			pity5: 0,
-			history: [],
 		}
 	};
 
@@ -121,6 +115,13 @@ function parseSummonHistory(res) {
 				banner: poolName
 			};
 			
+			if (!selectedProfileSummonData[poolType]) {
+				selectedProfileSummonData[poolType] = {
+					pity6: 0,
+					pity5: 0,
+					history: [],
+				}
+			}
 			selectedProfileSummonData[poolType].pity6++;
 			selectedProfileSummonData[poolType].pity5++;
 
