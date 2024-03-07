@@ -60,6 +60,7 @@ const bannerTypeMap = {
 	beginner: 1,
 	standard: 2,
 	limited: 3,
+	temp: 4,
 	event: 5,
 	1: "beginner",
 	2: "standard",
@@ -139,6 +140,7 @@ makeTableAndPopulateExtraStats("standard", "all");
 makeTableAndPopulateExtraStats("limited", "all");
 makeTableAndPopulateExtraStats("beginner", "all");
 makeTableAndPopulateExtraStats("event", "all");
+makeTableAndPopulateExtraStats("temp", "all");
 
 
 // Show/hide banner history

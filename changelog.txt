@@ -1,3 +1,6 @@
+2024/03/07
+- Added Abundance of the Water banner
+
 2024/03/02
 - Added editing character count
 
