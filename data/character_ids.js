@@ -4,238 +4,271 @@ export const characterIds = {
         rarity: 6,
         afflatus: "plant",
         damageType: "mental",
-        tags: ["DPS", "Control", "Support"]
+        tags: ["DPS", "Control", "Support"],
+        material: "Fruit of Good and Evil"
     },
     3004: {
         name: "Lilya",
         rarity: 6,
         afflatus: "star",
         damageType: "reality",
-        tags: ["Burst DMG", "DPS"]
+        tags: ["Burst DMG", "DPS"],
+        material: "Golden Fleece"
     },
     3005: {
         name: "Nick Bottom",
         rarity: 4,
         afflatus: "beast",
         damageType: "mental",
-        tags: ["Support"]
+        tags: ["Support"],
+        material: "Prophetic Bird"
     },
     3006: {
         name: "Eagle",
         rarity: 4,
         afflatus: "plant",
         damageType: "reality",
-        tags: ["Burst DMG", "DPS"]
+        tags: ["Burst DMG", "DPS"],
+        material: "Biting Box"
     },
     3007: {
         name: "A Knight",
         rarity: 6,
         afflatus: "spirit",
         damageType: "reality",
-        tags: ["DPS"]
+        tags: ["DPS"],
+        material: "Mistilteinn"
     },
     3009: {
         name: "Sotheby",
         rarity: 6,
         afflatus: "plant",
         damageType: "reality",
-        tags: ["DPS", "Heal", "Poison"]
+        tags: ["DPS", "Heal", "Poison"],
+        material: "Mistilteinn"
     },
     3010: {
         name: "X",
         rarity: 5,
         afflatus: "intelligence",
         damageType: "reality",
-        tags: ["Dispeller", "DPS", "Control"]
+        tags: ["Dispeller", "DPS", "Control"],
+        material: "Mistilteinn"
     },
     3011: {
         name: "Sweetheart",
         rarity: 5,
         afflatus: "beast",
         damageType: "reality",
-        tags: ["DPS", "Control"]
+        tags: ["DPS", "Control"],
+        material: "Golden Fleece"
     },
     3012: {
         name: "The Fool",
         rarity: 3,
         afflatus: "star",
         damageType: "mental",
-        tags: ["DEF"]
+        tags: ["DEF"],
+        material: "salted Mandrake"
     },
     3013: {
         name: "Зима",
         rarity: 4,
         afflatus: "plant",
         damageType: "mental",
-        tags: ["Control", "Support"]
+        tags: ["Control", "Support"],
+        material: "Salted Mandrake"
     },
     3014: {
         name: "Bunny Bunny",
         rarity: 4,
         afflatus: "beast",
         damageType: "reality",
-        tags: ["Heal", "Nasty Wound"]
+        tags: ["Heal", "Nasty Wound"],
+        material: "Bifurcated Skeleton"
     },
     3015: {
         name: "Pavia",
         rarity: 4,
         afflatus: "beast",
         damageType: "mental",
-        tags: ["DPS", "Self-healing"]
+        tags: ["DPS", "Self-healing"],
+        material: "Holy Silver"
     },
     3016: {
         name: "Baby Blue",
         rarity: 5,
         afflatus: "star",
         damageType: "mental",
-        tags: ["Control", "Debuff"]
+        tags: ["Control", "Debuff"],
+        material: "Mistilteinn"
     },
     3017: {
         name: "Charlie",
         rarity: 5,
         afflatus: "star",
         damageType: "mental",
-        tags: ["DPS", "Dispeller"]
+        tags: ["DPS", "Dispeller"],
+        material: "Golden Fleece"
     },
     3018: {
         name: "Oliver Fog",
         rarity: 4,
         afflatus: "star",
         damageType: "reality",
-        tags: ["DEF", "Support"]
+        tags: ["DEF", "Support"],
+        material: "Prophetic Bird"
     },
     3020: {
         name: "Bkornblume",
         rarity: 5,
         afflatus: "plant",
         damageType: "reality",
-        tags: ["Debuff", "Burst DMG", "Control"]
+        tags: ["Debuff", "Burst DMG", "Control"],
+        material: "Fruit of Good and Evil"
     },
     3022: {
         name: "Dikke",
         rarity: 5,
         afflatus: "beast",
         damageType: "mental",
-        tags: ["DPS", "Heal"]
+        tags: ["DPS", "Heal"],
+        material: "Golden Fleece"
     },
     3023: {
         name: "Sonetto",
         rarity: 5,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["DPS", "Support", "Control"]
+        tags: ["DPS", "Support", "Control"],
+        material: "Mistilteinn"
     },
     3024: {
         name: "Balloon Party",
         rarity: 5,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["Heal", "DEF"]
+        tags: ["Heal", "DEF"],
+        material: "Fruit of Good and Evil"
     },
     3025: {
         name: "Regulus",
         rarity: 6,
         afflatus: "star",
         damageType: "mental",
-        tags: ["DPS", "Support"]
+        tags: ["DPS", "Support"],
+        material: "Mistilteinn"
     },
     3026: {
         name: "Mondlicht",
         rarity: 4,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["DPS"]
+        tags: ["DPS"],
+        material: "Biting Box"
     },
     3027: {
         name: "Ms. Radio",
         rarity: 2,
         afflatus: "spirit",
         damageType: "mental",
-        tags: ["Debuff"]
+        tags: ["Debuff"],
+        material: "Biting Box"
     },
     3028: {
         name: "APPLe",
         rarity: 4,
         afflatus: "star",
         damageType: "mental",
-        tags: []
+        tags: ["DPS", "Heal"],
+        material: "Bifurcated Skeleton"
     },
-    3029: {
-        name: "Schneider",
-        rarity: 5,
-        afflatus: "beast",
-        damageType: "mental",
-        tags: []
-    },
+    // 3029: {
+    //     name: "Schneider",
+    //     rarity: 5,
+    //     afflatus: "beast",
+    //     damageType: "mental",
+    //     tags: []
+    // },
     3030: {
         name: "La Source",
         rarity: 3,
         afflatus: "plant",
         damageType: "mental",
-        tags: ["Heal"]
+        tags: ["Heal"],
+        material: "Bifurcated Skeleton"
     },
     3031: {
         name: "Cristallo",
         rarity: 4,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["Nasty Wound", "Support"]
+        tags: ["Nasty Wound", "Support"],
+        material: "Salted Mandrake"
     },
     3032: {
         name: "Centurion",
         rarity: 6,
         afflatus: "beast",
         damageType: "reality",
-        tags: ["DPS", "Burst DMG"]
+        tags: ["DPS", "Burst DMG"],
+        material: "Golden Fleece"
     },
     3033: {
         name: "TTT",
         rarity: 4,
         afflatus: "star",
         damageType: "mental",
-        tags: ["DEF", "Dispeller"]
+        tags: ["DEF", "Dispeller"],
+        material: "Biting Box"
     },
     3034: {
         name: "aliEn T",
         rarity: 3,
         afflatus: "star",
         damageType: "reality",
-        tags: ["DEF", "Control"]
+        tags: ["DEF", "Control"],
+        material: "Holy Silver"
     },
     3035: {
         name: "Leilani",
         rarity: 3,
         afflatus: "beast",
         damageType: "reality",
-        tags: ["Support", "DPS"]
+        tags: ["Support", "DPS"],
+        material: "Bifurcated Skeleton"
     },
     3036: {
         name: "John Titor",
         rarity: 3,
         afflatus: "intelligence",
         damageType: "reality",
-        tags: ["Support", "Dispeller", "Purify"]
+        tags: ["Support", "Dispeller", "Purify"],
+        material: "Bifurcated Skeleton"
     },
     3037: {
         name: "Necrologist",
         rarity: 5,
         afflatus: "mineral",
         damageType: "mental",
-        tags: ["DPS", "Support"]
+        tags: ["DPS", "Support"],
+        material: "Mistilteinn"
     },
     3038: {
         name: "Satsuki",
         rarity: 5,
         afflatus: "plant",
         damageType: "mental",
-        tags: ["DPS", "Control"]
+        tags: ["DPS", "Control"],
+        material: "Fruit of Good and Evil"
     },
     3039: {
         name: "An-an Lee",
         rarity: 6,
         afflatus: "plant",
         damageType: "reality",
-        tags: ["Control", "DPS", "Support"]
+        tags: ["Control", "DPS", "Support"],
+        material: "Golden Fleece"
     },
     3040: {
         name: "Twins Sleep",
@@ -249,196 +282,224 @@ export const characterIds = {
         rarity: 5,
         afflatus: "star",
         damageType: "mental",
-        tags: ["Debuff", "DPS"]
+        tags: ["Debuff", "DPS"],
+        material: "Prophetic Bird"
     },
     3042: {
         name: "Rabies",
         rarity: 4,
         afflatus: "plant",
         damageType: "reality",
-        tags: ["DPS", "Poison"]
+        tags: ["DPS", "Poison"],
+        material: "Bifurcated Skeleton"
     },
     3043: {
         name: "Tennant",
         rarity: 5,
         afflatus: "beast",
         damageType: "reality",
-        tags: ["Shield", "Debuff", "DPS"]
+        tags: ["Shield", "Debuff", "DPS"],
+        material: "Fruit of Good and Evil"
     },
     3044: {
         name: "Ms. Moissan",
         rarity: 4,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["Control", "Shield"]
+        tags: ["Control", "Shield"],
+        material: "Salted Mandrake"
     },
     3045: {
         name: "Bette",
         rarity: 3,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["Shield", "Support"]
+        tags: ["Shield", "Support"],
+        material: "Biting Box"
     },
     3046: {
         name: "Poltergeist",
         rarity: 4,
         afflatus: "spirit",
         damageType: "mental",
-        tags: ["DEF", "Debuff"]
+        tags: ["DEF", "Debuff"],
+        material: "Holy Silver"
     },
     3047: {
         name: "Medicine Pocket",
         rarity: 6,
         afflatus: "beast",
         damageType: "mental",
-        tags: ["Heal", "Debuff", "Control"]
+        tags: ["Heal", "Debuff", "Control"],
+        material: "Golden Fleece"
     },
     3048: {
         name: "Voyager",
         rarity: 6,
         afflatus: "star",
         damageType: "mental",
-        tags: ["DPS", "Control", "Debuff"]
+        tags: ["DPS", "Control", "Debuff"],
+        material: "Golden Fleece"
     },
     3049: {
         name: "Click",
         rarity: 5,
         afflatus: "spirit",
         damageType: "mental",
-        tags: ["DPS", "Debuff"]
+        tags: ["DPS", "Debuff"],
+        material: "Golden Fleece"
     },
     3050: {
         name: "Darley Clatter",
         rarity: 3,
         afflatus: "beast",
         damageType: "mental",
-        tags: ["Support"]
+        tags: ["Support"],
+        material: "Salted Mandrake"
     },
     3051: {
         name: "Eternity",
         rarity: 6,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["DPS", "Nasty Wound"]
+        tags: ["DPS", "Nasty Wound"],
+        material: "Fruit of Good and Evil"
     },
     3052: {
         name: "Ms. NewBabel",
         rarity: 6,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["DEF", "Support", "Shield"]
+        tags: ["DEF", "Support", "Shield"],
+        material: "Fruit of Good and Evil"
     },
     3053: {
         name: "Tooth Fairy",
         rarity: 6,
         afflatus: "star",
         damageType: "mental",
-        tags: ["Heal", "Debuff", "Purify"]
+        tags: ["Heal", "Debuff", "Purify"],
+        material: "Golden Fleece"
     },
     3054: {
         name: "ONiON",
         rarity: 3,
         afflatus: "mineral",
         damageType: "reality",
-        tags: ["DPS", "Debuff"]
+        tags: ["DPS", "Debuff"],
+        material: "Biting Box"
     },
     3055: {
         name: "Sputnik",
         rarity: 3,
         afflatus: "star",
         damageType: "mental",
-        tags: ["DEF", "Control"]
+        tags: ["DEF", "Control"],
+        material: "Holy Silver"
     },
     3056: {
         name: "Jessica",
         rarity: 6,
         afflatus: "plant",
         damageType: "reality",
-        tags: ["DPS", "Poison"]
+        tags: ["DPS", "Poison"],
+        material: "Fruit of Good and Evil"
     },
     3057: {
         name: "Mesmer Jr.",
         rarity: 4,
         afflatus: "intelligence",
         damageType: "mental",
-        tags: ["Support"]
+        tags: ["Support"],
+        material: "Salted Mandrake"
     },
     3058: {
         name: "Erick",
         rarity: 4,
         afflatus: "star",
         damageType: "reality",
-        tags: ["DPS", "Dispeller"]
+        tags: ["DPS", "Dispeller"],
+        material: "Prophetic Bird"
     },
     3059: {
         name: "Door",
         rarity: 2,
         afflatus: "intelligence",
         damageType: "reality",
-        tags: ["Support"]
+        tags: ["Support"],
+        material: "Prophetic Bird"
     },
     3060: {
         name: "Blonney",
         rarity: 5,
         afflatus: "star",
         damageType: "reality",
-        tags: ["Burst DMG", "DPS"]
+        tags: ["Burst DMG", "DPS"],
+        material: "Fruit of Good and Evil"
     },
     3061: {
         name: "Horropedia",
         rarity: 5,
         afflatus: "mineral",
         damageType: "mental",
-        tags: ["DPS", "Dispeller", "Debuff"]
+        tags: ["DPS", "Dispeller", "Debuff"],
+        material: "Golden Fleece"
     },
     3062: {
         name: "Melania",
         rarity: 6,
         afflatus: "beast",
         damageType: "mental",
-        tags: ["Burst DMG", "DPS"]
+        tags: ["Burst DMG", "DPS"],
+        material: "Fruit of Good and Evil"
     },
     3063: {
         name: "Pickles",
         rarity: 6,
         afflatus: "mineral",
         damageType: "mental",
-        tags: ["DPS", "Support", "Dispeller"]
+        tags: ["DPS", "Support", "Dispeller"],
+        material: "Mistilteinn"
     },
     3064: {
         name: "Diggers",
         rarity: 5,
         afflatus: "plant",
         damageType: "mental",
-        tags: ["Control", "Shield", "Debuff"]
+        tags: ["Control", "Shield", "Debuff"],
+        material: "Golden Fleece"
     },
     3066: {
         name: "37",
         rarity: 6,
         afflatus: "star",
         damageType: "mental",
-        tags: ["DPS", "Support"]
+        tags: ["DPS", "Support"],
+        material: "Serpent Scepter"
     },
     3070: {
         name: "Kaalaa Baunaa",
         rarity: 6,
         afflatus: "mineral",
         damageType: "mental",
-        tags: ["DPS", "Burst DMG", "Support"]
+        tags: ["DPS", "Burst DMG", "Support"],
+        material: "Golden Fleece"
     },
     3071: {
         name: "Kanjira",
         rarity: 5,
         afflatus: "plant",
         damageType: "mental",
-        tags: ["DPS", "Poison", "Debuff"]
+        tags: ["DPS", "Poison", "Debuff"],
+        material: "Fruit of Good and Evil"
     },
     3072: {
         name: "Shamane",
         rarity: 6,
         afflatus: "beast",
         damageType: "reality",
-        tags: ["DPS", "Burst DMG", "Debuff"]
+        tags: ["DPS", "Burst DMG", "Debuff"],
+        material: "Mistilteinn"
     },
     3073: {
         name: "Spathodea",
@@ -473,7 +534,8 @@ export const characterIds = {
         rarity: 6,
         afflatus: "intelligence",
         damageType: "mental",
-        tags: ["Debuff", "Purify", "Support"]
+        tags: ["Debuff", "Purify", "Support"],
+        material: "Golden Fleece"
     },
     90001: {
         name: "The Golden Thread I",

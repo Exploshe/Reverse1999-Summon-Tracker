@@ -18,25 +18,21 @@ for (let i = 0; i < cardsList.length; i++) {
     card.addEventListener("click", (e) => {
         const characterName = e.currentTarget.children[1].innerHTML;
         const id = characterNames[characterName];
-        let isCorrectAfflatus = true;
+        const isCorrectAfflatus = characterIds[id].afflatus === characterIds[answer.id].afflatus;
+        let spans = "";
         characterIds[id].tags.forEach(tag => {
-            
+            spans += `<span style="color: ${characterIds[answer.id].tags.includes(tag) ? "green" : "red"}">${tag}</span>`
         });
-        if (id !== answer.id) {
-            if (characterIds[id].afflatus !== characterIds[answer.id].afflatus) {
-                isCorrectAfflatus = false;
-                console.log("wrong afflatus");
-            } else {
-                console.log("correct afflatus");
-            }
-        }
-
+        const isCorrectMaterial = characterIds[id].material === characterIds[answer.id].material;
+        const isCorrectDamageType = characterIds[id].damageType === characterIds[answer.id].damageType;
         document.querySelector(".guess-list").innerHTML += `
             <tr>
                 <td><img class="character-img" src="images/characters/icon/${characterName === "Matilda Bouanich" ? "Matilda" : characterName.replace(/ /g,"_")}_Icon.png"></td>
                 <td style="background-color: ${id === answer.id ? 'green' : 'red'}">${characterName}</td>
-                <td style="background-color: ${isCorrectRarity ? 'green' : 'red'}">${characterIds[id].rarity}</td>
+                <td style="background-color: ${isCorrectMaterial ? 'green' : 'red'}"><img style="width: 40px" src="images/materials/${characterIds[id].material.replace(/ /g,"_")}.webp"></td>
+                <td>${spans}</td>
                 <td style="background-color: ${isCorrectAfflatus ? 'green' : 'red'}">${characterIds[id].afflatus}</td>
+                <td style="background-color: ${isCorrectDamageType ? 'green' : 'red'}">${characterIds[id].damageType}</td>
             </tr>`
     })
 }
