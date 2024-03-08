@@ -65,6 +65,7 @@ const bannerTypeMap = {
 	1: "beginner",
 	2: "standard",
 	3: "limited",
+	4: "temp",
 	5: "event"
 }
 if (summonData) {
@@ -82,12 +83,12 @@ if(summonData[bannerTypeMap.limited].isGuaranteed) {
 }
 
 function makeTableAndPopulateExtraStats(bannerType, banner) {
-	const table = document.querySelector(`.js-${bannerType}-banner-history`);
+	const table = document.querySelector(`.js-${bannerTypeMap[bannerType]}-banner-history`);
 	for (let i = table.rows.length - 1; i >= 1; i--) {
 		table.deleteRow(i);
 	}
 
-	const bannerHistory = summonData[bannerTypeMap[bannerType]].history;
+	const bannerHistory = summonData[bannerType].history;
 	// These are for the banner's extra stats section
 	let sixStars = [];
 	let fiveStars = [];
@@ -118,14 +119,14 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 	};
 
 	// Populate banner's extra stats section
-	if (bannerType === "limited" || bannerType === "standard") {
-		const bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[+(bannerType === "standard")];
+	if (bannerType === "2" || bannerType === "3") {
+		const bannerExtraStatsTable = document.querySelectorAll(".banner-extra-stats-table")[+(bannerType === "2")];
 
 		populateStatsRow(bannerExtraStatsTable.rows[1], sixStars, bannerHistory.length);
-		populateStatsRow(bannerExtraStatsTable.rows[+(bannerType === "limited") + 2], fiveStars, bannerHistory.length);
+		populateStatsRow(bannerExtraStatsTable.rows[+(bannerType === "3") + 2], fiveStars, bannerHistory.length);
 
 		// Update total pulls when filtering by banner
-		if (bannerType === "limited") {
+		if (bannerType === "3") {
 			document.querySelector(".js-limited-lifetime-pulls").innerHTML = totalPulls;
 			document.querySelector(".js-limited-clear-drop-count").innerHTML = numberWithCommas(totalPulls * 180);
 		}
@@ -136,11 +137,10 @@ function populateStatsRow(row, stars, totalPulls) {
 	row.cells[2].innerHTML = `${roundTo2Places(stars.length * 100 / totalPulls)}%`;
 	row.cells[3].innerHTML = stars.length ? roundTo2Places(avg(stars)) : 0;
 }
-makeTableAndPopulateExtraStats("standard", "all");
-makeTableAndPopulateExtraStats("limited", "all");
-makeTableAndPopulateExtraStats("beginner", "all");
-makeTableAndPopulateExtraStats("event", "all");
-makeTableAndPopulateExtraStats("temp", "all");
+
+for (const [key, val] of Object.entries(summonData)) {
+	makeTableAndPopulateExtraStats(key, "all");
+}
 
 
 // Show/hide banner history
@@ -303,7 +303,7 @@ function selectBanner(banner) {
 	document.querySelectorAll(".banner-selection div").forEach(bannerDiv => {
 		bannerDiv.classList.remove("selected");
 	});
-	makeTableAndPopulateExtraStats("limited", banner);
+	makeTableAndPopulateExtraStats("3", banner);
 	calculate5050WinRateAndCreate6StarsList("limited", banner);
 	updateVisibilityOfRarity("limited", 6);
 	updateVisibilityOfRarity("limited", 5);
@@ -340,27 +340,17 @@ fetch(`https://18.116.12.52/global-stats?bannerType=${3}`)
 function populateUserGlobalStats(data, dataKey, className, elementIndex) {
 	const sortedData = data.map((x) => x[dataKey]).sort((a, b) => a - b);
 	const index = rightBinarySearch(sortedData, elementIndex > 1 ? document.querySelector(className).innerHTML.slice(0, -1) : summonData[3].history.length);
-	let percentile = index <= 0 ? 0 : roundTo2Places(100 * (index + 1) / data.length);
+	let percentile = Math.max(roundTo2Places(100 * (index + 1) / data.length), 0);
 	percentile = Math.min(percentile, 100);
 
 	if (percentile < 50) {
 		globalStats.children[elementIndex].children[1].children[0].innerHTML = "BOTTOM";
-		if (elementIndex === 1) {
-			globalStats.children[elementIndex].children[0].children[1].innerHTML = `Less spins than ${roundTo2Places(100 - percentile)}% of other users`;
-		} else {
-			globalStats.children[elementIndex].children[0].children[1].innerHTML = `Unluckier than ${roundTo2Places(100 - percentile)}% of other users`;
-		}
-		
+		globalStats.children[elementIndex].children[0].children[1].innerHTML = `${elementIndex === 1 ? "Less spins" : "Unluckier"} than ${roundTo2Places(100 - percentile)}% of other users`;
 		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${percentile}%`;	
 	} else {
-		if (elementIndex === 1) {
-			globalStats.children[elementIndex].children[0].children[1].innerHTML = `More spins than ${percentile}% of other users`;
-		} else {
-			globalStats.children[elementIndex].children[0].children[1].innerHTML = `Luckier than ${percentile}% of other users`;
-		}
+		globalStats.children[elementIndex].children[0].children[1].innerHTML = `${elementIndex === 1 ? "More spins" : "Luckier"} than ${percentile}% of other users`;
 		globalStats.children[elementIndex].children[1].children[1].innerHTML = `${roundTo2Places(100 - percentile)}%`;	
 	}
-			
 }
 
 function rightBinarySearch(arr, val) {
