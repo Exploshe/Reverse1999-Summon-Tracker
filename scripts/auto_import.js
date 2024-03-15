@@ -132,7 +132,16 @@ function parseSummonHistory(res) {
 
 			// 5050s, 0 = lost, 1 = won, 2 = guaranteed
 			if (poolType === 3) {
-				const { rateUp6StarId, rateUp5StarIds } = banners[poolName];
+				let banner = banners[poolName];
+				if (!banner.start) {
+					for (let i = 0; i < banners[poolName].length; i++) {
+						banner = banners[poolName][i];
+						if (createTime >= banner.start && createTime <= banner.end) {
+							break;
+						}
+					}
+				}
+				const { rateUp6StarId, rateUp5StarIds } = banner;
 
 				switch (rarity) {
 					case 6:

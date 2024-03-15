@@ -48,14 +48,16 @@ function renderStats(bannerName) {
                 responsive: true
             }
 
-            const startDateMinus1Day = new Date(banners[bannerName].start);
+            const start = banners[bannerName].start ?? banners[bannerName][0].start;
+            const end = banners[bannerName].end ?? banners[bannerName][0].end;
+            const startDateMinus1Day = new Date(start);
             startDateMinus1Day.setDate(startDateMinus1Day.getDate() - 1);
             const layout = {
                 title: "Spins By Day",
                 xaxis: {
                     tickmode: "linear",
-                    tick0: new Date(banners[bannerName].start).toISOString().slice(0,10),
-                    range: [startDateMinus1Day.toISOString(), banners[bannerName].end],
+                    tick0: new Date(start).toISOString().slice(0,10),
+                    range: [startDateMinus1Day.toISOString(), end],
                     type: "date",
                     gridcolor: "black"
                 }
@@ -88,7 +90,8 @@ function renderStats(bannerName) {
             }
             createGraph(document.querySelector(".fivestar-spins-by-pity-graph"), data.bannerGraph5PityResults, {type: "bar", marker: {color: "rgb(228,199,128)"}}, layout3, config)
 
-            const charName = characterIds[banners[bannerName].rateUp6StarId].name;
+            const rateUp = banners[bannerName].rateUp6StarId ?? banners[bannerName][0].rateUp6StarId;
+            const charName = characterIds[rateUp].name;
             document.getElementById("char-name").innerHTML = charName;
             document.querySelector(".rate-up-char-img").src = `images/characters/icon/${charName.replace(/\ /g, "_")}_Icon.png`
 

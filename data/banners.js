@@ -125,20 +125,20 @@ export const banners = {
         end: "2023-11-23 04:59:59"
     },
     "牧羊犬如是说": [  // Pickles
-    {
-        rateUp6StarId: 3063,
-        rateUp5StarIds: [3064, 3016],
-        img: "images/banners/Thus_Spoke_the_Border_Collie_Banner.webp",
-        start: "2023-11-23 05:00:00",
-        end: "2023-12-07 04:59:59"
-    },
-    {  // rerun
-        rateUp6StarId: 3063,  
-        rateUp5StarIds: [3024, 3037],
-        img: "images/banners/Thus_Spoke_the_Border_Collie_Banner.webp",
-        start: "2024-03-12 05:00:00",
-        end: "2024-03-26 04:59:59"
-    },
+        {
+            rateUp6StarId: 3063,
+            rateUp5StarIds: [3064, 3016],
+            img: "images/banners/Thus_Spoke_the_Border_Collie_Banner.webp",
+            start: "2023-11-23 05:00:00",
+            end: "2023-12-07 04:59:59"
+        },
+        {  // rerun
+            rateUp6StarId: 3063,  
+            rateUp5StarIds: [3024, 3037],
+            img: "images/banners/Thus_Spoke_the_Border_Collie_Banner.webp",
+            start: "2024-03-12 05:00:00",
+            end: "2024-03-26 04:59:59"
+        },
     ],
     "仙子振翅入夜": {
         rateUp6StarId: 3053,
