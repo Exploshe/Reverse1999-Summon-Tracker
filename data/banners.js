@@ -39,13 +39,22 @@ export const banners = {
         start: "2023-10-26 00:00:00",
         end: "2023-11-09 04:59:59"
     },
-    "一克“好奇心”": {
-        rateUp6StarId: 3009,
-        rateUp5StarIds: [3010, 3017],
-        img: "images/banners/One_Gram_of_Curiosity_Banner.webp",
-        start: "2023-10-26 00:00:00",
-        end: "2023-11-09 04:59:59"
-    },
+    "一克“好奇心”": [
+        {
+            rateUp6StarId: 3009,
+            rateUp5StarIds: [3010, 3017],
+            img: "images/banners/One_Gram_of_Curiosity_Banner.webp",
+            start: "2023-10-26 00:00:00",
+            end: "2023-11-09 04:59:59"
+        },
+        {
+            rateUp6StarId: 3009,
+            rateUp5StarIds: [3064, 3020],
+            img: "images/banners/One_Gram_of_Curiosity_Banner.webp",
+            start: "2024-03-26 05:00:00",
+            end: "2024-04-09 04:59:59"
+        }
+    ],
     "深林的絮语": {
         rateUp6StarId: 3003,
         rateUp5StarIds: [3049, 3037],
