@@ -82,7 +82,7 @@ if(summonData[bannerTypeMap.limited].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
 }
 
-function makeTableAndPopulateExtraStats(bannerType, banner) {
+function makeTableAndPopulateExtraStats(bannerType, banner, bannerStart, bannerEnd) {
 	const table = document.querySelector(`.js-${bannerTypeMap[bannerType]}-banner-history`);
 	for (let i = table.rows.length - 1; i >= 1; i--) {
 		table.deleteRow(i);
@@ -97,7 +97,7 @@ function makeTableAndPopulateExtraStats(bannerType, banner) {
 	// Populate banner history table and make 4-*s invisible by default
 	for (let i = bannerHistory.length - 1; i >= 0; i--) {
 		const summon = bannerHistory[i];
-		if (banner === "all" || summon.banner === banner) {
+		if (banner === "all" || (summon.banner === banner && summon.time >= bannerStart && summon.time <= bannerEnd)) {
 			totalPulls++;
 
 			let row = table.insertRow(-1);
@@ -235,7 +235,7 @@ function addToListOf6Stars(bannerType, name, pity, won5050) {
 }
 
 let bannerList = [];
-function calculate5050WinRateAndCreate6StarsList(bannerType, banner) {
+function calculate5050WinRateAndCreate6StarsList(bannerType, banner, givenBannerStart) {
 	document.querySelector(`.${bannerType}-6star-list`).innerHTML = "";
 	const fifty50s = {
 		6: [],
@@ -245,31 +245,47 @@ function calculate5050WinRateAndCreate6StarsList(bannerType, banner) {
 	for (let i = 0; i < bannerHistory.length; i++) {
 		const summon = bannerHistory[i];
 		const rarity = characterIds[summon.id].rarity
-		if (bannerType === "limited" && summon.banner && !bannerList.includes(summon.banner)) {
-			bannerList.push(summon.banner);
+		let bannerStart;
+		if (banners[summon.banner].start) {
+			bannerStart = banners[summon.banner].start;
+		} else {
+			for (let i = 0; i < banners[summon.banner].length; i++) {
+                const banner = banners[summon.banner][i];
+                if (summon.time >= banner.start && summon.time <= banner.end) {
+                    bannerStart = banner.start;
+                    break;
+                }
+            }
+		}
+
+		const a = JSON.stringify(bannerList);
+		const b = JSON.stringify([summon.banner, bannerStart]);
+		const c = a.indexOf(b);
+		if (bannerType === "limited" && summon.banner && c === -1) {
+			bannerList.push([summon.banner, bannerStart]);
 		}
 
 		if (summon.rate < 2) {
 			// 0 = lost 5050, 1 = won 5050
-			fifty50s[rarity]?.push({ "banner": summon.banner, "is5050win": summon.rate });
+			fifty50s[rarity]?.push({ "banner": summon.banner, "is5050win": summon.rate, bannerStart });
 		}
 
-		if (rarity === 6 && (banner === "all" || summon.banner === banner)) {
+		if (rarity === 6 && (banner === "all" || (summon.banner === banner && bannerStart === givenBannerStart))) {
 			addToListOf6Stars(bannerType, summon.name, summon.pity, summon.rate);
 		}
 	}
 
 	if (bannerType === "limited") {
-		calc5050wr(fifty50s, banner);
+		calc5050wr(fifty50s, banner, givenBannerStart);
 	}
 }
 
-function calc5050wr(fifty50s, banner) {
+function calc5050wr(fifty50s, banner, givenBannerStart) {
 	for (const [rarity, list] of Object.entries(fifty50s)) {
 		let total = 0;
 		let wins = 0;
 		list.forEach(fifty50 => {
-			if (banner === "all" || fifty50.banner === banner) {
+			if (banner === "all" || (fifty50.banner === banner && fifty50.bannerStart === givenBannerStart)) {
 				total++;
 				wins += fifty50.is5050win;
 			}
@@ -287,28 +303,41 @@ calculate5050WinRateAndCreate6StarsList("standard", "all");
 
 function createBannerButtons(bannerList) {
 	bannerList.forEach(banner => {
+		const bannerName = banner[0];
+		const bannerStart = banner[1].replace(/ /g,"_").replaceAll(":","COLON");  // : not allowed in class name
 		const button = document.createElement("div");
 		button.role = "button";
-		button.classList.add("banner-button", `${banner}-button`);
+		button.classList.add("banner-button", `${bannerName}-${bannerStart}-button`);
 		const img = new Image();
-		img.src = banners[banner].img;
+		img.src = banners[bannerName].img ?? banners[bannerName][0].img;
 		button.appendChild(img);
 		document.querySelector(".banner-selection").appendChild(button);
-		button.addEventListener("click", () => selectBanner(banner));
+		button.addEventListener("click", () => selectBanner(bannerName, bannerStart));
 	});
 }
 createBannerButtons(bannerList);
 
-function selectBanner(banner) {
+function selectBanner(bannerName, bannerStart) {
 	document.querySelectorAll(".banner-selection div").forEach(bannerDiv => {
 		bannerDiv.classList.remove("selected");
 	});
-	makeTableAndPopulateExtraStats("3", banner);
-	calculate5050WinRateAndCreate6StarsList("limited", banner);
+	const bannerStartColon = bannerStart ? bannerStart.replaceAll("COLON", ":").replace("_", " ") : null;
+	let bannerEnd = banners[bannerName]?.end;
+	if (!bannerEnd && bannerName != "all") {
+		for (let i = 0; i < banners[bannerName].length; i++) {
+			const banner = banners[bannerName][i];
+			if (banner.start === bannerStartColon) {
+				bannerEnd = banner.end;
+				break;
+			}
+		}
+	}
+	makeTableAndPopulateExtraStats("3", bannerName, bannerStartColon, bannerEnd);
+	calculate5050WinRateAndCreate6StarsList("limited", bannerName, bannerStartColon);
 	updateVisibilityOfRarity("limited", 6);
 	updateVisibilityOfRarity("limited", 5);
 	updateVisibilityOfRarity("limited", 432);
-	document.querySelector(`.${banner}-button`).classList.add("selected");
+	bannerName === "all" ? document.querySelector(".all-button").classList.add("selected") : document.querySelector(`.${bannerName}-${bannerStart}-button`).classList.add("selected");
 }
 
 

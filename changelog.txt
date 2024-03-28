@@ -1,3 +1,12 @@
+2024/03/27
+- Bug fixes
+
+2024/03/25
+- Added Sotheby banner
+
+2024/03/12
+- Added Pickles banner
+
 2024/03/07
 - Added Abundance of the Water banner
 

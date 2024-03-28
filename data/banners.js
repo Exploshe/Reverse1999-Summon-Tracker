@@ -118,13 +118,6 @@ export const banners = {
         start: "2024-02-27 05:00:00",
         end: "2024-03-12 04:59:59"
     },
-    "望族与隐士": {
-        rateUp6StarId: 3009,  // Sotheby
-        rateUp5StarIds: [],
-        img: "",
-        start: "",
-        end: ""
-    },
     // new arcanist banners
     "流行即世界": {
         rateUp6StarId: 3062,
