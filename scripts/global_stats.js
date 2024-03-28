@@ -27,11 +27,15 @@ function unselectAll() {
     })
 }
 
-function renderStats(bannerName) {
+function renderStats(banner) {
+    const hehe = banner.indexOf("-")
+    const bannerName = hehe >= 0 ? banner.slice(0, hehe) : banner;
+    const bannerStart = hehe >= 0 ? banner.slice(hehe + 1, banner.length) : null;
+    
     // fetch stats for banner from server
     console.log(`fetching ${bannerName}`);
     document.querySelector(".loading").innerHTML = "Loading";
-    fetch(`https://18.116.12.52/global-stats/banner?bannerName=${bannerName}`)
+    fetch(`https://18.116.12.52/global-stats/banner?bannerName=${bannerName}&bannerStart=${bannerStart}`)
 		.then(response => response.text())
 		.then(data => {
             data = JSON.parse(data);
@@ -48,8 +52,19 @@ function renderStats(bannerName) {
                 responsive: true
             }
 
-            const start = banners[bannerName].start ?? banners[bannerName][0].start;
-            const end = banners[bannerName].end ?? banners[bannerName][0].end;
+            let start = bannerStart ?? banners[bannerName].start;
+            let end = banners[bannerName]?.end;
+            if (!end) {
+                for (let i = 0; i < banners[bannerName].length; i++) {
+                    const b = banners[bannerName][i];
+                    if (b.start.includes(start)) {
+                        end = b.end;
+                        break;
+                    }
+                }
+                start += " 05:00:00";  // for graph formatting
+            }
+
             const startDateMinus1Day = new Date(start);
             startDateMinus1Day.setDate(startDateMinus1Day.getDate() - 1);
             const layout = {

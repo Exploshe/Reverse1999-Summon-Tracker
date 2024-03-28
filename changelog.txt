@@ -1,3 +1,6 @@
+2024/03/28
+- Added 6 Banner
+
 2024/03/27
 - Bug fixes
 

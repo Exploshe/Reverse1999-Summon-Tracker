@@ -180,7 +180,7 @@ export const banners = {
     "真理的壁影": {
         rateUp6StarId: 3079,  // 6
         rateUp5StarIds: [3049, 3016],
-        img: "",
+        img: "images/banners/Seeker_In_The_Cave_Banner.webp",
         start: "2024-03-28 05:00:00",
         end: "2024-04-18 04:59:59"
     },
