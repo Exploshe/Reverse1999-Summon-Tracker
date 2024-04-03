@@ -49,8 +49,6 @@ if (!localStorage.getItem("arcanistsEdit")) {
 		
 		localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
 	}
-
-	document.querySelector(".hehe").style.display = "block";
 }
 
 // Load standard banner and limited banner stats
