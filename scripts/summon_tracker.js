@@ -25,7 +25,19 @@ if (!localStorage.getItem("profiles")) {
 	};
 	localStorage.setItem("profiles", JSON.stringify(profile));
 
-	const summonData = JSON.parse(localStorage.getItem("summonData"));
+	const summonData = JSON.parse(localStorage.getItem("summonData")) ?? {
+		2: { // Standard banner
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		},
+		3: { // Limited banner
+			isGuaranteed: false,
+			pity6: 0,
+			pity5: 0,
+			history: [],
+		}
+	};
 	const newSummonData = {
 		"1": summonData
 	}
@@ -343,11 +355,14 @@ const allButton = document.querySelector(".all-button");
 allButton.addEventListener("click", () => selectBanner("all"));
 
 // Hide beginner and event banner if no pulls
-if (summonData[bannerTypeMap.beginner].history.length === 0) {
+if (!summonData[bannerTypeMap.beginner] || summonData[bannerTypeMap.beginner].history.length === 0) {
 	document.querySelector(".beginner-banner").style.display = "none";
 }
-if (summonData[bannerTypeMap.event].history.length === 0) {
+if (!summonData[bannerTypeMap.event] || summonData[bannerTypeMap.event].history.length === 0) {
 	document.querySelector(".event-banner").style.display = "none";
+}
+if (!summonData[bannerTypeMap.temp] || summonData[bannerTypeMap.temp].history.length === 0) {
+	document.querySelector(".temp-banner").style.display = "none";
 }
 
 // populate global stats
