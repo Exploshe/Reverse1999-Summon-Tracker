@@ -76,13 +76,22 @@ export const banners = {
         start: "2023-12-05 05:00:00",
         end: "2023-12-19 04:59:59"
     },
-    "涌流无止之物": {
-        rateUp6StarId: 3051,
-        rateUp5StarIds: [3017, 3049],
-        img: "images/banners/The_Ever-Flowing_Banner.webp",
-        start: "2023-12-19 05:00:00",
-        end: "2024-01-02 04:59:59"
-    },
+    "涌流无止之物": [
+        {
+            rateUp6StarId: 3051,
+            rateUp5StarIds: [3017, 3049],
+            img: "images/banners/The_Ever-Flowing_Banner.webp",
+            start: "2023-12-19 05:00:00",
+            end: "2024-01-02 04:59:59"
+        },
+        {
+            rateUp6StarId: 3051,
+            rateUp5StarIds: [3038, 3017],
+            img: "images/banners/The_Ever-Flowing_Banner.webp",
+            start: "2024-04-09 05:00:00",
+            end: "2024-04-23 04:59:59"
+        }
+    ],
     "午夜放映会": {
         rateUp6StarId: 3039,
         rateUp5StarIds: [3016, 3011],
@@ -192,3 +201,27 @@ export const banners = {
         end: ""
     },
 }
+
+// export const bannersENtoCN = {
+//     // beginner banner
+//     "The First Drop of Rain": "第一滴雨",
+//     // standard banner
+//     "Amongst the Lake": "于湖中央",
+//     // special
+//     "Invitation From the Water": "湖的邀约",
+//     "Abundance of the Water": "湖的丰饶：直至再次启程",
+//     // reruns
+//     "Clang of Sword and Armor": "剑与盔的嘶鸣",
+//     "One_Gram_of_Curiosity": "一克“好奇心”",
+//     "Whisper_of_the_Woods": "深林的絮语",
+//     "Swinging_Freely": "自由摇摆",
+//     "Where_the_Star_Alighted": "星的栖居",
+//     "The_Ever-Flowing": "涌流无止之物",
+//     "Midnight_Movie_Party": "午夜放映会",
+//     "Focus_of_the_Lights": "众光之光",
+//     "Level_Seven_Biter": "金标破坏王",
+//     "The_Era_of_Great_Speech": "大讲演时代",
+//     "The_Arrow_Breaks_Through_The_Air": "弩箭破空而至",
+//     // limited
+//     "": ""
+// }
