@@ -180,21 +180,49 @@ export const banners = {
         end: "2024-02-29 04:59:59"
     },
     "现象未漫及处": {
-        rateUp6StarId: 3066,  // 37
+        rateUp6StarId: 3066,
         rateUp5StarIds: [3043, 3011],
         img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
         start: "2024-02-29 05:00:00",
         end: "2024-03-28 04:59:59"
     },
     "真理的壁影": {
-        rateUp6StarId: 3079,  // 6
+        rateUp6StarId: 3079,
         rateUp5StarIds: [3049, 3016],
         img: "images/banners/Seeker_In_The_Cave_Banner.webp",
         start: "2024-03-28 05:00:00",
         end: "2024-04-18 04:59:59"
     },
     "火花雀儿": {
-        rateUp6StarId: 3073,
+        rateUp6StarId: 3073,  // Spathodea
+        rateUp5StarIds: [3076, 3022],
+        img: "",
+        start: "2024-04-18 05:00:00",
+        end: "2024-05-09 04:59:59"
+    },
+    "孢子维和论": {
+        rateUp6StarId: 3074,  // Ezra
+        rateUp5StarIds: [3075, 3038],
+        img: "",
+        start: "2024-05-09 05:00:00",
+        end: "2024-05-30 04:59:59"
+    },
+    "善哉行": {
+        rateUp6StarId: 3084,  // Getian
+        rateUp5StarIds: [],
+        img: "",
+        start: "",
+        end: ""
+    },
+    "为艺术，为爱情": {
+        rateUp6StarId: 3081,  // Isolde
+        rateUp5StarIds: [],
+        img: "",
+        start: "",
+        end: ""
+    },
+    "当海风翻页时": {
+        rateUp6StarId: 3087,
         rateUp5StarIds: [],
         img: "",
         start: "",

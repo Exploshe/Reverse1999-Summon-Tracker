@@ -448,7 +448,7 @@ export const characterIds = {
         tags: ["DPS", "Burst DMG", "Burn"]
     },
     3074: {
-        name: "Ezra Theodore",
+        name: "Ezra",
         rarity: 6,
         afflatus: "star",
         damageType: "mental",
@@ -468,12 +468,54 @@ export const characterIds = {
         damageType: "mental",
         tags: ["Burn", "DPS", "Support"]
     },
+    3078: {
+        name: "Авксивий",
+        rarity: 5,
+        afflatus: "plant",
+        damageType: "",
+        tags: []
+    },
     3079: {
         name: "6",
         rarity: 6,
         afflatus: "intelligence",
         damageType: "mental",
         tags: ["Debuff", "Purify", "Support"]
+    },
+    3081: {
+        name: "Isolde",
+        rarity: 6,
+        afflatus: "spirit",
+        damageType: "",
+        tags: []
+    },
+    3082: {
+        name: "Енисей",
+        rarity: 5,
+        afflatus: "star",
+        damageType: "",
+        tags: []
+    },
+    3083: {
+        name: "Jiu Niangzi",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "",
+        tags: []
+    },
+    3084: {
+        name: "Getian",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "",
+        tags: []
+    },
+    3087: {
+        name: "Вила",
+        rarity: 0,
+        afflatus: "plant",
+        damageType: "",
+        tags: []
     },
     90001: {
         name: "The Golden Thread I",
@@ -490,7 +532,8 @@ export const characterIds = {
 }
 
 export const characterNames = {
-	"Зима": 3013,
+    "37": 3066,
+    "6": 3079,
 	"A Knight": 3007,
 	"APPLe": 3028,
 	"An-an Lee": 3039,
@@ -513,9 +556,12 @@ export const characterNames = {
 	"Eagle": 3006,
 	"Erick": 3058,
 	"Eternity": 3051,
-	"Ezra Theodore": 3074,
+	"Ezra": 3074,
+    "Getian": 3084,
 	"Horropedia": 3061,
+    "Isolde": 3081,
     "Jessica": 3056,
+    "Jiu Niangzi": 3083,
 	"John Titor": 3036,
     "Kaalaa Baunaa": 3070,
 	"Kanjira": 3071,
@@ -542,7 +588,6 @@ export const characterNames = {
 	"Satsuki": 3038,
 	"Schneider": 3029,
 	"Shamane": 3072,
-	"6": 3079,
 	"Sonetto": 3023,
 	"Sotheby": 3009,
 	"Spathodea": 3073,
@@ -551,11 +596,14 @@ export const characterNames = {
 	"TTT": 3033,
 	"Tennant": 3043,
 	"The Fool": 3012,
-	"37": 3066,
 	"Tooth Fairy": 3053,
 	"Twins Sleep": 3040,
 	"Ulu": 3076,
 	"Voyager": 3048,
 	"X": 3010,
-	"aliEn T": 3034
+	"aliEn T": 3034,
+    "Авксивий": 3078,
+    "Вила": 3087,
+    "Енисей": 3082,
+	"Зима": 3013,
 }
