@@ -1,3 +1,5 @@
+import { characterNames } from "../data/character_ids.js";
+
 // Open and close export/import data
 const exportImportOverlay = document.querySelector(".js-export-import-overlay");
 
@@ -39,7 +41,8 @@ document.querySelector(".download-button").addEventListener("click", () => {
         nextIndex: localStorage.getItem("nextIndex"),
         selectedIndex: localStorage.getItem("selectedIndex"),
         profiles: JSON.parse(localStorage.getItem("profiles")),
-        summonData: JSON.parse(localStorage.getItem("summonData"))
+        summonData: JSON.parse(localStorage.getItem("summonData")),
+        arcanistsEdit: JSON.parse(localStorage.getItem("arcanistsEdit"))
     }
     downloadObjectAsJson(myObj, "timekeeper-top-backup");
 });
@@ -78,11 +81,76 @@ function importHistoryJSON(file) {
 
     reader.addEventListener("load", () => {
         const data = JSON.parse(reader.result);
+        // if (data.pulls) {  // kornblume
+        //     // set localStorage
+
+        //     const pulls = JSON.parse(data.pulls).data;
+        //     const nonLimitedBanners = ["第一滴雨", "于湖中央", "湖的邀约", "湖的丰饶：直至再次启程"];
+
+        //     for (let i = pulls.length - 1; i >= 0; i--) {
+        //         const pull = pulls[i];
+
+        //         console.log(pull);
+        //         let d = new Date(0);
+        //         d.setUTCMilliseconds(pull.Timestamp);
+        //         const iso = d.toISOString().slice(0, 19).replace("T", " ");
+
+        //         const obj = {
+        //             id: characterNames[pull.ArcanistName],
+        //             name: pull.ArcanistName, 
+        //             time: iso, 
+        //             banner: pull.BannerType  // convert from en to cn
+        //         };
+                
+        //         if (!nonLimitedBanners.includes(obj.banner)) {
+        //             let banner = banners[obj.banner];
+        //             if (!banner.start) {
+        //                 for (let i = 0; i < banners[poolName].length; i++) {
+        //                     banner = banners[poolName][i];
+        //                     if (createTime >= banner.start && createTime <= banner.end) {
+        //                         break;
+        //                     }
+        //                 }
+        //             }
+        //             const { rateUp6StarId, rateUp5StarIds } = banner;
+
+        //             switch (pull.Rarity) {
+        //                 case 6:
+        //                     obj.rate = id === rateUp6StarId && !selectedProfileSummonData[3].isGuaranteed ? 1 : selectedProfileSummonData[3].isGuaranteed * 2;
+        //                     selectedProfileSummonData[3].isGuaranteed = id !== rateUp6StarId;
+        //                     break;
+        //                 case 5:
+        //                     obj.rate = rateUp5StarIds.includes(id) ? 1 : 0;
+        //             }
+        //         }
+
+        //         // push to list
+        //     }
+
+        //     respondSuccessOrFailure("success", "Success");
+        //     return;
+        // }
+
         if (requiredKeys.every(key => key in data)) {
             localStorage.setItem("nextIndex", data.nextIndex);
             localStorage.setItem("selectedIndex", data.selectedIndex);
             localStorage.setItem("profiles", JSON.stringify(data.profiles));
             localStorage.setItem("summonData", JSON.stringify(data.summonData));
+            
+            if (data.arcanistsEdit) {
+                localStorage.setItem("arcanistsEdit", JSON.stringify(data.arcanistsEdit));
+            } else {
+                const arcanistsEdit = {};
+                for (const [key, obj] of Object.entries(data.profiles)) {
+                    arcanistsEdit[key] = {
+                        3022: 1,
+                        3028: 1,
+                        3041: 1,
+                        3023: 5
+                    }
+                }
+                localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
+            }
 
             selectElement.innerHTML = "";
             populateSelectElement(data.profiles);
@@ -215,6 +283,16 @@ actualCreateProfile.addEventListener("click", () => {
 		}
     }
     localStorage.setItem("summonData", JSON.stringify(summonData));
+
+    // add new profile to localStorage.arcanistsEdit
+    const arcanistsEdit = JSON.parse(localStorage.getItem("arcanistsEdit"));
+    arcanistsEdit[option.value] = {
+        3022: 1,
+        3028: 1,
+        3041: 1,
+        3023: 5
+    }
+    localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
 });
 
 // delete profile
@@ -253,8 +331,12 @@ document.querySelector(".actual-delete-profile").addEventListener("click", () =>
     delete summonData[selected];
     localStorage.setItem("profiles", JSON.stringify(profiles));
     localStorage.setItem("summonData", JSON.stringify(summonData));
-
+    
     deleteProfileOverlay.classList.remove("visible");
+
+    const arcanistsEdit = JSON.parse(localStorage.getItem("arcanistsEdit"));
+    delete arcanistsEdit[selected];
+    localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
 })
 
 selectElement.addEventListener("change", () => {
