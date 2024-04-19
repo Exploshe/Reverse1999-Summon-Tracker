@@ -196,7 +196,7 @@ export const banners = {
     "火花雀儿": {
         rateUp6StarId: 3073,  // Spathodea
         rateUp5StarIds: [3076, 3022],
-        img: "",
+        img: "images/banners/GLcygxBaUAARLIg.jpeg",
         start: "2024-04-18 05:00:00",
         end: "2024-05-09 04:59:59"
     },
@@ -251,5 +251,17 @@ export const banners = {
 //     "The_Era_of_Great_Speech": "大讲演时代",
 //     "The_Arrow_Breaks_Through_The_Air": "弩箭破空而至",
 //     // limited
-//     "": ""
+//     "Pop_is_Everything": "流行即世界",
+//     "Thus_Spoke_the_Border_Collie": "牧羊犬如是说",
+//     "The_Fairies_Shining_at_Night": "仙子振翅入夜",
+//     "The_Changeling_Awaits": "精灵仍在等待",
+//     "That_Steady_Evening_Star": "晚星所纺织的",
+//     "Another_Spring_Thaw": "回到融雪处",
+//     "Beyond_the_World_of_Matters": "现象未漫及处",
+//     "Seeker_in_the_Cave": "真理的壁影",
+//     "火花雀儿": "",
+//     "孢子维和论": "",
+//     "善哉行": "",
+//     "为艺术，为爱情": "",
+//     "当海风翻页时": "",
 // }
