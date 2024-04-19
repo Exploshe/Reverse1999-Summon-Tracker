@@ -196,14 +196,14 @@ export const banners = {
     "火花雀儿": {
         rateUp6StarId: 3073,  // Spathodea
         rateUp5StarIds: [3076, 3022],
-        img: "images/banners/GLcygxBaUAARLIg.jpeg",
+        img: "images/banners/The_Chirps_of_Flame_Banner.webp",
         start: "2024-04-18 05:00:00",
         end: "2024-05-09 04:59:59"
     },
     "孢子维和论": {
         rateUp6StarId: 3074,  // Ezra
         rateUp5StarIds: [3075, 3038],
-        img: "",
+        img: "images/banners/The_Spores_of_Peace_Banner.webp",
         start: "2024-05-09 05:00:00",
         end: "2024-05-30 04:59:59"
     },
