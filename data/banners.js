@@ -69,13 +69,22 @@ export const banners = {
         start: "2023-11-21 05:00:00",
         end: "2023-12-05 04:59:59"
     },
-    "星的栖居": {
-        rateUp6StarId: 3048,
-        rateUp5StarIds: [3010, 3024],
-        img: "images/banners/Where_the_Star_Alighted_Banner.webp",
-        start: "2023-12-05 05:00:00",
-        end: "2023-12-19 04:59:59"
-    },
+    "星的栖居": [
+        {
+            rateUp6StarId: 3048,
+            rateUp5StarIds: [3010, 3024],
+            img: "images/banners/Where_the_Star_Alighted_Banner.webp",
+            start: "2023-12-05 05:00:00",
+            end: "2023-12-19 04:59:59"
+        },
+        {
+            rateUp6StarId: 3048,
+            rateUp5StarIds: [3037, 3024],
+            img: "images/banners/Where_the_Star_Alighted_Banner.webp",
+            start: "2024-04-23 05:00:00",
+            end: "2024-05-07 04:59:59"
+        }
+    ],
     "涌流无止之物": [
         {
             rateUp6StarId: 3051,
