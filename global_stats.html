@@ -22,18 +22,18 @@
                 <h1>Global Stats</h1>
             </div>
             <div style="display: none">
-                <button>Character Event</button>
-                <button>Standard</button>
-                <button>Beginner</button>
-                <button>Limited time</button>
+                <button class="event">Event</button>
+                <button class="standard">Standard</button>
+                <button class="beginner">Beginner</button>
+                <button class="limited">Limited time</button>
             </div>
             <div class="flex banners-wrapper">
                 <!-- <div class="孢子维和论 banner-button">
                     <img src="images/banners/The_Spores_of_Peace_Banner.webp">
                 </div> -->
-                <!-- <div class="星的栖居-2024-04-23 banner-button">
+                <div class="星的栖居-2024-04-23 banner-button">
                     <img src="images/banners/Where_the_Star_Alighted_Banner.webp">
-                </div> -->
+                </div>
                 <div class="火花雀儿 banner-button">
                     <img src="images/banners/The_Chirps_of_Flame_Banner.webp">
                 </div>
@@ -104,6 +104,14 @@
                     <img src="images/banners/Clang_of_Sword_and_Armor_Banner.webp">
                 </div>
             </div>
+            <div class="flex limited-time-banners-wrapper" style="display: none">
+                <div class="湖的丰饶：直至再次启程 limited-time-banner-button">
+                    <img src="images/banners/Abundance_of_the_Water_The_First_Milestone_Banner.webp">
+                </div>
+                <div class="湖的邀约 limited-time-banner-button">
+                    <img src="images/banners/Invitation_from_the_Water_Banner.webp">
+                </div>
+            </div>
             <div class="flex banner-stats-wrapper">
                 <div class="flex-column banner-stats">
                     <div class="flex banner-stats-row">
@@ -129,7 +137,7 @@
                         <span id="5*_spins">0</span>
                     </div>
                 </div>
-                <div class="flex banner-stats align-items-center">
+                <div class="flex banner-stats align-items-center rate-up-wrapper">
                     <img class="rate-up-char-img">
                     <div class="total-rate-ups-summoned" id="total_rate_up_spins">0</div>
                     <div class="flex-column" style="row-gap: 4px;">
