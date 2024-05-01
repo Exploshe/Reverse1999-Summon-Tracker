@@ -31,6 +31,14 @@ export const banners = {
         start: "2024-03-07 05:00:00",
         end: "2024-04-18 04:59:59"
     },
+    // yearning of the water
+    "湖的企盼": {
+        rateUp6StarId: null,
+        rateUp5StarIds: null,
+        img: null,
+        start: "2024-05-01 00:00:00",
+        end: "2024-05-14 11:59:59"
+    },
     // reruns
     "剑与盔的嘶鸣": {
         rateUp6StarId: 3007,
