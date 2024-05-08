@@ -70,13 +70,22 @@ export const banners = {
         start: "2023-11-09 05:00:00",
         end: "2023-11-21 04:59:59"
     },
-    "自由摇摆": {
-        rateUp6StarId: 3025,
-        rateUp5StarIds: [3022, 3038],
-        img: "images/banners/Swinging_Freely_Banner.webp",
-        start: "2023-11-21 05:00:00",
-        end: "2023-12-05 04:59:59"
-    },
+    "自由摇摆": [
+        {
+            rateUp6StarId: 3025,
+            rateUp5StarIds: [3022, 3038],
+            img: "images/banners/Swinging_Freely_Banner.webp",
+            start: "2023-11-21 05:00:00",
+            end: "2023-12-05 04:59:59"
+        },
+        {
+            rateUp6StarId: 3025,
+            rateUp5StarIds: [3010, 3011],
+            img: "images/banners/Swinging_Freely_Banner.webp",
+            start: "2024-05-07 05:00:00",
+            end: "2024-05-21 04:59:59"
+        }
+    ],
     "星的栖居": [
         {
             rateUp6StarId: 3048,
