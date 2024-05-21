@@ -45,6 +45,11 @@ function renderStats(banner) {
                     document.getElementById(key).innerHTML = numberWithCommas(value);
                 }
                 document.getElementById("clear_drops_spent").innerHTML = numberWithCommas(data.bannerStatsResults[0].total_spins * 180);
+            } else {
+                ["total_users","total_spins","6*_spins","5*_spins","6*_50/50_wr","total_rate_up_spins"].forEach(key => {
+                    document.getElementById(key).innerHTML = 0;
+                })
+                document.getElementById("clear_drops_spent").innerHTML = 0;
             }
 
             const config = {
