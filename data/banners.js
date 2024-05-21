@@ -40,13 +40,22 @@ export const banners = {
         end: "2024-05-14 11:59:59"
     },
     // reruns
-    "剑与盔的嘶鸣": {
-        rateUp6StarId: 3007,
-        rateUp5StarIds: [3043, 3020],
-        img: "images/banners/Clang_of_Sword_and_Armor_Banner.webp",
-        start: "2023-10-26 00:00:00",
-        end: "2023-11-09 04:59:59"
-    },
+    "剑与盔的嘶鸣": [
+        {
+            rateUp6StarId: 3007,
+            rateUp5StarIds: [3043, 3020],
+            img: "images/banners/Clang_of_Sword_and_Armor_Banner.webp",
+            start: "2023-10-26 00:00:00",
+            end: "2023-11-09 04:59:59"
+        },
+        {
+            rateUp6StarId: 3007,
+            rateUp5StarIds: [3020, 3060],
+            img: "images/banners/Clang_of_Sword_and_Armor_Banner.webp",
+            start: "2024-05-21 05:00:00",
+            end: "2024-06-04 04:59:59"
+        }
+    ],
     "一克“好奇心”": [
         {
             rateUp6StarId: 3009,
@@ -255,39 +264,3 @@ export const banners = {
         end: ""
     },
 }
-
-// export const bannersENtoCN = {
-//     // beginner banner
-//     "The First Drop of Rain": "第一滴雨",
-//     // standard banner
-//     "Amongst the Lake": "于湖中央",
-//     // special
-//     "Invitation From the Water": "湖的邀约",
-//     "Abundance of the Water": "湖的丰饶：直至再次启程",
-//     // reruns
-//     "Clang of Sword and Armor": "剑与盔的嘶鸣",
-//     "One_Gram_of_Curiosity": "一克“好奇心”",
-//     "Whisper_of_the_Woods": "深林的絮语",
-//     "Swinging_Freely": "自由摇摆",
-//     "Where_the_Star_Alighted": "星的栖居",
-//     "The_Ever-Flowing": "涌流无止之物",
-//     "Midnight_Movie_Party": "午夜放映会",
-//     "Focus_of_the_Lights": "众光之光",
-//     "Level_Seven_Biter": "金标破坏王",
-//     "The_Era_of_Great_Speech": "大讲演时代",
-//     "The_Arrow_Breaks_Through_The_Air": "弩箭破空而至",
-//     // limited
-//     "Pop_is_Everything": "流行即世界",
-//     "Thus_Spoke_the_Border_Collie": "牧羊犬如是说",
-//     "The_Fairies_Shining_at_Night": "仙子振翅入夜",
-//     "The_Changeling_Awaits": "精灵仍在等待",
-//     "That_Steady_Evening_Star": "晚星所纺织的",
-//     "Another_Spring_Thaw": "回到融雪处",
-//     "Beyond_the_World_of_Matters": "现象未漫及处",
-//     "Seeker_in_the_Cave": "真理的壁影",
-//     "火花雀儿": "",
-//     "孢子维和论": "",
-//     "善哉行": "",
-//     "为艺术，为爱情": "",
-//     "当海风翻页时": "",
-// }
