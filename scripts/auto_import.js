@@ -131,7 +131,7 @@ function parseSummonHistory(res) {
 			}
 
 			// 5050s, 0 = lost, 1 = won, 2 = guaranteed
-			if (poolType === 3) {
+			if (poolType === 3 || poolType === 6) {
 				let banner = banners[poolName];
 				if (!banner.start) {
 					for (let i = 0; i < banners[poolName].length; i++) {
