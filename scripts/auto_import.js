@@ -117,6 +117,7 @@ function parseSummonHistory(res) {
 			
 			if (!selectedProfileSummonData[poolType]) {
 				selectedProfileSummonData[poolType] = {
+					isGuaranteed: false,
 					pity6: 0,
 					pity5: 0,
 					history: [],
@@ -145,8 +146,8 @@ function parseSummonHistory(res) {
 
 				switch (rarity) {
 					case 6:
-						obj.rate = id === rateUp6StarId && !selectedProfileSummonData[3].isGuaranteed ? 1 : selectedProfileSummonData[3].isGuaranteed * 2;
-						selectedProfileSummonData[3].isGuaranteed = id !== rateUp6StarId;
+						obj.rate = id === rateUp6StarId && !selectedProfileSummonData[poolType].isGuaranteed ? 1 : selectedProfileSummonData[poolType].isGuaranteed * 2;
+						selectedProfileSummonData[poolType].isGuaranteed = id !== rateUp6StarId;
 						break;
 					case 5:
 						obj.rate = rateUp5StarIds.includes(id) ? 1 : 0;
