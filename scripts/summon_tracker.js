@@ -77,6 +77,7 @@ const bannerTypeMap = {
 	3: "limited",
 	4: "temp",
 	5: "event",
+	6: 6,
 	202: 202
 }
 if (summonData) {
