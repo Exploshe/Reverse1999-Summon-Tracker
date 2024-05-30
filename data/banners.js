@@ -39,6 +39,14 @@ export const banners = {
         start: "2024-05-01 00:00:00",
         end: "2024-05-14 11:59:59"
     },
+    // jiu
+    "尽杯酌": {
+        rateUp6StarId: 3083,
+        rateUp5StarIds: [3082, 3049],
+        img: "images/banners/卡池_尽杯酌.jpg",
+        start: "2024-05-30 05:00:00",
+        end: "2024-07-11 04:59:59"
+    },
     // reruns
     "剑与盔的嘶鸣": [
         {
@@ -244,10 +252,10 @@ export const banners = {
     },
     "善哉行": {
         rateUp6StarId: 3084,  // Getian
-        rateUp5StarIds: [],
+        rateUp5StarIds: [3020, 3010],
         img: "",
-        start: "",
-        end: ""
+        start: "2024-06-20 05:00:00",
+        end: "2024-07-11 04:59:59"
     },
     "为艺术，为爱情": {
         rateUp6StarId: 3081,  // Isolde

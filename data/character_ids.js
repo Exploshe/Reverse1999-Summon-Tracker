@@ -472,7 +472,7 @@ export const characterIds = {
         name: "Авксивий",
         rarity: 5,
         afflatus: "plant",
-        damageType: "",
+        damageType: "mental",
         tags: []
     },
     3079: {
@@ -486,35 +486,35 @@ export const characterIds = {
         name: "Isolde",
         rarity: 6,
         afflatus: "spirit",
-        damageType: "",
+        damageType: "reality",
         tags: []
     },
     3082: {
-        name: "Енисей",
+        name: "Yenisei",
         rarity: 5,
         afflatus: "star",
-        damageType: "",
+        damageType: "mental",
         tags: []
     },
     3083: {
         name: "Jiu Niangzi",
         rarity: 6,
         afflatus: "mineral",
-        damageType: "",
+        damageType: "reality",
         tags: []
     },
     3084: {
         name: "Getian",
         rarity: 6,
         afflatus: "beast",
-        damageType: "",
+        damageType: "reality",
         tags: []
     },
     3087: {
         name: "Вила",
         rarity: 0,
         afflatus: "plant",
-        damageType: "",
+        damageType: "mental",
         tags: []
     },
     90001: {
@@ -601,9 +601,9 @@ export const characterNames = {
 	"Ulu": 3076,
 	"Voyager": 3048,
 	"X": 3010,
+    "Yenisei": 3082,
 	"aliEn T": 3034,
     "Авксивий": 3078,
     "Вила": 3087,
-    "Енисей": 3082,
 	"Зима": 3013,
 }
