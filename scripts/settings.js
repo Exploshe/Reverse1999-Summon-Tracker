@@ -1,5 +1,3 @@
-import { characterNames } from "../data/character_ids.js";
-
 // Open and close export/import data
 const exportImportOverlay = document.querySelector(".js-export-import-overlay");
 
@@ -81,55 +79,6 @@ function importHistoryJSON(file) {
 
     reader.addEventListener("load", () => {
         const data = JSON.parse(reader.result);
-        // if (data.pulls) {  // kornblume
-        //     // set localStorage
-
-        //     const pulls = JSON.parse(data.pulls).data;
-        //     const nonLimitedBanners = ["第一滴雨", "于湖中央", "湖的邀约", "湖的丰饶：直至再次启程"];
-
-        //     for (let i = pulls.length - 1; i >= 0; i--) {
-        //         const pull = pulls[i];
-
-        //         console.log(pull);
-        //         let d = new Date(0);
-        //         d.setUTCMilliseconds(pull.Timestamp);
-        //         const iso = d.toISOString().slice(0, 19).replace("T", " ");
-
-        //         const obj = {
-        //             id: characterNames[pull.ArcanistName],
-        //             name: pull.ArcanistName, 
-        //             time: iso, 
-        //             banner: pull.BannerType  // convert from en to cn
-        //         };
-                
-        //         if (!nonLimitedBanners.includes(obj.banner)) {
-        //             let banner = banners[obj.banner];
-        //             if (!banner.start) {
-        //                 for (let i = 0; i < banners[poolName].length; i++) {
-        //                     banner = banners[poolName][i];
-        //                     if (createTime >= banner.start && createTime <= banner.end) {
-        //                         break;
-        //                     }
-        //                 }
-        //             }
-        //             const { rateUp6StarId, rateUp5StarIds } = banner;
-
-        //             switch (pull.Rarity) {
-        //                 case 6:
-        //                     obj.rate = id === rateUp6StarId && !selectedProfileSummonData[3].isGuaranteed ? 1 : selectedProfileSummonData[3].isGuaranteed * 2;
-        //                     selectedProfileSummonData[3].isGuaranteed = id !== rateUp6StarId;
-        //                     break;
-        //                 case 5:
-        //                     obj.rate = rateUp5StarIds.includes(id) ? 1 : 0;
-        //             }
-        //         }
-
-        //         // push to list
-        //     }
-
-        //     respondSuccessOrFailure("success", "Success");
-        //     return;
-        // }
 
         if (requiredKeys.every(key => key in data)) {
             localStorage.setItem("nextIndex", data.nextIndex);

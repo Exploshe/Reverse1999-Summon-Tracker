@@ -156,13 +156,22 @@ export const banners = {
         start: "2024-01-30 05:00:00",
         end: "2024-02-13 04:59:59"
     },
-    "大讲演时代": {
-        rateUp6StarId: 3052,  // Ms. Newbabel
-        rateUp5StarIds: [3017, 3049],
-        img: "images/banners/The_Era_of_Great_Speech_Banner.webp",
-        start: "2024-02-13 05:00:00",
-        end: "2024-02-27 04:59:59"
-    },
+    "大讲演时代": [
+        {
+            rateUp6StarId: 3052,  // Ms. Newbabel
+            rateUp5StarIds: [3017, 3049],
+            img: "images/banners/The_Era_of_Great_Speech_Banner.webp",
+            start: "2024-02-13 05:00:00",
+            end: "2024-02-27 04:59:59"
+        },
+        {
+            rateUp6StarId: 3052, 
+            rateUp5StarIds: [3071, 3064],
+            img: "images/banners/The_Era_of_Great_Speech_Banner.webp",
+            start: "2024-06-04 05:00:00",
+            end: "2024-06-18 04:59:59"
+        }
+    ],
     "弩箭破空而至": {
         rateUp6StarId: 3004,  // Lilya
         rateUp5StarIds: [3022, 3010],
