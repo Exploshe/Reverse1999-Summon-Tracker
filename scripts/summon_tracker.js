@@ -78,7 +78,8 @@ const bannerTypeMap = {
 	4: "temp",
 	5: "event",
 	6: 6,
-	202: 202
+	202: 202,
+	7: 7
 }
 if (summonData) {
 	for (let i = 2; i <= 3; i++) {

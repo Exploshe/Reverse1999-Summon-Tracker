@@ -39,6 +39,14 @@ export const banners = {
         start: "2024-05-01 00:00:00",
         end: "2024-05-14 11:59:59"
     },
+    // revelation of the water (7)
+    "湖的启示": {
+        rateUp6StarId: null,
+        rateUp5StarIds: null,
+        img: null,
+        start: "2024-06-08 05:00:00",
+        end: "2024-06-22 04:59:59"
+    },
     // jiu
     "尽杯酌": {
         rateUp6StarId: 3083,
