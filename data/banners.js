@@ -31,7 +31,7 @@ export const banners = {
         start: "2024-03-07 05:00:00",
         end: "2024-04-18 04:59:59"
     },
-    // yearning of the water
+    // yearning of the water (202)
     "湖的企盼": {
         rateUp6StarId: null,
         rateUp5StarIds: null,
@@ -47,7 +47,7 @@ export const banners = {
         start: "2024-06-08 05:00:00",
         end: "2024-06-22 04:59:59"
     },
-    // jiu
+    // jiu (6)
     "尽杯酌": {
         rateUp6StarId: 3083,
         rateUp5StarIds: [3082, 3049],

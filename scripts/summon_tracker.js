@@ -70,19 +70,22 @@ const bannerTypeMap = {
 	beginner: 1,
 	standard: 2,
 	limited: 3,
-	temp: 4,
+	abundance: 4,
 	event: 5,
+	jiu: 6,
+	revelation: 7,
+	yearning: 202,
 	1: "beginner",
 	2: "standard",
 	3: "limited",
-	4: "temp",
+	4: "abundance",
 	5: "event",
-	6: 6,
-	202: 202,
-	7: 7
+	6: "jiu",
+	202: "yearning",
+	7: "revelation"
 }
 if (summonData) {
-	for (let i = 2; i <= 3; i++) {
+	for (const i of [2, 3, 6]) {
 		const totalPulls = summonData[i].history.length;
 		document.querySelector(`.js-${bannerTypeMap[i]}-lifetime-pulls`).innerHTML = totalPulls;
 		document.querySelector(`.js-${bannerTypeMap[i]}-clear-drop-count`).innerHTML = numberWithCommas(totalPulls * 180);
@@ -93,6 +96,9 @@ if (summonData) {
 };
 if(summonData[bannerTypeMap.limited].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
+}
+if(summonData[bannerTypeMap.jiu].isGuaranteed) {
+	document.querySelector(".jiu-guaranteed").style.display = "block";
 }
 
 function makeTableAndPopulateExtraStats(bannerType, banner, bannerStart, bannerEnd) {
@@ -177,6 +183,9 @@ let showStandardBannerHistory = {"value": true};
 const standardHistoryTable = document.querySelector(".js-standard-banner-history");
 document.querySelector(".js-standard-banner-show-history").addEventListener("click", () => updateVisibilityOfBannerHistory("standard", showStandardBannerHistory, standardHistoryTable));
 
+let showTillTheLastDropBannerHistory = {"value": true};
+const tillTheLastDropHistoryTable = document.querySelector(".js-jiu-banner-history");
+document.querySelector(".js-jiu-banner-show-history").addEventListener("click", () => updateVisibilityOfBannerHistory("jiu", showTillTheLastDropBannerHistory, tillTheLastDropHistoryTable));
 
 // Filter by rarity
 const rarityFilter = {
@@ -186,6 +195,11 @@ const rarityFilter = {
 		432: false
 	}, 
 	standard: {
+		6: true,
+		5: true,
+		432: false
+	},
+	jiu: {
 		6: true,
 		5: true,
 		432: false
@@ -364,9 +378,17 @@ if (!summonData[bannerTypeMap.beginner] || summonData[bannerTypeMap.beginner].hi
 if (!summonData[bannerTypeMap.event] || summonData[bannerTypeMap.event].history.length === 0) {
 	document.querySelector(".event-banner").style.display = "none";
 }
-if (!summonData[bannerTypeMap.temp] || summonData[bannerTypeMap.temp].history.length === 0) {
-	document.querySelector(".temp-banner").style.display = "none";
+if (!summonData[bannerTypeMap.abundance] || summonData[bannerTypeMap.abundance].history.length === 0) {
+	document.querySelector(".abundance-banner").style.display = "none";
 }
+if (!summonData[bannerTypeMap.revelation] || summonData[bannerTypeMap.revelation].history.length === 0) {
+	document.querySelector(".revelation-banner").style.display = "none";
+}
+if (!summonData[bannerTypeMap.yearning] || summonData[bannerTypeMap.yearning].history.length === 0) {
+	document.querySelector(".yearning-banner").style.display = "none";
+}
+
+
 
 // populate global stats
 const globalStats = document.querySelector(".global-stats");

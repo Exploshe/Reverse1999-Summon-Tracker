@@ -119,7 +119,7 @@ a {
     padding-right: 14px;
 }
 
-.guaranteed {
+.guaranteed, .jiu-guaranteed {
     background-color: orange;
     display: flex;
     align-items: center;
@@ -132,7 +132,7 @@ a {
     display: none;
 }
 
-.guaranteed .tooltip {
+.guaranteed .tooltip, .jiu-guaranteed .tooltip {
     position: absolute;
     background-color: orange;
     bottom: -60px;
@@ -146,7 +146,7 @@ a {
     pointer-events: none;
 }
 
-.guaranteed:hover .tooltip {
+.guaranteed:hover .tooltip, .jiu-guaranteed:hover .tooltip {
     opacity: 1;
 }
 
@@ -195,31 +195,32 @@ td, th {
     color: yellow;
 }
 
-.js-limited-banner-show-history, .js-standard-banner-show-history {
+.js-limited-banner-show-history, .js-standard-banner-show-history, .js-jiu-banner-show-history {
     color: white;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
 }
 
-.limited-filter-buttons, .standard-filter-buttons {
+.limited-filter-buttons, .standard-filter-buttons, .jiu-filter-buttons {
     margin-top: 12px;
     margin-bottom: 2px;
     display: none;
 }
 
-.js-limited-show-6stars-button-true, .js-standard-show-6stars-button-true { 
+.js-limited-show-6stars-button-true, .js-standard-show-6stars-button-true, .js-jiu-show-6stars-button-true { 
     background-color: orange;
 }
-.js-limited-show-5stars-button-true, .js-standard-show-5stars-button-true {
+.js-limited-show-5stars-button-true, .js-standard-show-5stars-button-true, .js-jiu-show-5stars-button-true {
     background-color: yellow;
 }
-.js-limited-show-432stars-button-true, .js-standard-show-432stars-button-true {
+.js-limited-show-432stars-button-true, .js-standard-show-432stars-button-true, .js-jiu-show-432stars-button-true {
     background-color: green;
 }
 
 .js-limited-show-6stars-button-true, .js-limited-show-5stars-button-true, .js-limited-show-432stars-button-true,
-.js-standard-show-6stars-button-true, .js-standard-show-5stars-button-true, .js-standard-show-432stars-button-true {
+.js-standard-show-6stars-button-true, .js-standard-show-5stars-button-true, .js-standard-show-432stars-button-true,
+.js-jiu-show-6stars-button-true, .js-jiu-show-5stars-button-true , .js-jiu-show-432stars-button-true  {
     border-style: none;
     color: black;
     font-size: 16px;
@@ -230,7 +231,8 @@ td, th {
 }
 
 .js-limited-show-6stars-button-false, .js-limited-show-5stars-button-false, .js-limited-show-432stars-button-false, 
-.js-standard-show-6stars-button-false, .js-standard-show-5stars-button-false, .js-standard-show-432stars-button-false {
+.js-standard-show-6stars-button-false, .js-standard-show-5stars-button-false, .js-standard-show-432stars-button-false,
+.js-jiu-show-6stars-button-false, .js-jiu-show-5stars-button-false , .js-jiu-show-432stars-button-false {
     background-color: rgb(89, 79, 157);
     border-style: solid;
     color: white;
