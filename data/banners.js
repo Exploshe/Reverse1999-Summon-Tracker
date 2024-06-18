@@ -188,13 +188,22 @@ export const banners = {
         end: "2024-03-12 04:59:59"
     },
     // new arcanist banners
-    "流行即世界": {
-        rateUp6StarId: 3062,
-        rateUp5StarIds: [3011, 3024],
-        img: "images/banners/Pop_is_Everything_Banner.webp",
-        start: "2023-11-09 05:00:00",
-        end: "2023-11-23 04:59:59"
-    },
+    "流行即世界": [
+        {
+            rateUp6StarId: 3062,
+            rateUp5StarIds: [3011, 3024],
+            img: "images/banners/Pop_is_Everything_Banner.webp",
+            start: "2023-11-09 05:00:00",
+            end: "2023-11-23 04:59:59"
+        },
+        {
+            rateUp6StarId: 3062,
+            rateUp5StarIds: [3022, 3024],
+            img: "images/banners/Pop_is_Everything_Banner.webp",
+            start: "2024-06-18 05:00:00",
+            end: "2024-07-02 04:59:59"
+        }
+    ],
     "牧羊犬如是说": [  // Pickles
         {
             rateUp6StarId: 3063,
