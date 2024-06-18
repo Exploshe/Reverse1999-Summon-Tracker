@@ -86,6 +86,10 @@ const bannerTypeMap = {
 }
 if (summonData) {
 	for (const i of [2, 3, 6]) {
+		if (!summonData[i]) {
+			continue;
+		}
+
 		const totalPulls = summonData[i].history.length;
 		document.querySelector(`.js-${bannerTypeMap[i]}-lifetime-pulls`).innerHTML = totalPulls;
 		document.querySelector(`.js-${bannerTypeMap[i]}-clear-drop-count`).innerHTML = numberWithCommas(totalPulls * 180);
@@ -97,7 +101,7 @@ if (summonData) {
 if(summonData[bannerTypeMap.limited].isGuaranteed) {
 	document.querySelector(".guaranteed").style.display = "block";
 }
-if(summonData[bannerTypeMap.jiu].isGuaranteed) {
+if(summonData[bannerTypeMap.jiu]?.isGuaranteed) {
 	document.querySelector(".jiu-guaranteed").style.display = "block";
 }
 
