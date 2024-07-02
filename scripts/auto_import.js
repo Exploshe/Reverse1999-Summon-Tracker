@@ -223,7 +223,7 @@ function postDataToServer(obj) {
 		})
 		.then(response => response.text())
 		.then(data => {
-			console.log(`response ${data}`)
+			
 		});
 }
 

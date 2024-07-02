@@ -241,13 +241,22 @@ export const banners = {
         start: "2024-01-18 05:00:00",
         end: "2024-02-08 04:59:59"
     },
-    "回到融雪处": {
-        rateUp6StarId: 3072,
-        rateUp5StarIds: [3024, 3038],
-        img: "images/banners/Another_Spring_Thaw_Banner.webp",
-        start: "2024-02-08 05:00:00",
-        end: "2024-02-29 04:59:59"
-    },
+    "回到融雪处": [
+        {
+            rateUp6StarId: 3072,
+            rateUp5StarIds: [3024, 3038],
+            img: "images/banners/Another_Spring_Thaw_Banner.webp",
+            start: "2024-02-08 05:00:00",
+            end: "2024-02-29 04:59:59"
+        },
+        {
+            rateUp6StarId: 3072,
+            rateUp5StarIds: [3016, 3017],
+            img: "images/banners/Another_Spring_Thaw_Banner.webp",
+            start: "2024-07-02 05:00:00",
+            end: "2024-07-16 04:59:59"
+        },
+    ],
     "现象未漫及处": {
         rateUp6StarId: 3066,
         rateUp5StarIds: [3043, 3011],
