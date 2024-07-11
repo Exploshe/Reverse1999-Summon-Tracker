@@ -412,6 +412,13 @@ export const characterIds = {
         damageType: "mental",
         tags: ["Control", "Shield", "Debuff"]
     },
+    3065: {
+        name: "Marcus",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "mental",
+        tags: []
+    },
     3066: {
         name: "37",
         rarity: 6,
@@ -512,7 +519,7 @@ export const characterIds = {
     },
     3087: {
         name: "Вила",
-        rarity: 0,
+        rarity: 6,
         afflatus: "plant",
         damageType: "mental",
         tags: []

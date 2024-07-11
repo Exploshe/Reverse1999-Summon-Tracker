@@ -294,16 +294,16 @@ export const banners = {
     },
     "为艺术，为爱情": {
         rateUp6StarId: 3081,  // Isolde
-        rateUp5StarIds: [],
-        img: "",
-        start: "",
-        end: ""
+        rateUp5StarIds: [3043, 3037],
+        img: "images/banners/卡池_为艺术为爱情.jpg",
+        start: "2024-07-11 05:00:00",
+        end: "2024-08-01 04:59:59"
     },
     "当海风翻页时": {
-        rateUp6StarId: 3087,
-        rateUp5StarIds: [],
+        rateUp6StarId: 3065,  // Marcus
+        rateUp5StarIds: [3017, 3022],
         img: "",
-        start: "",
-        end: ""
+        start: "2024-08-01 05:00:00",
+        end: "2024-08-15 04:59:59"
     },
 }
