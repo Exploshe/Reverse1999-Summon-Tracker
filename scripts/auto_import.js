@@ -125,10 +125,13 @@ function parseSummonHistory(res) {
 			}
 			selectedProfileSummonData[poolType].pity6++;
 			selectedProfileSummonData[poolType].pity5++;
-
+			
 			if (rarity === 6 || rarity === 5) {
 				obj.pity = selectedProfileSummonData[poolType][`pity${rarity}`];
-				selectedProfileSummonData[poolType][`pity${rarity}`] = 0;
+				selectedProfileSummonData[poolType][`pity5`] = 0;  // 6*s reset 5* pity
+				if (rarity === 6) {
+					selectedProfileSummonData[poolType][`pity6`] = 0;
+				}
 			}
 
 			// 5050s, 0 = lost, 1 = won, 2 = guaranteed
