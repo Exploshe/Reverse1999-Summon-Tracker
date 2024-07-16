@@ -180,13 +180,22 @@ export const banners = {
             end: "2024-06-18 04:59:59"
         }
     ],
-    "弩箭破空而至": {
-        rateUp6StarId: 3004,  // Lilya
-        rateUp5StarIds: [3022, 3010],
-        img: "images/banners/The_Arrow_Breaks_Through_The_Air_Banner.webp",
-        start: "2024-02-27 05:00:00",
-        end: "2024-03-12 04:59:59"
-    },
+    "弩箭破空而至": [
+        {
+            rateUp6StarId: 3004,  // Lilya
+            rateUp5StarIds: [3022, 3010],
+            img: "images/banners/The_Arrow_Breaks_Through_The_Air_Banner.webp",
+            start: "2024-02-27 05:00:00",
+            end: "2024-03-12 04:59:59"
+        },
+        {
+            rateUp6StarId: 3004,
+            rateUp5StarIds: [3011, 3010],
+            img: "images/banners/The_Arrow_Breaks_Through_The_Air_Banner.webp",
+            start: "2024-07-16 05:00:00",
+            end: "2024-07-30 04:59:59"
+        }
+    ],
     // new arcanist banners
     "流行即世界": [
         {
@@ -295,14 +304,14 @@ export const banners = {
     "为艺术，为爱情": {
         rateUp6StarId: 3081,  // Isolde
         rateUp5StarIds: [3043, 3037],
-        img: "images/banners/卡池_为艺术为爱情.jpg",
+        img: "images/banners/Vissi_D'arte_Vissi_D'amore_Banner.webp",
         start: "2024-07-11 05:00:00",
         end: "2024-08-01 04:59:59"
     },
     "当海风翻页时": {
         rateUp6StarId: 3065,  // Marcus
         rateUp5StarIds: [3017, 3022],
-        img: "",
+        img: "images/banners/Reading_in_Sea_Breeze_Banner.webp",
         start: "2024-08-01 05:00:00",
         end: "2024-08-15 04:59:59"
     },

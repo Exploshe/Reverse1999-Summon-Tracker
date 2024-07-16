@@ -224,11 +224,6 @@ actualCreateProfile.addEventListener("click", () => {
 			pity6: 0,
 			pity5: 0,
 			history: [],
-		},
-		5: { // Golden thread banner
-			pity6: 0,
-			pity5: 0,
-			history: [],
 		}
     }
     localStorage.setItem("summonData", JSON.stringify(summonData));
