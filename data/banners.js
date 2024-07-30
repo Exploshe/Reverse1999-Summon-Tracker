@@ -143,13 +143,22 @@ export const banners = {
             end: "2024-04-23 04:59:59"
         }
     ],
-    "午夜放映会": {
-        rateUp6StarId: 3039,
-        rateUp5StarIds: [3016, 3011],
-        img: "images/banners/Midnight_Movie_Party_Banner.webp",
-        start: "2024-01-02 05:00:00",
-        end: "2024-01-16 04:59:59"
-    },
+    "午夜放映会": [
+        {
+            rateUp6StarId: 3039,
+            rateUp5StarIds: [3016, 3011],
+            img: "images/banners/Midnight_Movie_Party_Banner.webp",
+            start: "2024-01-02 05:00:00",
+            end: "2024-01-16 04:59:59"
+        },
+        {
+            rateUp6StarId: 3039,
+            rateUp5StarIds: [3071, 3038],
+            img: "images/banners/Midnight_Movie_Party_Banner.webp",
+            start: "2024-07-30 05:00:00",
+            end: "2024-08-13 04:59:59"
+        }
+    ],
     "众光之光": {
         rateUp6StarId: 3032,
         rateUp5StarIds: [3010, 3022],
