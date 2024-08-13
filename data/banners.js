@@ -282,13 +282,22 @@ export const banners = {
         start: "2024-02-29 05:00:00",
         end: "2024-03-28 04:59:59"
     },
-    "真理的壁影": {
-        rateUp6StarId: 3079,
-        rateUp5StarIds: [3049, 3016],
-        img: "images/banners/Seeker_in_the_Cave_Banner.webp",
-        start: "2024-03-28 05:00:00",
-        end: "2024-04-18 04:59:59"
-    },
+    "真理的壁影": [
+        {
+            rateUp6StarId: 3079,
+            rateUp5StarIds: [3049, 3016],
+            img: "images/banners/Seeker_in_the_Cave_Banner.webp",
+            start: "2024-03-28 05:00:00",
+            end: "2024-04-18 04:59:59"
+        },
+        {
+            rateUp6StarId: 3079,
+            rateUp5StarIds: [3061, 3064],
+            img: "images/banners/Seeker_in_the_Cave_Banner.webp",
+            start: "2024-08-13 05:00:00",
+            end: "2024-08-27 04:59:59"
+        }
+    ],
     "火花雀儿": {
         rateUp6StarId: 3073,  // Spathodea
         rateUp5StarIds: [3076, 3022],
