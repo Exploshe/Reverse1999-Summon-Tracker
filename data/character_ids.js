@@ -476,7 +476,7 @@ export const characterIds = {
         tags: ["Burn", "DPS", "Support"]
     },
     3078: {
-        name: "Авксивий",
+        name: "Avgust",
         rarity: 5,
         afflatus: "plant",
         damageType: "mental",
@@ -518,7 +518,7 @@ export const characterIds = {
         tags: []
     },
     3087: {
-        name: "Вила",
+        name: "Vila",
         rarity: 6,
         afflatus: "plant",
         damageType: "mental",
@@ -544,6 +544,7 @@ export const characterNames = {
 	"A Knight": 3007,
 	"APPLe": 3028,
 	"An-an Lee": 3039,
+    "Avgust": 3078,
 	"Baby Blue": 3016,
 	"Balloon Party": 3024,
 	"Bette": 3045,
@@ -606,11 +607,10 @@ export const characterNames = {
 	"Tooth Fairy": 3053,
 	"Twins Sleep": 3040,
 	"Ulu": 3076,
+    "Vila": 3087,
 	"Voyager": 3048,
 	"X": 3010,
     "Yenisei": 3082,
 	"aliEn T": 3034,
-    "Авксивий": 3078,
-    "Вила": 3087,
 	"Зима": 3013,
 }

@@ -333,4 +333,11 @@ export const banners = {
         start: "2024-08-01 05:00:00",
         end: "2024-08-15 04:59:59"
     },
+    "致白雪的歌": {
+        rateUp6StarId: 3087,  // Vila
+        rateUp5StarIds: [3078, null],
+        img: "images/banners/卡池_致白雪的歌.jpg",
+        start: "2024-08-15 05:00:00",
+        end: "2024-08-29 04:59:59"
+    }
 }
