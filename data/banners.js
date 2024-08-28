@@ -88,13 +88,22 @@ export const banners = {
             end: "2024-04-09 04:59:59"
         }
     ],
-    "深林的絮语": {
-        rateUp6StarId: 3003,
-        rateUp5StarIds: [3049, 3037],
-        img: "images/banners/Whisper_of_the_Woods_Banner.webp",
-        start: "2023-11-09 05:00:00",
-        end: "2023-11-21 04:59:59"
-    },
+    "深林的絮语": [
+        {
+            rateUp6StarId: 3003,
+            rateUp5StarIds: [3049, 3037],
+            img: "images/banners/Whisper_of_the_Woods_Banner.webp",
+            start: "2023-11-09 05:00:00",
+            end: "2023-11-21 04:59:59"
+        },
+        {
+            rateUp6StarId: 3003,
+            rateUp5StarIds: [3075, 3016],
+            img: "images/banners/Whisper_of_the_Woods_Banner.webp",
+            start: "2024-08-27 05:00:00",
+            end: "2024-09-10 04:59:59"
+        }
+    ],
     "自由摇摆": [
         {
             rateUp6StarId: 3025,
@@ -339,5 +348,12 @@ export const banners = {
         img: "images/banners/卡池_致白雪的歌.jpg",
         start: "2024-08-15 05:00:00",
         end: "2024-08-29 04:59:59"
+    },
+    "线的交汇": {
+        rateUp6StarId: 3077,  // Windsong
+        rateUp5StarIds: [, ],
+        img: "images/banners/.",
+        start: "2024-08-29 05:00:00",
+        end: "2024-09-xx 04:59:59"
     }
 }

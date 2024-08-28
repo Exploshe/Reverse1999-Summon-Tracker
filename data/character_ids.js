@@ -475,6 +475,13 @@ export const characterIds = {
         damageType: "mental",
         tags: ["Burn", "DPS", "Support"]
     },
+    3077: {
+        name: "Windsong",
+        rarity: 6,
+        afflatus: "star",
+        damageType: "mental",
+        tags: []
+    },
     3078: {
         name: "Avgust",
         rarity: 5,
@@ -488,6 +495,13 @@ export const characterIds = {
         afflatus: "intelligence",
         damageType: "mental",
         tags: ["Debuff", "Purify", "Support"]
+    },
+    3080: {
+        name: "Kakania",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "mental",
+        tags: []
     },
     3081: {
         name: "Isolde",
