@@ -351,9 +351,9 @@ export const banners = {
     },
     "线的交汇": {
         rateUp6StarId: 3077,  // Windsong
-        rateUp5StarIds: [, ],
-        img: "images/banners/.",
+        rateUp5StarIds: [3011, 3060],
+        img: "images/banners/卡池_线的交汇.jpg",
         start: "2024-08-29 05:00:00",
-        end: "2024-09-xx 04:59:59"
+        end: "2024-09-19 04:59:59"
     }
 }
