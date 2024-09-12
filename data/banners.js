@@ -118,6 +118,13 @@ export const banners = {
             img: "images/banners/Swinging_Freely_Banner.webp",
             start: "2024-05-07 05:00:00",
             end: "2024-05-21 04:59:59"
+        },
+        {
+            rateUp6StarId: 3025,
+            rateUp5StarIds: [3076, 3024],
+            img: "images/banners/Swinging_Freely_Banner.webp",
+            start: "2024-09-10 05:00:00",
+            end: "2024-09-24 04:59:59"
         }
     ],
     "星的栖居": [
