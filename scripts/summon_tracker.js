@@ -162,7 +162,9 @@ function populateStatsRow(row, stars, totalPulls) {
 }
 
 for (const [key, val] of Object.entries(summonData)) {
-	makeTableAndPopulateExtraStats(key, "all");
+	if (key in bannerTypeMap) {
+		makeTableAndPopulateExtraStats(key, "all");
+	}
 }
 
 
