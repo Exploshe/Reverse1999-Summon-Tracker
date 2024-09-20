@@ -38,7 +38,7 @@ export const banners = {
         img: null,
         start: "2024-05-01 00:00:00",
         end: "2024-05-14 11:59:59"
-    },
+    }, // rerun start: "2024-08-01 00:00:00", end: "2024-08-14 11:59:59", start: "2024-09-01 00:00:00", end: "2024-09-14 11:59:59"
     // revelation of the water (7)
     "湖的启示": {
         rateUp6StarId: null,
@@ -362,5 +362,12 @@ export const banners = {
         img: "images/banners/卡池_线的交汇.jpg",
         start: "2024-08-29 05:00:00",
         end: "2024-09-19 04:59:59"
+    },
+    "缸中独思": {
+        rateUp6StarId: 3086,  // Lucy
+        rateUp5StarIds: [3037, 3010],
+        img: "images/banners/卡池_缸中独思.jpg",
+        start: "2024-09-19 05:00:00",
+        end: "2024-10-31 04:59:59"
     }
 }

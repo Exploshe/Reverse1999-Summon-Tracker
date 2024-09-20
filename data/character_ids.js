@@ -531,11 +531,25 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
+    3086: {
+        name: "Lucy",
+        rarity: 6,
+        afflatus: "imaginary",
+        damageType: "reality",
+        tags: []
+    },
     3087: {
         name: "Vila",
         rarity: 6,
         afflatus: "plant",
         damageType: "mental",
+        tags: []
+    },
+    3088: {
+        name: "Semmelweis",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "reality",
         tags: []
     },
     90001: {
@@ -586,10 +600,12 @@ export const characterNames = {
     "Jiu Niangzi": 3083,
 	"John Titor": 3036,
     "Kaalaa Baunaa": 3070,
+    "Kakania": 3080,
 	"Kanjira": 3071,
 	"La Source": 3030,
 	"Leilani": 3035,
 	"Lilya": 3004,
+    "Lucy": 3086,
 	"Matilda Bouanich": 3041,
 	"Medicine Pocket": 3047,
 	"Melania": 3062,
@@ -609,6 +625,7 @@ export const characterNames = {
 	"Regulus": 3025,
 	"Satsuki": 3038,
 	"Schneider": 3029,
+    "Semmelweis": 3088,
 	"Shamane": 3072,
 	"Sonetto": 3023,
 	"Sotheby": 3009,
@@ -623,6 +640,7 @@ export const characterNames = {
 	"Ulu": 3076,
     "Vila": 3087,
 	"Voyager": 3048,
+    "Windsong": 3077,
 	"X": 3010,
     "Yenisei": 3082,
 	"aliEn T": 3034,

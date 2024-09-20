@@ -35,6 +35,9 @@ for (let i = 0; i < cardsList.length; i++) {
 function renderList() {
     let listHTML = "";
     for (const [key, value] of Object.entries(selectedProfileArcanistsEdit)) {
+        if (key === "undefined") {
+            continue;
+        }
         const character = characterIds[key].name;
         const html = `
         <div class="edited-char">
