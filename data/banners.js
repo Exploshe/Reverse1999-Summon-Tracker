@@ -47,6 +47,14 @@ export const banners = {
         start: "2024-06-08 05:00:00",
         end: "2024-06-22 04:59:59"
     },
+    // promise of the water (7)
+    "湖的应许": {
+        rateUp6StarId: null,
+        rateUp5StarIds: null,
+        img: null,
+        start: "2024-09-21 05:00:00",
+        end: "2024-10-12 04:59:59"
+    },
     // jiu (6)
     "尽杯酌": {
         rateUp6StarId: 3083,
