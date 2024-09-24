@@ -182,13 +182,22 @@ export const banners = {
         start: "2024-01-16 05:00:00",
         end: "2024-01-30 04:59:59"
     },
-    "金标破坏王": {
-        rateUp6StarId: 3047,
-        rateUp5StarIds: [3020, 3016],
-        img: "images/banners/Level_Seven_Biter_Banner.webp",
-        start: "2024-01-30 05:00:00",
-        end: "2024-02-13 04:59:59"
-    },
+    "金标破坏王": [
+        {
+            rateUp6StarId: 3047,
+            rateUp5StarIds: [3020, 3016],
+            img: "images/banners/Level_Seven_Biter_Banner.webp",
+            start: "2024-01-30 05:00:00",
+            end: "2024-02-13 04:59:59"
+        },
+        {
+            rateUp6StarId: 3047,
+            rateUp5StarIds: [3061, 3017],
+            img: "images/banners/Level_Seven_Biter_Banner.webp",
+            start: "2024-09-24 05:00:00",
+            end: "2024-10-08 04:59:59"
+        }
+    ],
     "大讲演时代": [
         {
             rateUp6StarId: 3052,  // Ms. Newbabel
