@@ -271,13 +271,22 @@ export const banners = {
             end: "2024-03-26 04:59:59"
         },
     ],
-    "仙子振翅入夜": {
-        rateUp6StarId: 3053,
-        rateUp5StarIds: [3060, 3020],
-        img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp",
-        start: "2023-12-07 05:00:00",
-        end: "2023-12-28 04:59:59"
-    },
+    "仙子振翅入夜": [
+        {
+            rateUp6StarId: 3053,
+            rateUp5StarIds: [3060, 3020],
+            img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp",
+            start: "2023-12-07 05:00:00",
+            end: "2023-12-28 04:59:59"
+        },
+        {
+            rateUp6StarId: 3053,
+            rateUp5StarIds: [3020, 3082],
+            img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp",
+            start: "2024-10-08 05:00:00",
+            end: "2024-10-22 04:59:59"
+        }
+    ],
     "精灵仍在等待": {
         rateUp6StarId: 3056,
         rateUp5StarIds: [3061, 3037],
@@ -380,11 +389,18 @@ export const banners = {
         start: "2024-08-29 05:00:00",
         end: "2024-09-19 04:59:59"
     },
-    "缸中独思": {
+    "缸中独思": {  // same type as jiu banner
         rateUp6StarId: 3086,  // Lucy
         rateUp5StarIds: [3037, 3010],
         img: "images/banners/卡池_缸中独思.jpg",
         start: "2024-09-19 05:00:00",
+        end: "2024-10-31 04:59:59"
+    },
+    "虚影的实鉴": {
+        rateUp6StarId: 3080,  // Kakania
+        rateUp5StarIds: [3038, 3064],
+        img: "images/banners/Observation_into_the_Mirrors_Banner.webp",
+        start: "2024-10-10 05:00:00",
         end: "2024-10-31 04:59:59"
     }
 }
