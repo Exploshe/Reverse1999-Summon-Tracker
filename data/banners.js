@@ -149,6 +149,13 @@ export const banners = {
             img: "images/banners/Where_the_Star_Alighted_Banner.webp",
             start: "2024-04-23 05:00:00",
             end: "2024-05-07 04:59:59"
+        },
+        {
+            rateUp6StarId: 3048,
+            rateUp5StarIds: [3071, 3016],
+            img: "images/banners/Where_the_Star_Alighted_Banner.webp",
+            start: "2024-10-22 05:00:00",
+            end: "2024-11-05 04:59:59"
         }
     ],
     "涌流无止之物": [
