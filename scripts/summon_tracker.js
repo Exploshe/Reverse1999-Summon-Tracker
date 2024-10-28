@@ -14,8 +14,8 @@ function avg(nums) {
 
 // remove later
 const selectedProfile = localStorage.getItem("selectedIndex");
-const summonData = JSON.parse(localStorage.getItem("summonData"));
-const summonDataProfile = summonData[selectedProfile]
+const summonDataTemp = JSON.parse(localStorage.getItem("summonData"));
+const summonDataProfile = summonDataTemp[selectedProfile]
 if (!localStorage.getItem("hi")) {
 	if (summonDataProfile && summonDataProfile[6]) {
 		const lucyBanner = summonDataProfile[6];
@@ -37,15 +37,15 @@ if (!localStorage.getItem("hi")) {
 			}
 		})
 		summonDataProfile[6] = lucyBanner;
-		summonData[selectedProfile] = summonDataProfile
-		localStorage.setItem("summonData", JSON.stringify(summonData));
+		summonDataTemp[selectedProfile] = summonDataProfile
+		localStorage.setItem("summonData", JSON.stringify(summonDataTemp));
 	}
-	localStorage.setItem("hi", "hi");
+	localStorage.setItem("hi", "hi")
 }
 
 // Load standard banner and limited banner stats
 // const selectedProfile = localStorage.getItem("selectedIndex");
-// const summonData = JSON.parse(localStorage.getItem("summonData"))[selectedProfile];
+const summonData = JSON.parse(localStorage.getItem("summonData"))[selectedProfile];
 const bannerTypeMap = {
 	beginner: 1,
 	standard: 2,
