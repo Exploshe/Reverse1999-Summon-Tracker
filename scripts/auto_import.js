@@ -104,6 +104,14 @@ function parseSummonHistory(res) {
 	for (let i = index - 1; i >= 0; i--) {
 		const summon = summons[i];
 		const { gainIds, poolType, createTime, poolName } = summon;
+		if (poolName === "缸中独思") {
+			// if first time pulling on lucy banner, set pity5 and 6 to 0
+			const lucyBanner = selectedProfileSummonData[poolType];
+			if (lucyBanner && lucyBanner.history.length > 0 && lucyBanner.history[lucyBanner.history.length - 1].banner !== "缸中独思") {
+				selectedProfileSummonData[poolType].pity5 = 0;
+				selectedProfileSummonData[poolType].pity6 = 0;
+			}
+		}
 		gainIds.forEach(id => {
 			const character = characterIds[id];
 			const rarity = character.rarity;

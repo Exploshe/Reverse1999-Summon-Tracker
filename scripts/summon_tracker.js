@@ -13,59 +13,39 @@ function avg(nums) {
 }
 
 // remove later
-if (!localStorage.getItem("profiles")) {
-	localStorage.setItem("nextIndex", "2");
-	localStorage.setItem("selectedIndex", "1");
-
-	const profile = {
-		"1": {
-			name: "Default", 
-			uuid: localStorage.getItem("uuid") ?? crypto.randomUUID()
-		}
-	};
-	localStorage.setItem("profiles", JSON.stringify(profile));
-
-	const summonData = JSON.parse(localStorage.getItem("summonData")) ?? {
-		2: { // Standard banner
-			pity6: 0,
-			pity5: 0,
-			history: [],
-		},
-		3: { // Limited banner
-			isGuaranteed: false,
-			pity6: 0,
-			pity5: 0,
-			history: [],
-		}
-	};
-	const newSummonData = {
-		"1": summonData
-	}
-	localStorage.setItem("summonData", JSON.stringify(newSummonData));
-
-	localStorage.removeItem("uuid");
-}
-
-if (!localStorage.getItem("arcanistsEdit")) {
-	// If first time visitng site since manually editing characters was implemented
-	if (!JSON.parse(localStorage.getItem("arcanistsEdit"))) {
-		const arcanistsEdit = {}
-		for (const [key, value] of Object.entries(JSON.parse(localStorage.getItem("profiles")))) {
-			arcanistsEdit[key] = {
-				3022: 1,
-				3028: 1,
-				3041: 1,
-				3023: 5
+const selectedProfile = localStorage.getItem("selectedIndex");
+const summonData = JSON.parse(localStorage.getItem("summonData"));
+const summonDataProfile = summonData[selectedProfile]
+if (!localStorage.getItem("hi")) {
+	if (summonDataProfile && summonDataProfile[6]) {
+		const lucyBanner = summonDataProfile[6];
+		lucyBanner.pity5 = 0;
+		lucyBanner.pity6 = 0;
+		lucyBanner.history.forEach(pull => {
+			if (pull.banner === "缸中独思") {
+				lucyBanner.pity5++;
+				lucyBanner.pity6++;
+				if (characterIds[pull.id].rarity === 5) {
+					pull.pity = pity5;
+					lucyBanner.pity5 = 0;
+				} 
+				if (characterIds[pull.id].rarity === 6) {
+					pull.pity = pity6;
+					lucyBanner.pity6 = 0;
+					lucyBanner.pity5 = 0;
+				} 
 			}
-		}
-		
-		localStorage.setItem("arcanistsEdit", JSON.stringify(arcanistsEdit));
+		})
+		summonDataProfile[6] = lucyBanner;
+		summonData[selectedProfile] = summonDataProfile
+		localStorage.setItem("summonData", JSON.stringify(summonData));
 	}
+	localStorage.setItem("hi", "hi");
 }
 
 // Load standard banner and limited banner stats
-const selectedProfile = localStorage.getItem("selectedIndex");
-const summonData = JSON.parse(localStorage.getItem("summonData"))[selectedProfile];
+// const selectedProfile = localStorage.getItem("selectedIndex");
+// const summonData = JSON.parse(localStorage.getItem("summonData"))[selectedProfile];
 const bannerTypeMap = {
 	beginner: 1,
 	standard: 2,
