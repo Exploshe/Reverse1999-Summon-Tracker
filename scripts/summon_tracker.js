@@ -26,11 +26,11 @@ if (!localStorage.getItem("hi")) {
 				lucyBanner.pity5++;
 				lucyBanner.pity6++;
 				if (characterIds[pull.id].rarity === 5) {
-					pull.pity = pity5;
+					pull.pity = lucyBanner.pity5;
 					lucyBanner.pity5 = 0;
 				} 
 				if (characterIds[pull.id].rarity === 6) {
-					pull.pity = pity6;
+					pull.pity = lucyBanner.pity6;
 					lucyBanner.pity6 = 0;
 					lucyBanner.pity5 = 0;
 				} 
