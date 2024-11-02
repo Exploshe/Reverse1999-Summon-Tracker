@@ -409,5 +409,12 @@ export const banners = {
         img: "images/banners/Observation_into_the_Mirrors_Banner.webp",
         start: "2024-10-10 05:00:00",
         end: "2024-10-31 04:59:59"
+    },
+    "热夜的冷色": {
+        rateUp6StarId: 3095,  // Mercuria
+        rateUp5StarIds: [3017, 3049],
+        img: "images/banners/Calming_Hues.webp",
+        start: "2024-10-31 05:00:00",
+        end: "2024-11-21 04:59:59"
     }
 }

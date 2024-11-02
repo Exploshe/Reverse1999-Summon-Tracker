@@ -552,6 +552,20 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
+    3094: {
+        name: "Joe",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "reality",
+        tags: []
+    },
+    3095: {
+        name: "Mercuria",
+        rarity: 6,
+        afflatus: "spirit",
+        damageType: "mental",
+        tags: []
+    },
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -597,6 +611,7 @@ export const characterNames = {
 	"Horropedia": 3061,
     "Isolde": 3081,
     "Jessica": 3056,
+    "Joe": 3094,
     "Jiu Niangzi": 3083,
 	"John Titor": 3036,
     "Kaalaa Baunaa": 3070,
@@ -609,6 +624,7 @@ export const characterNames = {
 	"Matilda Bouanich": 3041,
 	"Medicine Pocket": 3047,
 	"Melania": 3062,
+    "Mercuria": 3095,
 	"Mesmer Jr.": 3057,
 	"Mondlicht": 3026,
 	"Ms. Moissan": 3044,
