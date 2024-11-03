@@ -239,8 +239,8 @@ function postDataToServer(obj) {
 }
 
 // check if server is up
-fetch("https://18.116.12.52/post", { method: "POST" })
-	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
-	.catch((error) => {
-		document.querySelector(".server-down").style.display = "block";
-	});
+// fetch("https://18.116.12.52/post", { method: "POST" })
+// 	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
+// 	.catch((error) => {
+// 		document.querySelector(".server-down").style.display = "block";
+// 	});
