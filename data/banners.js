@@ -361,13 +361,22 @@ export const banners = {
         start: "2024-05-09 05:00:00",
         end: "2024-05-30 04:59:59"
     },
-    "善哉行": {
-        rateUp6StarId: 3084,  // Getian
-        rateUp5StarIds: [3020, 3010],
-        img: "",
-        start: "2024-06-20 05:00:00",
-        end: "2024-07-11 04:59:59"
-    },
+    "善哉行": [
+        {
+            rateUp6StarId: 3084,  // Getian
+            rateUp5StarIds: [3020, 3010],
+            img: "images/banners/Over_The_New_Leaf_Banner.webp",
+            start: "2024-06-20 05:00:00",
+            end: "2024-07-11 04:59:59"
+        },
+        {
+            rateUp6StarId: 3084,
+            rateUp5StarIds: [3024, 3076],
+            img: "images/banners/Over_The_New_Leaf_Banner.webp",
+            start: "2024-11-05 05:00:00",
+            end: "2024-11-19 04:59:59"
+        },
+    ],
     "为艺术，为爱情": {
         rateUp6StarId: 3081,  // Isolde
         rateUp5StarIds: [3043, 3037],
