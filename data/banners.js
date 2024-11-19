@@ -188,6 +188,13 @@ export const banners = {
             img: "images/banners/Midnight_Movie_Party_Banner.webp",
             start: "2024-07-30 05:00:00",
             end: "2024-08-13 04:59:59"
+        },
+        {
+            rateUp6StarId: 3039,
+            rateUp5StarIds: [3061, 3022],
+            img: "images/banners/Midnight_Movie_Party_Banner.webp",
+            start: "2024-11-19 05:00:00",
+            end: "2024-12-03 04:59:59"
         }
     ],
     "众光之光": {
@@ -425,5 +432,12 @@ export const banners = {
         img: "images/banners/Calming_Hues.webp",
         start: "2024-10-31 05:00:00",
         end: "2024-11-21 04:59:59"
-    }
+    },
+    // "": {
+    //     rateUp6StarId: 3094,  // J
+    //     rateUp5StarIds: [, ],
+    //     img: "images/banners/.webp",
+    //     start: "2024-11-21 05:00:00",
+    //     end: "2024-12- 04:59:59"
+    // }
 }

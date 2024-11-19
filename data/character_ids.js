@@ -553,7 +553,7 @@ export const characterIds = {
         tags: []
     },
     3094: {
-        name: "Joe",
+        name: "J",
         rarity: 6,
         afflatus: "beast",
         damageType: "reality",
