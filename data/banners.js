@@ -433,11 +433,11 @@ export const banners = {
         start: "2024-10-31 05:00:00",
         end: "2024-11-21 04:59:59"
     },
-    // "": {
-    //     rateUp6StarId: 3094,  // J
-    //     rateUp5StarIds: [, ],
-    //     img: "images/banners/.webp",
-    //     start: "2024-11-21 05:00:00",
-    //     end: "2024-12- 04:59:59"
-    // }
+    "晴日决胜局": {
+        rateUp6StarId: 3094,  // J
+        rateUp5StarIds: [3043, 3075],
+        img: "images/banners/卡池_晴日决胜局.jpg",
+        start: "2024-11-21 05:00:00",
+        end: "2024-12- 04:59:59"
+    }
 }
