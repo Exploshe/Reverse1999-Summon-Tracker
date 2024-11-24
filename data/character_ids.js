@@ -573,10 +573,31 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3097: {
+        name: "Argus",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "reality",
+        tags: []
+    },
+    3098: {
+        name: "Tuesday",
+        rarity: 6,
+        afflatus: "spirit",
+        damageType: "mental",
+        tags: []
+    },
     3099: {
         name: "Barbara",
         rarity: 5,
         afflatus: "Spirit",
+        damageType: "mental",
+        tags: []
+    },
+    3100: {
+        name: "Anjo Nala",
+        rarity: 6,
+        afflatus: "beast",
         damageType: "mental",
         tags: []
     },
@@ -621,6 +642,8 @@ export const characterNames = {
 	"A Knight": 3007,
 	"APPLe": 3028,
 	"An-an Lee": 3039,
+    "Anjo Nala": 3100,
+    "Argus": 3097,
     "Avgust": 3078,
 	"Baby Blue": 3016,
 	"Balloon Party": 3024,
@@ -691,6 +714,7 @@ export const characterNames = {
 	"Tennant": 3043,
 	"The Fool": 3012,
 	"Tooth Fairy": 3053,
+    "Tuesday": 3098,
 	"Twins Sleep": 3040,
 	"Ulu": 3076,
     "Vila": 3087,
