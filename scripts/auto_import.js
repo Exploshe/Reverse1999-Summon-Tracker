@@ -170,6 +170,9 @@ function parseSummonHistory(res) {
 		});
 	}
 
+	summonData[selectedProfile] = selectedProfileSummonData;
+	localStorage.setItem("summonData", JSON.stringify(summonData));
+
 	const checkbox = document.querySelector(".checkbox");
 	if (checkbox.checked && newSummons) {
 		const profiles = JSON.parse(localStorage.getItem("profiles"));
@@ -177,11 +180,9 @@ function parseSummonHistory(res) {
 			profiles[selectedProfile].uuid = crypto.randomUUID();
 			localStorage.setItem("profiles", profiles);
 		}
-		postDataToServer({uuid: profiles[selectedProfile].uuid, summons: newSummons});
+		// postDataToServer({uuid: profiles[selectedProfile].uuid, summons: newSummons});
 	}
 
-	summonData[selectedProfile] = selectedProfileSummonData;
-	localStorage.setItem("summonData", JSON.stringify(summonData));
 	respondSuccessOrFailure("success");
 }
 
