@@ -573,6 +573,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3096: {
+        name: "Pioneer",
+        rarity: 3,
+        afflatus: "spirit",
+        damageType: "mental",
+        tags: []
+    },
     3097: {
         name: "Argus",
         rarity: 6,
@@ -698,6 +705,7 @@ export const characterNames = {
 	"Oliver Fog": 3018,
 	"Pavia": 3015,
 	"Pickles": 3063,
+    "Pioneer": 3096,
 	"Poltergeist": 3046,
 	"Rabies": 3042,
 	"Regulus": 3025,
