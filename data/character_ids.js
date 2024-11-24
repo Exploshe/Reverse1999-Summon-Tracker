@@ -552,6 +552,13 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
+    3091: {
+        name: "Lorelei",
+        rarity: 5,
+        afflatus: "Star",
+        damageType: "mental",
+        tags: []
+    },
     3094: {
         name: "J",
         rarity: 6,
@@ -564,6 +571,34 @@ export const characterIds = {
         rarity: 6,
         afflatus: "spirit",
         damageType: "mental",
+        tags: []
+    },
+    3099: {
+        name: "Barbara",
+        rarity: 5,
+        afflatus: "Spirit",
+        damageType: "mental",
+        tags: []
+    },
+    3102: {
+        name: "Lopera",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "reality",
+        tags: []
+    },
+    3104: {
+        name: "Willow",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "mental",
+        tags: []
+    },
+    3105: {
+        name: "Flutterpage",
+        rarity: 6,
+        afflatus: "star",
+        damageType: "reality",
         tags: []
     },
     90001: {
@@ -589,6 +624,7 @@ export const characterNames = {
     "Avgust": 3078,
 	"Baby Blue": 3016,
 	"Balloon Party": 3024,
+    "Barbara": 3099,
 	"Bette": 3045,
 	"Bkornblume": 3020,
 	"Blonney": 3060,
@@ -607,6 +643,7 @@ export const characterNames = {
 	"Erick": 3058,
 	"Eternity": 3051,
 	"Ezra": 3074,
+    "Flutterpage": 3105,
     "Getian": 3084,
 	"Horropedia": 3061,
     "Isolde": 3081,
@@ -620,6 +657,8 @@ export const characterNames = {
 	"La Source": 3030,
 	"Leilani": 3035,
 	"Lilya": 3004,
+    "Lopera": 3102,
+    "Lorelei": 3091,
     "Lucy": 3086,
 	"Matilda Bouanich": 3041,
 	"Medicine Pocket": 3047,
@@ -656,6 +695,7 @@ export const characterNames = {
 	"Ulu": 3076,
     "Vila": 3087,
 	"Voyager": 3048,
+    "Willow": 3104,
     "Windsong": 3077,
 	"X": 3010,
     "Yenisei": 3082,
