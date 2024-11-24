@@ -438,6 +438,6 @@ export const banners = {
         rateUp5StarIds: [3043, 3075],
         img: "images/banners/卡池_晴日决胜局.jpg",
         start: "2024-11-21 05:00:00",
-        end: "2024-12- 04:59:59"
+        end: "2024-12-05 04:59:59"
     }
 }
