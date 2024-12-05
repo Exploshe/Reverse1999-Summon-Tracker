@@ -361,13 +361,22 @@ export const banners = {
         start: "2024-04-18 05:00:00",
         end: "2024-05-09 04:59:59"
     },
-    "孢子维和论": {
-        rateUp6StarId: 3074,  // Ezra
-        rateUp5StarIds: [3075, 3038],
-        img: "images/banners/The_Spores_of_Peace_Banner.webp",
-        start: "2024-05-09 05:00:00",
-        end: "2024-05-30 04:59:59"
-    },
+    "孢子维和论": [
+        {
+            rateUp6StarId: 3074,  // Ezra
+            rateUp5StarIds: [3075, 3038],
+            img: "images/banners/The_Spores_of_Peace_Banner.webp",
+            start: "2024-05-09 05:00:00",
+            end: "2024-05-30 04:59:59"
+        },
+        {
+            rateUp6StarId: 3074,
+            rateUp5StarIds: [3016, 3020],
+            img: "images/banners/The_Spores_of_Peace_Banner.webp",
+            start: "2024-12-03 05:00:00",
+            end: "2024-12-17 04:59:59"
+        },
+    ],
     "善哉行": [
         {
             rateUp6StarId: 3084,  // Getian
@@ -408,7 +417,7 @@ export const banners = {
     "线的交汇": {
         rateUp6StarId: 3077,  // Windsong
         rateUp5StarIds: [3011, 3060],
-        img: "images/banners/卡池_线的交汇.jpg",
+        img: "images/banners/The_Intersecting_Lines_Banner.webp",
         start: "2024-08-29 05:00:00",
         end: "2024-09-19 04:59:59"
     },
@@ -439,5 +448,19 @@ export const banners = {
         img: "images/banners/卡池_晴日决胜局.jpg",
         start: "2024-11-21 05:00:00",
         end: "2024-12-05 04:59:59"
-    }
+    },
+    "": {
+        rateUp6StarId: 3098,  // Tuesday
+        rateUp5StarIds: [3099, null],
+        img: "images/banners/卡池_午夜摇篮曲.jpg",
+        start: "2024-12-05 05:00:00",
+        end: "2024-12-26 04:59:59"
+    },
+    "": {
+        rateUp6StarId: 3097,  // Argus
+        rateUp5StarIds: [3043, 3038],
+        img: "images/banners/卡池_目标即盲点.jpg",
+        start: "2024-12-26 05:00:00",
+        end: "2025-01-09 04:59:59"
+    },
 }
