@@ -449,14 +449,14 @@ export const banners = {
         start: "2024-11-21 05:00:00",
         end: "2024-12-05 04:59:59"
     },
-    "": {
+    "午夜摇篮曲": {
         rateUp6StarId: 3098,  // Tuesday
         rateUp5StarIds: [3099, null],
         img: "images/banners/卡池_午夜摇篮曲.jpg",
         start: "2024-12-05 05:00:00",
         end: "2024-12-26 04:59:59"
     },
-    "": {
+    "目标即盲点": {
         rateUp6StarId: 3097,  // Argus
         rateUp5StarIds: [3043, 3038],
         img: "images/banners/卡池_目标即盲点.jpg",
