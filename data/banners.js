@@ -331,13 +331,22 @@ export const banners = {
             end: "2024-07-16 04:59:59"
         },
     ],
-    "现象未漫及处": {
-        rateUp6StarId: 3066,
-        rateUp5StarIds: [3043, 3011],
-        img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
-        start: "2024-02-29 05:00:00",
-        end: "2024-03-28 04:59:59"
-    },
+    "现象未漫及处": [
+        {
+            rateUp6StarId: 3066,
+            rateUp5StarIds: [3043, 3011],
+            img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
+            start: "2024-02-29 05:00:00",
+            end: "2024-03-28 04:59:59"
+        },
+        {
+            rateUp6StarId: 3066,
+            rateUp5StarIds: [3071, 3010],
+            img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
+            start: "2024-12-17 05:00:00",
+            end: "2024-12-31 04:59:59"
+        },
+    ],
     "真理的壁影": [
         {
             rateUp6StarId: 3079,
