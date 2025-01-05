@@ -327,6 +327,13 @@ export const banners = {
             rateUp6StarId: 3072,
             rateUp5StarIds: [3016, 3017],
             img: "images/banners/Another_Spring_Thaw_Banner.webp",
+            start: "2024-12-31 05:00:00",
+            end: "2025-01-14 04:59:59"
+        },
+        {
+            rateUp6StarId: 3072,
+            rateUp5StarIds: [3060, 3037],
+            img: "images/banners/Another_Spring_Thaw_Banner.webp",
             start: "2024-07-02 05:00:00",
             end: "2024-07-16 04:59:59"
         },
