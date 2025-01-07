@@ -640,6 +640,14 @@ export const characterIds = {
     90003: {
         name: "The Golden Thread III",
         rarity: 6
+    },
+    90004: {
+        name: "The Golden Thread I",
+        rarity: 6
+    },
+    90005: {
+        name: "The Golden Thread II",
+        rarity: 6
     }
 }
 
