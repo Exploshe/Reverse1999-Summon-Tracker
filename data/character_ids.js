@@ -615,6 +615,13 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
+    3103: {
+        name: "Mr. Duncan",
+        rarity: 5,
+        afflatus: "beast",
+        damageType: "reality",
+        tags: []
+    },
     3104: {
         name: "Willow",
         rarity: 6,
@@ -704,6 +711,7 @@ export const characterNames = {
     "Mercuria": 3095,
 	"Mesmer Jr.": 3057,
 	"Mondlicht": 3026,
+    "Mr. Duncan": 3103,
 	"Ms. Moissan": 3044,
 	"Ms. NewBabel": 3052,
 	"Ms. Radio": 3027,
