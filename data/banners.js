@@ -479,7 +479,7 @@ export const banners = {
         start: "2024-12-26 05:00:00",
         end: "2025-01-09 04:59:59"
     },
-    "离巢日": {
+    "天真与渴盼": {
         rateUp6StarId: 3100,  // Anjo Nala
         rateUp5StarIds: [3103, null],
         img: "images/banners/Longing_for_Innocence_Banner.jpg",
