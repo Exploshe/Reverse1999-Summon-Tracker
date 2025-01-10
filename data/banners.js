@@ -461,14 +461,14 @@ export const banners = {
     "晴日决胜局": {
         rateUp6StarId: 3094,  // J
         rateUp5StarIds: [3043, 3075],
-        img: "images/banners/卡池_晴日决胜局.jpg",
+        img: "images/banners/Clash_'n'_Slash_Banner.png",
         start: "2024-11-21 05:00:00",
         end: "2024-12-05 04:59:59"
     },
     "午夜摇篮曲": {
         rateUp6StarId: 3098,  // Tuesday
         rateUp5StarIds: [3099, null],
-        img: "images/banners/卡池_午夜摇篮曲.jpg",
+        img: "images/banners/Blue_Lullaby_Banner.png",
         start: "2024-12-05 05:00:00",
         end: "2024-12-26 04:59:59"
     },
@@ -478,5 +478,19 @@ export const banners = {
         img: "images/banners/卡池_目标即盲点.jpg",
         start: "2024-12-26 05:00:00",
         end: "2025-01-09 04:59:59"
+    },
+    "离巢日": {
+        rateUp6StarId: 3100,  // Anjo Nala
+        rateUp5StarIds: [3103, null],
+        img: "images/banners/Longing_for_Innocence_Banner.jpg",
+        start: "2025-01-09 05:00:00",
+        end: "2025-02-20 04:59:59"
+    },
+    "离巢日": {
+        rateUp6StarId: 3102,  // Lopera
+        rateUp5StarIds: [3076, 3049],
+        img: "images/banners/卡池_离巢日.jpg",
+        start: "2025-01- 05:00:00",
+        end: "2025-02- 04:59:59"
     },
 }
