@@ -608,6 +608,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3101: {
+        name: "White Rum",
+        rarity: 4,
+        afflatus: "intelligence",
+        damageType: "reality",
+        tags: []
+    },
     3102: {
         name: "Lopera",
         rarity: 6,
