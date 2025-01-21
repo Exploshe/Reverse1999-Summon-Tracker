@@ -534,7 +534,7 @@ export const characterIds = {
     3086: {
         name: "Lucy",
         rarity: 6,
-        afflatus: "imaginary",
+        afflatus: "intelligence",
         damageType: "reality",
         tags: []
     },
@@ -750,6 +750,7 @@ export const characterNames = {
 	"Ulu": 3076,
     "Vila": 3087,
 	"Voyager": 3048,
+    "White Rum": 3101,
     "Willow": 3104,
     "Windsong": 3077,
 	"X": 3010,
