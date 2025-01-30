@@ -480,7 +480,7 @@ export const banners = {
         end: "2025-01-09 04:59:59"
     },
     "天真与渴盼": {
-        rateUp6StarId: 3100,  // Anjo Nala
+        rateUp6StarId: 3100,  // Anjo Nala (6)
         rateUp5StarIds: [3103, null],
         img: "images/banners/Longing_for_Innocence_Banner.jpg",
         start: "2025-01-09 05:00:00",
