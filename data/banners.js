@@ -490,7 +490,7 @@ export const banners = {
         rateUp6StarId: 3102,  // Lopera
         rateUp5StarIds: [3076, 3049],
         img: "images/banners/卡池_离巢日.jpg",
-        start: "2025-01- 05:00:00",
-        end: "2025-02- 04:59:59"
+        start: "2025-01-30 05:00:00",
+        end: "2025-02-20 04:59:59"
     },
 }
