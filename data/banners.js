@@ -301,20 +301,38 @@ export const banners = {
             end: "2024-10-22 04:59:59"
         }
     ],
-    "精灵仍在等待": {
-        rateUp6StarId: 3056,
-        rateUp5StarIds: [3061, 3037],
-        img: "images/banners/The_Changeling_Awaits_Banner.webp",
-        start: "2023-12-28 05:00:00",
-        end: "2024-01-18 04:59:59"
-    },
-    "晚星所纺织的": {
-        rateUp6StarId: 3070,
-        rateUp5StarIds: [3071, 3043],
-        img: "images/banners/That_Steady_Evening_Star_Banner.webp",
-        start: "2024-01-18 05:00:00",
-        end: "2024-02-08 04:59:59"
-    },
+    "精灵仍在等待": [
+        {
+            rateUp6StarId: 3056,
+            rateUp5StarIds: [3061, 3037],
+            img: "images/banners/The_Changeling_Awaits_Banner.webp",
+            start: "2023-12-28 05:00:00",
+            end: "2024-01-18 04:59:59"
+        },
+        {
+            rateUp6StarId: 3056,
+            rateUp5StarIds: [3022, 3011],
+            img: "images/banners/The_Changeling_Awaits_Banner.webp",
+            start: "2025-02-11 05:00:00",
+            end: "2025-02-25 04:59:59"
+        }
+    ],
+    "晚星所纺织的": [
+        {
+            rateUp6StarId: 3070,
+            rateUp5StarIds: [3071, 3043],
+            img: "images/banners/That_Steady_Evening_Star_Banner.webp",
+            start: "2024-01-18 05:00:00",
+            end: "2024-02-08 04:59:59"
+        },
+        {
+            rateUp6StarId: 3070,
+            rateUp5StarIds: [3024, 3082],
+            img: "images/banners/That_Steady_Evening_Star_Banner.webp",
+            start: "2025-01-14 05:00:00",
+            end: "2025-01-28 04:59:59"
+        }
+    ],
     "回到融雪处": [
         {
             rateUp6StarId: 3072,
@@ -368,6 +386,13 @@ export const banners = {
             img: "images/banners/Seeker_in_the_Cave_Banner.webp",
             start: "2024-08-13 05:00:00",
             end: "2024-08-27 04:59:59"
+        },
+        {
+            rateUp6StarId: 3079,
+            rateUp5StarIds: [3075, 3061],
+            img: "images/banners/Seeker_in_the_Cave_Banner.webp",
+            start: "2025-01-28 05:00:00",
+            end: "2025-02-11 04:59:59"
         }
     ],
     "火花雀儿": {
@@ -409,13 +434,22 @@ export const banners = {
             end: "2024-11-19 04:59:59"
         },
     ],
-    "为艺术，为爱情": {
-        rateUp6StarId: 3081,  // Isolde
-        rateUp5StarIds: [3043, 3037],
-        img: "images/banners/Vissi_D'arte_Vissi_D'amore_Banner.webp",
-        start: "2024-07-11 05:00:00",
-        end: "2024-08-01 04:59:59"
-    },
+    "为艺术，为爱情": [
+        {
+            rateUp6StarId: 3081,  // Isolde
+            rateUp5StarIds: [3043, 3037],
+            img: "images/banners/Vissi_D'arte_Vissi_D'amore_Banner.webp",
+            start: "2024-07-11 05:00:00",
+            end: "2024-08-01 04:59:59"
+        },
+        {
+            rateUp6StarId: 3081,
+            rateUp5StarIds: [3017, 3049],
+            img: "images/banners/Vissi_D'arte_Vissi_D'amore_Banner.webp",
+            start: "2025-02-25 05:00:00",
+            end: "2025-03-11 04:59:59"
+        }
+    ],
     "当海风翻页时": {
         rateUp6StarId: 3065,  // Marcus
         rateUp5StarIds: [3017, 3022],
@@ -493,4 +527,18 @@ export const banners = {
         start: "2025-01-30 05:00:00",
         end: "2025-02-20 04:59:59"
     },
+    "天鹅起舞时": {
+        rateUp6StarId: 3104,  // Willow
+        rateUp5StarIds: [3071, 3010],
+        img: "images/banners/卡池_天鹅起舞时.jpg",
+        start: "2025-02-20 05:00:00",
+        end: "2025-03-06 04:59:59"
+    },
+    "为什么故事集": {
+        rateUp6StarId: 3105,  // Flutterpage
+        rateUp5StarIds: [3106, null],
+        img: "images/banners/卡池_为什么故事集.jpg",
+        start: "2025-03-06 05:00:00",
+        end: "2025-03-27 04:59:59"
+    }
 }

@@ -597,7 +597,7 @@ export const characterIds = {
     3099: {
         name: "Barbara",
         rarity: 5,
-        afflatus: "Spirit",
+        afflatus: "spirit",
         damageType: "mental",
         tags: []
     },
@@ -641,6 +641,13 @@ export const characterIds = {
         rarity: 6,
         afflatus: "star",
         damageType: "reality",
+        tags: []
+    },
+    3106: {
+        name: "Brimley",
+        rarity: 5,
+        afflatus: "mineral",
+        damageType: "mental",
         tags: []
     },
     90001: {
