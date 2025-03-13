@@ -91,7 +91,7 @@ function parseSummonHistory(res) {
 		}
 		
 		profiles[selectedProfile].hasUploadedOldPulls = "true"
-		localStorage.setItem("profiles", profiles);
+		localStorage.setItem("profiles", JSON.stringify(profiles));
 	}
 
 	const summonData = JSON.parse(localStorage.getItem("summonData"));
@@ -199,7 +199,7 @@ function parseSummonHistory(res) {
 		const profiles = JSON.parse(localStorage.getItem("profiles"));
 		if (!profiles[selectedProfile].uuid) {
 			profiles[selectedProfile].uuid = crypto.randomUUID();
-			localStorage.setItem("profiles", profiles);
+			localStorage.setItem("profiles", JSON.stringify(profiles));
 		}
 		postDataToServer({uuid: profiles[selectedProfile].uuid, summons: newSummons});
 	}
@@ -256,7 +256,7 @@ function postDataToServer(obj) {
 		})
 		.then(response => response.text())
 		.then(data => {
-			
+
 		});
 }
 
