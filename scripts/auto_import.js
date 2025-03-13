@@ -72,6 +72,28 @@ function verifyJSON(json) {
 function parseSummonHistory(res) {
 	const summons = res.data.pageData;
 	const selectedProfile = localStorage.getItem("selectedIndex");
+	const newSummons = [];
+
+	// temp
+	const check = document.querySelector(".checkbox");
+	const profiles = JSON.parse(localStorage.getItem("profiles"));
+	const sd = JSON.parse(localStorage.getItem("summonData"))
+	if (check.checked && !profiles[selectedProfile].hasUploadedOldPulls && Object.keys(sd[selectedProfile]).length > 0) {
+		// upload old pulls
+		const spsd = sd[selectedProfile];
+		// loop thru dict
+		for (const [key, obj] of Object.entries(spsd)) {
+			// loop thru .history
+			obj.history.forEach(pull => {
+				// push pulls to newSummons
+				newSummons.push(pull);
+			})
+		}
+		
+		profiles[selectedProfile].hasUploadedOldPulls = "true"
+		localStorage.setItem("profiles", profiles);
+	}
+
 	const summonData = JSON.parse(localStorage.getItem("summonData"));
 	const selectedProfileSummonData = summonData[selectedProfile] && Object.keys(summonData[selectedProfile]).length > 0 ? summonData[selectedProfile] : {
 		1: { // Beginner banner
@@ -99,19 +121,18 @@ function parseSummonHistory(res) {
 		max = time > max ? time : max;
 	}
 
-	const newSummons = [];
 	const index = max ? binarySearch(summons, max) : summons.length;
 	for (let i = index - 1; i >= 0; i--) {
 		const summon = summons[i];
 		const { gainIds, poolType, createTime, poolName } = summon;
-		if (poolName === "缸中独思") {
-			// if first time pulling on lucy banner, set pity5 and 6 to 0
-			const lucyBanner = selectedProfileSummonData[poolType];
-			if (lucyBanner && lucyBanner.history.length > 0 && lucyBanner.history[lucyBanner.history.length - 1].banner !== "缸中独思") {
-				selectedProfileSummonData[poolType].pity5 = 0;
-				selectedProfileSummonData[poolType].pity6 = 0;
-			}
-		}
+		// if (poolName === "缸中独思") {
+		// 	// if first time pulling on lucy banner, set pity5 and 6 to 0
+		// 	const lucyBanner = selectedProfileSummonData[poolType];
+		// 	if (lucyBanner && lucyBanner.history.length > 0 && lucyBanner.history[lucyBanner.history.length - 1].banner !== "缸中独思") {
+		// 		selectedProfileSummonData[poolType].pity5 = 0;
+		// 		selectedProfileSummonData[poolType].pity6 = 0;
+		// 	}
+		// }
 		gainIds.forEach(id => {
 			const character = characterIds[id];
 			const rarity = character.rarity;
@@ -180,7 +201,7 @@ function parseSummonHistory(res) {
 			profiles[selectedProfile].uuid = crypto.randomUUID();
 			localStorage.setItem("profiles", profiles);
 		}
-		// postDataToServer({uuid: profiles[selectedProfile].uuid, summons: newSummons});
+		postDataToServer({uuid: profiles[selectedProfile].uuid, summons: newSummons});
 	}
 
 	respondSuccessOrFailure("success");
@@ -225,7 +246,7 @@ document.querySelector(".ios-button").addEventListener("click", () => selectIOS(
 selectPC();
 
 function postDataToServer(obj) {
-	fetch("https://18.116.12.52/post", {
+	fetch("https://exploshe.venatussimplex.dev/post", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
@@ -240,7 +261,7 @@ function postDataToServer(obj) {
 }
 
 // check if server is up
-// fetch("https://18.116.12.52/post", { method: "POST" })
+// fetch("https://exploshe.venatussimplex.dev", { method: "POST" })
 // 	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
 // 	.catch((error) => {
 // 		document.querySelector(".server-down").style.display = "block";

@@ -378,7 +378,7 @@ if (!summonData[bannerTypeMap.yearning] || summonData[bannerTypeMap.yearning].hi
 
 // populate global stats
 const globalStats = document.querySelector(".global-stats");
-fetch(`https://18.116.12.52/global-stats?bannerType=${3}`)
+fetch(`https://exploshe.venatussimplex.dev/global-stats?bannerType=${3}`)
 		.then(response => response.text())
 		.then(data => {
 			data = JSON.parse(data);

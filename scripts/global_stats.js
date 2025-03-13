@@ -35,7 +35,7 @@ function renderStats(banner) {
     // fetch stats for banner from server
     console.log(`fetching ${bannerName}`);
     document.querySelector(".loading").innerHTML = "I can't figure out how to fix the global stats, I'm really sorry :(";
-    fetch(`https://18.116.12.52/global-stats/banner?bannerName=${bannerName}&bannerStart=${bannerStart}`)
+    fetch(`https://exploshe.venatussimplex.dev/global-stats/banner?bannerName=${bannerName}&bannerStart=${bannerStart}`)
 		.then(response => response.text())
 		.then(data => {
             data = JSON.parse(data);
