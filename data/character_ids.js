@@ -650,6 +650,55 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3108: {
+        name: "Barcarola",
+        rarity: 6,
+        afflatus: "star",
+        damageType: "mental",
+        tags: []
+    },
+    3109: {
+        name: "Fatutu",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "mental",
+        tags: []
+    },
+    3110: {
+        name: "",
+        rarity: 6,
+        afflatus: "star",
+        damageType: "",
+        tags: []
+    },
+    3111: {
+        name: "Noire",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "mental",
+        tags: []
+    },
+    3112: {
+        name: "",
+        rarity: 5,
+        afflatus: "plant",
+        damageType: "",
+        tags: []
+    },
+    3113: {
+        name: "",
+        rarity: 6,
+        afflatus: "intelligence",
+        damageType: "",
+        tags: []
+    },
+    3114: {
+        name: "",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "",
+        tags: []
+    },
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -684,9 +733,11 @@ export const characterNames = {
 	"Baby Blue": 3016,
 	"Balloon Party": 3024,
     "Barbara": 3099,
+    "Barcarola": 3108,
 	"Bette": 3045,
 	"Bkornblume": 3020,
 	"Blonney": 3060,
+    "Brimley": 3106,
 	"Bunny Bunny": 3014,
 	"Centurion": 3032,
 	"Charlie": 3017,
@@ -702,6 +753,7 @@ export const characterNames = {
 	"Erick": 3058,
 	"Eternity": 3051,
 	"Ezra": 3074,
+    "Fatutu": 3109,
     "Flutterpage": 3105,
     "Getian": 3084,
 	"Horropedia": 3061,
@@ -731,6 +783,7 @@ export const characterNames = {
 	"Ms. Radio": 3027,
 	"Necrologist": 3037,
 	"Nick Bottom": 3005,
+    "Noire": 3111,
 	"ONiON": 3054,
 	"Oliver Fog": 3018,
 	"Pavia": 3015,

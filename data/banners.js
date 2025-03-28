@@ -78,6 +78,13 @@ export const banners = {
             img: "images/banners/Clang_of_Sword_and_Armor_Banner.webp",
             start: "2024-05-21 05:00:00",
             end: "2024-06-04 04:59:59"
+        },
+        {
+            rateUp6StarId: 3007,
+            rateUp5StarIds: [3082, 3071],
+            img: "images/banners/Clang_of_Sword_and_Armor_Banner.webp",
+            start: "2025-03-25 05:00:00",
+            end: "2025-04-08 04:59:59"
         }
     ],
     "一克“好奇心”": [
@@ -133,6 +140,13 @@ export const banners = {
             img: "images/banners/Swinging_Freely_Banner.webp",
             start: "2024-09-10 05:00:00",
             end: "2024-09-24 04:59:59"
+        },
+        {
+            rateUp6StarId: 3025,
+            rateUp5StarIds: [3020, 3076],
+            img: "images/banners/Swinging_Freely_Banner.webp",
+            start: "2025-03-11 05:00:00",
+            end: "2025-03-25 04:59:59"
         }
     ],
     "星的栖居": [
@@ -523,22 +537,43 @@ export const banners = {
     "离巢日": {
         rateUp6StarId: 3102,  // Lopera
         rateUp5StarIds: [3076, 3049],
-        img: "images/banners/卡池_离巢日.jpg",
+        img: "images/banners/Fledgling's_First_Flight_Banner.png",
         start: "2025-01-30 05:00:00",
         end: "2025-02-20 04:59:59"
     },
     "天鹅起舞时": {
         rateUp6StarId: 3104,  // Willow
         rateUp5StarIds: [3071, 3010],
-        img: "images/banners/卡池_天鹅起舞时.jpg",
+        img: "images/banners/When_the_Swan_Dances.png",
         start: "2025-02-20 05:00:00",
         end: "2025-03-06 04:59:59"
     },
     "为什么故事集": {
         rateUp6StarId: 3105,  // Flutterpage
         rateUp5StarIds: [3106, null],
-        img: "images/banners/卡池_为什么故事集.jpg",
+        img: "images/banners/The_Book_of_Whys_Banner.png",
         start: "2025-03-06 05:00:00",
         end: "2025-03-27 04:59:59"
+    },
+    "虹色五线谱": {
+        rateUp6StarId: 3108,  // Barcarola
+        rateUp5StarIds: [3037, 3016],
+        img: "images/banners/Playing_in_Rainbow_Clef_Banner.png",
+        start: "2025-03-27 05:00:00",
+        end: "2025-04-10 04:59:59"
+    },
+    "贝壳漂流记": {
+        rateUp6StarId: 3109,  // Fatutu
+        rateUp5StarIds: [3038, 3043],
+        img: "images/banners/卡池_贝壳漂流记.jpg",
+        start: "2025-04-10 05:00:00",
+        end: "2025-04-24 04:59:59"
+    },
+    "幕间蒙太奇": {
+        rateUp6StarId: 3111,  // Noire
+        rateUp5StarIds: [, ],
+        img: "images/banners/.jpg",
+        start: "2025-04-24 05:00:00",
+        end: "2025-05- 04:59:59"
     }
 }
