@@ -12,6 +12,14 @@ function avg(nums) {
 	return nums.reduce((partialSum, a) => partialSum + a, 0) / nums.length;
 }
 
+if (localStorage.length === 0) {
+	localStorage.setItem("nextIndex", 2);
+	localStorage.setItem("selectedIndex", 1);
+	localStorage.setItem("profiles", JSON.stringify({1: {name: "Main", uuid: crypto.randomUUID}}));
+	localStorage.setItem("summonData", JSON.stringify({1: {}}));
+	localStorage.setItem("characterEdit", JSON.stringify({1: {}}));
+}
+
 // remove later
 const selectedProfile = localStorage.getItem("selectedIndex");
 const summonDataTemp = JSON.parse(localStorage.getItem("summonData"));
