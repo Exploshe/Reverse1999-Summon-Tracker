@@ -17,7 +17,7 @@ if (localStorage.length === 0) {
 	localStorage.setItem("selectedIndex", 1);
 	localStorage.setItem("profiles", JSON.stringify({1: {name: "Main", uuid: crypto.randomUUID}}));
 	localStorage.setItem("summonData", JSON.stringify({1: {}}));
-	localStorage.setItem("characterEdit", JSON.stringify({1: {}}));
+	localStorage.setItem("arcanistsEdit", JSON.stringify({1: {}}));
 }
 
 // remove later
