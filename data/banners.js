@@ -478,13 +478,22 @@ export const banners = {
         start: "2024-08-15 05:00:00",
         end: "2024-08-29 04:59:59"
     },
-    "线的交汇": {
-        rateUp6StarId: 3077,  // Windsong
-        rateUp5StarIds: [3011, 3060],
-        img: "images/banners/The_Intersecting_Lines_Banner.webp",
-        start: "2024-08-29 05:00:00",
-        end: "2024-09-19 04:59:59"
-    },
+    "线的交汇": [
+        {
+            rateUp6StarId: 3077,  // Windsong
+            rateUp5StarIds: [3011, 3060],
+            img: "images/banners/The_Intersecting_Lines_Banner.webp",
+            start: "2024-08-29 05:00:00",
+            end: "2024-09-19 04:59:59"
+        },
+        {
+            rateUp6StarId: 3077,
+            rateUp5StarIds: [3049, 3078],
+            img: "images/banners/The_Intersecting_Lines_Banner.webp",
+            start: "2025-04-08 05:00:00",
+            end: "2025-04-22 04:59:59"
+        }
+    ],
     "缸中独思": {  // same type as jiu banner
         rateUp6StarId: 3086,  // Lucy
         rateUp5StarIds: [3037, 3010],
