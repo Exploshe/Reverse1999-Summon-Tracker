@@ -407,6 +407,13 @@ export const banners = {
             img: "images/banners/Seeker_in_the_Cave_Banner.webp",
             start: "2025-01-28 05:00:00",
             end: "2025-02-11 04:59:59"
+        },
+        {
+            rateUp6StarId: 3079,
+            rateUp5StarIds: [3099, 3022],
+            img: "images/banners/Seeker_in_the_Cave_Banner.webp",
+            start: "2025-04-22 05:00:00",
+            end: "2025-05-06 04:59:59"
         }
     ],
     "火花雀儿": {
@@ -580,9 +587,9 @@ export const banners = {
     },
     "幕间蒙太奇": {
         rateUp6StarId: 3111,  // Noire
-        rateUp5StarIds: [, ],
+        rateUp5StarIds: [3011, 3017],
         img: "images/banners/.jpg",
-        start: "2025-04-24 05:00:00",
-        end: "2025-05- 04:59:59"
+        start: "2025-05-08 05:00:00",
+        end: "2025-05-29 04:59:59"
     }
 }
