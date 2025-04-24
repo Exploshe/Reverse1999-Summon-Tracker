@@ -665,10 +665,10 @@ export const characterIds = {
         tags: []
     },
     3110: {
-        name: "",
+        name: "Liang Yue",
         rarity: 6,
         afflatus: "star",
-        damageType: "",
+        damageType: "reality",
         tags: []
     },
     3111: {
@@ -679,10 +679,10 @@ export const characterIds = {
         tags: []
     },
     3112: {
-        name: "",
+        name: "Loggerhead",
         rarity: 5,
         afflatus: "plant",
-        damageType: "",
+        damageType: "mental",
         tags: []
     },
     3113: {
@@ -767,7 +767,9 @@ export const characterNames = {
 	"Kanjira": 3071,
 	"La Source": 3030,
 	"Leilani": 3035,
+    "Liang Yue": 3110,
 	"Lilya": 3004,
+    "Loggerhead": 3112,
     "Lopera": 3102,
     "Lorelei": 3091,
     "Lucy": 3086,

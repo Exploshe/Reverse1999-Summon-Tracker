@@ -125,14 +125,14 @@ function parseSummonHistory(res) {
 	for (let i = index - 1; i >= 0; i--) {
 		const summon = summons[i];
 		const { gainIds, poolType, createTime, poolName } = summon;
-		// if (poolName === "缸中独思") {
-		// 	// if first time pulling on lucy banner, set pity5 and 6 to 0
-		// 	const lucyBanner = selectedProfileSummonData[poolType];
-		// 	if (lucyBanner && lucyBanner.history.length > 0 && lucyBanner.history[lucyBanner.history.length - 1].banner !== "缸中独思") {
-		// 		selectedProfileSummonData[poolType].pity5 = 0;
-		// 		selectedProfileSummonData[poolType].pity6 = 0;
-		// 	}
-		// }
+		if (poolName === "赤心如昼明") {
+			const limitedEvent = selectedProfileSummonData[poolType];  // poolType should be 6
+			// if they have pulled on previous limited event banners and this is their first time pulling on Liang Yue banner, set pity5 and 6 to 0
+			if (limitedEvent && limitedEvent.history.length > 0 && limitedEvent.history[liangBanner.history.length - 1].banner !== "赤心如昼明") {
+				selectedProfileSummonData[poolType].pity5 = 0;
+				selectedProfileSummonData[poolType].pity6 = 0;
+			}
+		}
 		gainIds.forEach(id => {
 			const character = characterIds[id];
 			const rarity = character.rarity;

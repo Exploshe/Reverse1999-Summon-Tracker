@@ -585,6 +585,13 @@ export const banners = {
         start: "2025-04-10 05:00:00",
         end: "2025-04-24 04:59:59"
     },
+    "赤心如昼明": {
+        rateUp6StarId: 3110,  // Liang Yue (6)
+        rateUp5StarIds: [3112, null],
+        img: "images/banners/卡池_赤心如昼明.jpg",
+        start: "2025-04-24 05:00:00",
+        end: "2025-05-29 04:59:59"
+    },
     "幕间蒙太奇": {
         rateUp6StarId: 3111,  // Noire
         rateUp5StarIds: [3011, 3017],
