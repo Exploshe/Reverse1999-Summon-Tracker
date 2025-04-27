@@ -773,6 +773,7 @@ export const characterNames = {
     "Lopera": 3102,
     "Lorelei": 3091,
     "Lucy": 3086,
+    "Marcus": 3065,
 	"Matilda Bouanich": 3041,
 	"Medicine Pocket": 3047,
 	"Melania": 3062,
