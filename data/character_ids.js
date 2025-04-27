@@ -759,7 +759,7 @@ export const characterNames = {
 	"Horropedia": 3061,
     "Isolde": 3081,
     "Jessica": 3056,
-    "Joe": 3094,
+    "J": 3094,
     "Jiu Niangzi": 3083,
 	"John Titor": 3036,
     "Kaalaa Baunaa": 3070,
