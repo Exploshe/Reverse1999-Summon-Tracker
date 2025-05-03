@@ -261,8 +261,8 @@ function postDataToServer(obj) {
 }
 
 // check if server is up
-// fetch("https://exploshe.venatussimplex.dev", { method: "POST" })
-// 	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
-// 	.catch((error) => {
-// 		document.querySelector(".server-down").style.display = "block";
-// 	});
+fetch("https://exploshe.venatussimplex.dev/post", { method: "POST" })
+	.then((response) => {if (!response.ok) {throw new Error("hehe");}; return response.text()})
+	.catch((error) => {
+		document.querySelector(".server-down").style.display = "block";
+	});

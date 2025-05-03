@@ -56,13 +56,22 @@ export const banners = {
         end: "2024-10-12 04:59:59"
     },
     // jiu (6)
-    "尽杯酌": {
-        rateUp6StarId: 3083,
-        rateUp5StarIds: [3082, 3049],
-        img: "images/banners/卡池_尽杯酌.jpg",
-        start: "2024-05-30 05:00:00",
-        end: "2024-07-11 04:59:59"
-    },
+    "尽杯酌": [
+        {
+            rateUp6StarId: 3083,
+            rateUp5StarIds: [3082, 3049],
+            img: "images/banners/Till_the_Last_Drop_Banner.png",
+            start: "2024-05-30 05:00:00",
+            end: "2024-07-11 04:59:59"
+        },
+        {
+            rateUp6StarId: 3083,
+            rateUp5StarIds: [3082, 3043],
+            img: "images/banners/Till_the_Last_Drop_Banner.png",
+            start: "2025-05-03 05:00:00",
+            end: "2025-05-17 04:59:59"
+        }
+    ],
     // reruns
     "剑与盔的嘶鸣": [
         {
@@ -539,7 +548,7 @@ export const banners = {
     "目标即盲点": {
         rateUp6StarId: 3097,  // Argus
         rateUp5StarIds: [3043, 3038],
-        img: "images/banners/卡池_目标即盲点.jpg",
+        img: "images/banners/Shooting_in_the_Dark.png",
         start: "2024-12-26 05:00:00",
         end: "2025-01-09 04:59:59"
     },
@@ -581,21 +590,21 @@ export const banners = {
     "贝壳漂流记": {
         rateUp6StarId: 3109,  // Fatutu
         rateUp5StarIds: [3038, 3043],
-        img: "images/banners/卡池_贝壳漂流记.jpg",
+        img: "images/banners/A_Shell_on_the_Waves_Banner.png",
         start: "2025-04-10 05:00:00",
         end: "2025-04-24 04:59:59"
     },
     "赤心如昼明": {
         rateUp6StarId: 3110,  // Liang Yue (6)
         rateUp5StarIds: [3112, null],
-        img: "images/banners/卡池_赤心如昼明.jpg",
+        img: "images/banners/Moonbeam_Guardian_Banner.png",
         start: "2025-04-24 05:00:00",
         end: "2025-05-29 04:59:59"
     },
     "幕间蒙太奇": {
         rateUp6StarId: 3111,  // Noire
         rateUp5StarIds: [3011, 3017],
-        img: "images/banners/.jpg",
+        img: "images/banners/A_Life_in_Montage_Banner.png",
         start: "2025-05-08 05:00:00",
         end: "2025-05-29 04:59:59"
     }
