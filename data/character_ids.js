@@ -686,15 +686,36 @@ export const characterIds = {
         tags: []
     },
     3113: {
-        name: "",
+        name: "Aleph",
         rarity: 6,
         afflatus: "intelligence",
-        damageType: "",
+        damageType: "mental",
         tags: []
     },
     3114: {
-        name: "",
+        name: "Recoleta",
         rarity: 6,
+        afflatus: "mineral",
+        damageType: "mental",
+        tags: []
+    },
+    3116: {
+        name: "Hissabeth",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "mental",
+        tags: []
+    },
+    3117: {
+        name: "Kiperina",
+        rarity: 6,
+        afflatus: "star",
+        damageType: "",
+        tags: []
+    },
+    3118: {
+        name: "",
+        rarity: 5,
         afflatus: "mineral",
         damageType: "",
         tags: []

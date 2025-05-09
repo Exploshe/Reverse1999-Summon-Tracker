@@ -40,13 +40,22 @@ export const banners = {
         end: "2024-05-14 11:59:59"
     }, // rerun start: "2024-08-01 00:00:00", end: "2024-08-14 11:59:59", start: "2024-09-01 00:00:00", end: "2024-09-14 11:59:59"
     // revelation of the water (7)
-    "湖的启示": {
-        rateUp6StarId: null,
-        rateUp5StarIds: null,
-        img: null,
-        start: "2024-06-08 05:00:00",
-        end: "2024-06-22 04:59:59"
-    },
+    "湖的启示": [
+        {
+            rateUp6StarId: null,
+            rateUp5StarIds: null,
+            img: null,
+            start: "2024-06-08 05:00:00",
+            end: "2024-06-22 04:59:59"
+        },
+        {
+            rateUp6StarId: null,
+            rateUp5StarIds: null,
+            img: null,
+            start: "2025-05-01 05:00:00",
+            end: "2025-05-21 04:59:59"
+        }
+    ],
     // promise of the water (7)
     "湖的应许": {
         rateUp6StarId: null,
@@ -54,6 +63,14 @@ export const banners = {
         img: null,
         start: "2024-09-21 05:00:00",
         end: "2024-10-12 04:59:59"
+    },
+    // ripples on the water (12)
+    "湖的涟漪": {
+        rateUp6StarId: null,
+        rateUp5StarIds: null,
+        img: null,
+        start: "2025-04-24 05:00:00",
+        end: "2025-05-22 04:59:59"
     },
     // jiu (6)
     "尽杯酌": [
@@ -487,13 +504,22 @@ export const banners = {
         start: "2024-08-01 05:00:00",
         end: "2024-08-15 04:59:59"
     },
-    "致白雪的歌": {
-        rateUp6StarId: 3087,  // Vila
-        rateUp5StarIds: [3078, null],
-        img: "images/banners/卡池_致白雪的歌.jpg",
-        start: "2024-08-15 05:00:00",
-        end: "2024-08-29 04:59:59"
-    },
+    "致白雪的歌": [
+        {
+            rateUp6StarId: 3087,  // Vila
+            rateUp5StarIds: [3078, null],
+            img: "images/banners/Ode_to_the_Utopia_Banner.png",
+            start: "2024-08-15 05:00:00",
+            end: "2024-08-29 04:59:59"
+        },
+        {
+            rateUp6StarId: 3087,
+            rateUp5StarIds: [3073, 3024],
+            img: "images/banners/Ode_to_the_Utopia_Banner.png",
+            start: "2025-05-06 05:00:00",
+            end: "2024-05-20 04:59:59"
+        },
+    ],
     "线的交汇": [
         {
             rateUp6StarId: 3077,  // Windsong
