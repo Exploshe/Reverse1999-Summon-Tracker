@@ -633,5 +633,26 @@ export const banners = {
         img: "images/banners/A_Life_in_Montage_Banner.png",
         start: "2025-05-08 05:00:00",
         end: "2025-05-29 04:59:59"
+    },
+    "镜中无对影": {
+        rateUp6StarId: 3088,  // Semmelweis
+        rateUp5StarIds: [3060, 3061],
+        img: "images/banners/The_Mirror's_Lonely_Watcher_Banner.png",
+        start: "2025-05-20 05:00:00",
+        end: "2025-06-03 04:59:59"
+    },
+    "迷失在虚构的虚构者": {
+        rateUp6StarId: 3114,  // Recoleta
+        rateUp5StarIds: [3010, 3064],
+        img: "images/banners/卡池_迷失在虚构的虚构者.jpg",
+        start: "2025-05-29 05:00:00",
+        end: "2025-06-19 04:59:59"
+    },
+    "碎裂品": {
+        rateUp6StarId: 3113,  // Aleph
+        rateUp5StarIds: [3038, 3022],
+        img: "images/banners/卡池_碎裂品.jpg",
+        start: "2025-06-19 05:00:00",
+        end: "2025-07-03 04:59:59"
     }
 }
