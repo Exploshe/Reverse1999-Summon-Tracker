@@ -517,7 +517,7 @@ export const banners = {
             rateUp5StarIds: [3073, 3024],
             img: "images/banners/Ode_to_the_Utopia_Banner.png",
             start: "2025-05-06 05:00:00",
-            end: "2024-05-20 04:59:59"
+            end: "2025-05-20 04:59:59"
         },
     ],
     "线的交汇": [
