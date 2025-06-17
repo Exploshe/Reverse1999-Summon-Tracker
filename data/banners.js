@@ -339,7 +339,14 @@ export const banners = {
             img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp",
             start: "2024-10-08 05:00:00",
             end: "2024-10-22 04:59:59"
-        }
+        },
+        {
+            rateUp6StarId: 3053,
+            rateUp5StarIds: [3071, 3016],
+            img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp",
+            start: "2025-06-17 05:00:00",
+            end: "2025-07-01 04:59:59"
+        },
     ],
     "精灵仍在等待": [
         {
@@ -653,14 +660,14 @@ export const banners = {
     "迷失在虚构的虚构者": {
         rateUp6StarId: 3114,  // Recoleta
         rateUp5StarIds: [3010, 3064],
-        img: "images/banners/卡池_迷失在虚构的虚构者.jpg",
+        img: "images/banners/A_Writing_Writer_Written_Banner.png",
         start: "2025-05-29 05:00:00",
         end: "2025-06-19 04:59:59"
     },
     "碎裂品": {
         rateUp6StarId: 3113,  // Aleph
         rateUp5StarIds: [3038, 3022],
-        img: "images/banners/卡池_碎裂品.jpg",
+        img: "images/banners/The_Shattered_Product_Banner.png",
         start: "2025-06-19 05:00:00",
         end: "2025-07-03 04:59:59"
     }
