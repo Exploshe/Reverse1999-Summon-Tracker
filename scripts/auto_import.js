@@ -74,26 +74,6 @@ function parseSummonHistory(res) {
 	const selectedProfile = localStorage.getItem("selectedIndex");
 	const newSummons = [];
 
-	// temp
-	const check = document.querySelector(".checkbox");
-	const profiles = JSON.parse(localStorage.getItem("profiles"));
-	const sd = JSON.parse(localStorage.getItem("summonData"))
-	if (check.checked && !profiles[selectedProfile].hasUploadedOldPulls && Object.keys(sd[selectedProfile]).length > 0) {
-		// upload old pulls
-		const spsd = sd[selectedProfile];
-		// loop thru dict
-		for (const [key, obj] of Object.entries(spsd)) {
-			// loop thru .history
-			obj.history.forEach(pull => {
-				// push pulls to newSummons
-				newSummons.push(pull);
-			})
-		}
-		
-		profiles[selectedProfile].hasUploadedOldPulls = "true"
-		localStorage.setItem("profiles", JSON.stringify(profiles));
-	}
-
 	const summonData = JSON.parse(localStorage.getItem("summonData"));
 	const selectedProfileSummonData = summonData[selectedProfile] && Object.keys(summonData[selectedProfile]).length > 0 ? summonData[selectedProfile] : {
 		1: { // Beginner banner
