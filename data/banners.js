@@ -587,13 +587,22 @@ export const banners = {
             end: "2025-06-17 04:59:59"
         },
     ],
-    "目标即盲点": {
-        rateUp6StarId: 3097,  // Argus
-        rateUp5StarIds: [3043, 3038],
-        img: "images/banners/Shooting_in_the_Dark.png",
-        start: "2024-12-26 05:00:00",
-        end: "2025-01-09 04:59:59"
-    },
+    "目标即盲点": [  // Argus
+        {
+            rateUp6StarId: 3097,  
+            rateUp5StarIds: [3043, 3038],
+            img: "images/banners/Shooting_in_the_Dark.png",
+            start: "2024-12-26 05:00:00",
+            end: "2025-01-09 04:59:59"
+        },
+        {
+            rateUp6StarId: 3097,  
+            rateUp5StarIds: [3106, 3037],
+            img: "images/banners/Shooting_in_the_Dark.png",
+            start: "2025-07-01 05:00:00",
+            end: "2025-07-15 04:59:59"
+        }
+    ],
     "天真与渴盼": {
         rateUp6StarId: 3100,  // Anjo Nala (6)
         rateUp5StarIds: [3103, null],
@@ -670,5 +679,19 @@ export const banners = {
         img: "images/banners/The_Shattered_Product_Banner.png",
         start: "2025-06-19 05:00:00",
         end: "2025-07-03 04:59:59"
+    },
+    "鳞与石的世纪": {
+        rateUp6StarId: 3116,  // Hissabeth
+        rateUp5StarIds: [3118, null],
+        img: "images/banners/卡池_鳞与石的世纪.jpg",
+        start: "2025-07-03 05:00:00",
+        end: "2025-07-24 04:59:59"
+    },
+    "零重力漫游": {
+        rateUp6StarId: 3117,  // Kiperina
+        rateUp5StarIds: [3017, 3061],
+        img: "images/banners/卡池_零重力漫游.jpg",
+        start: "2025-07-24 05:00:00",
+        end: "2025-08-07 04:59:59"
     }
 }

@@ -699,6 +699,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3115: {
+        name: "Buddy Fairchild",
+        rarity: 5,
+        afflatus: "plant",
+        damageType: "reality",
+        tags: []
+    },
     3116: {
         name: "Hissabeth",
         rarity: 6,
@@ -714,10 +721,10 @@ export const characterIds = {
         tags: []
     },
     3118: {
-        name: "",
+        name: "Name Day",
         rarity: 5,
         afflatus: "mineral",
-        damageType: "",
+        damageType: "mental",
         tags: []
     },
     90001: {
@@ -760,6 +767,7 @@ export const characterNames = {
 	"Bkornblume": 3020,
 	"Blonney": 3060,
     "Brimley": 3106,
+    "Buddy Fairchild": 3115,
 	"Bunny Bunny": 3014,
 	"Centurion": 3032,
 	"Charlie": 3017,
@@ -808,6 +816,7 @@ export const characterNames = {
 	"Ms. Moissan": 3044,
 	"Ms. NewBabel": 3052,
 	"Ms. Radio": 3027,
+    "Name Day": 3118,
 	"Necrologist": 3037,
 	"Nick Bottom": 3005,
     "Noire": 3111,
