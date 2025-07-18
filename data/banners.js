@@ -557,13 +557,22 @@ export const banners = {
         start: "2024-10-10 05:00:00",
         end: "2024-10-31 04:59:59"
     },
-    "热夜的冷色": {
-        rateUp6StarId: 3095,  // Mercuria
-        rateUp5StarIds: [3017, 3049],
-        img: "images/banners/Calming_Hues.webp",
-        start: "2024-10-31 05:00:00",
-        end: "2024-11-21 04:59:59"
-    },
+    "热夜的冷色": [  // Mercuria
+        {
+            rateUp6StarId: 3095,
+            rateUp5StarIds: [3017, 3049],
+            img: "images/banners/Calming_Hues.webp",
+            start: "2024-10-31 05:00:00",
+            end: "2024-11-21 04:59:59"
+        },
+        {
+            rateUp6StarId: 3095,
+            rateUp5StarIds: [3082, 3049],
+            img: "images/banners/Calming_Hues.webp",
+            start: "2025-07-15 05:00:00",
+            end: "2025-07-29 04:59:59"
+        }
+    ],
     "晴日决胜局": {
         rateUp6StarId: 3094,  // J
         rateUp5StarIds: [3043, 3075],
