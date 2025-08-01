@@ -487,6 +487,13 @@ export const banners = {
             start: "2024-11-05 05:00:00",
             end: "2024-11-19 04:59:59"
         },
+        {
+            rateUp6StarId: 3084,
+            rateUp5StarIds: [3022, 3011],
+            img: "images/banners/Over_The_New_Leaf_Banner.webp",
+            start: "2025-07-29 05:00:00",
+            end: "2025-08-12 04:59:59"
+        }
     ],
     "为艺术，为爱情": [
         {
