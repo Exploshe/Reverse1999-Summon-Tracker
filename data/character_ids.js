@@ -717,7 +717,7 @@ export const characterIds = {
         name: "Kiperina",
         rarity: 6,
         afflatus: "star",
-        damageType: "",
+        damageType: "reality",
         tags: []
     },
     3118: {
@@ -727,6 +727,28 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3123: {
+        name: "Ezio Auditore",
+        rarity: 6,
+        afflatus: "star",
+        damageType: "reality",
+        tags: []
+    },
+    // 312: {
+    //     name: "Kassandra",
+    //     rarity: 6,
+    //     afflatus: "mineral",
+    //     damageType: "reality",
+    //     tags: []
+    // },
+    // 312: {
+    //     name: "Alexios",
+    //     rarity: 5,
+    //     afflatus: "beast",
+    //     damageType: "reality",
+    //     tags: []
+    // },
+    // Nautika, Moldir, Sentinel, Gharon
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -782,6 +804,7 @@ export const characterNames = {
 	"Eagle": 3006,
 	"Erick": 3058,
 	"Eternity": 3051,
+    "Ezio Auditore": 3123,
 	"Ezra": 3074,
     "Fatutu": 3109,
     "Flutterpage": 3105,

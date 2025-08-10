@@ -709,5 +709,21 @@ export const banners = {
         img: "images/banners/卡池_零重力漫游.jpg",
         start: "2025-07-24 05:00:00",
         end: "2025-08-07 04:59:59"
-    }
+    },
+    "时代引导先知": {
+        rateUp6StarId: 3123,  // Ezio
+        rateUp5StarIds: [3043, 3078],
+        img: "images/banners/A_Prophet_Guided_by_Time_Banner.png",
+        start: "2025-08-07 05:00:00",
+        end: "2025-09-19 04:59:59"
+    },
+    /*
+    "": {
+        rateUp6StarId: ,  // Kassandra
+        rateUp5StarIds: [3024, 3060],
+        img: "images/banners/.png",
+        start: "2025-08-28 05:00:00",
+        end: "2025-09-19 04:59:59"
+    },
+    */
 }
