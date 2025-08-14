@@ -63,6 +63,8 @@ const bannerTypeMap = {
 	jiu: 6,
 	revelation: 7,
 	yearning: 202,
+	ripples: 12,
+	ezio: 21,
 	1: "beginner",
 	2: "standard",
 	3: "limited",
@@ -70,10 +72,12 @@ const bannerTypeMap = {
 	5: "event",
 	6: "jiu",
 	202: "yearning",
-	7: "revelation"
+	7: "revelation",
+	12: "ripples",
+	21: "ezio"
 }
 if (summonData) {
-	for (const i of [2, 3, 6]) {
+	for (const i of [2, 3, 6, 21]) {
 		if (!summonData[i]) {
 			continue;
 		}
@@ -150,13 +154,14 @@ function populateStatsRow(row, stars, totalPulls) {
 }
 
 for (const [key, val] of Object.entries(summonData)) {
-	if (key in bannerTypeMap) {
+	if (key in bannerTypeMap && val["history"].length > 0) {
 		makeTableAndPopulateExtraStats(key, "all");
 	}
 }
 
 
 // Show/hide banner history
+// TODO: for loop this
 let showLimitedBannerHistory = {"value": true};
 const limitedHistoryTable = document.querySelector(".js-limited-banner-history");
 function updateVisibilityOfBannerHistory(bannerType, makeVisible, table) {
@@ -181,7 +186,12 @@ let showTillTheLastDropBannerHistory = {"value": true};
 const tillTheLastDropHistoryTable = document.querySelector(".js-jiu-banner-history");
 document.querySelector(".js-jiu-banner-show-history").addEventListener("click", () => updateVisibilityOfBannerHistory("jiu", showTillTheLastDropBannerHistory, tillTheLastDropHistoryTable));
 
+let showEzioBannerHistory = {"value": true};
+const ezioHistoryTable = document.querySelector(".js-ezio-banner-history");
+document.querySelector(".js-ezio-banner-show-history").addEventListener("click", () => updateVisibilityOfBannerHistory("ezio", showEzioBannerHistory, ezioHistoryTable));
+
 // Filter by rarity
+// TODO: for loop this
 const rarityFilter = {
 	limited: {
 		6: true,
@@ -194,6 +204,11 @@ const rarityFilter = {
 		432: false
 	},
 	jiu: {
+		6: true,
+		5: true,
+		432: false
+	},
+	ezio: {
 		6: true,
 		5: true,
 		432: false
