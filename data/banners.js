@@ -633,13 +633,22 @@ export const banners = {
         start: "2025-01-30 05:00:00",
         end: "2025-02-20 04:59:59"
     },
-    "天鹅起舞时": {
-        rateUp6StarId: 3104,  // Willow
-        rateUp5StarIds: [3071, 3010],
-        img: "images/banners/When_the_Swan_Dances.png",
-        start: "2025-02-20 05:00:00",
-        end: "2025-03-06 04:59:59"
-    },
+    "天鹅起舞时": [  // Willow
+        {
+            rateUp6StarId: 3104,
+            rateUp5StarIds: [3071, 3010],
+            img: "images/banners/When_the_Swan_Dances.png",
+            start: "2025-02-20 05:00:00",
+            end: "2025-03-06 04:59:59"
+        },
+        {
+            rateUp6StarId: 3104,
+            rateUp5StarIds: [3076, 3103],
+            img: "images/banners/When_the_Swan_Dances.png",
+            start: "2025-08-12 05:00:00",
+            end: "2025-08-26 04:59:59"
+        },
+    ],
     "为什么故事集": {
         rateUp6StarId: 3105,  // Flutterpage
         rateUp5StarIds: [3106, null],
