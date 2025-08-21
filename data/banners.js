@@ -65,13 +65,22 @@ export const banners = {
         end: "2024-10-12 04:59:59"
     },
     // ripples on the water (12)
-    "湖的涟漪": {
-        rateUp6StarId: null,
-        rateUp5StarIds: null,
-        img: null,
-        start: "2025-04-24 05:00:00",
-        end: "2025-05-22 04:59:59"
-    },
+    "湖的涟漪": [
+        {
+            rateUp6StarId: null,
+            rateUp5StarIds: null,
+            img: null,
+            start: "2025-04-24 05:00:00",
+            end: "2025-05-22 04:59:59"
+        },
+        {
+            rateUp6StarId: null,
+            rateUp5StarIds: null,
+            img: null,
+            start: "2025-08-07 05:00:00",
+            end: "2025-09-19 04:59:59"
+        }
+    ],
     // jiu (6)
     "尽杯酌": [
         {
