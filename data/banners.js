@@ -735,13 +735,11 @@ export const banners = {
         start: "2025-08-07 05:00:00",
         end: "2025-09-19 04:59:59"
     },
-    /*
-    "": {
-        rateUp6StarId: ,  // Kassandra
+    "鹰翔于酒色之海": {
+        rateUp6StarId: 3124,  // Kassandra
         rateUp5StarIds: [3024, 3060],
-        img: "images/banners/.png",
+        img: "images/banners/Wine-Dark_Reflections_of_the_Eagle_Banner.png",
         start: "2025-08-28 05:00:00",
         end: "2025-09-19 04:59:59"
-    },
-    */
+    }
 }

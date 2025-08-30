@@ -727,6 +727,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3122: {
+        name: "Alexios",
+        rarity: 5,
+        afflatus: "beast",
+        damageType: "reality",
+        tags: []
+    },
     3123: {
         name: "Ezio Auditore",
         rarity: 6,
@@ -734,20 +741,13 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
-    // 312: {
-    //     name: "Kassandra",
-    //     rarity: 6,
-    //     afflatus: "mineral",
-    //     damageType: "reality",
-    //     tags: []
-    // },
-    // 312: {
-    //     name: "Alexios",
-    //     rarity: 5,
-    //     afflatus: "beast",
-    //     damageType: "reality",
-    //     tags: []
-    // },
+    3124: {
+        name: "Kassandra",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "reality",
+        tags: []
+    },
     // Nautika, Moldir, Sentinel, Gharon
     90001: {
         name: "The Golden Thread I",
@@ -777,6 +777,7 @@ export const characterNames = {
 	"A Knight": 3007,
 	"APPLe": 3028,
     "Aleph": 3113,
+    "Alexios": 3122,
 	"An-an Lee": 3039,
     "Anjo Nala": 3100,
     "Argus": 3097,
@@ -819,6 +820,7 @@ export const characterNames = {
     "Kaalaa Baunaa": 3070,
     "Kakania": 3080,
 	"Kanjira": 3071,
+    "Kassandra": 3124,
     "Kiperina": 3117,
 	"La Source": 3030,
 	"Leilani": 3035,
