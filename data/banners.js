@@ -373,7 +373,7 @@ export const banners = {
             end: "2025-02-25 04:59:59"
         }
     ],
-    "晚星所纺织的": [
+    "晚星所纺织的": [  // Kaalaa Baunaa
         {
             rateUp6StarId: 3070,
             rateUp5StarIds: [3071, 3043],
@@ -387,6 +387,13 @@ export const banners = {
             img: "images/banners/That_Steady_Evening_Star_Banner.webp",
             start: "2025-01-14 05:00:00",
             end: "2025-01-28 04:59:59"
+        },
+        {
+            rateUp6StarId: 3070,
+            rateUp5StarIds: [3020, 3112],
+            img: "images/banners/That_Steady_Evening_Star_Banner.webp",
+            start: "2025-08-26 05:00:00",
+            end: "2025-09-09 04:59:59"
         }
     ],
     "回到融雪处": [
