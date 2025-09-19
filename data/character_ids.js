@@ -727,6 +727,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3120: {
+        name: "Nautika",
+        rarity: 6,
+        afflatus: "spirit",
+        damageType: "mental",
+        tags: []
+    },
     3122: {
         name: "Alexios",
         rarity: 5,
@@ -748,7 +755,7 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
-    // Nautika, Moldir, Sentinel, Gharon
+    //  Moldir, Sentinel, Gharon
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -842,6 +849,7 @@ export const characterNames = {
 	"Ms. NewBabel": 3052,
 	"Ms. Radio": 3027,
     "Name Day": 3118,
+    "Nautika": 3120,
 	"Necrologist": 3037,
 	"Nick Bottom": 3005,
     "Noire": 3111,

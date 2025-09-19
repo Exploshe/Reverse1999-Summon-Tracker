@@ -566,13 +566,22 @@ export const banners = {
             end: "2025-04-22 04:59:59"
         }
     ],
-    "缸中独思": {  // same type as jiu banner
-        rateUp6StarId: 3086,  // Lucy
-        rateUp5StarIds: [3037, 3010],
-        img: "images/banners/卡池_缸中独思.jpg",
-        start: "2024-09-19 05:00:00",
-        end: "2024-10-31 04:59:59"
-    },
+    "缸中独思": [
+        {  // same type as jiu banner
+            rateUp6StarId: 3086,  // Lucy
+            rateUp5StarIds: [3037, 3010],
+            img: "images/banners/Thoughts_in_Cylinder_Banner.png",
+            start: "2024-09-19 05:00:00",
+            end: "2024-10-31 04:59:59"
+        },
+        {  // type 3
+            rateUp6StarId: 3086,
+            rateUp5StarIds: [3106, 3071],
+            img: "images/banners/Thoughts_in_Cylinder_Banner.png",
+            start: "2025-10-01 05:00:00",
+            end: "2025-10-15 04:59:59"
+        }
+    ],
     "虚影的实鉴": {
         rateUp6StarId: 3080,  // Kakania
         rateUp5StarIds: [3038, 3064],
@@ -693,13 +702,22 @@ export const banners = {
         start: "2025-04-24 05:00:00",
         end: "2025-05-29 04:59:59"
     },
-    "幕间蒙太奇": {
-        rateUp6StarId: 3111,  // Noire
-        rateUp5StarIds: [3011, 3017],
-        img: "images/banners/A_Life_in_Montage_Banner.png",
-        start: "2025-05-08 05:00:00",
-        end: "2025-05-29 04:59:59"
-    },
+    "幕间蒙太奇": [  // Noire
+        {
+            rateUp6StarId: 3111,
+            rateUp5StarIds: [3011, 3017],
+            img: "images/banners/A_Life_in_Montage_Banner.png",
+            start: "2025-05-08 05:00:00",
+            end: "2025-05-29 04:59:59"
+        },
+        {
+            rateUp6StarId: 3111,
+            rateUp5StarIds: [3099, 3075],
+            img: "images/banners/A_Life_in_Montage_Banner.png",
+            start: "2025-09-09 05:00:00",
+            end: "2025-09-23 04:59:59"
+        }
+    ],
     "镜中无对影": {
         rateUp6StarId: 3088,  // Semmelweis
         rateUp5StarIds: [3060, 3061],
@@ -748,5 +766,12 @@ export const banners = {
         img: "images/banners/Wine-Dark_Reflections_of_the_Eagle_Banner.png",
         start: "2025-08-28 05:00:00",
         end: "2025-09-19 04:59:59"
+    },
+    "神话咫尺之处": {
+        rateUp6StarId: 3120,  // Nautika
+        rateUp5StarIds: [3011, 3064],
+        img: "images/banners/卡池_神话咫尺之处.jpg",
+        start: "2025-09-19 05:00:00",
+        end: "2025-10-30 04:59:59"
     }
 }
