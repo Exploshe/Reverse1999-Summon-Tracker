@@ -574,7 +574,7 @@ export const banners = {
             start: "2024-09-19 05:00:00",
             end: "2024-10-31 04:59:59"
         },
-        {  // type 3
+        {  // type 3?
             rateUp6StarId: 3086,
             rateUp5StarIds: [3106, 3071],
             img: "images/banners/Thoughts_in_Cylinder_Banner.png",
@@ -768,7 +768,7 @@ export const banners = {
         end: "2025-09-19 04:59:59"
     },
     "神话咫尺之处": {
-        rateUp6StarId: 3120,  // Nautika
+        rateUp6StarId: 3120,  // Nautika (6)
         rateUp5StarIds: [3011, 3064],
         img: "images/banners/卡池_神话咫尺之处.jpg",
         start: "2025-09-19 05:00:00",
