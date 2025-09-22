@@ -105,10 +105,10 @@ function parseSummonHistory(res) {
 	for (let i = index - 1; i >= 0; i--) {
 		const summon = summons[i];
 		const { gainIds, poolType, createTime, poolName } = summon;
-		if (poolName === "赤心如昼明") {
+		if (poolName === "神话咫尺之处") {
 			const limitedEvent = selectedProfileSummonData[poolType];  // poolType should be 6
-			// if they have pulled on previous limited event banners and this is their first time pulling on Liang Yue banner, set pity5 and 6 to 0
-			if (limitedEvent && limitedEvent.history.length > 0 && limitedEvent.history[limitedEvent.history.length - 1].banner !== "赤心如昼明") {
+			// if they have pulled on previous limited event banners and this is their first time pulling on Nautika banner, set pity5 and 6 to 0
+			if (limitedEvent && limitedEvent.history.length > 0 && limitedEvent.history[limitedEvent.history.length - 1].banner !== "神话咫尺之处") {
 				selectedProfileSummonData[poolType].pity5 = 0;
 				selectedProfileSummonData[poolType].pity6 = 0;
 			}
