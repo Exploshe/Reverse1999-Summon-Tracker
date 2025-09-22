@@ -650,6 +650,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3107: {
+        name: "Ulrich",
+        rarity: 6,
+        afflatus: "intelligence",
+        damageType: "reality",
+        tags: []
+    },
     3108: {
         name: "Barcarola",
         rarity: 6,
@@ -734,6 +741,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3121: {
+        name: "Moldir",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "reality",
+        tags: []
+    },
     3122: {
         name: "Alexios",
         rarity: 5,
@@ -755,7 +769,8 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
-    //  Moldir, Sentinel, Gharon
+    
+    //  Sentinel, Gharon
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -843,6 +858,7 @@ export const characterNames = {
 	"Melania": 3062,
     "Mercuria": 3095,
 	"Mesmer Jr.": 3057,
+    "Moldir": 3121,
 	"Mondlicht": 3026,
     "Mr. Duncan": 3103,
 	"Ms. Moissan": 3044,
@@ -877,6 +893,7 @@ export const characterNames = {
 	"Tooth Fairy": 3053,
     "Tuesday": 3098,
 	"Twins Sleep": 3040,
+    "Ulrich": 3107,
 	"Ulu": 3076,
     "Vila": 3087,
 	"Voyager": 3048,
