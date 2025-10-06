@@ -567,14 +567,14 @@ export const banners = {
         }
     ],
     "缸中独思": [
-        {  // same type as jiu banner
+        {  // same type as jiu banner (6)
             rateUp6StarId: 3086,  // Lucy
             rateUp5StarIds: [3037, 3010],
             img: "images/banners/Thoughts_in_Cylinder_Banner.png",
             start: "2024-09-19 05:00:00",
             end: "2024-10-31 04:59:59"
         },
-        {  // type 3?
+        {
             rateUp6StarId: 3086,
             rateUp5StarIds: [3106, 3071],
             img: "images/banners/Thoughts_in_Cylinder_Banner.png",
@@ -582,13 +582,22 @@ export const banners = {
             end: "2025-10-15 04:59:59"
         }
     ],
-    "虚影的实鉴": {
-        rateUp6StarId: 3080,  // Kakania
-        rateUp5StarIds: [3038, 3064],
-        img: "images/banners/Observation_into_the_Mirrors_Banner.webp",
-        start: "2024-10-10 05:00:00",
-        end: "2024-10-31 04:59:59"
-    },
+    "虚影的实鉴": [  // Kakania
+        {
+            rateUp6StarId: 3080,
+            rateUp5StarIds: [3038, 3064],
+            img: "images/banners/Observation_into_the_Mirrors_Banner.webp",
+            start: "2024-10-10 05:00:00",
+            end: "2024-10-31 04:59:59"
+        },
+        {
+            rateUp6StarId: 3080,
+            rateUp5StarIds: [3061, 3049],
+            img: "images/banners/Observation_into_the_Mirrors_Banner.webp",
+            start: "2025-09-23 05:00:00",
+            end: "2025-10-07 04:59:59"
+        }
+    ],
     "热夜的冷色": [  // Mercuria
         {
             rateUp6StarId: 3095,
@@ -651,13 +660,22 @@ export const banners = {
         start: "2025-01-09 05:00:00",
         end: "2025-02-20 04:59:59"
     },
-    "离巢日": {
-        rateUp6StarId: 3102,  // Lopera
-        rateUp5StarIds: [3076, 3049],
-        img: "images/banners/Fledgling's_First_Flight_Banner.png",
-        start: "2025-01-30 05:00:00",
-        end: "2025-02-20 04:59:59"
-    },
+    "离巢日": [  // Lopera
+        {
+            rateUp6StarId: 3102,
+            rateUp5StarIds: [3076, 3049],
+            img: "images/banners/Fledgling's_First_Flight_Banner.png",
+            start: "2025-01-30 05:00:00",
+            end: "2025-02-20 04:59:59"
+        },
+        {
+            rateUp6StarId: 3102,
+            rateUp5StarIds: [3038, 3017],
+            img: "images/banners/Fledgling's_First_Flight_Banner.png",
+            start: "2025-10-07 05:00:00",
+            end: "2025-10-21 04:59:59"
+        }
+    ],
     "天鹅起舞时": [  // Willow
         {
             rateUp6StarId: 3104,
@@ -772,6 +790,13 @@ export const banners = {
         rateUp5StarIds: [3011, 3064],
         img: "images/banners/卡池_神话咫尺之处.jpg",
         start: "2025-09-19 05:00:00",
+        end: "2025-10-30 04:59:59"
+    },
+    "修缮往日": {  // Moldir
+        rateUp6StarId: 3121,
+        rateUp5StarIds: [3010, 3016],
+        img: "images/banners/From_the_Ruin_of_the_Past_Banner.png",
+        start: "2025-10-09 05:00:00",
         end: "2025-10-30 04:59:59"
     }
 }
