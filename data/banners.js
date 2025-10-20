@@ -614,13 +614,22 @@ export const banners = {
             end: "2025-07-29 04:59:59"
         }
     ],
-    "晴日决胜局": {
-        rateUp6StarId: 3094,  // J
-        rateUp5StarIds: [3043, 3075],
-        img: "images/banners/Clash_'n'_Slash_Banner.png",
-        start: "2024-11-21 05:00:00",
-        end: "2024-12-05 04:59:59"
-    },
+    "晴日决胜局": [  // J
+        {
+            rateUp6StarId: 3094,
+            rateUp5StarIds: [3043, 3075],
+            img: "images/banners/Clash_'n'_Slash_Banner.png",
+            start: "2024-11-21 05:00:00",
+            end: "2024-12-05 04:59:59"
+        },
+        {
+            rateUp6StarId: 3094,
+            rateUp5StarIds: [3082, 3037],
+            img: "images/banners/Clash_'n'_Slash_Banner.png",
+            start: "2025-10-21 05:00:00",
+            end: "2025-11-04 04:59:59"
+        }
+    ],
     "午夜摇篮曲": [  // Tuesday
         {
             rateUp6StarId: 3098,
@@ -799,4 +808,5 @@ export const banners = {
         start: "2025-10-09 05:00:00",
         end: "2025-10-30 04:59:59"
     }
+    // sentinel, charon
 }
