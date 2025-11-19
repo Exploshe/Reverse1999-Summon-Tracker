@@ -807,6 +807,33 @@ export const banners = {
         img: "images/banners/From_the_Ruin_of_the_Past_Banner.png",
         start: "2025-10-09 05:00:00",
         end: "2025-10-30 04:59:59"
+    },
+    "石心瓦解时": {  // Sentinel
+        rateUp6StarId: 3126,
+        rateUp5StarIds: [3103, 3022],
+        img: "images/banners/A_Beating_Heart_Beneath_the_Stone_Banner.webp",
+        start: "2025-10-30 05:00:00",
+        end: "2025-11-20 04:59:59"
+    },
+    "殓骨悼词": {  // Charon
+        rateUp6StarId: 3128,
+        rateUp5StarIds: [3043, 3060],
+        img: "images/banners/The_Mourner%27s_Eulogy_Banner.webp",
+        start: "2025-11-20 05:00:00",
+        end: "2025-12-11 04:59:59"
+    },
+    "子夜独角戏": {  // Rubuska
+        rateUp6StarId: 3125,
+        rateUp5StarIds: [, ],
+        img: "images/banners/.png",
+        start: "2025-12-11 05:00:00",
+        end: "2025-01- 04:59:59"
+    },
+    "缝针穿行之轨": {
+        rateUp6StarId: 0,
+        rateUp5StarIds: [, ],
+        img: "images/banners/.png",
+        start: "2025-01- 05:00:00",
+        end: "2025-- 04:59:59"
     }
-    // sentinel, charon
 }
