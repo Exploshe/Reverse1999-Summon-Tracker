@@ -769,8 +769,41 @@ export const characterIds = {
         damageType: "reality",
         tags: []
     },
-    
-    //  Sentinel, Gharon
+    3125: {
+        name: "Rubuska",
+        rarity: 6,
+        afflatus: "",
+        damageType: "",
+        tags: []
+    },
+    3126: {
+        name: "Sentinel",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "reality",
+        tags: []
+    },
+    3128: {
+        name: "Charon",
+        rarity: 6,
+        afflatus: "spirit",
+        damageType: "mental",
+        tags: []
+    },
+    3132: {
+        name: "Corvus",
+        rarity: 6,
+        afflatus: "",
+        damageType: "",
+        tags: []
+    },
+    3134: {
+        name: "Beryl",
+        rarity: 6,
+        afflatus: "",
+        damageType: "",
+        tags: []
+    },
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -808,6 +841,7 @@ export const characterNames = {
 	"Balloon Party": 3024,
     "Barbara": 3099,
     "Barcarola": 3108,
+    "Beryl": 3134,
 	"Bette": 3045,
 	"Bkornblume": 3020,
 	"Blonney": 3060,
@@ -816,7 +850,9 @@ export const characterNames = {
 	"Bunny Bunny": 3014,
 	"Centurion": 3032,
 	"Charlie": 3017,
+    "Charon": 3128,
 	"Click": 3049,
+    "Corvus": 3132,
 	"Cristallo": 3031,
 	"Darley Clatter": 3050,
 	"Desert Flannel": 3075,
@@ -878,9 +914,11 @@ export const characterNames = {
 	"Rabies": 3042,
     "Recoleta": 3114,
 	"Regulus": 3025,
+    "Rubuska": 3125,
 	"Satsuki": 3038,
 	"Schneider": 3029,
     "Semmelweis": 3088,
+    "Sentinel": 3126,
 	"Shamane": 3072,
 	"Sonetto": 3023,
 	"Sotheby": 3009,
