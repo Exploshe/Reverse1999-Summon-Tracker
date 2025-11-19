@@ -511,9 +511,9 @@ export const banners = {
             end: "2025-08-12 04:59:59"
         }
     ],
-    "为艺术，为爱情": [
+    "为艺术，为爱情": [  // Isolde
         {
-            rateUp6StarId: 3081,  // Isolde
+            rateUp6StarId: 3081,
             rateUp5StarIds: [3043, 3037],
             img: "images/banners/Vissi_D'arte_Vissi_D'amore_Banner.webp",
             start: "2024-07-11 05:00:00",
