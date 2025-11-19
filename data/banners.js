@@ -525,6 +525,13 @@ export const banners = {
             img: "images/banners/Vissi_D'arte_Vissi_D'amore_Banner.webp",
             start: "2025-02-25 05:00:00",
             end: "2025-03-11 04:59:59"
+        },
+        {
+            rateUp6StarId: 3081,
+            rateUp5StarIds: [3118, 3076],
+            img: "images/banners/Vissi_D'arte_Vissi_D'amore_Banner.webp",
+            start: "2025-11-18 05:00:00",
+            end: "2025-12-02 04:59:59"
         }
     ],
     "当海风翻页时": {
@@ -701,13 +708,22 @@ export const banners = {
             end: "2025-08-26 04:59:59"
         },
     ],
-    "为什么故事集": {
-        rateUp6StarId: 3105,  // Flutterpage
-        rateUp5StarIds: [3106, null],
-        img: "images/banners/The_Book_of_Whys_Banner.png",
-        start: "2025-03-06 05:00:00",
-        end: "2025-03-27 04:59:59"
-    },
+    "为什么故事集": [  // Flutterpage
+        {
+            rateUp6StarId: 3105,
+            rateUp5StarIds: [3106, null],
+            img: "images/banners/The_Book_of_Whys_Banner.png",
+            start: "2025-03-06 05:00:00",
+            end: "2025-03-27 04:59:59"
+        },
+        {
+            rateUp6StarId: 3105,
+            rateUp5StarIds: [3024, 3112],
+            img: "images/banners/The_Book_of_Whys_Banner.png",
+            start: "2025-11-04 05:00:00",
+            end: "2025-11-18 04:59:59"
+        }
+    ],
     "虹色五线谱": {
         rateUp6StarId: 3108,  // Barcarola
         rateUp5StarIds: [3037, 3016],
