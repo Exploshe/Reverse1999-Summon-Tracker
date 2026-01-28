@@ -898,7 +898,7 @@ export const banners = {
         start: "2026-01-01 05:00:00",
         end: "2026-01-22 04:59:59"
     },
-    "命运亦需捧场": {  // Beryl
+    "命运亦需捧场": {  // Beryl (6)
         rateUp6StarId: 3134,
         rateUp5StarIds: [3060, 3112],
         img: "images/banners/On_Fate%27s_Cue_Banner.webp",
@@ -908,7 +908,7 @@ export const banners = {
     "永恒折射角": {  // Brume
         rateUp6StarId: 3135,
         rateUp5StarIds: [3103, 3064],
-        img: "images/banners/",
+        img: "images/banners/The_Brilliance_Within_Banner.webp",
         start: "2026-02-12 05:00:00",
         end: "2026-03-05 04:59:59"
     },
