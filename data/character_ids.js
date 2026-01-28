@@ -772,8 +772,8 @@ export const characterIds = {
     3125: {
         name: "Rubuska",
         rarity: 6,
-        afflatus: "",
-        damageType: "",
+        afflatus: "mineral",
+        damageType: "reality",
         tags: []
     },
     3126: {
@@ -781,6 +781,13 @@ export const characterIds = {
         rarity: 6,
         afflatus: "mineral",
         damageType: "reality",
+        tags: []
+    },
+    3127: {
+        name: "Marsha",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "",
         tags: []
     },
     3128: {
@@ -793,17 +800,25 @@ export const characterIds = {
     3132: {
         name: "Corvus",
         rarity: 6,
-        afflatus: "",
-        damageType: "",
+        afflatus: "intelligence",
+        damageType: "mental",
         tags: []
     },
     3134: {
         name: "Beryl",
         rarity: 6,
-        afflatus: "",
-        damageType: "",
+        afflatus: "intelligence",
+        damageType: "mental",
         tags: []
     },
+    3135: {
+        name: "Brume",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "mental",
+        tags: []
+    },
+    // Igor
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -846,6 +861,7 @@ export const characterNames = {
 	"Bkornblume": 3020,
 	"Blonney": 3060,
     "Brimley": 3106,
+    "Brume": 3135,
     "Buddy Fairchild": 3115,
 	"Bunny Bunny": 3014,
 	"Centurion": 3032,
@@ -889,6 +905,7 @@ export const characterNames = {
     "Lorelei": 3091,
     "Lucy": 3086,
     "Marcus": 3065,
+    "Marsha": 3127,
 	"Matilda Bouanich": 3041,
 	"Medicine Pocket": 3047,
 	"Melania": 3062,
