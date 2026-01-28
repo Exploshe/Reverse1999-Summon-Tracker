@@ -434,15 +434,15 @@ export const banners = {
             start: "2024-12-17 05:00:00",
             end: "2024-12-31 04:59:59"
         },
-        // {
-        //     rateUp6StarId: ,
-        //     rateUp5StarIds: [, ],
-        //     img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
-        //     start: "2024-12-17 05:00:00",
-        //     end: ""
-        // }
+        {
+            rateUp6StarId: 3066,
+            rateUp5StarIds: [3075, 3078],
+            img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
+            start: "2025-12-02 05:00:00",
+            end: "2025-12-16 04:59:59"
+        }
     ],
-    "真理的壁影": [
+    "真理的壁影": [  // 6
         {
             rateUp6StarId: 3079,
             rateUp5StarIds: [3049, 3016],
@@ -470,15 +470,31 @@ export const banners = {
             img: "images/banners/Seeker_in_the_Cave_Banner.webp",
             start: "2025-04-22 05:00:00",
             end: "2025-05-06 04:59:59"
+        },
+        {
+            rateUp6StarId: 3079,
+            rateUp5StarIds: [3071, 3099],
+            img: "images/banners/Seeker_in_the_Cave_Banner.webp",
+            start: "2026-01-13 05:00:00",
+            end: "2026-01-27 04:59:59"
         }
     ],
-    "火花雀儿": {
-        rateUp6StarId: 3073,  // Spathodea
-        rateUp5StarIds: [3076, 3022],
-        img: "images/banners/The_Chirps_of_Flame_Banner.webp",
-        start: "2024-04-18 05:00:00",
-        end: "2024-05-09 04:59:59"
-    },
+    "火花雀儿": [  // Spathodea
+        {
+            rateUp6StarId: 3073,
+            rateUp5StarIds: [3076, 3022],
+            img: "images/banners/The_Chirps_of_Flame_Banner.webp",
+            start: "2024-04-18 05:00:00",
+            end: "2024-05-09 04:59:59"
+        },
+        {
+            rateUp6StarId: 3073,
+            rateUp5StarIds: [3118, 3024],
+            img: "images/banners/The_Chirps_of_Flame_Banner.webp",
+            start: "2026-01-27 05:00:00",
+            end: "2026-02-10 04:59:59"
+        }
+    ],
     "孢子维和论": [
         {
             rateUp6StarId: 3074,  // Ezra
@@ -578,6 +594,13 @@ export const banners = {
             img: "images/banners/The_Intersecting_Lines_Banner.webp",
             start: "2025-04-08 05:00:00",
             end: "2025-04-22 04:59:59"
+        },
+        {
+            rateUp6StarId: 3077,
+            rateUp5StarIds: [3106, 3017],
+            img: "images/banners/The_Intersecting_Lines_Banner.webp",
+            start: "2025-12-30 05:00:00",
+            end: "2026-01-13 04:59:59"
         }
     ],
     "缸中独思": [
@@ -626,6 +649,13 @@ export const banners = {
             img: "images/banners/Calming_Hues.webp",
             start: "2025-07-15 05:00:00",
             end: "2025-07-29 04:59:59"
+        },
+        {
+            rateUp6StarId: 3095,
+            rateUp5StarIds: [3020, 3061],
+            img: "images/banners/Calming_Hues.webp",
+            start: "2025-12-16 05:00:00",
+            end: "2025-12-30 04:59:59"
         }
     ],
     "晴日决胜局": [  // J
@@ -676,13 +706,22 @@ export const banners = {
             end: "2025-07-15 04:59:59"
         }
     ],
-    "天真与渴盼": {
-        rateUp6StarId: 3100,  // Anjo Nala (6)
-        rateUp5StarIds: [3103, null],
-        img: "images/banners/Longing_for_Innocence_Banner.jpg",
-        start: "2025-01-09 05:00:00",
-        end: "2025-02-20 04:59:59"
-    },
+    "天真与渴盼": [  // Anjo Nala (6)
+        {
+            rateUp6StarId: 3100,
+            rateUp5StarIds: [3103, null],
+            img: "images/banners/Longing_for_Innocence_Banner.jpg",
+            start: "2025-01-09 05:00:00",
+            end: "2025-02-20 04:59:59"
+        },
+        {
+            rateUp6StarId: 3100,
+            rateUp5StarIds: [3010, 3082],
+            img: "images/banners/Longing_for_Innocence_Banner.jpg",
+            start: "2026-02-01 05:00:00",
+            end: "2026-02-15 04:59:59"
+        }
+    ],
     "离巢日": [  // Lopera
         {
             rateUp6StarId: 3102,
