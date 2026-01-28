@@ -434,6 +434,13 @@ export const banners = {
             start: "2024-12-17 05:00:00",
             end: "2024-12-31 04:59:59"
         },
+        // {
+        //     rateUp6StarId: ,
+        //     rateUp5StarIds: [, ],
+        //     img: "images/banners/Beyond_the_World_of_Matters_Banner.webp",
+        //     start: "2024-12-17 05:00:00",
+        //     end: ""
+        // }
     ],
     "真理的壁影": [
         {
@@ -843,34 +850,34 @@ export const banners = {
         rateUp5StarIds: [3016, 3049],
         img: "images/banners/The_Midnight_Flutist_Banner.webp",
         start: "2025-12-11 05:00:00",
-        end: "2025-01-01 04:59:59"
+        end: "2026-01-01 04:59:59"
     },
     "缝针穿行之轨": {  // Corvus
         rateUp6StarId: 3132,
         rateUp5StarIds: [3038, 3011],
         img: "images/banners/The_Land%27s_Iron_Stitch_Banner.webp",
-        start: "2025-01-01 05:00:00",
-        end: "2025-01-22 04:59:59"
+        start: "2026-01-01 05:00:00",
+        end: "2026-01-22 04:59:59"
     },
     "命运亦需捧场": {  // Beryl
         rateUp6StarId: 3134,
         rateUp5StarIds: [3060, 3112],
         img: "images/banners/On_Fate%27s_Cue_Banner.webp",
-        start: "2025-01-20 05:00:00",
-        end: "2025-03-05 04:59:59"
+        start: "2026-01-20 05:00:00",
+        end: "2026-03-05 04:59:59"
     },
     "永恒折射角": {  // Brume
         rateUp6StarId: 3135,
         rateUp5StarIds: [3103, 3064],
         img: "images/banners/",
-        start: "2025-02-12 05:00:00",
-        end: "2025-03-05 04:59:59"
+        start: "2026-02-12 05:00:00",
+        end: "2026-03-05 04:59:59"
     },
     // "誓言无有烬时": {  // Marsha
     //     rateUp6StarId: 3127,
     //     rateUp5StarIds: [, ],
     //     img: "images/banners/",
-    //     start: "2025-- 05:00:00",
-    //     end: "2025-- 04:59:59"
+    //     start: "2026-- 05:00:00",
+    //     end: "2026-- 04:59:59"
     // }
 }
