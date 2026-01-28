@@ -787,7 +787,7 @@ export const characterIds = {
         name: "Marsha",
         rarity: 6,
         afflatus: "beast",
-        damageType: "",
+        damageType: "reality",
         tags: []
     },
     3128: {
