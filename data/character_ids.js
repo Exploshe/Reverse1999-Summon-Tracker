@@ -559,6 +559,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3092: {
+        name: "Igor",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "reality",
+        tags: []
+    },
     3094: {
         name: "J",
         rarity: 6,
@@ -818,7 +825,6 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
-    // Igor
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -886,6 +892,7 @@ export const characterNames = {
     "Getian": 3084,
     "Hissabeth": 3116,
 	"Horropedia": 3061,
+    "Igor": 3092,
     "Isolde": 3081,
     "Jessica": 3056,
     "J": 3094,

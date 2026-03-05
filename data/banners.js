@@ -334,7 +334,7 @@ export const banners = {
             end: "2024-03-26 04:59:59"
         },
     ],
-    "仙子振翅入夜": [
+    "仙子振翅入夜": [  // Toothfairy
         {
             rateUp6StarId: 3053,
             rateUp5StarIds: [3060, 3020],
@@ -355,6 +355,13 @@ export const banners = {
             img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp",
             start: "2025-06-17 05:00:00",
             end: "2025-07-01 04:59:59"
+        },
+        {
+            rateUp6StarId: 3053,
+            rateUp5StarIds: [3076, 3043],
+            img: "images/banners/The_Fairies_Shining_at_Night_Banner.webp",
+            start: "2026-02-10 05:00:00",
+            end: "2026-02-24 04:59:59"
         },
     ],
     "精灵仍在等待": [
@@ -912,11 +919,26 @@ export const banners = {
         start: "2026-02-12 05:00:00",
         end: "2026-03-05 04:59:59"
     },
-    // "誓言无有烬时": {  // Marsha
-    //     rateUp6StarId: 3127,
-    //     rateUp5StarIds: [, ],
-    //     img: "images/banners/",
-    //     start: "2026-- 05:00:00",
-    //     end: "2026-- 04:59:59"
-    // }
+    "思维动力学": {  // Ulrich
+        rateUp6StarId: 3107,
+        rateUp5StarIds: [3037, 3022],
+        img: "images/banners/Cognitive_Dynamics_Banner.webp",
+        start: "2026-02-24 05:00:00",
+        end: "2026-03-10 04:59:59"
+    },
+    "誓言无有烬时": {  // Marsha
+        rateUp6StarId: 3127,
+        rateUp5StarIds: [3011, 3049],
+        img: "images/banners/卡池_誓言无有烬时.jpg",
+        start: "2026-03-05 05:00:00",
+        end: "2026-03-26 04:59:59"
+    },
+    "铁与血的亲证": {  // Igor
+        rateUp6StarId: 3092,
+        rateUp5StarIds: [3061, 3016],
+        img: "images/banners/卡池_铁与血的亲证.jpg",
+        start: "2026-03-26 05:00:00",
+        end: "2026-04-16 04:59:59"
+    },
+    // "鸿羽若有凌云志":
 }
