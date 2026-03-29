@@ -334,7 +334,7 @@ export const banners = {
             end: "2024-03-26 04:59:59"
         },
     ],
-    "仙子振翅入夜": [  // Toothfairy
+    "仙子振翅入夜": [  // Tooth Fairy
         {
             rateUp6StarId: 3053,
             rateUp5StarIds: [3060, 3020],
@@ -696,6 +696,13 @@ export const banners = {
             start: "2025-06-03 05:00:00",
             end: "2025-06-17 04:59:59"
         },
+        {
+            rateUp6StarId: 3098,
+            rateUp5StarIds: [3020, 3017],
+            img: "images/banners/Blue_Lullaby_Banner.png",
+            start: "2026-03-24 05:00:00",
+            end: "2026-04-07 04:59:59"
+        }
     ],
     "目标即盲点": [  // Argus
         {
@@ -870,13 +877,22 @@ export const banners = {
         start: "2025-09-19 05:00:00",
         end: "2025-10-30 04:59:59"
     },
-    "修缮往日": {  // Moldir
-        rateUp6StarId: 3121,
-        rateUp5StarIds: [3010, 3016],
-        img: "images/banners/From_the_Ruin_of_the_Past_Banner.png",
-        start: "2025-10-09 05:00:00",
-        end: "2025-10-30 04:59:59"
-    },
+    "修缮往日": [  // Moldir
+        {
+            rateUp6StarId: 3121,
+            rateUp5StarIds: [3010, 3016],
+            img: "images/banners/From_the_Ruin_of_the_Past_Banner.png",
+            start: "2025-10-09 05:00:00",
+            end: "2025-10-30 04:59:59"
+        },
+        {
+            rateUp6StarId: 3121,
+            rateUp5StarIds: [3078, 3075],
+            img: "images/banners/From_the_Ruin_of_the_Past_Banner.png",
+            start: "2026-03-10 05:00:00",
+            end: "2026-03-24 04:59:59"
+        }
+    ],
     "石心瓦解时": {  // Sentinel
         rateUp6StarId: 3126,
         rateUp5StarIds: [3103, 3022],
