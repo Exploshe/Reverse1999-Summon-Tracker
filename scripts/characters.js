@@ -72,4 +72,6 @@ for (const [name, id] of Object.entries(characterNames)) {
     const count = (arcanistsCounter[name] ?? 0) + (selectedProfileArcanistsEdit[id] ?? 0);
     portrayElement.innerHTML = count ? `P${count - 1}` : "";
     portrayElement.style.color = (count - 1) >= 5 ? "rgb(224,154,37)" : "white";
+    const parentElement = portrayElement.parentNode;
+    parentElement.style.opacity = count ? 1 : 0.5;
 }
