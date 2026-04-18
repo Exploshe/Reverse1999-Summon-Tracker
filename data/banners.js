@@ -956,5 +956,12 @@ export const banners = {
         start: "2026-03-26 05:00:00",
         end: "2026-04-16 04:59:59"
     },
+    "剪春注我": {  // Paper Heron (6)
+        rateUp6StarId: 3141,
+        rateUp5StarIds: [3076, 3043],
+        img: "images/banners/Her_Heart-Cut_Spring_Banner.webp",
+        start: "2026-04-16 05:00:00",
+        end: "2026-05-28 04:59:59"
+    }
     // "鸿羽若有凌云志":
 }

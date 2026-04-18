@@ -825,6 +825,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3141: {
+        name: "Paper Heron",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "reality",
+        tags: []
+    },
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -931,6 +938,7 @@ export const characterNames = {
     "Noire": 3111,
 	"ONiON": 3054,
 	"Oliver Fog": 3018,
+    "Paper Heron": 3141,
 	"Pavia": 3015,
 	"Pickles": 3063,
     "Pioneer": 3096,
