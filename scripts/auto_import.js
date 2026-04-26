@@ -107,8 +107,8 @@ function parseSummonHistory(res) {
 		const { gainIds, poolType, createTime, poolName } = summon;
 		if (poolName === "神话咫尺之处") {
 			const limitedEvent = selectedProfileSummonData[poolType];  // poolType should be 6
-			// if they have pulled on previous limited event banners and this is their first time pulling on Nautika banner, set pity5 and 6 to 0
-			if (limitedEvent && limitedEvent.history.length > 0 && limitedEvent.history[limitedEvent.history.length - 1].banner !== "神话咫尺之处") {
+			// if they have pulled on previous limited event banners and this is their first time pulling on Beryl banner, set pity5 and 6 to 0
+			if (limitedEvent && limitedEvent.history.length > 0 && limitedEvent.history[limitedEvent.history.length - 1].banner !== "命运亦需捧场") {
 				selectedProfileSummonData[poolType].pity5 = 0;
 				selectedProfileSummonData[poolType].pity6 = 0;
 			}
