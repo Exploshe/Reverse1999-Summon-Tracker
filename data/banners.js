@@ -962,6 +962,33 @@ export const banners = {
         img: "images/banners/Her_Heart-Cut_Spring_Banner.webp",
         start: "2026-04-16 05:00:00",
         end: "2026-05-28 04:59:59"
+    },
+    "鸿羽若有凌云志": {  // Cheng Heguang
+        rateUp6StarId: 3137,
+        rateUp5StarIds: [3016, 3060],
+        img: "images/banners/Soaring_Aspirations_Banner.webp",
+        start: "2026-05-07 05:00:00",
+        end: "2026-05-28 04:59:59"
+    },
+    "奇异吸引子": {  // Lorentz Butterfly
+        rateUp6StarId: 3139,
+        rateUp5StarIds: [3049, 3099],
+        img: "images/banners/",
+        start: "2026-05-28 05:00:00",
+        end: "2026-06-18 04:59:59"
+    },
+    "渡影归真": {  // Ramona
+        rateUp6StarId: 3142,
+        rateUp5StarIds: [3112, 3071],
+        img: "images/banners/",
+        start: "2026-06-18 05:00:00",
+        end: "2026-07-02 04:59:59"
+    },
+    "": {  // Enigma
+        rateUp6StarId: ,
+        rateUp5StarIds: [, ],
+        img: "images/banners/",
+        start: "2026-0- 05:00:00",
+        end: "2026-0- 04:59:59"
     }
-    // "鸿羽若有凌云志":
 }
