@@ -825,11 +825,60 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    3137: {
+        name: "Cheng Heguang",
+        rarity: 6,
+        afflatus: "star",
+        damageType: "reality",
+        tags: []
+    },
+    3139: {
+        name: "Lorentz Butterfly",
+        rarity: 6,
+        afflatus: "intelligence",
+        damageType: "mental",
+        tags: []  
+    },
     3141: {
         name: "Paper Heron",
         rarity: 6,
         afflatus: "plant",
         damageType: "reality",
+        tags: []
+    },
+    3142: {
+        name: "Ramona",
+        rarity: 6,
+        afflatus: "plant",
+        damageType: "mental",
+        tags: []
+    },
+    3143: {
+        name: "Enigma",
+        rarity: 6,
+        afflatus: "intelligence",
+        damageType: "reality",
+        tags: []
+    },
+    3144: {
+        name: "Coppélia",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "reality",
+        tags: []
+    },
+    3146: {
+        name: "Rhiannon",
+        rarity: 6,
+        afflatus: "beast",
+        damageType: "mental",
+        tags: []
+    },
+    3147: {
+        name: "Ms. Stranger",
+        rarity: 6,
+        afflatus: "mineral",
+        damageType: "mental",
         tags: []
     },
     90001: {
@@ -880,7 +929,9 @@ export const characterNames = {
 	"Centurion": 3032,
 	"Charlie": 3017,
     "Charon": 3128,
+    "Cheng Heguang": 3137,
 	"Click": 3049,
+    "Coppélia": 3144,
     "Corvus": 3132,
 	"Cristallo": 3031,
 	"Darley Clatter": 3050,
@@ -890,6 +941,7 @@ export const characterNames = {
 	"Door": 3059,
 	"Druvis III": 3003,
 	"Eagle": 3006,
+    "Enigma": 3143,
 	"Erick": 3058,
 	"Eternity": 3051,
     "Ezio Auditore": 3123,
@@ -917,6 +969,7 @@ export const characterNames = {
     "Loggerhead": 3112,
     "Lopera": 3102,
     "Lorelei": 3091,
+    "Lorentz Butterfly": 3139,
     "Lucy": 3086,
     "Marcus": 3065,
     "Marsha": 3127,
@@ -931,6 +984,7 @@ export const characterNames = {
 	"Ms. Moissan": 3044,
 	"Ms. NewBabel": 3052,
 	"Ms. Radio": 3027,
+    "Ms. Stranger": 3147,
     "Name Day": 3118,
     "Nautika": 3120,
 	"Necrologist": 3037,
@@ -944,8 +998,10 @@ export const characterNames = {
     "Pioneer": 3096,
 	"Poltergeist": 3046,
 	"Rabies": 3042,
+    "Ramona": 3142,
     "Recoleta": 3114,
 	"Regulus": 3025,
+    "Rhiannon": 3146,
     "Rubuska": 3125,
 	"Satsuki": 3038,
 	"Schneider": 3029,
