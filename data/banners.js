@@ -640,6 +640,13 @@ export const banners = {
             img: "images/banners/Observation_into_the_Mirrors_Banner.webp",
             start: "2025-09-23 05:00:00",
             end: "2025-10-07 04:59:59"
+        },
+        {
+            rateUp6StarId: 3080,
+            rateUp5StarIds: [3103, 3082],
+            img: "images/banners/Observation_into_the_Mirrors_Banner.webp",
+            start: "2026-05-19 05:00:00",
+            end: "2026-06-02 04:59:59"
         }
     ],
     "热夜的冷色": [  // Mercuria
@@ -798,13 +805,22 @@ export const banners = {
         start: "2025-04-10 05:00:00",
         end: "2025-04-24 04:59:59"
     },
-    "赤心如昼明": {
-        rateUp6StarId: 3110,  // Liang Yue (6)
-        rateUp5StarIds: [3112, null],
-        img: "images/banners/Moonbeam_Guardian_Banner.png",
-        start: "2025-04-24 05:00:00",
-        end: "2025-05-29 04:59:59"
-    },
+    "赤心如昼明": [  // Liang Yue (6)
+        {
+            rateUp6StarId: 3110,
+            rateUp5StarIds: [3112, null],
+            img: "images/banners/Moonbeam_Guardian_Banner.png",
+            start: "2025-04-24 05:00:00",
+            end: "2025-05-29 04:59:59"
+        },
+        {
+            rateUp6StarId: 3110,
+            rateUp5StarIds: [3020, 3061],
+            img: "images/banners/Moonbeam_Guardian_Banner.png",
+            start: "2026-05-01 05:00:00",
+            end: "2026-05-22 04:59:59"
+        }
+    ],
     "幕间蒙太奇": [  // Noire
         {
             rateUp6StarId: 3111,
@@ -819,6 +835,13 @@ export const banners = {
             img: "images/banners/A_Life_in_Montage_Banner.png",
             start: "2025-09-09 05:00:00",
             end: "2025-09-23 04:59:59"
+        },
+        {
+            rateUp6StarId: 3111,
+            rateUp5StarIds: [3024, 3064],
+            img: "images/banners/A_Life_in_Montage_Banner.png",
+            start: "2026-05-05 05:00:00",
+            end: "2026-05-19 04:59:59"
         }
     ],
     "镜中无对影": {
@@ -842,20 +865,38 @@ export const banners = {
         start: "2025-06-19 05:00:00",
         end: "2025-07-03 04:59:59"
     },
-    "鳞与石的世纪": {
-        rateUp6StarId: 3116,  // Hissabeth
-        rateUp5StarIds: [3118, null],
-        img: "images/banners/卡池_鳞与石的世纪.jpg",
-        start: "2025-07-03 05:00:00",
-        end: "2025-07-24 04:59:59"
-    },
-    "零重力漫游": {
-        rateUp6StarId: 3117,  // Kiperina
-        rateUp5StarIds: [3017, 3061],
-        img: "images/banners/卡池_零重力漫游.jpg",
-        start: "2025-07-24 05:00:00",
-        end: "2025-08-07 04:59:59"
-    },
+    "鳞与石的世纪": [  // Hissabeth
+        {
+            rateUp6StarId: 3116,
+            rateUp5StarIds: [3118, null],
+            img: "images/banners/Serpentine_Century_Banner.webp",
+            start: "2025-07-03 05:00:00",
+            end: "2025-07-24 04:59:59"
+        },
+        {
+            rateUp6StarId: 3116,
+            rateUp5StarIds: [3038, 3106],
+            img: "images/banners/Serpentine_Century_Banner.webp",
+            start: "2026-04-07 05:00:00",
+            end: "2026-04-21 04:59:59"
+        }
+    ],
+    "零重力漫游": [  // Kiperina
+        {
+            rateUp6StarId: 3117,
+            rateUp5StarIds: [3017, 3061],
+            img: "images/banners/Wirewalking_in_Zero_Gravity_Banner.webp",
+            start: "2025-07-24 05:00:00",
+            end: "2025-08-07 04:59:59"
+        },
+        {
+            rateUp6StarId: 3117,
+            rateUp5StarIds: [3022, 3075],
+            img: "images/banners/Wirewalking_in_Zero_Gravity_Banner.webp",
+            start: "2026-06-02 05:00:00",
+            end: "2026-06-16 04:59:59"
+        }
+    ],
     "时代引导先知": {
         rateUp6StarId: 3123,  // Ezio (21)
         rateUp5StarIds: [3043, 3078],
@@ -907,13 +948,22 @@ export const banners = {
         start: "2025-11-20 05:00:00",
         end: "2025-12-11 04:59:59"
     },
-    "子夜独角戏": {  // Rubuska
-        rateUp6StarId: 3125,
-        rateUp5StarIds: [3016, 3049],
-        img: "images/banners/The_Midnight_Flutist_Banner.webp",
-        start: "2025-12-11 05:00:00",
-        end: "2026-01-01 04:59:59"
-    },
+    "子夜独角戏": [  // Rubuska
+        {
+            rateUp6StarId: 3125,
+            rateUp5StarIds: [3016, 3049],
+            img: "images/banners/The_Midnight_Flutist_Banner.webp",
+            start: "2025-12-11 05:00:00",
+            end: "2026-01-01 04:59:59"
+        },
+        {
+            rateUp6StarId: 3125,
+            rateUp5StarIds: [3037, 3118],
+            img: "images/banners/The_Midnight_Flutist_Banner.webp",
+            start: "2026-04-21 05:00:00",
+            end: "2026-05-05 04:59:59"
+        }
+    ],
     "缝针穿行之轨": {  // Corvus
         rateUp6StarId: 3132,
         rateUp5StarIds: [3038, 3011],
