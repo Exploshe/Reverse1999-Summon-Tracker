@@ -881,6 +881,13 @@ export const characterIds = {
         damageType: "mental",
         tags: []
     },
+    // 3154: {
+    //     name: "Silverwing Eagle",
+    //     rarity: 5,
+    //     afflatus: plant,
+    //     damageType: ,
+    //     tags: []
+    // }
     90001: {
         name: "The Golden Thread I",
         rarity: 6
@@ -1007,6 +1014,7 @@ export const characterNames = {
 	"Schneider": 3029,
     "Semmelweis": 3088,
     "Sentinel": 3126,
+    "Silverwing Eagle": 3154,
 	"Shamane": 3072,
 	"Sonetto": 3023,
 	"Sotheby": 3009,

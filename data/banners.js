@@ -973,22 +973,22 @@ export const banners = {
     "奇异吸引子": {  // Lorentz Butterfly
         rateUp6StarId: 3139,
         rateUp5StarIds: [3049, 3099],
-        img: "images/banners/",
+        img: "images/banners/卡池_奇异吸引子.jpg",
         start: "2026-05-28 05:00:00",
         end: "2026-06-18 04:59:59"
     },
     "渡影归真": {  // Ramona
         rateUp6StarId: 3142,
         rateUp5StarIds: [3112, 3071],
-        img: "images/banners/",
+        img: "images/banners/卡池_渡影归真.jpg",
         start: "2026-06-18 05:00:00",
         end: "2026-07-02 04:59:59"
     },
-    "": {  // Enigma
-        rateUp6StarId: ,
-        rateUp5StarIds: [, ],
-        img: "images/banners/",
-        start: "2026-0- 05:00:00",
-        end: "2026-0- 04:59:59"
-    }
+    // "现实破译法": {  // Enigma?
+    //     rateUp6StarId: ,
+    //     rateUp5StarIds: [, ],
+    //     img: "images/banners/",
+    //     start: "2026-0- 05:00:00",
+    //     end: "2026-0- 04:59:59"
+    // }
 }
